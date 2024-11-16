@@ -55,7 +55,10 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# Local configuration
 *.idea
+
+# CMake related files and directories
 CMakeLists.txt
 Sources/projet
 cmake-build-debug

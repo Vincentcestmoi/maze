@@ -4,12 +4,25 @@
 /** Modification de la taille interne **/
 /***************************************/
 
-void double_dyn(dynarray*) {
-    return;
+void double_dyn(dynarray *dyn) {
+    dyn->array = realloc(dyn->array, dyn->capacity * 2); // NOLINT(*-suspicious-realloc-usage)
+    if(dyn -> array == NULL) {
+        fprintf(stderr, "Error: realloc failed.\n");
+        exit(EXIT_FAILURE);
+    }
+    dyn->capacity *= 2;
 }
 
-void divide_dyn(dynarray*) {
-    return;
+void divide_dyn(dynarray *dyn) {
+    if(dyn -> capacity < 2) { // On ne peut pas diviser un tableau de taille 1.
+        return;
+    }
+    dyn -> array = realloc(dyn->array, dyn->capacity / 2); // NOLINT(*-suspicious-realloc-usage)
+    if(dyn -> array == NULL) {
+        fprintf(stderr, "Error: realloc failed.\n");
+        exit(EXIT_FAILURE);
+    }
+    dyn->capacity /= 2;
 }
 
 /****************/
@@ -17,29 +30,43 @@ void divide_dyn(dynarray*) {
 /****************/
 
 dynarray* create_dyn(void) {
-    return NULL;
+    dynarray *dyn = malloc(sizeof(dynarray));
+    dyn->array = malloc(sizeof(*dyn -> array));
+    dyn->size = 0;
+    dyn->capacity = 1;
+    return dyn;
 }
 
-void free_dyn(dynarray*) {
-    return;
+void free_dyn(dynarray *dyn) {
+    free(dyn -> array);
+    free(dyn);
 }
 
 
-int size_dyn(dynarray*) {
-    return 0;
+int size_dyn(const dynarray *dyn) {
+    return dyn -> size;
 }
 
-void push_dyn(int, dynarray*) {
-    return;
+void push_dyn(const int value, dynarray *dyn) {
+    if(dyn -> size == dyn -> capacity) {
+        double_dyn(dyn);
+    }
+    dyn -> array[dyn -> size] = value;
+    dyn -> size++;
 }
 
-int pop_dyn(dynarray*) {
-    return 0;
+int pop_dyn(dynarray* dyn) {
+    if(dyn -> size == 0) {
+        fprintf(stderr, "You're trying to pop an empty dynarray, poor fool.\n");
+        exit(EXIT_FAILURE);
+    }
+    dyn -> size--;
+    if(dyn -> size < dyn -> capacity / 4) {
+        divide_dyn(dyn);
+    }
+    return dyn -> array[dyn -> size];
 }
 
 bool is_empty_dyn(dynarray*) {
     return false;
 }
-
-
-

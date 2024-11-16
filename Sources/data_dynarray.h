@@ -51,7 +51,7 @@ typedef struct {
  * @brief
  * Multiplication par deux de la taille du tableau array.
  */
-void double_dyn(dynarray* //!< Le tableau dynamique.
+void double_dyn(dynarray* dyn //!< Le tableau dynamique.
 );
 
 /**
@@ -88,7 +88,7 @@ void free_dyn(dynarray* //!< Le tableau dynamique.
  * @return
  * La taille du tableau dynamique.
  */
-int size_dyn(dynarray* //!< Le tableau dynamique.
+int size_dyn(const dynarray* //!< Le tableau dynamique.
 );
 
 /**

@@ -1,18 +1,65 @@
 #include "maze_braiding.h"
+#include "maze.h"
 
 
-bool is_dead_end(maze*, int) {
-    return false;
+bool is_dead_end(maze* p_maze, int cell) {
+    char c = 0;
+    char value = p_maze->props[cell] & 001111;
+    if (value & 1){
+        c++;
+    }
+    if (value & 2){
+        c++;
+    }
+    if (value & 4){
+        c++;
+    }
+    if (value & 8){
+        c++;
+    }
+    return c==3;
 }
 
-int count_dead_ends(maze*) {
-    return 0;
+int count_dead_ends(maze* p_maze) {
+    int c = 0;
+    for (int i=0 ; i < p_maze->hsize * p_maze->vsize ; i++){
+        if (is_dead_end(p_maze, i)){
+            c++;
+        }
+    }
+    return c;
 }
 
-void remove_one_dead_end(maze*, int, int) {
+void remove_one_dead_end(maze* p_maze, int cell, int odds) {
+    bool tab[4] = {0};
+    if (is_dead_end(p_maze, cell)&& (rand()%100 + 1 < odds)){
+        for (int i=0 ; i < 4 ; i++){
+            if (cell & 32 &&
+                has_wall_maze(p_maze, cell, i) &&
+                (!has_wall_maze(p_maze, cell, (i + 2) % 4) ||
+                (!has_wall_maze(p_maze, cell, (i + 1) % 4 ) && has_wall_maze(p_maze, get_adj_maze(p_maze, cell, (i + 1) % 4), i))||
+                (!has_wall_maze(p_maze, cell, (i + 3) % 4) && has_wall_maze(p_maze, get_adj_maze(p_maze, cell, (i + 3) % 4), i)))){
+                tab[i] = 1;
+            }
+        }
+    }
+    char c = 0;
+    for (int i=0; i<4 ;i++){
+        if (tab[i]){
+            c++;
+        }
+    }
+    char card = rand() % c;
+    while (!has_wall_maze(p_maze, cell, card)){
+        card = (card + 1) % 4;
+    }
+    del_wall_maze(p_maze, cell, card);
     return;
 }
 
-void braid_maze(maze*, int) {
+void braid_maze(maze* p_maze, int odds) {
+    for (int i=0 ; i < p_maze->hsize * p_maze->vsize ; i++){
+        remove_one_dead_end(p_maze, i, odds);
+    }
     return;
 }

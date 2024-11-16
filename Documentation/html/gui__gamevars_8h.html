@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet labyrinthe: Référence du fichier gui_gamevars.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet labyrinthe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('gui__gamevars_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier gui_gamevars.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interface: variables globales. Ne PAS modifier.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;dirent.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_timer.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="game_8h_source.html">game.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="solve__adv_8h_source.html">solve_adv.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gui__textbuf_8h_source.html">gui_textbuf.h</a>&quot;</code><br />
+</div>
+<p><a href="gui__gamevars_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ade0d7c1fd59d664cd731627bfd73b738" id="r_ade0d7c1fd59d664cd731627bfd73b738"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade0d7c1fd59d664cd731627bfd73b738">menu_mode</a> { <a class="el" href="#ade0d7c1fd59d664cd731627bfd73b738a5a87fc9ed9499695d207d699fbf1450d">MENU_PLAY</a>
+, <a class="el" href="#ade0d7c1fd59d664cd731627bfd73b738a2534795ab2b3a3b79fad205c84628e09">MENU_GENE</a>
+, <a class="el" href="#ade0d7c1fd59d664cd731627bfd73b738a8c02d1cbaa7a4017404a361e2088230a">MENU_SOSI</a>
+, <a class="el" href="#ade0d7c1fd59d664cd731627bfd73b738a76b88baf8b88944e672a1a19fe3bce80">MENU_SOAD</a>
+, <b>MENU_SIZE</b>
+ }</td></tr>
+<tr class="memdesc:ade0d7c1fd59d664cd731627bfd73b738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Noms internes des différents menus.  <a href="#ade0d7c1fd59d664cd731627bfd73b738">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ade0d7c1fd59d664cd731627bfd73b738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd24b85c565d24d9fdaa4e1144e5f78a" id="r_afd24b85c565d24d9fdaa4e1144e5f78a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd24b85c565d24d9fdaa4e1144e5f78a">edit_mode</a> { <br />
+&#160;&#160;<a class="el" href="#afd24b85c565d24d9fdaa4e1144e5f78aa3975b48b5a3a2f817bf1b4b374c5d700">ED_X</a>
+, <a class="el" href="#afd24b85c565d24d9fdaa4e1144e5f78aa3f6af1ca5026ad9d64b473d8609db4cb">ED_Y</a>
+, <a class="el" href="#afd24b85c565d24d9fdaa4e1144e5f78aa6aa180cc60af71ecbf14a1bce0725aeb">ED_MINO</a>
+, <a class="el" href="#afd24b85c565d24d9fdaa4e1144e5f78aa2dd09621cb96eca7fb04299bfca90a9d">ED_BRAID</a>
+, <br />
+&#160;&#160;<a class="el" href="#afd24b85c565d24d9fdaa4e1144e5f78aada232ca7bff728b1f2daa16f84c31fb4">ED_BFS</a>
+, <a class="el" href="#afd24b85c565d24d9fdaa4e1144e5f78aae5b1bce1e4ec295a29144aa8eaf06642">ED_SEG</a>
+, <a class="el" href="#afd24b85c565d24d9fdaa4e1144e5f78aae3bdce5b018490ba0d5b9bd779d090be">ED_NONE</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:afd24b85c565d24d9fdaa4e1144e5f78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Les noms internes des différents textes qu'on peut saisir dans un buffer.  <a href="#afd24b85c565d24d9fdaa4e1144e5f78a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afd24b85c565d24d9fdaa4e1144e5f78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a253b727fca26994f428309f2f281b90c" id="r_a253b727fca26994f428309f2f281b90c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a253b727fca26994f428309f2f281b90c">anim_mode</a> { <br />
+&#160;&#160;<a class="el" href="#a253b727fca26994f428309f2f281b90ca31505f6ec3af17351ec192b1a1e6ee37">AN_IDLE</a> = 0
+, <a class="el" href="#a253b727fca26994f428309f2f281b90cacefd6c7ffb3332d8d7fc0fcb5b977a3d">AN_WALK</a>
+, <a class="el" href="#a253b727fca26994f428309f2f281b90ca6d9c957bc033bae0c628b579b1d1eccb">AN_KILL</a>
+, <a class="el" href="#a253b727fca26994f428309f2f281b90ca1c81fce55b17fffa2748c1933ed8ff95">AN_BOMB</a>
+, <br />
+&#160;&#160;<a class="el" href="#a253b727fca26994f428309f2f281b90ca039eed9d29682b8e2f9b9f23110d1202">AN_POLY</a>
+, <a class="el" href="#a253b727fca26994f428309f2f281b90ca204fccfc01747c66924750ac4d85ea08">AN_UWALK</a>
+, <a class="el" href="#a253b727fca26994f428309f2f281b90caa4df915b74670f2fe466bdf70d8fa973">AN_UKILLB</a>
+, <a class="el" href="#a253b727fca26994f428309f2f281b90ca40ab863e795e9c81f66470803f26817f">AN_UKILLW</a>
+, <br />
+&#160;&#160;<a class="el" href="#a253b727fca26994f428309f2f281b90cac9d78e1d9051612d196ca968dd351e47">AN_UBOMB</a>
+, <a class="el" href="#a253b727fca26994f428309f2f281b90ca7cb676cf70ea62dd2f6ff421b7d8c57e">AN_UPOLY</a>
+, <b>AN_NULL</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:a253b727fca26994f428309f2f281b90c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Les noms internes des différentes animations.  <a href="#a253b727fca26994f428309f2f281b90c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a253b727fca26994f428309f2f281b90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e08a16703943b810da7b8b2a915c836" id="r_a3e08a16703943b810da7b8b2a915c836"><td class="memItemLeft" align="right" valign="top"><a id="a3e08a16703943b810da7b8b2a915c836" name="a3e08a16703943b810da7b8b2a915c836"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e08a16703943b810da7b8b2a915c836">buttons</a> </td></tr>
+<tr class="memdesc:a3e08a16703943b810da7b8b2a915c836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Noms internes des boutons de l'interface. <br /></td></tr>
+<tr class="separator:a3e08a16703943b810da7b8b2a915c836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a9a14c3e70187ec8db245482607d9c067" id="r_a9a14c3e70187ec8db245482607d9c067"><td class="memItemLeft" align="right" valign="top"><a id="a9a14c3e70187ec8db245482607d9c067" name="a9a14c3e70187ec8db245482607d9c067"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>scroll_update_borders</b> (void)</td></tr>
+<tr class="memdesc:a9a14c3e70187ec8db245482607d9c067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise à jour des variables qui délimitent la zone à afficher. <br /></td></tr>
+<tr class="separator:a9a14c3e70187ec8db245482607d9c067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0758a014863cd7edfee01aca36d1735b" id="r_a0758a014863cd7edfee01aca36d1735b"><td class="memItemLeft" align="right" valign="top"><a id="a0758a014863cd7edfee01aca36d1735b" name="a0758a014863cd7edfee01aca36d1735b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>decrease_zoom</b> (void)</td></tr>
+<tr class="memdesc:a0758a014863cd7edfee01aca36d1735b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diminution du zoom. <br /></td></tr>
+<tr class="separator:a0758a014863cd7edfee01aca36d1735b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad43e629c8b8ba85e590e5e465132b892" id="r_ad43e629c8b8ba85e590e5e465132b892"><td class="memItemLeft" align="right" valign="top"><a id="ad43e629c8b8ba85e590e5e465132b892" name="ad43e629c8b8ba85e590e5e465132b892"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>increase_zoom</b> (void)</td></tr>
+<tr class="memdesc:ad43e629c8b8ba85e590e5e465132b892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Augmentation du zoom. <br /></td></tr>
+<tr class="separator:ad43e629c8b8ba85e590e5e465132b892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cbf4fd946c6d3edc276358a07c9cf25" id="r_a0cbf4fd946c6d3edc276358a07c9cf25"><td class="memItemLeft" align="right" valign="top"><a id="a0cbf4fd946c6d3edc276358a07c9cf25" name="a0cbf4fd946c6d3edc276358a07c9cf25"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>scroll_manual</b> (int, int)</td></tr>
+<tr class="memdesc:a0cbf4fd946c6d3edc276358a07c9cf25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scrolling manuel. <br /></td></tr>
+<tr class="separator:a0cbf4fd946c6d3edc276358a07c9cf25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addd811dc5aa1d7b1483f07e317431160" id="r_addd811dc5aa1d7b1483f07e317431160"><td class="memItemLeft" align="right" valign="top"><a id="addd811dc5aa1d7b1483f07e317431160" name="addd811dc5aa1d7b1483f07e317431160"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>scroll_with_mouse</b> (int, int)</td></tr>
+<tr class="memdesc:addd811dc5aa1d7b1483f07e317431160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scrolling à la souris. <br /></td></tr>
+<tr class="separator:addd811dc5aa1d7b1483f07e317431160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ea322c7d4d113a41d58cb5b2685147d" id="r_a6ea322c7d4d113a41d58cb5b2685147d"><td class="memItemLeft" align="right" valign="top"><a id="a6ea322c7d4d113a41d58cb5b2685147d" name="a6ea322c7d4d113a41d58cb5b2685147d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>scroll_to_cell</b> (<a class="el" href="structgame.html">game</a> *, int)</td></tr>
+<tr class="memdesc:a6ea322c7d4d113a41d58cb5b2685147d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Centrage de l'écran sur une cellule. <br /></td></tr>
+<tr class="separator:a6ea322c7d4d113a41d58cb5b2685147d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8619ac9cb8f516832c416c23d5657e9" id="r_ac8619ac9cb8f516832c416c23d5657e9"><td class="memItemLeft" align="right" valign="top"><a id="ac8619ac9cb8f516832c416c23d5657e9" name="ac8619ac9cb8f516832c416c23d5657e9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>scroll_to_player</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ac8619ac9cb8f516832c416c23d5657e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Centrage de l'écran sur le joueur. <br /></td></tr>
+<tr class="separator:ac8619ac9cb8f516832c416c23d5657e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dd8d36de168df3400271f8461b2f651" id="r_a7dd8d36de168df3400271f8461b2f651"><td class="memItemLeft" align="right" valign="top"><a id="a7dd8d36de168df3400271f8461b2f651" name="a7dd8d36de168df3400271f8461b2f651"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>increase_speed</b> (void)</td></tr>
+<tr class="memdesc:a7dd8d36de168df3400271f8461b2f651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Augmentation de la vitesse. <br /></td></tr>
+<tr class="separator:a7dd8d36de168df3400271f8461b2f651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a549cb9e6cbc8ad0d4588c94472bb0525" id="r_a549cb9e6cbc8ad0d4588c94472bb0525"><td class="memItemLeft" align="right" valign="top"><a id="a549cb9e6cbc8ad0d4588c94472bb0525" name="a549cb9e6cbc8ad0d4588c94472bb0525"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>decrease_speed</b> (void)</td></tr>
+<tr class="memdesc:a549cb9e6cbc8ad0d4588c94472bb0525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diminution de la vitesse. <br /></td></tr>
+<tr class="separator:a549cb9e6cbc8ad0d4588c94472bb0525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01223c0cf41b688fc8d6c27c7f4f7cf0" id="r_a01223c0cf41b688fc8d6c27c7f4f7cf0"><td class="memItemLeft" align="right" valign="top"><a id="a01223c0cf41b688fc8d6c27c7f4f7cf0" name="a01223c0cf41b688fc8d6c27c7f4f7cf0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>var_init_maskstab</b> (void)</td></tr>
+<tr class="memdesc:a01223c0cf41b688fc8d6c27c7f4f7cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation du tableau de la liste des fichiers de masques. <br /></td></tr>
+<tr class="separator:a01223c0cf41b688fc8d6c27c7f4f7cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3f7761e4f1aff60dfc855876c79be5f" id="r_ac3f7761e4f1aff60dfc855876c79be5f"><td class="memItemLeft" align="right" valign="top"><a id="ac3f7761e4f1aff60dfc855876c79be5f" name="ac3f7761e4f1aff60dfc855876c79be5f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>var_free_maskstab</b> (void)</td></tr>
+<tr class="memdesc:ac3f7761e4f1aff60dfc855876c79be5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libération du tableau de la liste des fichiers de masques. <br /></td></tr>
+<tr class="separator:ac3f7761e4f1aff60dfc855876c79be5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b82b9b8e3df0162888de9953d51edc0" id="r_a9b82b9b8e3df0162888de9953d51edc0"><td class="memItemLeft" align="right" valign="top"><a id="a9b82b9b8e3df0162888de9953d51edc0" name="a9b82b9b8e3df0162888de9953d51edc0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>var_reset_buttons</b> (void)</td></tr>
+<tr class="memdesc:a9b82b9b8e3df0162888de9953d51edc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réinitialistion des boutons. <br /></td></tr>
+<tr class="separator:a9b82b9b8e3df0162888de9953d51edc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88bc390e46a5346f7d2ea4e2503bf958" id="r_a88bc390e46a5346f7d2ea4e2503bf958"><td class="memItemLeft" align="right" valign="top"><a id="a88bc390e46a5346f7d2ea4e2503bf958" name="a88bc390e46a5346f7d2ea4e2503bf958"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>var_push_button</b> (<a class="el" href="#a3e08a16703943b810da7b8b2a915c836">buttons</a>)</td></tr>
+<tr class="memdesc:a88bc390e46a5346f7d2ea4e2503bf958"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appuie sur un bouton. <br /></td></tr>
+<tr class="separator:a88bc390e46a5346f7d2ea4e2503bf958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a560fc199e2031dbee226211bd282c22b" id="r_a560fc199e2031dbee226211bd282c22b"><td class="memItemLeft" align="right" valign="top"><a id="a560fc199e2031dbee226211bd282c22b" name="a560fc199e2031dbee226211bd282c22b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>var_release_button</b> (<a class="el" href="#a3e08a16703943b810da7b8b2a915c836">buttons</a>)</td></tr>
+<tr class="memdesc:a560fc199e2031dbee226211bd282c22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relache un bouton. <br /></td></tr>
+<tr class="separator:a560fc199e2031dbee226211bd282c22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a2f47da9c08b82622c31fa26229d47fe3" id="r_a2f47da9c08b82622c31fa26229d47fe3"><td class="memItemLeft" align="right" valign="top"><a id="a2f47da9c08b82622c31fa26229d47fe3" name="a2f47da9c08b82622c31fa26229d47fe3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_screen_width</b></td></tr>
+<tr class="memdesc:a2f47da9c08b82622c31fa26229d47fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille horizontale de l'écran. <br /></td></tr>
+<tr class="separator:a2f47da9c08b82622c31fa26229d47fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fdf42619161803e730c7190a45695d4" id="r_a5fdf42619161803e730c7190a45695d4"><td class="memItemLeft" align="right" valign="top"><a id="a5fdf42619161803e730c7190a45695d4" name="a5fdf42619161803e730c7190a45695d4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_screen_height</b></td></tr>
+<tr class="memdesc:a5fdf42619161803e730c7190a45695d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille verticale de l'écran. <br /></td></tr>
+<tr class="separator:a5fdf42619161803e730c7190a45695d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abac6ed5b21c192f8e721a7805ed8893e" id="r_abac6ed5b21c192f8e721a7805ed8893e"><td class="memItemLeft" align="right" valign="top"><a id="abac6ed5b21c192f8e721a7805ed8893e" name="abac6ed5b21c192f8e721a7805ed8893e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_maze_width</b></td></tr>
+<tr class="memdesc:abac6ed5b21c192f8e721a7805ed8893e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille horizontale de la partie labyrinthe. <br /></td></tr>
+<tr class="separator:abac6ed5b21c192f8e721a7805ed8893e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ff5034dbf72b0edccbfe921cac0f48c" id="r_a9ff5034dbf72b0edccbfe921cac0f48c"><td class="memItemLeft" align="right" valign="top"><a id="a9ff5034dbf72b0edccbfe921cac0f48c" name="a9ff5034dbf72b0edccbfe921cac0f48c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_maze_height</b></td></tr>
+<tr class="memdesc:a9ff5034dbf72b0edccbfe921cac0f48c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille verticale de la partie labyrinthe. <br /></td></tr>
+<tr class="separator:a9ff5034dbf72b0edccbfe921cac0f48c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69ffb704353c3d0e4015dc8c76565146" id="r_a69ffb704353c3d0e4015dc8c76565146"><td class="memItemLeft" align="right" valign="top"><a id="a69ffb704353c3d0e4015dc8c76565146" name="a69ffb704353c3d0e4015dc8c76565146"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_info_width</b></td></tr>
+<tr class="memdesc:a69ffb704353c3d0e4015dc8c76565146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille horizontale de la partie menu. <br /></td></tr>
+<tr class="separator:a69ffb704353c3d0e4015dc8c76565146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a907bca4d7b30f90245cfec80decf6455" id="r_a907bca4d7b30f90245cfec80decf6455"><td class="memItemLeft" align="right" valign="top"><a id="a907bca4d7b30f90245cfec80decf6455" name="a907bca4d7b30f90245cfec80decf6455"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_info_height</b></td></tr>
+<tr class="memdesc:a907bca4d7b30f90245cfec80decf6455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille verticale de la partie menu. <br /></td></tr>
+<tr class="separator:a907bca4d7b30f90245cfec80decf6455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b18a331ae08b479158d7cefefa2258f" id="r_a0b18a331ae08b479158d7cefefa2258f"><td class="memItemLeft" align="right" valign="top"><a id="a0b18a331ae08b479158d7cefefa2258f" name="a0b18a331ae08b479158d7cefefa2258f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_info_mid</b></td></tr>
+<tr class="memdesc:a0b18a331ae08b479158d7cefefa2258f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Point médian de la partie menu. <br /></td></tr>
+<tr class="separator:a0b18a331ae08b479158d7cefefa2258f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80b64e34c3c8df5f8ab65cde7c046768" id="r_a80b64e34c3c8df5f8ab65cde7c046768"><td class="memItemLeft" align="right" valign="top"><a id="a80b64e34c3c8df5f8ab65cde7c046768" name="a80b64e34c3c8df5f8ab65cde7c046768"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_mousePosx</b></td></tr>
+<tr class="memdesc:a80b64e34c3c8df5f8ab65cde7c046768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde de la coordonnée horizontale de la souris. <br /></td></tr>
+<tr class="separator:a80b64e34c3c8df5f8ab65cde7c046768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9734c73cb0dabc64e9a9aefeda6c549c" id="r_a9734c73cb0dabc64e9a9aefeda6c549c"><td class="memItemLeft" align="right" valign="top"><a id="a9734c73cb0dabc64e9a9aefeda6c549c" name="a9734c73cb0dabc64e9a9aefeda6c549c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_mousePosy</b></td></tr>
+<tr class="memdesc:a9734c73cb0dabc64e9a9aefeda6c549c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde de la coordonnée verticale de la souris. <br /></td></tr>
+<tr class="separator:a9734c73cb0dabc64e9a9aefeda6c549c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ffb645d8f794ededbb6d92666e6bc12" id="r_a9ffb645d8f794ededbb6d92666e6bc12"><td class="memItemLeft" align="right" valign="top"><a id="a9ffb645d8f794ededbb6d92666e6bc12" name="a9ffb645d8f794ededbb6d92666e6bc12"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>var_leftMouseButtonDown</b></td></tr>
+<tr class="memdesc:a9ffb645d8f794ededbb6d92666e6bc12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mémorise si le bouton gauche de la souris en enfoncé. <br /></td></tr>
+<tr class="separator:a9ffb645d8f794ededbb6d92666e6bc12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae24e6490c8f3b9148886593ba3dedfe9" id="r_ae24e6490c8f3b9148886593ba3dedfe9"><td class="memItemLeft" align="right" valign="top"><a id="ae24e6490c8f3b9148886593ba3dedfe9" name="ae24e6490c8f3b9148886593ba3dedfe9"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>var_render_zoom</b></td></tr>
+<tr class="memdesc:ae24e6490c8f3b9148886593ba3dedfe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplicateur actuel du zoom. <br /></td></tr>
+<tr class="separator:ae24e6490c8f3b9148886593ba3dedfe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30ed2074e45692840599c9a2191f5591" id="r_a30ed2074e45692840599c9a2191f5591"><td class="memItemLeft" align="right" valign="top"><a id="a30ed2074e45692840599c9a2191f5591" name="a30ed2074e45692840599c9a2191f5591"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_render_zoom_level</b></td></tr>
+<tr class="memdesc:a30ed2074e45692840599c9a2191f5591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Niveau de zoom actuel. <br /></td></tr>
+<tr class="separator:a30ed2074e45692840599c9a2191f5591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3724630633ee3ac0805dee64518f650e" id="r_a3724630633ee3ac0805dee64518f650e"><td class="memItemLeft" align="right" valign="top"><a id="a3724630633ee3ac0805dee64518f650e" name="a3724630633ee3ac0805dee64518f650e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_tile_size</b></td></tr>
+<tr class="memdesc:a3724630633ee3ac0805dee64518f650e"><td class="mdescLeft">&#160;</td><td class="mdescRight">La taille d'une tile au niveau de zoom actuel. <br /></td></tr>
+<tr class="separator:a3724630633ee3ac0805dee64518f650e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c2d48768c165cef5824cb8bbaa66d77" id="r_a1c2d48768c165cef5824cb8bbaa66d77"><td class="memItemLeft" align="right" valign="top"><a id="a1c2d48768c165cef5824cb8bbaa66d77" name="a1c2d48768c165cef5824cb8bbaa66d77"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_scrollOffsetx</b></td></tr>
+<tr class="memdesc:a1c2d48768c165cef5824cb8bbaa66d77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Décalage horizontal du scrolling. <br /></td></tr>
+<tr class="separator:a1c2d48768c165cef5824cb8bbaa66d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28b4847d6a46fa63c2c4ae3ecdba03b3" id="r_a28b4847d6a46fa63c2c4ae3ecdba03b3"><td class="memItemLeft" align="right" valign="top"><a id="a28b4847d6a46fa63c2c4ae3ecdba03b3" name="a28b4847d6a46fa63c2c4ae3ecdba03b3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_scrollOffsety</b></td></tr>
+<tr class="memdesc:a28b4847d6a46fa63c2c4ae3ecdba03b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Décalage vertical du scrolling. <br /></td></tr>
+<tr class="separator:a28b4847d6a46fa63c2c4ae3ecdba03b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c75b77549850002ba6c9e0920659c0c" id="r_a6c75b77549850002ba6c9e0920659c0c"><td class="memItemLeft" align="right" valign="top"><a id="a6c75b77549850002ba6c9e0920659c0c" name="a6c75b77549850002ba6c9e0920659c0c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_startx</b></td></tr>
+<tr class="memdesc:a6c75b77549850002ba6c9e0920659c0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordonnée horizontale de la première cellule dans la zone d'affichage (dans le labyrinthe). <br /></td></tr>
+<tr class="separator:a6c75b77549850002ba6c9e0920659c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea3b1c383a7a8cb5a4d85c204c66f739" id="r_aea3b1c383a7a8cb5a4d85c204c66f739"><td class="memItemLeft" align="right" valign="top"><a id="aea3b1c383a7a8cb5a4d85c204c66f739" name="aea3b1c383a7a8cb5a4d85c204c66f739"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_starty</b></td></tr>
+<tr class="memdesc:aea3b1c383a7a8cb5a4d85c204c66f739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordonnée verticale de la première cellule dans la zone d'affichage (dans le labyrinthe). <br /></td></tr>
+<tr class="separator:aea3b1c383a7a8cb5a4d85c204c66f739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7676a00f7dac95f19fd78ed9a9a89a60" id="r_a7676a00f7dac95f19fd78ed9a9a89a60"><td class="memItemLeft" align="right" valign="top"><a id="a7676a00f7dac95f19fd78ed9a9a89a60" name="a7676a00f7dac95f19fd78ed9a9a89a60"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_endx</b></td></tr>
+<tr class="memdesc:a7676a00f7dac95f19fd78ed9a9a89a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordonnée horizontale de la dernière cellule dans la zone d'affichage (dans le labyrinthe). <br /></td></tr>
+<tr class="separator:a7676a00f7dac95f19fd78ed9a9a89a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab08b550aa0cfe5bf3d5ed183f5708ce3" id="r_ab08b550aa0cfe5bf3d5ed183f5708ce3"><td class="memItemLeft" align="right" valign="top"><a id="ab08b550aa0cfe5bf3d5ed183f5708ce3" name="ab08b550aa0cfe5bf3d5ed183f5708ce3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_endy</b></td></tr>
+<tr class="memdesc:ab08b550aa0cfe5bf3d5ed183f5708ce3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordonnée verticale de la dernière cellule dans la zone d'affichage (dans le labyrinthe). <br /></td></tr>
+<tr class="separator:ab08b550aa0cfe5bf3d5ed183f5708ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25fc40213409bdae2fa28c2f13386dc5" id="r_a25fc40213409bdae2fa28c2f13386dc5"><td class="memItemLeft" align="right" valign="top"><a id="a25fc40213409bdae2fa28c2f13386dc5" name="a25fc40213409bdae2fa28c2f13386dc5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_topleftx</b></td></tr>
+<tr class="memdesc:a25fc40213409bdae2fa28c2f13386dc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordonnée horizontale de la première cellule dans la zone d'affichage (sur l'écran). <br /></td></tr>
+<tr class="separator:a25fc40213409bdae2fa28c2f13386dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a901b03a46b8893e9281c2d0083c5c5a8" id="r_a901b03a46b8893e9281c2d0083c5c5a8"><td class="memItemLeft" align="right" valign="top"><a id="a901b03a46b8893e9281c2d0083c5c5a8" name="a901b03a46b8893e9281c2d0083c5c5a8"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_toplefty</b></td></tr>
+<tr class="memdesc:a901b03a46b8893e9281c2d0083c5c5a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordonnée verticale de la première cellule dans la zone d'affichage (sur l'écran). <br /></td></tr>
+<tr class="separator:a901b03a46b8893e9281c2d0083c5c5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab58d77b54bdbcb918331d12a83c2a25d" id="r_ab58d77b54bdbcb918331d12a83c2a25d"><td class="memItemLeft" align="right" valign="top"><a id="ab58d77b54bdbcb918331d12a83c2a25d" name="ab58d77b54bdbcb918331d12a83c2a25d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_render_speed</b></td></tr>
+<tr class="memdesc:ab58d77b54bdbcb918331d12a83c2a25d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vitesse actuelle. <br /></td></tr>
+<tr class="separator:ab58d77b54bdbcb918331d12a83c2a25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ef3b41f4b0c0753630bc2f13ae888f8" id="r_a8ef3b41f4b0c0753630bc2f13ae888f8"><td class="memItemLeft" align="right" valign="top"><a id="a8ef3b41f4b0c0753630bc2f13ae888f8" name="a8ef3b41f4b0c0753630bc2f13ae888f8"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_render_speed_level</b></td></tr>
+<tr class="memdesc:a8ef3b41f4b0c0753630bc2f13ae888f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Niveau de la vitesse actuelle. <br /></td></tr>
+<tr class="separator:a8ef3b41f4b0c0753630bc2f13ae888f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02a42bce96de36645b42a2aa86fe394f" id="r_a02a42bce96de36645b42a2aa86fe394f"><td class="memItemLeft" align="right" valign="top"><a id="a02a42bce96de36645b42a2aa86fe394f" name="a02a42bce96de36645b42a2aa86fe394f"></a>
+<a class="el" href="#ade0d7c1fd59d664cd731627bfd73b738">menu_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><b>var_menu</b></td></tr>
+<tr class="memdesc:a02a42bce96de36645b42a2aa86fe394f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable globale qui enregistre le menu actuel. <br /></td></tr>
+<tr class="separator:a02a42bce96de36645b42a2aa86fe394f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0d7b678dbf81c78f0703b32627054df" id="r_aa0d7b678dbf81c78f0703b32627054df"><td class="memItemLeft" align="right" valign="top"><a id="aa0d7b678dbf81c78f0703b32627054df" name="aa0d7b678dbf81c78f0703b32627054df"></a>
+struct dirent **&#160;</td><td class="memItemRight" valign="bottom"><b>var_maskstab</b></td></tr>
+<tr class="memdesc:aa0d7b678dbf81c78f0703b32627054df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tableau de la liste des fichiers de masques. <br /></td></tr>
+<tr class="separator:aa0d7b678dbf81c78f0703b32627054df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e18c21d1ac0c415d54f867fc4d0ff32" id="r_a8e18c21d1ac0c415d54f867fc4d0ff32"><td class="memItemLeft" align="right" valign="top"><a id="a8e18c21d1ac0c415d54f867fc4d0ff32" name="a8e18c21d1ac0c415d54f867fc4d0ff32"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_masktabsize</b></td></tr>
+<tr class="memdesc:a8e18c21d1ac0c415d54f867fc4d0ff32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille du tableau de la liste des fichiers de masques. <br /></td></tr>
+<tr class="separator:a8e18c21d1ac0c415d54f867fc4d0ff32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ad066b3f12026934414dc801a01698" id="r_aa3ad066b3f12026934414dc801a01698"><td class="memItemLeft" align="right" valign="top"><a id="aa3ad066b3f12026934414dc801a01698" name="aa3ad066b3f12026934414dc801a01698"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_maskindex</b></td></tr>
+<tr class="memdesc:aa3ad066b3f12026934414dc801a01698"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index du masque sélectionné dans le tableau de la liste des fichiers de masques. (-1 si aucun masque n'est utilisé) <br /></td></tr>
+<tr class="separator:aa3ad066b3f12026934414dc801a01698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92152b2f9fd3704c980d525ccfa6f7bc" id="r_a92152b2f9fd3704c980d525ccfa6f7bc"><td class="memItemLeft" align="right" valign="top"><a id="a92152b2f9fd3704c980d525ccfa6f7bc" name="a92152b2f9fd3704c980d525ccfa6f7bc"></a>
+<a class="el" href="#afd24b85c565d24d9fdaa4e1144e5f78a">edit_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><b>var_edit_mode</b></td></tr>
+<tr class="memdesc:a92152b2f9fd3704c980d525ccfa6f7bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable globale qui enregistre ce pour quoi le buffer est actuellement utilisé. <br /></td></tr>
+<tr class="separator:a92152b2f9fd3704c980d525ccfa6f7bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5039f9d6c8590a23deaf7ae3e55e6392" id="r_a5039f9d6c8590a23deaf7ae3e55e6392"><td class="memItemLeft" align="right" valign="top"><a id="a5039f9d6c8590a23deaf7ae3e55e6392" name="a5039f9d6c8590a23deaf7ae3e55e6392"></a>
+<a class="el" href="structtext__buffer.html">text_buffer</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>var_editbuffer</b></td></tr>
+<tr class="memdesc:a5039f9d6c8590a23deaf7ae3e55e6392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable globale utilisé pour le buffer (NULL si le buffer est inutilisé). <br /></td></tr>
+<tr class="separator:a5039f9d6c8590a23deaf7ae3e55e6392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b0f94cf0915d7b2522b161beb2a0a46" id="r_a7b0f94cf0915d7b2522b161beb2a0a46"><td class="memItemLeft" align="right" valign="top"><a id="a7b0f94cf0915d7b2522b161beb2a0a46" name="a7b0f94cf0915d7b2522b161beb2a0a46"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_frame</b></td></tr>
+<tr class="memdesc:a7b0f94cf0915d7b2522b161beb2a0a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame de l'animation à afficher. <br /></td></tr>
+<tr class="separator:a7b0f94cf0915d7b2522b161beb2a0a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4596669e4193369fbba583bfc5c76b40" id="r_a4596669e4193369fbba583bfc5c76b40"><td class="memItemLeft" align="right" valign="top"><a id="a4596669e4193369fbba583bfc5c76b40" name="a4596669e4193369fbba583bfc5c76b40"></a>
+<a class="el" href="#a253b727fca26994f428309f2f281b90c">anim_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><b>var_crender</b></td></tr>
+<tr class="memdesc:a4596669e4193369fbba583bfc5c76b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable globale qui enregistre l'animation courante. <br /></td></tr>
+<tr class="separator:a4596669e4193369fbba583bfc5c76b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a189c7d573daa0f3c58a08c19094054d3" id="r_a189c7d573daa0f3c58a08c19094054d3"><td class="memItemLeft" align="right" valign="top"><a id="a189c7d573daa0f3c58a08c19094054d3" name="a189c7d573daa0f3c58a08c19094054d3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>an_player_pos</b></td></tr>
+<tr class="memdesc:a189c7d573daa0f3c58a08c19094054d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position du joueur pendant un mouvement. <br /></td></tr>
+<tr class="separator:a189c7d573daa0f3c58a08c19094054d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5570bfcd599214414ba5e697f923cdf7" id="r_a5570bfcd599214414ba5e697f923cdf7"><td class="memItemLeft" align="right" valign="top"><a id="a5570bfcd599214414ba5e697f923cdf7" name="a5570bfcd599214414ba5e697f923cdf7"></a>
+int *&#160;</td><td class="memItemRight" valign="bottom"><b>an_minotaurs_pos</b></td></tr>
+<tr class="memdesc:a5570bfcd599214414ba5e697f923cdf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Positions des minotaures pendant un mouvement. <br /></td></tr>
+<tr class="separator:a5570bfcd599214414ba5e697f923cdf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ea1d1f687f9841289ca7ca71cfa5ba8" id="r_a9ea1d1f687f9841289ca7ca71cfa5ba8"><td class="memItemLeft" align="right" valign="top"><a id="a9ea1d1f687f9841289ca7ca71cfa5ba8" name="a9ea1d1f687f9841289ca7ca71cfa5ba8"></a>
+<a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a>&#160;</td><td class="memItemRight" valign="bottom"><b>an_player_move</b></td></tr>
+<tr class="memdesc:a9ea1d1f687f9841289ca7ca71cfa5ba8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direction de déplacement du joueur pendant un mouvement. <br /></td></tr>
+<tr class="separator:a9ea1d1f687f9841289ca7ca71cfa5ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad977f014b686e5aa63165c851303ee2" id="r_aad977f014b686e5aa63165c851303ee2"><td class="memItemLeft" align="right" valign="top"><a id="aad977f014b686e5aa63165c851303ee2" name="aad977f014b686e5aa63165c851303ee2"></a>
+<a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>an_minotaurs_move</b></td></tr>
+<tr class="memdesc:aad977f014b686e5aa63165c851303ee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Directions de déplacement des minotaures pendant un mouvement. <br /></td></tr>
+<tr class="separator:aad977f014b686e5aa63165c851303ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a032e250ccdf2f04725204c77cc44de24" id="r_a032e250ccdf2f04725204c77cc44de24"><td class="memItemLeft" align="right" valign="top"><a id="a032e250ccdf2f04725204c77cc44de24" name="a032e250ccdf2f04725204c77cc44de24"></a>
+<a class="el" href="maze_8h.html#ad03408aabe16bb53c780fae6cf3910f9">object</a>&#160;</td><td class="memItemRight" valign="bottom"><b>an_obj_taken</b></td></tr>
+<tr class="memdesc:a032e250ccdf2f04725204c77cc44de24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objet récupéré à la suite d'un mouvement. <br /></td></tr>
+<tr class="separator:a032e250ccdf2f04725204c77cc44de24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5f834722831ad3f1ca9c0009e6ea851" id="r_ae5f834722831ad3f1ca9c0009e6ea851"><td class="memItemLeft" align="right" valign="top"><a id="ae5f834722831ad3f1ca9c0009e6ea851" name="ae5f834722831ad3f1ca9c0009e6ea851"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>an_killed</b></td></tr>
+<tr class="memdesc:ae5f834722831ad3f1ca9c0009e6ea851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Booléen indiquant si le joueur a été tué lors d'une action. <br /></td></tr>
+<tr class="separator:ae5f834722831ad3f1ca9c0009e6ea851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f6bf8ac4d40d0be131398a55bc7cf97" id="r_a2f6bf8ac4d40d0be131398a55bc7cf97"><td class="memItemLeft" align="right" valign="top"><a id="a2f6bf8ac4d40d0be131398a55bc7cf97" name="a2f6bf8ac4d40d0be131398a55bc7cf97"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>an_killer</b></td></tr>
+<tr class="memdesc:a2f6bf8ac4d40d0be131398a55bc7cf97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minotaure ayant tué le joueur. <br /></td></tr>
+<tr class="separator:a2f6bf8ac4d40d0be131398a55bc7cf97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71e5b6fff82ad74a0db8923babd601d0" id="r_a71e5b6fff82ad74a0db8923babd601d0"><td class="memItemLeft" align="right" valign="top"><a id="a71e5b6fff82ad74a0db8923babd601d0" name="a71e5b6fff82ad74a0db8923babd601d0"></a>
+<a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a>&#160;</td><td class="memItemRight" valign="bottom"><b>an_killdir</b></td></tr>
+<tr class="memdesc:a71e5b6fff82ad74a0db8923babd601d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direction du joueur par rapport au minotaure qui l'a tué. <br /></td></tr>
+<tr class="separator:a71e5b6fff82ad74a0db8923babd601d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add1e377550239c975a38f3b03e2c7de8" id="r_add1e377550239c975a38f3b03e2c7de8"><td class="memItemLeft" align="right" valign="top"><a id="add1e377550239c975a38f3b03e2c7de8" name="add1e377550239c975a38f3b03e2c7de8"></a>
+bool *&#160;</td><td class="memItemRight" valign="bottom"><b>an_minotaurs_alive</b></td></tr>
+<tr class="memdesc:add1e377550239c975a38f3b03e2c7de8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minotaures encore vivants après l'utilisation d'un poly d'algo. <br /></td></tr>
+<tr class="separator:add1e377550239c975a38f3b03e2c7de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d6052bbf261c76871df9378264f9663" id="r_a5d6052bbf261c76871df9378264f9663"><td class="memItemLeft" align="right" valign="top"><a id="a5d6052bbf261c76871df9378264f9663" name="a5d6052bbf261c76871df9378264f9663"></a>
+<a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a>&#160;</td><td class="memItemRight" valign="bottom"><b>an_bombdir</b></td></tr>
+<tr class="memdesc:a5d6052bbf261c76871df9378264f9663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direction vers laquelle une bombe a été posée. <br /></td></tr>
+<tr class="separator:a5d6052bbf261c76871df9378264f9663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ce975ab778c437e4df6803516ec5cd4" id="r_a6ce975ab778c437e4df6803516ec5cd4"><td class="memItemLeft" align="right" valign="top"><a id="a6ce975ab778c437e4df6803516ec5cd4" name="a6ce975ab778c437e4df6803516ec5cd4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>an_hadwall</b></td></tr>
+<tr class="memdesc:a6ce975ab778c437e4df6803516ec5cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Est-ce qu'il y avait un mur dans la direction où la bombe a été posée ? <br /></td></tr>
+<tr class="separator:a6ce975ab778c437e4df6803516ec5cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cffd9e01879b7771982c431a2cc9c44" id="r_a6cffd9e01879b7771982c431a2cc9c44"><td class="memItemLeft" align="right" valign="top"><a id="a6cffd9e01879b7771982c431a2cc9c44" name="a6cffd9e01879b7771982c431a2cc9c44"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>an_destroyed</b></td></tr>
+<tr class="memdesc:a6cffd9e01879b7771982c431a2cc9c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Est-ce qu'un mur a été détruit suite à une bombe? <br /></td></tr>
+<tr class="separator:a6cffd9e01879b7771982c431a2cc9c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5681180039505fda5757c9913d7c72f" id="r_ac5681180039505fda5757c9913d7c72f"><td class="memItemLeft" align="right" valign="top"><a id="ac5681180039505fda5757c9913d7c72f" name="ac5681180039505fda5757c9913d7c72f"></a>
+<a class="el" href="game__strategies_8h.html#ab621d71bb2cf38b09419ef3a5047e30c">strategy</a>&#160;</td><td class="memItemRight" valign="bottom"><b>var_mino_strat</b></td></tr>
+<tr class="memdesc:ac5681180039505fda5757c9913d7c72f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stratégie actuelle des minotaures. <br /></td></tr>
+<tr class="separator:ac5681180039505fda5757c9913d7c72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af653784fd40002df6fe83bf902bfe7ff" id="r_af653784fd40002df6fe83bf902bfe7ff"><td class="memItemLeft" align="right" valign="top"><a id="af653784fd40002df6fe83bf902bfe7ff" name="af653784fd40002df6fe83bf902bfe7ff"></a>
+<a class="el" href="maze__gen_8h.html#ad18616e742f0f017314e5ead22459ce4">generator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gen_mode</b></td></tr>
+<tr class="memdesc:af653784fd40002df6fe83bf902bfe7ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Générateur de labyrinthe selectionné. <br /></td></tr>
+<tr class="separator:af653784fd40002df6fe83bf902bfe7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e4ab35dc0d805d982d497fbb929803d" id="r_a5e4ab35dc0d805d982d497fbb929803d"><td class="memItemLeft" align="right" valign="top"><a id="a5e4ab35dc0d805d982d497fbb929803d" name="a5e4ab35dc0d805d982d497fbb929803d"></a>
+<a class="el" href="maze__objects_8h.html#aad0efd3db6aedca6febfef5e717151fa">objgenerator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>obj_mode</b></td></tr>
+<tr class="memdesc:a5e4ab35dc0d805d982d497fbb929803d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Générateur d'objets selectionné. <br /></td></tr>
+<tr class="separator:a5e4ab35dc0d805d982d497fbb929803d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78847ef48dc9a44bcb2195e1ef04e302" id="r_a78847ef48dc9a44bcb2195e1ef04e302"><td class="memItemLeft" align="right" valign="top"><a id="a78847ef48dc9a44bcb2195e1ef04e302" name="a78847ef48dc9a44bcb2195e1ef04e302"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>gen_hsize</b></td></tr>
+<tr class="memdesc:a78847ef48dc9a44bcb2195e1ef04e302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille horizontale selectionnée. <br /></td></tr>
+<tr class="separator:a78847ef48dc9a44bcb2195e1ef04e302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab068b3a61437b83ce3d167a8ee47edab" id="r_ab068b3a61437b83ce3d167a8ee47edab"><td class="memItemLeft" align="right" valign="top"><a id="ab068b3a61437b83ce3d167a8ee47edab" name="ab068b3a61437b83ce3d167a8ee47edab"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>gen_vsize</b></td></tr>
+<tr class="memdesc:ab068b3a61437b83ce3d167a8ee47edab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille verticale selectionnée. <br /></td></tr>
+<tr class="separator:ab068b3a61437b83ce3d167a8ee47edab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a6be6154de51807241b8810007f5161" id="r_a0a6be6154de51807241b8810007f5161"><td class="memItemLeft" align="right" valign="top"><a id="a0a6be6154de51807241b8810007f5161" name="a0a6be6154de51807241b8810007f5161"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>gen_nbminotaurs</b></td></tr>
+<tr class="memdesc:a0a6be6154de51807241b8810007f5161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de minotaures selectionné. <br /></td></tr>
+<tr class="separator:a0a6be6154de51807241b8810007f5161"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad79a6bc7297045732fe33f4e70921c77" id="r_ad79a6bc7297045732fe33f4e70921c77"><td class="memItemLeft" align="right" valign="top"><a id="ad79a6bc7297045732fe33f4e70921c77" name="ad79a6bc7297045732fe33f4e70921c77"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>gen_braiding</b></td></tr>
+<tr class="memdesc:ad79a6bc7297045732fe33f4e70921c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taux de tressage selectionné. <br /></td></tr>
+<tr class="separator:ad79a6bc7297045732fe33f4e70921c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae03b7991df3ae34a2d453cbe45c6d272" id="r_ae03b7991df3ae34a2d453cbe45c6d272"><td class="memItemLeft" align="right" valign="top"><a id="ae03b7991df3ae34a2d453cbe45c6d272" name="ae03b7991df3ae34a2d453cbe45c6d272"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>gen_maskname</b> []</td></tr>
+<tr class="memdesc:ae03b7991df3ae34a2d453cbe45c6d272"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nom du masque selectionné. <br /></td></tr>
+<tr class="separator:ae03b7991df3ae34a2d453cbe45c6d272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce0f4af3321f1803ed2c7acef3c430d" id="r_abce0f4af3321f1803ed2c7acef3c430d"><td class="memItemLeft" align="right" valign="top"><a id="abce0f4af3321f1803ed2c7acef3c430d" name="abce0f4af3321f1803ed2c7acef3c430d"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>gen_initialmask</b></td></tr>
+<tr class="memdesc:abce0f4af3321f1803ed2c7acef3c430d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Masque utilisé lors de la toutes première génération. <br /></td></tr>
+<tr class="separator:abce0f4af3321f1803ed2c7acef3c430d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1813a8e0552b0d8379e1964e67016418" id="r_a1813a8e0552b0d8379e1964e67016418"><td class="memItemLeft" align="right" valign="top"><a id="a1813a8e0552b0d8379e1964e67016418" name="a1813a8e0552b0d8379e1964e67016418"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_button_countdown</b></td></tr>
+<tr class="memdesc:a1813a8e0552b0d8379e1964e67016418"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compteur pour l'animation de pression d'un bouton. <br /></td></tr>
+<tr class="separator:a1813a8e0552b0d8379e1964e67016418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cc195bc9cdff63f55fba7a3ed497280" id="r_a2cc195bc9cdff63f55fba7a3ed497280"><td class="memItemLeft" align="right" valign="top"><a id="a2cc195bc9cdff63f55fba7a3ed497280" name="a2cc195bc9cdff63f55fba7a3ed497280"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>var_buttons_flags</b> [BT_SIZE]</td></tr>
+<tr class="memdesc:a2cc195bc9cdff63f55fba7a3ed497280"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tableau qui indique les boutons actuellement pressé (pour les animations). <br /></td></tr>
+<tr class="separator:a2cc195bc9cdff63f55fba7a3ed497280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9609481db2148597a334c25613434811" id="r_a9609481db2148597a334c25613434811"><td class="memItemLeft" align="right" valign="top"><a id="a9609481db2148597a334c25613434811" name="a9609481db2148597a334c25613434811"></a>
+<a class="el" href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110c">sim_algorithm</a>&#160;</td><td class="memItemRight" valign="bottom"><b>var_sim_algorithm</b></td></tr>
+<tr class="memdesc:a9609481db2148597a334c25613434811"><td class="mdescLeft">&#160;</td><td class="mdescRight">L'algorithme à utiliser pour le calcul d'un chemin simple. <br /></td></tr>
+<tr class="separator:a9609481db2148597a334c25613434811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdf02efa830b4958065710c9fc304aa4" id="r_acdf02efa830b4958065710c9fc304aa4"><td class="memItemLeft" align="right" valign="top"><a id="acdf02efa830b4958065710c9fc304aa4" name="acdf02efa830b4958065710c9fc304aa4"></a>
+<a class="el" href="solve_8h.html#a99115e196712f4882a03b85feed22eee">sim_goal</a>&#160;</td><td class="memItemRight" valign="bottom"><b>var_sim_goal</b></td></tr>
+<tr class="memdesc:acdf02efa830b4958065710c9fc304aa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le type d'objet à rechercher pour le calcul d'un chemin simple. <br /></td></tr>
+<tr class="separator:acdf02efa830b4958065710c9fc304aa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a325610b5107b5bb08b42b029f72bc91b" id="r_a325610b5107b5bb08b42b029f72bc91b"><td class="memItemLeft" align="right" valign="top"><a id="a325610b5107b5bb08b42b029f72bc91b" name="a325610b5107b5bb08b42b029f72bc91b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>var_sim_minos</b></td></tr>
+<tr class="memdesc:a325610b5107b5bb08b42b029f72bc91b"><td class="mdescLeft">&#160;</td><td class="mdescRight">L'algorithme à utiliser pour le calcul soit-il prendre en compte les minotaures? <br /></td></tr>
+<tr class="separator:a325610b5107b5bb08b42b029f72bc91b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17194895dfa424854488b6ffaf780" id="r_accf17194895dfa424854488b6ffaf780"><td class="memItemLeft" align="right" valign="top"><a id="accf17194895dfa424854488b6ffaf780" name="accf17194895dfa424854488b6ffaf780"></a>
+<a class="el" href="structsim__search.html">sim_search</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>var_sim_search</b></td></tr>
+<tr class="memdesc:accf17194895dfa424854488b6ffaf780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistrement d'un parcours (BFS, DFS ou A*). <br /></td></tr>
+<tr class="separator:accf17194895dfa424854488b6ffaf780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe68c34068a0ab40f44f312d317f48ca" id="r_abe68c34068a0ab40f44f312d317f48ca"><td class="memItemLeft" align="right" valign="top"><a id="abe68c34068a0ab40f44f312d317f48ca" name="abe68c34068a0ab40f44f312d317f48ca"></a>
+<a class="el" href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491d">heuristic</a>&#160;</td><td class="memItemRight" valign="bottom"><b>var_heuristic</b></td></tr>
+<tr class="memdesc:abe68c34068a0ab40f44f312d317f48ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">L'heuristique selectionnée pour l'algorithme A*. <br /></td></tr>
+<tr class="separator:abe68c34068a0ab40f44f312d317f48ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0da08ad252e60ffc0e73a5b7a4e601cc" id="r_a0da08ad252e60ffc0e73a5b7a4e601cc"><td class="memItemLeft" align="right" valign="top"><a id="a0da08ad252e60ffc0e73a5b7a4e601cc" name="a0da08ad252e60ffc0e73a5b7a4e601cc"></a>
+<a class="el" href="structsim__path.html">sim_path</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>var_path_red</b></td></tr>
+<tr class="memdesc:a0da08ad252e60ffc0e73a5b7a4e601cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistrement des chemins à afficher (jusqu'à trois chemins en même temps, rouge, bleu, vert) <br /></td></tr>
+<tr class="separator:a0da08ad252e60ffc0e73a5b7a4e601cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3743bfadfeee91e71343c03a1137493" id="r_ac3743bfadfeee91e71343c03a1137493"><td class="memItemLeft" align="right" valign="top"><a id="ac3743bfadfeee91e71343c03a1137493" name="ac3743bfadfeee91e71343c03a1137493"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>var_display_search</b></td></tr>
+<tr class="memdesc:ac3743bfadfeee91e71343c03a1137493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Booléen indiquant si on doit afficher un parcours. <br /></td></tr>
+<tr class="separator:ac3743bfadfeee91e71343c03a1137493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3101cd569c7088369b5c7283d796700" id="r_aa3101cd569c7088369b5c7283d796700"><td class="memItemLeft" align="right" valign="top"><a id="aa3101cd569c7088369b5c7283d796700" name="aa3101cd569c7088369b5c7283d796700"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_search_step</b></td></tr>
+<tr class="memdesc:aa3101cd569c7088369b5c7283d796700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Case du tableau dynamique jusqu'à laquelle le parcours doit temporairement être affiché (spécifique à l'animation). <br /></td></tr>
+<tr class="separator:aa3101cd569c7088369b5c7283d796700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22dc8d97d427e1fdc8c44731b9ace8fd" id="r_a22dc8d97d427e1fdc8c44731b9ace8fd"><td class="memItemLeft" align="right" valign="top"><a id="a22dc8d97d427e1fdc8c44731b9ace8fd" name="a22dc8d97d427e1fdc8c44731b9ace8fd"></a>
+<a class="el" href="solve__adv_8h.html#a707d441a2448ab250c104075c591cea1">cmp_algorithm</a>&#160;</td><td class="memItemRight" valign="bottom"><b>var_cmp_algorithm</b></td></tr>
+<tr class="memdesc:a22dc8d97d427e1fdc8c44731b9ace8fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">La fonction selectionnée pour la génération de chemin complexe. <br /></td></tr>
+<tr class="separator:a22dc8d97d427e1fdc8c44731b9ace8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81aa72f7703e60767cd4c07f964405a2" id="r_a81aa72f7703e60767cd4c07f964405a2"><td class="memItemLeft" align="right" valign="top"><a id="a81aa72f7703e60767cd4c07f964405a2" name="a81aa72f7703e60767cd4c07f964405a2"></a>
+<a class="el" href="structcmp__search.html">cmp_search</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>var_adv_path</b></td></tr>
+<tr class="memdesc:a81aa72f7703e60767cd4c07f964405a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistrement d'un chemin complexe. <br /></td></tr>
+<tr class="separator:a81aa72f7703e60767cd4c07f964405a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3eee7db7ff28e2f7e1ffa6301ec227c7" id="r_a3eee7db7ff28e2f7e1ffa6301ec227c7"><td class="memItemLeft" align="right" valign="top"><a id="a3eee7db7ff28e2f7e1ffa6301ec227c7" name="a3eee7db7ff28e2f7e1ffa6301ec227c7"></a>
+unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>var_adv_mode</b></td></tr>
+<tr class="memdesc:a3eee7db7ff28e2f7e1ffa6301ec227c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode d'affichage d'un chemin complexe. <br /></td></tr>
+<tr class="separator:a3eee7db7ff28e2f7e1ffa6301ec227c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae278e3f7646ad00d29e8c985691103" id="r_abae278e3f7646ad00d29e8c985691103"><td class="memItemLeft" align="right" valign="top"><a id="abae278e3f7646ad00d29e8c985691103" name="abae278e3f7646ad00d29e8c985691103"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>var_adv_num</b></td></tr>
+<tr class="memdesc:abae278e3f7646ad00d29e8c985691103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numéro du segment à afficher dans un chemin complexe. <br /></td></tr>
+<tr class="separator:abae278e3f7646ad00d29e8c985691103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Interface: variables globales. Ne PAS modifier. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Cette partie est déjà implémentée. Il ne faut PAS la modifier. </dd></dl>
+</div><h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a253b727fca26994f428309f2f281b90c" name="a253b727fca26994f428309f2f281b90c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a253b727fca26994f428309f2f281b90c">&#9670;&#160;</a></span>anim_mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a253b727fca26994f428309f2f281b90c">anim_mode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Les noms internes des différentes animations. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a253b727fca26994f428309f2f281b90ca31505f6ec3af17351ec192b1a1e6ee37" name="a253b727fca26994f428309f2f281b90ca31505f6ec3af17351ec192b1a1e6ee37"></a>AN_IDLE&#160;</td><td class="fielddoc"><p>Immobile (par défaut). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a253b727fca26994f428309f2f281b90cacefd6c7ffb3332d8d7fc0fcb5b977a3d" name="a253b727fca26994f428309f2f281b90cacefd6c7ffb3332d8d7fc0fcb5b977a3d"></a>AN_WALK&#160;</td><td class="fielddoc"><p>Déplacement. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a253b727fca26994f428309f2f281b90ca6d9c957bc033bae0c628b579b1d1eccb" name="a253b727fca26994f428309f2f281b90ca6d9c957bc033bae0c628b579b1d1eccb"></a>AN_KILL&#160;</td><td class="fielddoc"><p>Attaque d'un minotaure. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a253b727fca26994f428309f2f281b90ca1c81fce55b17fffa2748c1933ed8ff95" name="a253b727fca26994f428309f2f281b90ca1c81fce55b17fffa2748c1933ed8ff95"></a>AN_BOMB&#160;</td><td class="fielddoc"><p>Bombe. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a253b727fca26994f428309f2f281b90ca039eed9d29682b8e2f9b9f23110d1202" name="a253b727fca26994f428309f2f281b90ca039eed9d29682b8e2f9b9f23110d1202"></a>AN_POLY&#160;</td><td class="fielddoc"><p>Poly d'algo. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a253b727fca26994f428309f2f281b90ca204fccfc01747c66924750ac4d85ea08" name="a253b727fca26994f428309f2f281b90ca204fccfc01747c66924750ac4d85ea08"></a>AN_UWALK&#160;</td><td class="fielddoc"><p>Annulation d'un déplacement. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a253b727fca26994f428309f2f281b90caa4df915b74670f2fe466bdf70d8fa973" name="a253b727fca26994f428309f2f281b90caa4df915b74670f2fe466bdf70d8fa973"></a>AN_UKILLB&#160;</td><td class="fielddoc"><p>Annulation d'une attaque de minotaure (après une bombe). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a253b727fca26994f428309f2f281b90ca40ab863e795e9c81f66470803f26817f" name="a253b727fca26994f428309f2f281b90ca40ab863e795e9c81f66470803f26817f"></a>AN_UKILLW&#160;</td><td class="fielddoc"><p>Annulation d'une attaque de minotaure (après un déplacement). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a253b727fca26994f428309f2f281b90cac9d78e1d9051612d196ca968dd351e47" name="a253b727fca26994f428309f2f281b90cac9d78e1d9051612d196ca968dd351e47"></a>AN_UBOMB&#160;</td><td class="fielddoc"><p>Annulation d'une bombe. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a253b727fca26994f428309f2f281b90ca7cb676cf70ea62dd2f6ff421b7d8c57e" name="a253b727fca26994f428309f2f281b90ca7cb676cf70ea62dd2f6ff421b7d8c57e"></a>AN_UPOLY&#160;</td><td class="fielddoc"><p>Annulation d'un poly d'algo. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="afd24b85c565d24d9fdaa4e1144e5f78a" name="afd24b85c565d24d9fdaa4e1144e5f78a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd24b85c565d24d9fdaa4e1144e5f78a">&#9670;&#160;</a></span>edit_mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#afd24b85c565d24d9fdaa4e1144e5f78a">edit_mode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Les noms internes des différents textes qu'on peut saisir dans un buffer. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="afd24b85c565d24d9fdaa4e1144e5f78aa3975b48b5a3a2f817bf1b4b374c5d700" name="afd24b85c565d24d9fdaa4e1144e5f78aa3975b48b5a3a2f817bf1b4b374c5d700"></a>ED_X&#160;</td><td class="fielddoc"><p>Taille horizontale. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd24b85c565d24d9fdaa4e1144e5f78aa3f6af1ca5026ad9d64b473d8609db4cb" name="afd24b85c565d24d9fdaa4e1144e5f78aa3f6af1ca5026ad9d64b473d8609db4cb"></a>ED_Y&#160;</td><td class="fielddoc"><p>Taille verticale. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd24b85c565d24d9fdaa4e1144e5f78aa6aa180cc60af71ecbf14a1bce0725aeb" name="afd24b85c565d24d9fdaa4e1144e5f78aa6aa180cc60af71ecbf14a1bce0725aeb"></a>ED_MINO&#160;</td><td class="fielddoc"><p>Nombre de minotaures. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd24b85c565d24d9fdaa4e1144e5f78aa2dd09621cb96eca7fb04299bfca90a9d" name="afd24b85c565d24d9fdaa4e1144e5f78aa2dd09621cb96eca7fb04299bfca90a9d"></a>ED_BRAID&#160;</td><td class="fielddoc"><p>Taux de tressage. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd24b85c565d24d9fdaa4e1144e5f78aada232ca7bff728b1f2daa16f84c31fb4" name="afd24b85c565d24d9fdaa4e1144e5f78aada232ca7bff728b1f2daa16f84c31fb4"></a>ED_BFS&#160;</td><td class="fielddoc"><p>Numéro d'objet à rechercher dans un parcours BFS/DFS. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd24b85c565d24d9fdaa4e1144e5f78aae5b1bce1e4ec295a29144aa8eaf06642" name="afd24b85c565d24d9fdaa4e1144e5f78aae5b1bce1e4ec295a29144aa8eaf06642"></a>ED_SEG&#160;</td><td class="fielddoc"><p>Segment à afficher dans un parcours complexe. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd24b85c565d24d9fdaa4e1144e5f78aae3bdce5b018490ba0d5b9bd779d090be" name="afd24b85c565d24d9fdaa4e1144e5f78aae3bdce5b018490ba0d5b9bd779d090be"></a>ED_NONE&#160;</td><td class="fielddoc"><p>Buffer non-utilisé actuellement. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ade0d7c1fd59d664cd731627bfd73b738" name="ade0d7c1fd59d664cd731627bfd73b738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade0d7c1fd59d664cd731627bfd73b738">&#9670;&#160;</a></span>menu_mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ade0d7c1fd59d664cd731627bfd73b738">menu_mode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Noms internes des différents menus. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ade0d7c1fd59d664cd731627bfd73b738a5a87fc9ed9499695d207d699fbf1450d" name="ade0d7c1fd59d664cd731627bfd73b738a5a87fc9ed9499695d207d699fbf1450d"></a>MENU_PLAY&#160;</td><td class="fielddoc"><p>Jeu. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ade0d7c1fd59d664cd731627bfd73b738a2534795ab2b3a3b79fad205c84628e09" name="ade0d7c1fd59d664cd731627bfd73b738a2534795ab2b3a3b79fad205c84628e09"></a>MENU_GENE&#160;</td><td class="fielddoc"><p>Génération. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ade0d7c1fd59d664cd731627bfd73b738a8c02d1cbaa7a4017404a361e2088230a" name="ade0d7c1fd59d664cd731627bfd73b738a8c02d1cbaa7a4017404a361e2088230a"></a>MENU_SOSI&#160;</td><td class="fielddoc"><p>Solveur simple. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ade0d7c1fd59d664cd731627bfd73b738a76b88baf8b88944e672a1a19fe3bce80" name="ade0d7c1fd59d664cd731627bfd73b738a76b88baf8b88944e672a1a19fe3bce80"></a>MENU_SOAD&#160;</td><td class="fielddoc"><p>Solveur avancé. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="gui__gamevars_8h.html">gui_gamevars.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

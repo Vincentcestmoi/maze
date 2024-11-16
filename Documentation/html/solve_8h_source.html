@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet labyrinthe:  Fichier source de solve.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet labyrinthe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('solve_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">solve.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="solve_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#ifndef SOLVE_H_</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define SOLVE_H_</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> <span class="comment">/*  ____        _                     ____ _                    _            */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> <span class="comment">/* / ___|  ___ | |_   _____ _ __ _   / ___| |__   ___ _ __ ___ (_)_ __  ___  */</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> <span class="comment">/* \___ \ / _ \| \ \ / / _ \ &#39;__(_) | |   | &#39;_ \ / _ \ &#39;_ ` _ \| | &#39;_ \/ __| */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> <span class="comment">/*  ___) | (_) | |\ V /  __/ |   _  | |___| | | |  __/ | | | | | | | | \__ \ */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> <span class="comment">/* |____/ \___/|_| \_/ \___|_|  (_)  \____|_| |_|\___|_| |_| |_|_|_| |_|___/ */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> <span class="comment">/*  ___(_)_ __ ___  _ __ | | ___  ___                                        */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> <span class="comment">/* / __| | &#39;_ ` _ \| &#39;_ \| |/ _ \/ __|                                       */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> <span class="comment">/* \__ \ | | | | | | |_) | |  __/\__ \                                       */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> <span class="comment">/* |___/_|_| |_| |_| .__/|_|\___||___/                                       */</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> <span class="comment">/*                 |_|                                                       */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="game_8h.html">game.h</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;<a class="code" href="data__binheap_8h.html">data_binheap.h</a>&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/***************************************************/</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/*+ Définition et manipulation d&#39;un chemin simple **/</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">/***************************************************/</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structsim__move__seq.html">   46</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structsim__move__seq.html">sim_move_seq</a> {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structsim__move__seq.html#ad31d08df1423fd8ee99c08fb76f7e42d">   47</a></span>    <a class="code hl_enumeration" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a> <a class="code hl_variable" href="structsim__move__seq.html#ad31d08df1423fd8ee99c08fb76f7e42d">direction</a>; </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structsim__move__seq.html#a5ea1ee045405eb10bfbd3e1e069fb518">   48</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structsim__move__seq.html">sim_move_seq</a>* <a class="code hl_variable" href="structsim__move__seq.html#a5ea1ee045405eb10bfbd3e1e069fb518">next</a>; </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structsim__move__seq.html">sim_move_seq</a> <a class="code hl_struct" href="structsim__move__seq.html">sim_move_seq</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="};">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structsim__path.html">   64</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="structsim__path.html#a18f0e8a74dbfda6165fe1baea6d9f41c">   65</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structsim__path.html#a18f0e8a74dbfda6165fe1baea6d9f41c">start</a>; </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="structsim__path.html#aabafc7c72472152993e69e8b2f5a211a">   66</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structsim__path.html#aabafc7c72472152993e69e8b2f5a211a">end</a>; </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structsim__path.html#a7e667e1dc6d91c35edfe97607f9197a9">   67</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structsim__path.html#a7e667e1dc6d91c35edfe97607f9197a9">length</a>; </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structsim__path.html#aa3654ee815e01122693c5060732450cb">   68</a></span>    <a class="code hl_struct" href="structsim__move__seq.html">sim_move_seq</a>* <a class="code hl_variable" href="structsim__path.html#aa3654ee815e01122693c5060732450cb">moves</a>; </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>} <a class="code hl_struct" href="structsim__path.html">sim_path</a>;</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><a class="code hl_struct" href="structsim__path.html">sim_path</a>* <a class="code hl_function" href="solve_8h.html#a38020c857b9c5411c63b6319d8fb1c86">sim_emptypath</a>(<span class="keywordtype">int</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keywordtype">void</span> <a class="code hl_function" href="solve_8h.html#a90eb3ae26b55ddeb0933463e05d06249">sim_addtopath</a>(<a class="code hl_struct" href="structmaze.html">maze</a>*</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    , <a class="code hl_enumeration" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    , <a class="code hl_struct" href="structsim__path.html">sim_path</a>* </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><a class="code hl_struct" href="structsim__path.html">sim_path</a>* <a class="code hl_function" href="solve_8h.html#a6e9ba9e48f1346ae38c8eae5890df63b">sim_copypath</a>(<a class="code hl_struct" href="structsim__path.html">sim_path</a>* </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keywordtype">void</span> <a class="code hl_function" href="solve_8h.html#ac1abe6ab05bcfb486db2d0d85fb2a42c">sim_freepath</a>(<a class="code hl_struct" href="structsim__path.html">sim_path</a>* </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">/**********************************************/</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">/*+ Définition et manipulation d&#39;un parcours **/</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">/**********************************************/</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="foldopen" id="foldopen00119" data-start="{" data-end="};">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110c">  119</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110cadeb158aa31adfe05f61a8ee86447f4c5">  120</a></span>    <a class="code hl_enumvalue" href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110cadeb158aa31adfe05f61a8ee86447f4c5">ALG_BFS</a>, </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110caa7c66ac3463d68ce5798812be341e1d0">  121</a></span>    <a class="code hl_enumvalue" href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110caa7c66ac3463d68ce5798812be341e1d0">ALG_DFS</a>, </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110ca4d268c7134f4ba63de6d5b99c9709ee4">  122</a></span>    <a class="code hl_enumvalue" href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110ca4d268c7134f4ba63de6d5b99c9709ee4">ALG_AST</a>, </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    ALG_SIZE,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>} <a class="code hl_enumeration" href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110c">sim_algorithm</a>;</div>
+</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="foldopen" id="foldopen00130" data-start="{" data-end="};">
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="solve_8h.html#a99115e196712f4882a03b85feed22eee">  130</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="solve_8h.html#a99115e196712f4882a03b85feed22eeeaec0a48702eb800fb85f87baa80802fb1">  131</a></span>    <a class="code hl_enumvalue" href="solve_8h.html#a99115e196712f4882a03b85feed22eeeaec0a48702eb800fb85f87baa80802fb1">GOA_TREASURE</a>, </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="solve_8h.html#a99115e196712f4882a03b85feed22eeea1f6f68b42e998652beb08a6936232531">  132</a></span>    <a class="code hl_enumvalue" href="solve_8h.html#a99115e196712f4882a03b85feed22eeea1f6f68b42e998652beb08a6936232531">GOA_BOMB</a>, </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="solve_8h.html#a99115e196712f4882a03b85feed22eeeafe5bb7e5ad686dce0aca6769b3423e11">  133</a></span>    <a class="code hl_enumvalue" href="solve_8h.html#a99115e196712f4882a03b85feed22eeeafe5bb7e5ad686dce0aca6769b3423e11">GOA_POLY</a>, </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="solve_8h.html#a99115e196712f4882a03b85feed22eeeac93e6b4857749e9033e40bae352b74c5">  134</a></span>    <a class="code hl_enumvalue" href="solve_8h.html#a99115e196712f4882a03b85feed22eeeac93e6b4857749e9033e40bae352b74c5">GOA_EXIT</a>, </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    GOA_SIZE,</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>} <a class="code hl_enumeration" href="solve_8h.html#a99115e196712f4882a03b85feed22eee">sim_goal</a>;</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="foldopen" id="foldopen00143" data-start="{" data-end="};">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="structsim__search.html">  143</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="structsim__search.html#a4b524eca82786144555f6c2fc1dd062f">  144</a></span>    <a class="code hl_enumeration" href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110c">sim_algorithm</a> <a class="code hl_variable" href="structsim__search.html#a4b524eca82786144555f6c2fc1dd062f">algo</a>; </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="structsim__search.html#adf38d89dfade819e2536fb64f375fac1">  145</a></span>    <a class="code hl_enumeration" href="solve_8h.html#a99115e196712f4882a03b85feed22eee">sim_goal</a> <a class="code hl_variable" href="structsim__search.html#adf38d89dfade819e2536fb64f375fac1">goal</a>; </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="structsim__search.html#a66dde1c70dc6493b96d0b457464dc1fc">  146</a></span>    <a class="code hl_struct" href="structdynarray.html">dynarray</a>* <a class="code hl_variable" href="structsim__search.html#a66dde1c70dc6493b96d0b457464dc1fc">search</a>; </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="structsim__search.html#a7fb59e6c8f65303d4fdf3909fbf3fdec">  147</a></span>    <a class="code hl_struct" href="structsim__path.html">sim_path</a>* <a class="code hl_variable" href="structsim__search.html#a7fb59e6c8f65303d4fdf3909fbf3fdec">path</a>; </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>}</div>
+</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><a class="code hl_struct" href="structsim__search.html">sim_search</a>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="solve_8h.html#a8cfa4bcf3e858d92bc5d4e658ffdc512">salgo_names</a>[ALG_SIZE];</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="solve_8h.html#a723a75fe04441283fa8314d9763272ed">sgoal_names</a>[GOA_SIZE];</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><a class="code hl_struct" href="structsim__search.html">sim_search</a>* <a class="code hl_function" href="solve_8h.html#a733207a15dd7ea7bea916bdfd3f39115">sim_create_search</a>(<a class="code hl_enumeration" href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110c">sim_algorithm</a> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    , <a class="code hl_enumeration" href="solve_8h.html#a99115e196712f4882a03b85feed22eee">sim_goal</a> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="keywordtype">void</span> <a class="code hl_function" href="solve_8h.html#ab1b9a52f7afbd77a3452a85adfd28700">sim_free_search</a>(<a class="code hl_struct" href="structsim__search.html">sim_search</a>* <span class="comment">//&lt;! Le parcours à libérer.</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">/******************************************************************/</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">/*+ Les heuristiques  (uniquement utilisées pas l&#39;algorithme A*) **/</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">/******************************************************************/</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="foldopen" id="foldopen00197" data-start="{" data-end="};">
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491d">  197</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491daa023c9ac01f82a194736bdba249d8060">  198</a></span>    <a class="code hl_enumvalue" href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491daa023c9ac01f82a194736bdba249d8060">HEU_NONE</a>, </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491da313fc3d8154db2af45fffbba64d893f6">  199</a></span>    <a class="code hl_enumvalue" href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491da313fc3d8154db2af45fffbba64d893f6">HEU_MANH</a>, </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491da06a6f93e01675704e33b86025172479e">  200</a></span>    <a class="code hl_enumvalue" href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491da06a6f93e01675704e33b86025172479e">HEU_RUNA</a>, </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    HEU_SIZE,</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>}<a class="code hl_enumeration" href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491d">heuristic</a>;</div>
+</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="solve_8h.html#aeee0efbc1c3fd5bdcaf5cbe35819387d">heu_names</a>[HEU_SIZE];</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="keyword">extern</span> int(*<a class="code hl_variable" href="solve_8h.html#a8cf2d3980ce113d03821e0b19d4cae1b">heu_funs</a>[HEU_SIZE]) (<a class="code hl_struct" href="structgame.html">game</a>*, int, <a class="code hl_struct" href="structdynarray.html">dynarray</a>*);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="keywordtype">int</span> <a class="code hl_function" href="solve_8h.html#a06017250a00fb2e7f1410ca388e4e74d">astar_none</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    , <span class="keywordtype">int</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    , <a class="code hl_struct" href="structdynarray.html">dynarray</a>* </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>);</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="keywordtype">int</span> <a class="code hl_function" href="solve_8h.html#aa8b6ecd6a8ed83a012b9b7b76e792007">astar_manhattan</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    , <span class="keywordtype">int</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    , <a class="code hl_struct" href="structdynarray.html">dynarray</a>* </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="keywordtype">int</span> <a class="code hl_function" href="solve_8h.html#ad2125c728736d92efcc46c9aa6d192af">astar_runaway</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    , <span class="keywordtype">int</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    , <a class="code hl_struct" href="structdynarray.html">dynarray</a>* </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>);</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="comment">/*********************************/</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="comment">/*+ Les algorithmes de parcours **/</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment">/*********************************/</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="keyword">extern</span> <a class="code hl_struct" href="structsim__search.html">sim_search</a>* (*<a class="code hl_variable" href="solve_8h.html#a7e401e7f60b91935c0f0474aebe9b5c8">salgo_funs</a>[ALG_SIZE]) (<a class="code hl_struct" href="structgame.html">game</a>*, <span class="keywordtype">int</span>, <a class="code hl_enumeration" href="solve_8h.html#a99115e196712f4882a03b85feed22eee">sim_goal</a>, <span class="keywordtype">int</span>(heu_fun)(<a class="code hl_struct" href="structgame.html">game</a>*, <span class="keywordtype">int</span>, <a class="code hl_struct" href="structdynarray.html">dynarray</a>*), <span class="keywordtype">bool</span>);</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><a class="code hl_struct" href="structsim__search.html">sim_search</a>* <a class="code hl_function" href="solve_8h.html#abdfb4971ffd3704b61843042b0dbbafa">sim_bfs</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    , <span class="keywordtype">int</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    , <a class="code hl_enumeration" href="solve_8h.html#a99115e196712f4882a03b85feed22eee">sim_goal</a> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    , <span class="keywordtype">int</span>(*)(<a class="code hl_struct" href="structgame.html">game</a>*, <span class="keywordtype">int</span>, <a class="code hl_struct" href="structdynarray.html">dynarray</a>*) <span class="comment">// L&#39;heuristique (inutilisée ici).</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    , <span class="keywordtype">bool</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>);</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><a class="code hl_struct" href="structsim__search.html">sim_search</a>* <a class="code hl_function" href="solve_8h.html#aa3ac01c9d68887448715c0a4f3872b00">sim_dfs</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    , <span class="keywordtype">int</span> </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    , <a class="code hl_enumeration" href="solve_8h.html#a99115e196712f4882a03b85feed22eee">sim_goal</a> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    , <span class="keywordtype">int</span>(*)(<a class="code hl_struct" href="structgame.html">game</a>*, <span class="keywordtype">int</span>, <a class="code hl_struct" href="structdynarray.html">dynarray</a>*) <span class="comment">// L&#39;heuristique (inutilisée ici).</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    , <span class="keywordtype">bool</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>);</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><a class="code hl_struct" href="structsim__search.html">sim_search</a>* <a class="code hl_function" href="solve_8h.html#a5a7ac6353d01de3c7d4f83fcf164cb26">sim_astar</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    , <span class="keywordtype">int</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    , <a class="code hl_enumeration" href="solve_8h.html#a99115e196712f4882a03b85feed22eee">sim_goal</a> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    , <span class="keywordtype">int</span>(*)(<a class="code hl_struct" href="structgame.html">game</a>*, <span class="keywordtype">int</span>, <a class="code hl_struct" href="structdynarray.html">dynarray</a>*) <span class="comment">// L&#39;heuristique.</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    , <span class="keywordtype">bool</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>);</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="adata__binheap_8h_html"><div class="ttname"><a href="data__binheap_8h.html">data_binheap.h</a></div><div class="ttdoc">Implémentation d'un tas binaire générique.</div></div>
+<div class="ttc" id="agame_8h_html"><div class="ttname"><a href="game_8h.html">game.h</a></div><div class="ttdoc">Définition et manipulation du plateau de jeu.</div></div>
+<div class="ttc" id="amaze_8h_html_a1eae2f0eb13d25eaa55d5334838178c1"><div class="ttname"><a href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a></div><div class="ttdeci">move</div><div class="ttdoc">Les cinq mouvements possibles dans un labyrinthe.</div><div class="ttdef"><b>Definition</b> maze.h:64</div></div>
+<div class="ttc" id="asolve_8h_html_a04e5ec9e8eefc2f63e8d96f36fa5110c"><div class="ttname"><a href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110c">sim_algorithm</a></div><div class="ttdeci">sim_algorithm</div><div class="ttdoc">Les différents algorithmes de parcours disponibles.</div><div class="ttdef"><b>Definition</b> solve.h:119</div></div>
+<div class="ttc" id="asolve_8h_html_a04e5ec9e8eefc2f63e8d96f36fa5110ca4d268c7134f4ba63de6d5b99c9709ee4"><div class="ttname"><a href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110ca4d268c7134f4ba63de6d5b99c9709ee4">ALG_AST</a></div><div class="ttdeci">@ ALG_AST</div><div class="ttdoc">Algorithme A*.</div><div class="ttdef"><b>Definition</b> solve.h:122</div></div>
+<div class="ttc" id="asolve_8h_html_a04e5ec9e8eefc2f63e8d96f36fa5110caa7c66ac3463d68ce5798812be341e1d0"><div class="ttname"><a href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110caa7c66ac3463d68ce5798812be341e1d0">ALG_DFS</a></div><div class="ttdeci">@ ALG_DFS</div><div class="ttdoc">Parcours en profondeur.</div><div class="ttdef"><b>Definition</b> solve.h:121</div></div>
+<div class="ttc" id="asolve_8h_html_a04e5ec9e8eefc2f63e8d96f36fa5110cadeb158aa31adfe05f61a8ee86447f4c5"><div class="ttname"><a href="solve_8h.html#a04e5ec9e8eefc2f63e8d96f36fa5110cadeb158aa31adfe05f61a8ee86447f4c5">ALG_BFS</a></div><div class="ttdeci">@ ALG_BFS</div><div class="ttdoc">Parcours en largeur.</div><div class="ttdef"><b>Definition</b> solve.h:120</div></div>
+<div class="ttc" id="asolve_8h_html_a06017250a00fb2e7f1410ca388e4e74d"><div class="ttname"><a href="solve_8h.html#a06017250a00fb2e7f1410ca388e4e74d">astar_none</a></div><div class="ttdeci">int astar_none(game *, int, dynarray *)</div><div class="ttdoc">Heuristique constante (donne un parcours BFS).</div><div class="ttdef"><b>Definition</b> solve.c:108</div></div>
+<div class="ttc" id="asolve_8h_html_a38020c857b9c5411c63b6319d8fb1c86"><div class="ttname"><a href="solve_8h.html#a38020c857b9c5411c63b6319d8fb1c86">sim_emptypath</a></div><div class="ttdeci">sim_path * sim_emptypath(int)</div><div class="ttdoc">Création d'un nouveau chemin (vide).</div><div class="ttdef"><b>Definition</b> solve.c:7</div></div>
+<div class="ttc" id="asolve_8h_html_a5a7ac6353d01de3c7d4f83fcf164cb26"><div class="ttname"><a href="solve_8h.html#a5a7ac6353d01de3c7d4f83fcf164cb26">sim_astar</a></div><div class="ttdeci">sim_search * sim_astar(game *, int, sim_goal, int(*)(game *, int, dynarray *), bool)</div><div class="ttdoc">Algorithme A*.</div><div class="ttdef"><b>Definition</b> solve.c:345</div></div>
+<div class="ttc" id="asolve_8h_html_a6e9ba9e48f1346ae38c8eae5890df63b"><div class="ttname"><a href="solve_8h.html#a6e9ba9e48f1346ae38c8eae5890df63b">sim_copypath</a></div><div class="ttdeci">sim_path * sim_copypath(sim_path *)</div><div class="ttdoc">Crée une copie d'un chemin existant.</div><div class="ttdef"><b>Definition</b> solve.c:43</div></div>
+<div class="ttc" id="asolve_8h_html_a723a75fe04441283fa8314d9763272ed"><div class="ttname"><a href="solve_8h.html#a723a75fe04441283fa8314d9763272ed">sgoal_names</a></div><div class="ttdeci">const char * sgoal_names[GOA_SIZE]</div><div class="ttdoc">Tableau des noms des types d'objets qui appraissent dans l'interface.</div><div class="ttdef"><b>Definition</b> solve.c:73</div></div>
+<div class="ttc" id="asolve_8h_html_a733207a15dd7ea7bea916bdfd3f39115"><div class="ttname"><a href="solve_8h.html#a733207a15dd7ea7bea916bdfd3f39115">sim_create_search</a></div><div class="ttdeci">sim_search * sim_create_search(sim_algorithm, sim_goal)</div><div class="ttdoc">Création d'un nouveau parcours &quot;vide&quot;. Il sera ensuite rempli par l'un des algorithmes.</div><div class="ttdef"><b>Definition</b> solve.c:76</div></div>
+<div class="ttc" id="asolve_8h_html_a7e401e7f60b91935c0f0474aebe9b5c8"><div class="ttname"><a href="solve_8h.html#a7e401e7f60b91935c0f0474aebe9b5c8">salgo_funs</a></div><div class="ttdeci">sim_search *(* salgo_funs[ALG_SIZE])(game *, int, sim_goal, int(heu_fun)(game *, int, dynarray *), bool)</div><div class="ttdoc">Tableaux des fonctions qui implémentent les algorithmes de parcours.</div><div class="ttdef"><b>Definition</b> solve.c:149</div></div>
+<div class="ttc" id="asolve_8h_html_a8cf2d3980ce113d03821e0b19d4cae1b"><div class="ttname"><a href="solve_8h.html#a8cf2d3980ce113d03821e0b19d4cae1b">heu_funs</a></div><div class="ttdeci">int(* heu_funs[HEU_SIZE])(game *, int, dynarray *)</div><div class="ttdoc">Le tableau des heuristiques (utile uniquement pour l'algorithme A*).</div><div class="ttdef"><b>Definition</b> solve.c:105</div></div>
+<div class="ttc" id="asolve_8h_html_a8cfa4bcf3e858d92bc5d4e658ffdc512"><div class="ttname"><a href="solve_8h.html#a8cfa4bcf3e858d92bc5d4e658ffdc512">salgo_names</a></div><div class="ttdeci">const char * salgo_names[ALG_SIZE]</div><div class="ttdoc">Tableau des noms des algorithmes de parcours qui appraissent dans l'interface.</div><div class="ttdef"><b>Definition</b> solve.c:72</div></div>
+<div class="ttc" id="asolve_8h_html_a90eb3ae26b55ddeb0933463e05d06249"><div class="ttname"><a href="solve_8h.html#a90eb3ae26b55ddeb0933463e05d06249">sim_addtopath</a></div><div class="ttdeci">void sim_addtopath(maze *, move, sim_path *)</div><div class="ttdoc">Ajout un mouvement supplémentaire au début d'un chemin.</div><div class="ttdef"><b>Definition</b> solve.c:17</div></div>
+<div class="ttc" id="asolve_8h_html_a99115e196712f4882a03b85feed22eee"><div class="ttname"><a href="solve_8h.html#a99115e196712f4882a03b85feed22eee">sim_goal</a></div><div class="ttdeci">sim_goal</div><div class="ttdoc">Les différents types d'objets qu'on peut rechercher en utilisant un parcours.</div><div class="ttdef"><b>Definition</b> solve.h:130</div></div>
+<div class="ttc" id="asolve_8h_html_a99115e196712f4882a03b85feed22eeea1f6f68b42e998652beb08a6936232531"><div class="ttname"><a href="solve_8h.html#a99115e196712f4882a03b85feed22eeea1f6f68b42e998652beb08a6936232531">GOA_BOMB</a></div><div class="ttdeci">@ GOA_BOMB</div><div class="ttdoc">Bombe.</div><div class="ttdef"><b>Definition</b> solve.h:132</div></div>
+<div class="ttc" id="asolve_8h_html_a99115e196712f4882a03b85feed22eeeac93e6b4857749e9033e40bae352b74c5"><div class="ttname"><a href="solve_8h.html#a99115e196712f4882a03b85feed22eeeac93e6b4857749e9033e40bae352b74c5">GOA_EXIT</a></div><div class="ttdeci">@ GOA_EXIT</div><div class="ttdoc">Sortie.</div><div class="ttdef"><b>Definition</b> solve.h:134</div></div>
+<div class="ttc" id="asolve_8h_html_a99115e196712f4882a03b85feed22eeeaec0a48702eb800fb85f87baa80802fb1"><div class="ttname"><a href="solve_8h.html#a99115e196712f4882a03b85feed22eeeaec0a48702eb800fb85f87baa80802fb1">GOA_TREASURE</a></div><div class="ttdeci">@ GOA_TREASURE</div><div class="ttdoc">Trésor.</div><div class="ttdef"><b>Definition</b> solve.h:131</div></div>
+<div class="ttc" id="asolve_8h_html_a99115e196712f4882a03b85feed22eeeafe5bb7e5ad686dce0aca6769b3423e11"><div class="ttname"><a href="solve_8h.html#a99115e196712f4882a03b85feed22eeeafe5bb7e5ad686dce0aca6769b3423e11">GOA_POLY</a></div><div class="ttdeci">@ GOA_POLY</div><div class="ttdoc">Poly d'algo.</div><div class="ttdef"><b>Definition</b> solve.h:133</div></div>
+<div class="ttc" id="asolve_8h_html_aa3ac01c9d68887448715c0a4f3872b00"><div class="ttname"><a href="solve_8h.html#aa3ac01c9d68887448715c0a4f3872b00">sim_dfs</a></div><div class="ttdeci">sim_search * sim_dfs(game *, int, sim_goal, int(*)(game *, int, dynarray *), bool)</div><div class="ttdoc">Algorithme de parcours en profondeur.</div><div class="ttdef"><b>Definition</b> solve.c:250</div></div>
+<div class="ttc" id="asolve_8h_html_aa8b6ecd6a8ed83a012b9b7b76e792007"><div class="ttname"><a href="solve_8h.html#aa8b6ecd6a8ed83a012b9b7b76e792007">astar_manhattan</a></div><div class="ttdeci">int astar_manhattan(game *, int, dynarray *)</div><div class="ttdoc">Distance manhattan avec la sortie la plus proche.</div><div class="ttdef"><b>Definition</b> solve.c:112</div></div>
+<div class="ttc" id="asolve_8h_html_ab1b9a52f7afbd77a3452a85adfd28700"><div class="ttname"><a href="solve_8h.html#ab1b9a52f7afbd77a3452a85adfd28700">sim_free_search</a></div><div class="ttdeci">void sim_free_search(sim_search *)</div><div class="ttdoc">Libération d'un parcours.</div><div class="ttdef"><b>Definition</b> solve.c:86</div></div>
+<div class="ttc" id="asolve_8h_html_abdfb4971ffd3704b61843042b0dbbafa"><div class="ttname"><a href="solve_8h.html#abdfb4971ffd3704b61843042b0dbbafa">sim_bfs</a></div><div class="ttdeci">sim_search * sim_bfs(game *, int, sim_goal, int(*)(game *, int, dynarray *), bool)</div><div class="ttdoc">Algorithme de parcours en largeur.</div><div class="ttdef"><b>Definition</b> solve.c:187</div></div>
+<div class="ttc" id="asolve_8h_html_ac1abe6ab05bcfb486db2d0d85fb2a42c"><div class="ttname"><a href="solve_8h.html#ac1abe6ab05bcfb486db2d0d85fb2a42c">sim_freepath</a></div><div class="ttdeci">void sim_freepath(sim_path *)</div><div class="ttdoc">Libération d'un chemin.</div><div class="ttdef"><b>Definition</b> solve.c:56</div></div>
+<div class="ttc" id="asolve_8h_html_ad2125c728736d92efcc46c9aa6d192af"><div class="ttname"><a href="solve_8h.html#ad2125c728736d92efcc46c9aa6d192af">astar_runaway</a></div><div class="ttdeci">int astar_runaway(game *, int, dynarray *)</div><div class="ttdoc">Heuristique cherchant à éviter les minotaures.</div><div class="ttdef"><b>Definition</b> solve.c:128</div></div>
+<div class="ttc" id="asolve_8h_html_aeee0efbc1c3fd5bdcaf5cbe35819387d"><div class="ttname"><a href="solve_8h.html#aeee0efbc1c3fd5bdcaf5cbe35819387d">heu_names</a></div><div class="ttdeci">const char * heu_names[HEU_SIZE]</div><div class="ttdoc">Le tableau des noms qui apparaissent dans l'interface pour chaque heuristique (utile uniquement pour ...</div><div class="ttdef"><b>Definition</b> solve.c:102</div></div>
+<div class="ttc" id="asolve_8h_html_afa29ef5a69e52eaed5de345b6599491d"><div class="ttname"><a href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491d">heuristic</a></div><div class="ttdeci">heuristic</div><div class="ttdoc">La liste des noms internes des heuristiques (utile uniquement pour l'algorithme A*).</div><div class="ttdef"><b>Definition</b> solve.h:197</div></div>
+<div class="ttc" id="asolve_8h_html_afa29ef5a69e52eaed5de345b6599491da06a6f93e01675704e33b86025172479e"><div class="ttname"><a href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491da06a6f93e01675704e33b86025172479e">HEU_RUNA</a></div><div class="ttdeci">@ HEU_RUNA</div><div class="ttdoc">Augmente plus les minotaures sont proches.</div><div class="ttdef"><b>Definition</b> solve.h:200</div></div>
+<div class="ttc" id="asolve_8h_html_afa29ef5a69e52eaed5de345b6599491da313fc3d8154db2af45fffbba64d893f6"><div class="ttname"><a href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491da313fc3d8154db2af45fffbba64d893f6">HEU_MANH</a></div><div class="ttdeci">@ HEU_MANH</div><div class="ttdoc">Distance manhattan avec la sortie la plus proche.</div><div class="ttdef"><b>Definition</b> solve.h:199</div></div>
+<div class="ttc" id="asolve_8h_html_afa29ef5a69e52eaed5de345b6599491daa023c9ac01f82a194736bdba249d8060"><div class="ttname"><a href="solve_8h.html#afa29ef5a69e52eaed5de345b6599491daa023c9ac01f82a194736bdba249d8060">HEU_NONE</a></div><div class="ttdeci">@ HEU_NONE</div><div class="ttdoc">Heurstique constante.</div><div class="ttdef"><b>Definition</b> solve.h:198</div></div>
+<div class="ttc" id="astructdynarray_html"><div class="ttname"><a href="structdynarray.html">dynarray</a></div><div class="ttdoc">Implémentation d'un tableau dynamique.</div><div class="ttdef"><b>Definition</b> data_dynarray.h:40</div></div>
+<div class="ttc" id="astructgame_html"><div class="ttname"><a href="structgame.html">game</a></div><div class="ttdoc">Le type utilisé pour représenter le plateau jeu.</div><div class="ttdef"><b>Definition</b> game.h:43</div></div>
+<div class="ttc" id="astructmaze_html"><div class="ttname"><a href="structmaze.html">maze</a></div><div class="ttdoc">Le type utilisé pour représenter un labyrinthe.</div><div class="ttdef"><b>Definition</b> maze.h:111</div></div>
+<div class="ttc" id="astructsim__move__seq_html"><div class="ttname"><a href="structsim__move__seq.html">sim_move_seq</a></div><div class="ttdoc">Représentation d'une séquence de mouvements.</div><div class="ttdef"><b>Definition</b> solve.h:46</div></div>
+<div class="ttc" id="astructsim__move__seq_html_a5ea1ee045405eb10bfbd3e1e069fb518"><div class="ttname"><a href="structsim__move__seq.html#a5ea1ee045405eb10bfbd3e1e069fb518">sim_move_seq::next</a></div><div class="ttdeci">struct sim_move_seq * next</div><div class="ttdoc">Pointeur vers le mouvement suivant.</div><div class="ttdef"><b>Definition</b> solve.h:48</div></div>
+<div class="ttc" id="astructsim__move__seq_html_ad31d08df1423fd8ee99c08fb76f7e42d"><div class="ttname"><a href="structsim__move__seq.html#ad31d08df1423fd8ee99c08fb76f7e42d">sim_move_seq::direction</a></div><div class="ttdeci">move direction</div><div class="ttdoc">Un mouvement.</div><div class="ttdef"><b>Definition</b> solve.h:47</div></div>
+<div class="ttc" id="astructsim__path_html"><div class="ttname"><a href="structsim__path.html">sim_path</a></div><div class="ttdoc">Représentation d'un chemin simple (sans cycle).</div><div class="ttdef"><b>Definition</b> solve.h:64</div></div>
+<div class="ttc" id="astructsim__path_html_a18f0e8a74dbfda6165fe1baea6d9f41c"><div class="ttname"><a href="structsim__path.html#a18f0e8a74dbfda6165fe1baea6d9f41c">sim_path::start</a></div><div class="ttdeci">int start</div><div class="ttdoc">La cellule de départ.</div><div class="ttdef"><b>Definition</b> solve.h:65</div></div>
+<div class="ttc" id="astructsim__path_html_a7e667e1dc6d91c35edfe97607f9197a9"><div class="ttname"><a href="structsim__path.html#a7e667e1dc6d91c35edfe97607f9197a9">sim_path::length</a></div><div class="ttdeci">int length</div><div class="ttdoc">La longueur du chemin.</div><div class="ttdef"><b>Definition</b> solve.h:67</div></div>
+<div class="ttc" id="astructsim__path_html_aa3654ee815e01122693c5060732450cb"><div class="ttname"><a href="structsim__path.html#aa3654ee815e01122693c5060732450cb">sim_path::moves</a></div><div class="ttdeci">sim_move_seq * moves</div><div class="ttdoc">La séquence de mouvements à effectuer depuis cette cellule (NULL si le chemin est vide).</div><div class="ttdef"><b>Definition</b> solve.h:68</div></div>
+<div class="ttc" id="astructsim__path_html_aabafc7c72472152993e69e8b2f5a211a"><div class="ttname"><a href="structsim__path.html#aabafc7c72472152993e69e8b2f5a211a">sim_path::end</a></div><div class="ttdeci">int end</div><div class="ttdoc">La cellule d'arrivée.</div><div class="ttdef"><b>Definition</b> solve.h:66</div></div>
+<div class="ttc" id="astructsim__search_html"><div class="ttname"><a href="structsim__search.html">sim_search</a></div><div class="ttdoc">Représentation de l'information récupérée lors d'un parcours du labyrinthe en utilisant un des algori...</div><div class="ttdef"><b>Definition</b> solve.h:143</div></div>
+<div class="ttc" id="astructsim__search_html_a4b524eca82786144555f6c2fc1dd062f"><div class="ttname"><a href="structsim__search.html#a4b524eca82786144555f6c2fc1dd062f">sim_search::algo</a></div><div class="ttdeci">sim_algorithm algo</div><div class="ttdoc">L'algorithme utilisé pour le calcul.</div><div class="ttdef"><b>Definition</b> solve.h:144</div></div>
+<div class="ttc" id="astructsim__search_html_a66dde1c70dc6493b96d0b457464dc1fc"><div class="ttname"><a href="structsim__search.html#a66dde1c70dc6493b96d0b457464dc1fc">sim_search::search</a></div><div class="ttdeci">dynarray * search</div><div class="ttdoc">La liste des sommets visités par le parcours stockée dans l'ordre de visite à l'intérieur d'un tablea...</div><div class="ttdef"><b>Definition</b> solve.h:146</div></div>
+<div class="ttc" id="astructsim__search_html_a7fb59e6c8f65303d4fdf3909fbf3fdec"><div class="ttname"><a href="structsim__search.html#a7fb59e6c8f65303d4fdf3909fbf3fdec">sim_search::path</a></div><div class="ttdeci">sim_path * path</div><div class="ttdoc">Le chemin vers une sortie trouvé par le parcours (NULL si aucun chemin n'a été trouvé).</div><div class="ttdef"><b>Definition</b> solve.h:147</div></div>
+<div class="ttc" id="astructsim__search_html_adf38d89dfade819e2536fb64f375fac1"><div class="ttname"><a href="structsim__search.html#adf38d89dfade819e2536fb64f375fac1">sim_search::goal</a></div><div class="ttdeci">sim_goal goal</div><div class="ttdoc">L'objet qui était recherché.</div><div class="ttdef"><b>Definition</b> solve.h:145</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="solve_8h.html">solve.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

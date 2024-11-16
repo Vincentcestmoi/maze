@@ -1,0 +1,913 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet labyrinthe: Référence du fichier gui_controller.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet labyrinthe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('gui__controller_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier gui_controller.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interface: gestion de la boucle de jeu. Ne PAS modifier.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;time.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="gui__rendering_8h_source.html">gui_rendering.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gui__menus_8h_source.html">gui_menus.h</a>&quot;</code><br />
+</div>
+<p><a href="gui__controller_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ad0c295dc7508127458c99cf233eddd15" id="r_ad0c295dc7508127458c99cf233eddd15"><td class="memItemLeft" align="right" valign="top"><a id="ad0c295dc7508127458c99cf233eddd15" name="ad0c295dc7508127458c99cf233eddd15"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0c295dc7508127458c99cf233eddd15">ctl_flags</a> </td></tr>
+<tr class="memdesc:ad0c295dc7508127458c99cf233eddd15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags pour la boucle de jeu. <br /></td></tr>
+<tr class="separator:ad0c295dc7508127458c99cf233eddd15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae558b8a0ead24446b29c5bed1d1cac3d" id="r_ae558b8a0ead24446b29c5bed1d1cac3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae558b8a0ead24446b29c5bed1d1cac3d">set_flag</a> (<a class="el" href="#ad0c295dc7508127458c99cf233eddd15">ctl_flags</a>)</td></tr>
+<tr class="memdesc:ae558b8a0ead24446b29c5bed1d1cac3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activation d'un flag.  <br /></td></tr>
+<tr class="separator:ae558b8a0ead24446b29c5bed1d1cac3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08680c5723a84e217e00f0e1834d6662" id="r_a08680c5723a84e217e00f0e1834d6662"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08680c5723a84e217e00f0e1834d6662">remove_flag</a> (<a class="el" href="#ad0c295dc7508127458c99cf233eddd15">ctl_flags</a>)</td></tr>
+<tr class="memdesc:a08680c5723a84e217e00f0e1834d6662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Désactivation d'un flag.  <br /></td></tr>
+<tr class="separator:a08680c5723a84e217e00f0e1834d6662"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10cadab2b2b927dd805608920d957bea" id="r_a10cadab2b2b927dd805608920d957bea"><td class="memItemLeft" align="right" valign="top"><a id="a10cadab2b2b927dd805608920d957bea" name="a10cadab2b2b927dd805608920d957bea"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset_flags</b> (void)</td></tr>
+<tr class="memdesc:a10cadab2b2b927dd805608920d957bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Désactivation de tous les flags. <br /></td></tr>
+<tr class="separator:a10cadab2b2b927dd805608920d957bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13ac4b8aee43bf3c7ead22ab4fa3e2d3" id="r_a13ac4b8aee43bf3c7ead22ab4fa3e2d3"><td class="memItemLeft" align="right" valign="top"><a id="a13ac4b8aee43bf3c7ead22ab4fa3e2d3" name="a13ac4b8aee43bf3c7ead22ab4fa3e2d3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_game_ok</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a13ac4b8aee43bf3c7ead22ab4fa3e2d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si un jeu est bien construit (autant que faire se peut) <br /></td></tr>
+<tr class="separator:a13ac4b8aee43bf3c7ead22ab4fa3e2d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c752e2ee9ab7ebb8b297a548e2a9f25" id="r_a9c752e2ee9ab7ebb8b297a548e2a9f25"><td class="memItemLeft" align="right" valign="top"><a id="a9c752e2ee9ab7ebb8b297a548e2a9f25" name="a9c752e2ee9ab7ebb8b297a548e2a9f25"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_free_gui</b> (void)</td></tr>
+<tr class="memdesc:a9c752e2ee9ab7ebb8b297a548e2a9f25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libération des objets alloués faisant partie de l'interface. <br /></td></tr>
+<tr class="separator:a9c752e2ee9ab7ebb8b297a548e2a9f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0100ed3d7be9bcaf39bb111b31418e2e" id="r_a0100ed3d7be9bcaf39bb111b31418e2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgame.html">game</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0100ed3d7be9bcaf39bb111b31418e2e">ctl_init_game</a> (bool)</td></tr>
+<tr class="memdesc:a0100ed3d7be9bcaf39bb111b31418e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intialisation du jeu.  <br /></td></tr>
+<tr class="separator:a0100ed3d7be9bcaf39bb111b31418e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9d60382de56010d52ad59354c56b694" id="r_ac9d60382de56010d52ad59354c56b694"><td class="memItemLeft" align="right" valign="top"><a id="ac9d60382de56010d52ad59354c56b694" name="ac9d60382de56010d52ad59354c56b694"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_update_from_buffer</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ac9d60382de56010d52ad59354c56b694"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise à jour des paramètre à partir du buffer après écriture. <br /></td></tr>
+<tr class="separator:ac9d60382de56010d52ad59354c56b694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9dff5c9c89e0e7fe295a14a57872726" id="r_ab9dff5c9c89e0e7fe295a14a57872726"><td class="memItemLeft" align="right" valign="top"><a id="ab9dff5c9c89e0e7fe295a14a57872726" name="ab9dff5c9c89e0e7fe295a14a57872726"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_enter_menu</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ab9dff5c9c89e0e7fe295a14a57872726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actions appliquées dès qu'on entre dans un nouveau menu. <br /></td></tr>
+<tr class="separator:ab9dff5c9c89e0e7fe295a14a57872726"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33fb00949471dd74cf5bbb416904d9ce" id="r_a33fb00949471dd74cf5bbb416904d9ce"><td class="memItemLeft" align="right" valign="top"><a id="a33fb00949471dd74cf5bbb416904d9ce" name="a33fb00949471dd74cf5bbb416904d9ce"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_exit_menu</b> (void)</td></tr>
+<tr class="memdesc:a33fb00949471dd74cf5bbb416904d9ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actions appliquées dès qu'on sort d'un menu. <br /></td></tr>
+<tr class="separator:a33fb00949471dd74cf5bbb416904d9ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a816faad18d6a5eb22090752b24dc2dde" id="r_a816faad18d6a5eb22090752b24dc2dde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a816faad18d6a5eb22090752b24dc2dde">ctl_init_action</a> (<a class="el" href="structgame.html">game</a> *, <a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a>)</td></tr>
+<tr class="memdesc:a816faad18d6a5eb22090752b24dc2dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparation d'une action classique avant la modification du jeu.  <br /></td></tr>
+<tr class="separator:a816faad18d6a5eb22090752b24dc2dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0071df8d5047469b782e01dfebe33951" id="r_a0071df8d5047469b782e01dfebe33951"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0071df8d5047469b782e01dfebe33951">ctl_init_redo</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a0071df8d5047469b782e01dfebe33951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparation d'une action de restauration avant la modification du jeu.  <br /></td></tr>
+<tr class="separator:a0071df8d5047469b782e01dfebe33951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0a02aaf0a3198ab33e1490e0ccf3f81" id="r_aa0a02aaf0a3198ab33e1490e0ccf3f81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0a02aaf0a3198ab33e1490e0ccf3f81">ctl_init_undo</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:aa0a02aaf0a3198ab33e1490e0ccf3f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparation d'une action d'annulation avant la modification du jeu.  <br /></td></tr>
+<tr class="separator:aa0a02aaf0a3198ab33e1490e0ccf3f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14e0fa4f10aadb568c17ec84c5b79954" id="r_a14e0fa4f10aadb568c17ec84c5b79954"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14e0fa4f10aadb568c17ec84c5b79954">ctl_update_action</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a14e0fa4f10aadb568c17ec84c5b79954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fin de la préparation d'une action après la modification du jeu.  <br /></td></tr>
+<tr class="separator:a14e0fa4f10aadb568c17ec84c5b79954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a454e4727c0e4ad891fc0d9b7c0074652" id="r_a454e4727c0e4ad891fc0d9b7c0074652"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a454e4727c0e4ad891fc0d9b7c0074652">ctl_move_action</a> (<a class="el" href="structgame.html">game</a> *, <a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a>)</td></tr>
+<tr class="memdesc:a454e4727c0e4ad891fc0d9b7c0074652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise en place d'une action de déplacement.  <br /></td></tr>
+<tr class="separator:a454e4727c0e4ad891fc0d9b7c0074652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae514273176314579503016da59817708" id="r_ae514273176314579503016da59817708"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae514273176314579503016da59817708">ctl_bomb_action</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ae514273176314579503016da59817708"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise en place d'une action de bombe.  <br /></td></tr>
+<tr class="separator:ae514273176314579503016da59817708"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa64dbaf4a95082558eb75dde0423c048" id="r_aa64dbaf4a95082558eb75dde0423c048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa64dbaf4a95082558eb75dde0423c048">ctl_poly_action</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:aa64dbaf4a95082558eb75dde0423c048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise en place d'une action de poly d'algo.  <br /></td></tr>
+<tr class="separator:aa64dbaf4a95082558eb75dde0423c048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6228716c3ffd1c2e84f270c446f3dc3" id="r_ad6228716c3ffd1c2e84f270c446f3dc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6228716c3ffd1c2e84f270c446f3dc3">ctl_redo_action</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ad6228716c3ffd1c2e84f270c446f3dc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise en place d'une action de restauration.  <br /></td></tr>
+<tr class="separator:ad6228716c3ffd1c2e84f270c446f3dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a500e867889cc88f87ecdcbb91d73ee3d" id="r_a500e867889cc88f87ecdcbb91d73ee3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a500e867889cc88f87ecdcbb91d73ee3d">ctl_undo_action</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a500e867889cc88f87ecdcbb91d73ee3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise en place d'une action d'annulation.  <br /></td></tr>
+<tr class="separator:a500e867889cc88f87ecdcbb91d73ee3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a6e6c5617d239a09d956b4edf66164" id="r_a80a6e6c5617d239a09d956b4edf66164"><td class="memItemLeft" align="right" valign="top"><a id="a80a6e6c5617d239a09d956b4edf66164" name="a80a6e6c5617d239a09d956b4edf66164"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_next_mask_action</b> (void)</td></tr>
+<tr class="memdesc:a80a6e6c5617d239a09d956b4edf66164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passage au masque suivant. <br /></td></tr>
+<tr class="separator:a80a6e6c5617d239a09d956b4edf66164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a058b5d9fba314d3179cccbb675ff28cb" id="r_a058b5d9fba314d3179cccbb675ff28cb"><td class="memItemLeft" align="right" valign="top"><a id="a058b5d9fba314d3179cccbb675ff28cb" name="a058b5d9fba314d3179cccbb675ff28cb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_previous_mask_action</b> (void)</td></tr>
+<tr class="memdesc:a058b5d9fba314d3179cccbb675ff28cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passage au masque précédent. <br /></td></tr>
+<tr class="separator:a058b5d9fba314d3179cccbb675ff28cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82c69af7267a13d2ffd1748efa528ae4" id="r_a82c69af7267a13d2ffd1748efa528ae4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82c69af7267a13d2ffd1748efa528ae4">ctl_mouse_on_maze</a> (SDL_Event *)</td></tr>
+<tr class="memdesc:a82c69af7267a13d2ffd1748efa528ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si la souris pointe sur le labyrinthe.  <br /></td></tr>
+<tr class="separator:a82c69af7267a13d2ffd1748efa528ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b83fa76777863574174090f8d8cea71" id="r_a2b83fa76777863574174090f8d8cea71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b83fa76777863574174090f8d8cea71">ctl_mouse_on_menu</a> (SDL_Event *)</td></tr>
+<tr class="memdesc:a2b83fa76777863574174090f8d8cea71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si la souris pointe sur le menu.  <br /></td></tr>
+<tr class="separator:a2b83fa76777863574174090f8d8cea71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abba5024fac626da3118abf9b6a61878a" id="r_abba5024fac626da3118abf9b6a61878a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="gui__gamevars_8h.html#a3e08a16703943b810da7b8b2a915c836">buttons</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abba5024fac626da3118abf9b6a61878a">ctl_get_button</a> (int, int)</td></tr>
+<tr class="memdesc:abba5024fac626da3118abf9b6a61878a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupération d'un bouton à partir de coordonnées sur l'écran.  <br /></td></tr>
+<tr class="separator:abba5024fac626da3118abf9b6a61878a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34161d9eab661d6bcd19769fa027e77c" id="r_a34161d9eab661d6bcd19769fa027e77c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34161d9eab661d6bcd19769fa027e77c">ctl_mouse_motion</a> (<a class="el" href="structgame.html">game</a> *, SDL_Event *)</td></tr>
+<tr class="memdesc:a34161d9eab661d6bcd19769fa027e77c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traitement d'un déplacement de la souris.  <br /></td></tr>
+<tr class="separator:a34161d9eab661d6bcd19769fa027e77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe6958b3bd409901e5da91edb01395a7" id="r_abe6958b3bd409901e5da91edb01395a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe6958b3bd409901e5da91edb01395a7">ctl_mouse_click</a> (<a class="el" href="structgame.html">game</a> *, SDL_Event *)</td></tr>
+<tr class="memdesc:abe6958b3bd409901e5da91edb01395a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traitement d'un clic de la souris.  <br /></td></tr>
+<tr class="separator:abe6958b3bd409901e5da91edb01395a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ad4c916e3e5020f57d922b19043af38" id="r_a8ad4c916e3e5020f57d922b19043af38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ad4c916e3e5020f57d922b19043af38">ctl_mouse_unclick</a> (<a class="el" href="structgame.html">game</a> *, SDL_Event *)</td></tr>
+<tr class="memdesc:a8ad4c916e3e5020f57d922b19043af38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traitement du relachement d'un clic.  <br /></td></tr>
+<tr class="separator:a8ad4c916e3e5020f57d922b19043af38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28cd50f8c86f4ad3820cfd901ab2c08f" id="r_a28cd50f8c86f4ad3820cfd901ab2c08f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28cd50f8c86f4ad3820cfd901ab2c08f">ctl_keyboard</a> (<a class="el" href="structgame.html">game</a> *, SDL_Event *)</td></tr>
+<tr class="memdesc:a28cd50f8c86f4ad3820cfd901ab2c08f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traitement du clavier.  <br /></td></tr>
+<tr class="separator:a28cd50f8c86f4ad3820cfd901ab2c08f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06a943851ac878b26496ff95c73474c6" id="r_a06a943851ac878b26496ff95c73474c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06a943851ac878b26496ff95c73474c6">ctl_sim_compute</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a06a943851ac878b26496ff95c73474c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcul d'un nouveau parcours pour rechercher un chemin simple.  <br /></td></tr>
+<tr class="separator:a06a943851ac878b26496ff95c73474c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35b7533bb0f24073b4e65ed74c4f2869" id="r_a35b7533bb0f24073b4e65ed74c4f2869"><td class="memItemLeft" align="right" valign="top"><a id="a35b7533bb0f24073b4e65ed74c4f2869" name="a35b7533bb0f24073b4e65ed74c4f2869"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_sim_delete</b> (void)</td></tr>
+<tr class="memdesc:a35b7533bb0f24073b4e65ed74c4f2869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression du parcours enregistré. <br /></td></tr>
+<tr class="separator:a35b7533bb0f24073b4e65ed74c4f2869"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7967b212c0f9aa1b86590e237388c316" id="r_a7967b212c0f9aa1b86590e237388c316"><td class="memItemLeft" align="right" valign="top"><a id="a7967b212c0f9aa1b86590e237388c316" name="a7967b212c0f9aa1b86590e237388c316"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_update_redpath</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a7967b212c0f9aa1b86590e237388c316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise à jour du chemin rouge. <br /></td></tr>
+<tr class="separator:a7967b212c0f9aa1b86590e237388c316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5891f8c3180baada5f4acb944a5e6110" id="r_a5891f8c3180baada5f4acb944a5e6110"><td class="memItemLeft" align="right" valign="top"><a id="a5891f8c3180baada5f4acb944a5e6110" name="a5891f8c3180baada5f4acb944a5e6110"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_update_greenpath</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a5891f8c3180baada5f4acb944a5e6110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise à jour du chemin vert. <br /></td></tr>
+<tr class="separator:a5891f8c3180baada5f4acb944a5e6110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42c899cc0982b8e2f686625debe47c44" id="r_a42c899cc0982b8e2f686625debe47c44"><td class="memItemLeft" align="right" valign="top"><a id="a42c899cc0982b8e2f686625debe47c44" name="a42c899cc0982b8e2f686625debe47c44"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_update_bluepath</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a42c899cc0982b8e2f686625debe47c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise à jour du chemin bleu. <br /></td></tr>
+<tr class="separator:a42c899cc0982b8e2f686625debe47c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accb344b0cdd82380fd6b1c3af7768806" id="r_accb344b0cdd82380fd6b1c3af7768806"><td class="memItemLeft" align="right" valign="top"><a id="accb344b0cdd82380fd6b1c3af7768806" name="accb344b0cdd82380fd6b1c3af7768806"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_delete_redpath</b> (void)</td></tr>
+<tr class="memdesc:accb344b0cdd82380fd6b1c3af7768806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression du chemin rouge. <br /></td></tr>
+<tr class="separator:accb344b0cdd82380fd6b1c3af7768806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65a94ff5508981b4e69a63277cc18504" id="r_a65a94ff5508981b4e69a63277cc18504"><td class="memItemLeft" align="right" valign="top"><a id="a65a94ff5508981b4e69a63277cc18504" name="a65a94ff5508981b4e69a63277cc18504"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_delete_greenpath</b> (void)</td></tr>
+<tr class="memdesc:a65a94ff5508981b4e69a63277cc18504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression du chemin vert. <br /></td></tr>
+<tr class="separator:a65a94ff5508981b4e69a63277cc18504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5eddccd158350a8f1709ddd301c5ced" id="r_ae5eddccd158350a8f1709ddd301c5ced"><td class="memItemLeft" align="right" valign="top"><a id="ae5eddccd158350a8f1709ddd301c5ced" name="ae5eddccd158350a8f1709ddd301c5ced"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_delete_bluepath</b> (void)</td></tr>
+<tr class="memdesc:ae5eddccd158350a8f1709ddd301c5ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression du chemin bleu. <br /></td></tr>
+<tr class="separator:ae5eddccd158350a8f1709ddd301c5ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5b8b56546b5eafbb1a3bfaf12b7e7ec" id="r_ad5b8b56546b5eafbb1a3bfaf12b7e7ec"><td class="memItemLeft" align="right" valign="top"><a id="ad5b8b56546b5eafbb1a3bfaf12b7e7ec" name="ad5b8b56546b5eafbb1a3bfaf12b7e7ec"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_clear_paths</b> (void)</td></tr>
+<tr class="memdesc:ad5b8b56546b5eafbb1a3bfaf12b7e7ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression de tous les chemins. <br /></td></tr>
+<tr class="separator:ad5b8b56546b5eafbb1a3bfaf12b7e7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9a0a44edf473d2e9a730884290eb8f8" id="r_af9a0a44edf473d2e9a730884290eb8f8"><td class="memItemLeft" align="right" valign="top"><a id="af9a0a44edf473d2e9a730884290eb8f8" name="af9a0a44edf473d2e9a730884290eb8f8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_launch_searchpath</b> (void)</td></tr>
+<tr class="memdesc:af9a0a44edf473d2e9a730884290eb8f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lancement de l'animation de parcours. <br /></td></tr>
+<tr class="separator:af9a0a44edf473d2e9a730884290eb8f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3d5b0e5913ef901a2447f2c302f20c3" id="r_af3d5b0e5913ef901a2447f2c302f20c3"><td class="memItemLeft" align="right" valign="top"><a id="af3d5b0e5913ef901a2447f2c302f20c3" name="af3d5b0e5913ef901a2447f2c302f20c3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_print_searchpath</b> (void)</td></tr>
+<tr class="memdesc:af3d5b0e5913ef901a2447f2c302f20c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un parcours complet. <br /></td></tr>
+<tr class="separator:af3d5b0e5913ef901a2447f2c302f20c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa36d17e0d53d51429272e557dbf1947d" id="r_aa36d17e0d53d51429272e557dbf1947d"><td class="memItemLeft" align="right" valign="top"><a id="aa36d17e0d53d51429272e557dbf1947d" name="aa36d17e0d53d51429272e557dbf1947d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_hide_searchpath</b> (void)</td></tr>
+<tr class="memdesc:aa36d17e0d53d51429272e557dbf1947d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression de l'affichage d'un parcours. <br /></td></tr>
+<tr class="separator:aa36d17e0d53d51429272e557dbf1947d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a448394c3de1283b889a36f571722d4d0" id="r_a448394c3de1283b889a36f571722d4d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a448394c3de1283b889a36f571722d4d0">ctl_compute_complex</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a448394c3de1283b889a36f571722d4d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcul d'un chemin complexe.  <br /></td></tr>
+<tr class="separator:a448394c3de1283b889a36f571722d4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fbcb88a24776b0e3dc38b58e7562abf" id="r_a0fbcb88a24776b0e3dc38b58e7562abf"><td class="memItemLeft" align="right" valign="top"><a id="a0fbcb88a24776b0e3dc38b58e7562abf" name="a0fbcb88a24776b0e3dc38b58e7562abf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_delete_complex</b> (void)</td></tr>
+<tr class="memdesc:a0fbcb88a24776b0e3dc38b58e7562abf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Efface le chemin complexe. <br /></td></tr>
+<tr class="separator:a0fbcb88a24776b0e3dc38b58e7562abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e1f56b9501297dd19bb7e5e830e98f7" id="r_a5e1f56b9501297dd19bb7e5e830e98f7"><td class="memItemLeft" align="right" valign="top"><a id="a5e1f56b9501297dd19bb7e5e830e98f7" name="a5e1f56b9501297dd19bb7e5e830e98f7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_togglel_complex</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a5e1f56b9501297dd19bb7e5e830e98f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changement de mode de l'affichage d'un chemin complexe. <br /></td></tr>
+<tr class="separator:a5e1f56b9501297dd19bb7e5e830e98f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa649a829318ecb1ceee03f2c8cd35623" id="r_aa649a829318ecb1ceee03f2c8cd35623"><td class="memItemLeft" align="right" valign="top"><a id="aa649a829318ecb1ceee03f2c8cd35623" name="aa649a829318ecb1ceee03f2c8cd35623"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_toggler_complex</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:aa649a829318ecb1ceee03f2c8cd35623"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changement de mode de l'affichage d'un chemin complexe. <br /></td></tr>
+<tr class="separator:aa649a829318ecb1ceee03f2c8cd35623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44ce0c2dcee78d7b0742103d148d5ab7" id="r_a44ce0c2dcee78d7b0742103d148d5ab7"><td class="memItemLeft" align="right" valign="top"><a id="a44ce0c2dcee78d7b0742103d148d5ab7" name="a44ce0c2dcee78d7b0742103d148d5ab7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_next_complex</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a44ce0c2dcee78d7b0742103d148d5ab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changement du segment affiché dans un chemin complexe. <br /></td></tr>
+<tr class="separator:a44ce0c2dcee78d7b0742103d148d5ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1588e6885474bb578fb239ca940d1c9" id="r_ae1588e6885474bb578fb239ca940d1c9"><td class="memItemLeft" align="right" valign="top"><a id="ae1588e6885474bb578fb239ca940d1c9" name="ae1588e6885474bb578fb239ca940d1c9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_previous_complex</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ae1588e6885474bb578fb239ca940d1c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changement du segment affiché dans un chemin complexe. <br /></td></tr>
+<tr class="separator:ae1588e6885474bb578fb239ca940d1c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad14120e6d9af55b7167918a3feedd5f0" id="r_ad14120e6d9af55b7167918a3feedd5f0"><td class="memItemLeft" align="right" valign="top"><a id="ad14120e6d9af55b7167918a3feedd5f0" name="ad14120e6d9af55b7167918a3feedd5f0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_update_seg_num</b> (<a class="el" href="structgame.html">game</a> *, int)</td></tr>
+<tr class="memdesc:ad14120e6d9af55b7167918a3feedd5f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mise à jour du numéro de segment affiché <br /></td></tr>
+<tr class="separator:ad14120e6d9af55b7167918a3feedd5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3065acf88d884f9063689adf2971a0d4" id="r_a3065acf88d884f9063689adf2971a0d4"><td class="memItemLeft" align="right" valign="top"><a id="a3065acf88d884f9063689adf2971a0d4" name="a3065acf88d884f9063689adf2971a0d4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_anim_reset</b> (void)</td></tr>
+<tr class="memdesc:a3065acf88d884f9063689adf2971a0d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réinitialisation des animations. <br /></td></tr>
+<tr class="separator:a3065acf88d884f9063689adf2971a0d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30163e61b38ebe9bbd27ce5db5eb834a" id="r_a30163e61b38ebe9bbd27ce5db5eb834a"><td class="memItemLeft" align="right" valign="top"><a id="a30163e61b38ebe9bbd27ce5db5eb834a" name="a30163e61b38ebe9bbd27ce5db5eb834a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_anim_idle</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a30163e61b38ebe9bbd27ce5db5eb834a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animation des toons immobile (défaut). <br /></td></tr>
+<tr class="separator:a30163e61b38ebe9bbd27ce5db5eb834a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77c23901a4b463aff5e7d50392bda151" id="r_a77c23901a4b463aff5e7d50392bda151"><td class="memItemLeft" align="right" valign="top"><a id="a77c23901a4b463aff5e7d50392bda151" name="a77c23901a4b463aff5e7d50392bda151"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_anim_walk</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a77c23901a4b463aff5e7d50392bda151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animation de déplacement. <br /></td></tr>
+<tr class="separator:a77c23901a4b463aff5e7d50392bda151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacd7b11d594c84a62a0d31f5d43a7458" id="r_aacd7b11d594c84a62a0d31f5d43a7458"><td class="memItemLeft" align="right" valign="top"><a id="aacd7b11d594c84a62a0d31f5d43a7458" name="aacd7b11d594c84a62a0d31f5d43a7458"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_anim_kill</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:aacd7b11d594c84a62a0d31f5d43a7458"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animation d'une attaque de minotaure. <br /></td></tr>
+<tr class="separator:aacd7b11d594c84a62a0d31f5d43a7458"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67ab57d79cfb0459494b259ffb0d5b9c" id="r_a67ab57d79cfb0459494b259ffb0d5b9c"><td class="memItemLeft" align="right" valign="top"><a id="a67ab57d79cfb0459494b259ffb0d5b9c" name="a67ab57d79cfb0459494b259ffb0d5b9c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_anim_bomb</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a67ab57d79cfb0459494b259ffb0d5b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animation d'une bombe. <br /></td></tr>
+<tr class="separator:a67ab57d79cfb0459494b259ffb0d5b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ab464151a7d3eb875751fb8939e2c7" id="r_ad5ab464151a7d3eb875751fb8939e2c7"><td class="memItemLeft" align="right" valign="top"><a id="ad5ab464151a7d3eb875751fb8939e2c7" name="ad5ab464151a7d3eb875751fb8939e2c7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_anim_poly</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ad5ab464151a7d3eb875751fb8939e2c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animation d'un poly d'algo. <br /></td></tr>
+<tr class="separator:ad5ab464151a7d3eb875751fb8939e2c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2becc351c51031935a5d6deab80a004" id="r_af2becc351c51031935a5d6deab80a004"><td class="memItemLeft" align="right" valign="top"><a id="af2becc351c51031935a5d6deab80a004" name="af2becc351c51031935a5d6deab80a004"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_anim_uwalk</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:af2becc351c51031935a5d6deab80a004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animation d'une annulation de déplacement. <br /></td></tr>
+<tr class="separator:af2becc351c51031935a5d6deab80a004"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9adc2aa2d4a433d6dcb530e2a77a875e" id="r_a9adc2aa2d4a433d6dcb530e2a77a875e"><td class="memItemLeft" align="right" valign="top"><a id="a9adc2aa2d4a433d6dcb530e2a77a875e" name="a9adc2aa2d4a433d6dcb530e2a77a875e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_anim_ubomb</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a9adc2aa2d4a433d6dcb530e2a77a875e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animation d'une annulation de bombe. <br /></td></tr>
+<tr class="separator:a9adc2aa2d4a433d6dcb530e2a77a875e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d48840916ba046142a44cee31a64323" id="r_a8d48840916ba046142a44cee31a64323"><td class="memItemLeft" align="right" valign="top"><a id="a8d48840916ba046142a44cee31a64323" name="a8d48840916ba046142a44cee31a64323"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_anim_upoly</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a8d48840916ba046142a44cee31a64323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animation d'une annulation de poly d'algo. <br /></td></tr>
+<tr class="separator:a8d48840916ba046142a44cee31a64323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a773e43d94dddd27ff7f9c7f7e79bc9d4" id="r_a773e43d94dddd27ff7f9c7f7e79bc9d4"><td class="memItemLeft" align="right" valign="top"><a id="a773e43d94dddd27ff7f9c7f7e79bc9d4" name="a773e43d94dddd27ff7f9c7f7e79bc9d4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_anim_ukillwalk</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a773e43d94dddd27ff7f9c7f7e79bc9d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animation d'une annulation d'attaque de minotaure (qui suit un déplacement). <br /></td></tr>
+<tr class="separator:a773e43d94dddd27ff7f9c7f7e79bc9d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada7d577bc7f64187ca6b934af514a58e" id="r_ada7d577bc7f64187ca6b934af514a58e"><td class="memItemLeft" align="right" valign="top"><a id="ada7d577bc7f64187ca6b934af514a58e" name="ada7d577bc7f64187ca6b934af514a58e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_anim_ukillbomb</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ada7d577bc7f64187ca6b934af514a58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animation d'une annulation d'attaque de minotaure (qui suit une bombe). <br /></td></tr>
+<tr class="separator:ada7d577bc7f64187ca6b934af514a58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9590cd6998c49dd3b8c23321229d534f" id="r_a9590cd6998c49dd3b8c23321229d534f"><td class="memItemLeft" align="right" valign="top"><a id="a9590cd6998c49dd3b8c23321229d534f" name="a9590cd6998c49dd3b8c23321229d534f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>event_loop</b> (void)</td></tr>
+<tr class="memdesc:a9590cd6998c49dd3b8c23321229d534f"><td class="mdescLeft">&#160;</td><td class="mdescRight">La boucle de jeu. <br /></td></tr>
+<tr class="separator:a9590cd6998c49dd3b8c23321229d534f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a73ff57196a1be24524485df6afb416de" id="r_a73ff57196a1be24524485df6afb416de"><td class="memItemLeft" align="right" valign="top"><a id="a73ff57196a1be24524485df6afb416de" name="a73ff57196a1be24524485df6afb416de"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>flags</b> [NB_FLAGS]</td></tr>
+<tr class="memdesc:a73ff57196a1be24524485df6afb416de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tableau des flags. <br /></td></tr>
+<tr class="separator:a73ff57196a1be24524485df6afb416de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Interface: gestion de la boucle de jeu. Ne PAS modifier. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Cette partie est déjà implémentée. Il ne faut PAS la modifier. </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ae514273176314579503016da59817708" name="ae514273176314579503016da59817708"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae514273176314579503016da59817708">&#9670;&#160;</a></span>ctl_bomb_action()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_bomb_action </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mise en place d'une action de bombe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a448394c3de1283b889a36f571722d4d0" name="a448394c3de1283b889a36f571722d4d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a448394c3de1283b889a36f571722d4d0">&#9670;&#160;</a></span>ctl_compute_complex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_compute_complex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcul d'un chemin complexe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abba5024fac626da3118abf9b6a61878a" name="abba5024fac626da3118abf9b6a61878a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba5024fac626da3118abf9b6a61878a">&#9670;&#160;</a></span>ctl_get_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="gui__gamevars_8h.html#a3e08a16703943b810da7b8b2a915c836">buttons</a> ctl_get_button </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupération d'un bouton à partir de coordonnées sur l'écran. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée verticale. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a816faad18d6a5eb22090752b24dc2dde" name="a816faad18d6a5eb22090752b24dc2dde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a816faad18d6a5eb22090752b24dc2dde">&#9670;&#160;</a></span>ctl_init_action()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_init_action </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a></td>          <td class="paramname"><span class="paramname"><em>themove</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparation d'une action classique avant la modification du jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">themove</td><td>Déplacement. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0100ed3d7be9bcaf39bb111b31418e2e" name="a0100ed3d7be9bcaf39bb111b31418e2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0100ed3d7be9bcaf39bb111b31418e2e">&#9670;&#160;</a></span>ctl_init_game()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgame.html">game</a> * ctl_init_game </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>firstgen</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Intialisation du jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">firstgen</td><td>Indique si il s'agit de la première génération ou non. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0071df8d5047469b782e01dfebe33951" name="a0071df8d5047469b782e01dfebe33951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0071df8d5047469b782e01dfebe33951">&#9670;&#160;</a></span>ctl_init_redo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_init_redo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparation d'une action de restauration avant la modification du jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa0a02aaf0a3198ab33e1490e0ccf3f81" name="aa0a02aaf0a3198ab33e1490e0ccf3f81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0a02aaf0a3198ab33e1490e0ccf3f81">&#9670;&#160;</a></span>ctl_init_undo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_init_undo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparation d'une action d'annulation avant la modification du jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a28cd50f8c86f4ad3820cfd901ab2c08f" name="a28cd50f8c86f4ad3820cfd901ab2c08f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28cd50f8c86f4ad3820cfd901ab2c08f">&#9670;&#160;</a></span>ctl_keyboard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_keyboard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Event *</td>          <td class="paramname"><span class="paramname"><em>theevent</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Traitement du clavier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">theevent</td><td>L'Event pour avoir la touche utilisée. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abe6958b3bd409901e5da91edb01395a7" name="abe6958b3bd409901e5da91edb01395a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe6958b3bd409901e5da91edb01395a7">&#9670;&#160;</a></span>ctl_mouse_click()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_mouse_click </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Event *</td>          <td class="paramname"><span class="paramname"><em>theevent</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Traitement d'un clic de la souris. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">theevent</td><td>L'Event pour avoir la position de la souris </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a34161d9eab661d6bcd19769fa027e77c" name="a34161d9eab661d6bcd19769fa027e77c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34161d9eab661d6bcd19769fa027e77c">&#9670;&#160;</a></span>ctl_mouse_motion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_mouse_motion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Event *</td>          <td class="paramname"><span class="paramname"><em>theevent</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Traitement d'un déplacement de la souris. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theevent</td><td>L'Event pour avoir la position de la souris </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a82c69af7267a13d2ffd1748efa528ae4" name="a82c69af7267a13d2ffd1748efa528ae4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82c69af7267a13d2ffd1748efa528ae4">&#9670;&#160;</a></span>ctl_mouse_on_maze()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ctl_mouse_on_maze </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Event *</td>          <td class="paramname"><span class="paramname"><em>theevent</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teste si la souris pointe sur le labyrinthe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theevent</td><td>L'Event pour avoir la position de la souris. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2b83fa76777863574174090f8d8cea71" name="a2b83fa76777863574174090f8d8cea71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b83fa76777863574174090f8d8cea71">&#9670;&#160;</a></span>ctl_mouse_on_menu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ctl_mouse_on_menu </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Event *</td>          <td class="paramname"><span class="paramname"><em>theevent</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teste si la souris pointe sur le menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theevent</td><td>L'Event pour avoir la position de la souris. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8ad4c916e3e5020f57d922b19043af38" name="a8ad4c916e3e5020f57d922b19043af38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ad4c916e3e5020f57d922b19043af38">&#9670;&#160;</a></span>ctl_mouse_unclick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_mouse_unclick </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Event *</td>          <td class="paramname"><span class="paramname"><em>theevent</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Traitement du relachement d'un clic. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theevent</td><td>L'Event pour avoir la position de la souris </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a454e4727c0e4ad891fc0d9b7c0074652" name="a454e4727c0e4ad891fc0d9b7c0074652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a454e4727c0e4ad891fc0d9b7c0074652">&#9670;&#160;</a></span>ctl_move_action()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_move_action </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a></td>          <td class="paramname"><span class="paramname"><em>themove</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mise en place d'une action de déplacement. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa64dbaf4a95082558eb75dde0423c048" name="aa64dbaf4a95082558eb75dde0423c048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa64dbaf4a95082558eb75dde0423c048">&#9670;&#160;</a></span>ctl_poly_action()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_poly_action </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mise en place d'une action de poly d'algo. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad6228716c3ffd1c2e84f270c446f3dc3" name="ad6228716c3ffd1c2e84f270c446f3dc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6228716c3ffd1c2e84f270c446f3dc3">&#9670;&#160;</a></span>ctl_redo_action()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_redo_action </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mise en place d'une action de restauration. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a06a943851ac878b26496ff95c73474c6" name="a06a943851ac878b26496ff95c73474c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06a943851ac878b26496ff95c73474c6">&#9670;&#160;</a></span>ctl_sim_compute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_sim_compute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcul d'un nouveau parcours pour rechercher un chemin simple. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a500e867889cc88f87ecdcbb91d73ee3d" name="a500e867889cc88f87ecdcbb91d73ee3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a500e867889cc88f87ecdcbb91d73ee3d">&#9670;&#160;</a></span>ctl_undo_action()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_undo_action </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mise en place d'une action d'annulation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a14e0fa4f10aadb568c17ec84c5b79954" name="a14e0fa4f10aadb568c17ec84c5b79954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e0fa4f10aadb568c17ec84c5b79954">&#9670;&#160;</a></span>ctl_update_action()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ctl_update_action </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fin de la préparation d'une action après la modification du jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a08680c5723a84e217e00f0e1834d6662" name="a08680c5723a84e217e00f0e1834d6662"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08680c5723a84e217e00f0e1834d6662">&#9670;&#160;</a></span>remove_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void remove_flag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ad0c295dc7508127458c99cf233eddd15">ctl_flags</a></td>          <td class="paramname"><span class="paramname"><em>f</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Désactivation d'un flag. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>Le flag </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae558b8a0ead24446b29c5bed1d1cac3d" name="ae558b8a0ead24446b29c5bed1d1cac3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae558b8a0ead24446b29c5bed1d1cac3d">&#9670;&#160;</a></span>set_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_flag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ad0c295dc7508127458c99cf233eddd15">ctl_flags</a></td>          <td class="paramname"><span class="paramname"><em>f</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Activation d'un flag. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>Le flag </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="gui__controller_8h.html">gui_controller.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

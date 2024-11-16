@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet labyrinthe:  Fichier source de gui_init_graphic.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet labyrinthe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('gui__init__graphic_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">gui_init_graphic.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="gui__init__graphic_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef UIDEFS_H_</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define UIDEFS_H_</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="gui__textbuf_8h.html">gui_textbuf.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="gui__gamevars_8h.html">gui_gamevars.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> <span class="comment">/*  ___       _ _   _       _ _           _   _                   _       */</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> <span class="comment">/* |_ _|_ __ (_) |_(_) __ _| (_)___  __ _| |_(_) ___  _ __     __| | ___  */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> <span class="comment">/*  | || &#39;_ \| | __| |/ _` | | / __|/ _` | __| |/ _ \| &#39;_ \   / _` |/ _ \ */</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> <span class="comment">/*  | || | | | | |_| | (_| | | \__ \ (_| | |_| | (_) | | | | | (_| |  __/ */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> <span class="comment">/* |___|_| |_|_|\__|_|\__,_|_|_|___/\__,_|\__|_|\___/|_| |_|  \__,_|\___| */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> <span class="comment">/* | ( ) __ _ / _|/ _(_) ___| |__   __ _  __ _  ___                       */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> <span class="comment">/* | |/ / _` | |_| |_| |/ __| &#39;_ \ / _` |/ _` |/ _ \                      */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> <span class="comment">/* | | | (_| |  _|  _| | (__| | | | (_| | (_| |  __/                      */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> <span class="comment">/* |_|  \__,_|_| |_| |_|\___|_| |_|\__,_|\__, |\___|                      */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> <span class="comment">/*                                       |___/                            */</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> /**************/</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> <span class="comment">/*+ Couleurs +*/</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> /**************/</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">static</span> <span class="keyword">const</span> SDL_Color BLACK = { 0, 0, 0, 255 };</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">static</span> <span class="keyword">const</span> SDL_Color WHITE = { 255, 255, 255, 255 };</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">static</span> <span class="keyword">const</span> SDL_Color REDT = { 255, 43, 31, 200 };</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">static</span> <span class="keyword">const</span> SDL_Color GREENT = { 16, 253, 56, 200 };</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">static</span> <span class="keyword">const</span> SDL_Color BLUET = { 25, 25, 252, 200 };</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">static</span> <span class="keyword">const</span> SDL_Color ORANGET = { 239, 216, 7, 200 };</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">static</span> <span class="keyword">const</span> SDL_Color CARML = { 255,0,56, 255 };</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">static</span> <span class="keyword">const</span> SDL_Color CARMT = { 250,235,215, 200 };</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#define COLOR_TUPLE(color) ((color).r), ((color).g), ((color).b), ((color).a)</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">/***********/</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">/*+ Fonts +*/</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">/***********/</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">extern</span> TTF_Font* Sans18, * Sans16, * Paci20;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">void</span> <a class="code hl_function" href="gui__init__graphic_8h.html#a0be96fe948a4e4932930c16fed3199a6">init_fonts</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">/*************/</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">/*+ Sprites +*/</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">/*************/</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> <a class="code hl_function" href="gui__init__graphic_8h.html#a7c0eb5e939b28e38585244f9213ea937">init_image</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">extern</span> SDL_Texture* txt_icons;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">extern</span> SDL_Texture* txt_frames;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">extern</span> SDL_Texture* txt_walls;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">extern</span> SDL_Texture* txt_floor;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keyword">extern</span> SDL_Texture* txt_player;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">extern</span> SDL_Texture* txt_minotaur;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">extern</span> SDL_Texture* txt_objects;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keyword">extern</span> SDL_Texture* txt_bomb;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">extern</span> SDL_Texture* txt_explosion;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword">extern</span> SDL_Texture* txt_lightning;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">extern</span> SDL_Texture* txt_impact;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="};">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="gui__init__graphic_8h.html#a74597c8261dcbfa4f25506599ba25218">  113</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// Icones</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    CLP_ARRN,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    CLP_ARRE,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    CLP_ARRS,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    CLP_ARRW,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    CLP_STOP,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    CLP_UNDO,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    CLP_QUES,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    CLP_TOON,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">// UI</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    CLP_TBOXNW,</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    CLP_TBOXN,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    CLP_TBOXNE,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    CLP_TBOXW,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    CLP_TBOXC,</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    CLP_TBOXE,</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    CLP_TBOXSW,</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    CLP_TBOXS,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    CLP_TBOXSE,</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    CLP_TTITW,</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    CLP_TTITC,</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    CLP_TTITE,</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    CLP_TTITWB,</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    CLP_TTITEB,</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    CLP_PUSHOFF,</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    CLP_PUSHON,</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    CLP_GPUSHOFF,</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    CLP_GPUSHON,</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    CLP_RPUSHOFF,</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    CLP_RPUSHON,</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    CLP_KPUSHOFF,</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    CLP_KPUSHON,</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    CLP_CIRCLE,</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    CLP_MOVEON,</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    CLP_MOVEOFF,</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    CLP_LEFTD,</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    CLP_RIGHTD,</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    CLP_BELOWD,</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    CLP_EDIT,</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    CLP_PLUS,</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    CLP_MINUS,</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    CLP_TUBEL,</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    CLP_TUBEC,</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    CLP_TUBER,</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    CLP_FTUBEL,</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    CLP_FTUBEC,</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    CLP_FTUBER,</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    CLP_BIGL,</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    CLP_BIGC,</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    CLP_BIGR,</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    CLP_BIGBLON,</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    CLP_BIGBCON,</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    CLP_BIGBRON,</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    CLP_BIGBLOFF,</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    CLP_BIGBCOFF,</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    CLP_BIGBROFF,</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="comment">// Les murs</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    CLP_LANGLE,</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    CLP_RANGLE,</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    CLP_LWALL,</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    CLP_RWALL,</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    CLP_HWALL1,</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    CLP_HWALL2,</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    CLP_HWALL3,</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="comment">// Le sol</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    CLP_FLOOR1,</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    CLP_FLOOR2,</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    CLP_FLOOR3,</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    CLP_FLOOR4,</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="comment">// Les toons</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    CLP_NWALK1,</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    CLP_NWALK2,</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    CLP_NWALK3,</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    CLP_NWALK4,</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    CLP_NWALK5,</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    CLP_NWALK6,</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    CLP_NWALK7,</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    CLP_NWALK8,</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    CLP_NWALK9,</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    CLP_EWALK1,</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    CLP_EWALK2,</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    CLP_EWALK3,</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    CLP_EWALK4,</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    CLP_EWALK5,</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    CLP_EWALK6,</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    CLP_EWALK7,</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    CLP_EWALK8,</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    CLP_EWALK9,</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    CLP_SWALK1,</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    CLP_SWALK2,</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    CLP_SWALK3,</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    CLP_SWALK4,</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    CLP_SWALK5,</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    CLP_SWALK6,</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    CLP_SWALK7,</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    CLP_SWALK8,</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    CLP_SWALK9,</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    CLP_WWALK1,</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    CLP_WWALK2,</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    CLP_WWALK3,</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    CLP_WWALK4,</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    CLP_WWALK5,</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    CLP_WWALK6,</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    CLP_WWALK7,</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    CLP_WWALK8,</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    CLP_WWALK9,</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    CLP_WIN,</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    CLP_DEAD,</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    CLP_NSWING1,</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    CLP_NSWING2,</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    CLP_NSWING3,</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    CLP_NSWING4,</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    CLP_NSWING5,</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    CLP_NSWING6,</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    CLP_ESWING1,</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    CLP_ESWING2,</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    CLP_ESWING3,</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    CLP_ESWING4,</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    CLP_ESWING5,</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    CLP_ESWING6,</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    CLP_SSWING1,</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    CLP_SSWING2,</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    CLP_SSWING3,</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    CLP_SSWING4,</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    CLP_SSWING5,</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    CLP_SSWING6,</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    CLP_WSWING1,</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    CLP_WSWING2,</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    CLP_WSWING3,</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    CLP_WSWING4,</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    CLP_WSWING5,</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    CLP_WSWING6,</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="comment">// Les objets</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    CLP_BLOOD,</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    CLP_TREA1,</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    CLP_TREA2,</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    CLP_TREA3,</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    CLP_BOMBS,</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    CLP_EXITS,</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    CLP_SLASH,</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    CLP_ASHES,</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    CLP_POLYS,</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    CLP_FILLS,</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="comment">// Explosion</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    CLP_EXPLO1,</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    CLP_EXPLO2,</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    CLP_EXPLO3,</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    CLP_EXPLO4,</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    CLP_EXPLO5,</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    CLP_EXPLO6,</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    CLP_EXPLO7,</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <span class="comment">// Eclair</span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    CLP_LIGHT1,</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    CLP_LIGHT2,</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    CLP_LIGHT3,</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    CLP_LIGHT4,</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    CLP_LIGHT5,</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    CLP_LIGHT6,</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    <span class="comment">// IMPACT</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    CLP_IMPACT1,</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    CLP_IMPACT2,</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    CLP_IMPACT3,</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    CLP_IMPACT4,</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    CLP_IMPACT5,</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    CLP_IMPACT6,</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <span class="comment">// La taille du tableau des clips</span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    CLP_SIZE,</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>} <a class="code hl_enumeration" href="gui__init__graphic_8h.html#a74597c8261dcbfa4f25506599ba25218">textureclips</a>;</div>
+</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="keyword">extern</span> SDL_Rect clp_textures[CLP_SIZE];</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span><span class="keywordtype">void</span> <a class="code hl_function" href="gui__init__graphic_8h.html#a5f55be8dbff6bde6bcc55c96db3a705b">init_load_sprites</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span><span class="comment">/*****************/</span></div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="comment">/*+ Fenêtre SDL +*/</span></div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span><span class="comment">/*****************/</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span> </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="keyword">extern</span> SDL_Window* window;</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span><span class="keyword">extern</span> SDL_Renderer* renderer;</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span><span class="keywordtype">bool</span> <a class="code hl_function" href="gui__init__graphic_8h.html#ae843387ce32187e6aba40284ef57e847">init_SDL</a>(<span class="keywordtype">short</span> </div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    , <span class="keywordtype">short</span> </div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>);</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="keywordtype">void</span> <a class="code hl_function" href="gui__init__graphic_8h.html#a11d3389615088ca85bcbce108b9e3dbd">shutdown_SDL</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="preprocessor">#endif </span><span class="comment">// UIDEFS_H_</span></div>
+<div class="ttc" id="agui__gamevars_8h_html"><div class="ttname"><a href="gui__gamevars_8h.html">gui_gamevars.h</a></div><div class="ttdoc">Interface: variables globales. Ne PAS modifier.</div></div>
+<div class="ttc" id="agui__init__graphic_8h_html_a0be96fe948a4e4932930c16fed3199a6"><div class="ttname"><a href="gui__init__graphic_8h.html#a0be96fe948a4e4932930c16fed3199a6">init_fonts</a></div><div class="ttdeci">void init_fonts(void)</div><div class="ttdoc">Chargement des fonts.</div><div class="ttdef"><b>Definition</b> gui_init_graphic.c:12</div></div>
+<div class="ttc" id="agui__init__graphic_8h_html_a11d3389615088ca85bcbce108b9e3dbd"><div class="ttname"><a href="gui__init__graphic_8h.html#a11d3389615088ca85bcbce108b9e3dbd">shutdown_SDL</a></div><div class="ttdeci">void shutdown_SDL(void)</div><div class="ttdoc">Fermeture de SDL.</div><div class="ttdef"><b>Definition</b> gui_init_graphic.c:742</div></div>
+<div class="ttc" id="agui__init__graphic_8h_html_a5f55be8dbff6bde6bcc55c96db3a705b"><div class="ttname"><a href="gui__init__graphic_8h.html#a5f55be8dbff6bde6bcc55c96db3a705b">init_load_sprites</a></div><div class="ttdeci">void init_load_sprites(void)</div><div class="ttdoc">Initialisation des sprites.</div><div class="ttdef"><b>Definition</b> gui_init_graphic.c:57</div></div>
+<div class="ttc" id="agui__init__graphic_8h_html_a74597c8261dcbfa4f25506599ba25218"><div class="ttname"><a href="gui__init__graphic_8h.html#a74597c8261dcbfa4f25506599ba25218">textureclips</a></div><div class="ttdeci">textureclips</div><div class="ttdoc">Noms internes des coordonnées des textures.</div><div class="ttdef"><b>Definition</b> gui_init_graphic.h:113</div></div>
+<div class="ttc" id="agui__init__graphic_8h_html_a7c0eb5e939b28e38585244f9213ea937"><div class="ttname"><a href="gui__init__graphic_8h.html#a7c0eb5e939b28e38585244f9213ea937">init_image</a></div><div class="ttdeci">void init_image(void)</div><div class="ttdoc">Initialisation du module pour charger les PNGs.</div><div class="ttdef"><b>Definition</b> gui_init_graphic.c:34</div></div>
+<div class="ttc" id="agui__init__graphic_8h_html_ae843387ce32187e6aba40284ef57e847"><div class="ttname"><a href="gui__init__graphic_8h.html#ae843387ce32187e6aba40284ef57e847">init_SDL</a></div><div class="ttdeci">bool init_SDL(short, short)</div><div class="ttdoc">Initialisation de la fenêtre SDL.</div><div class="ttdef"><b>Definition</b> gui_init_graphic.c:699</div></div>
+<div class="ttc" id="agui__textbuf_8h_html"><div class="ttname"><a href="gui__textbuf_8h.html">gui_textbuf.h</a></div><div class="ttdoc">Interface: gestion des buffers utilisés lors de la saisie de texte. Ne PAS modifier.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="gui__init__graphic_8h.html">gui_init_graphic.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

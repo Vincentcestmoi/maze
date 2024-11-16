@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet labyrinthe: Référence du fichier game.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet labyrinthe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('game_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier game.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Définition et manipulation du plateau de jeu.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="alloc_8h_source.html">alloc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="error_8h_source.html">error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="maze_8h_source.html">maze.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="maze__gen_8h_source.html">maze_gen.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="maze__objects_8h_source.html">maze_objects.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="maze__braiding_8h_source.html">maze_braiding.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="game__strategies_8h_source.html">game_strategies.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="game__history_8h_source.html">game_history.h</a>&quot;</code><br />
+</div>
+<p><a href="game_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgame.html">game</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le type utilisé pour représenter le plateau jeu.  <a href="structgame.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a7b241bb2158bebba0ed37a440f90c336" id="r_a7b241bb2158bebba0ed37a440f90c336"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgame.html">game</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b241bb2158bebba0ed37a440f90c336">create_newgame</a> (int, int, <a class="el" href="structmask.html">mask</a> *, <a class="el" href="maze__gen_8h.html#ad18616e742f0f017314e5ead22459ce4">generator</a>, <a class="el" href="maze__objects_8h.html#aad0efd3db6aedca6febfef5e717151fa">objgenerator</a>, int, int)</td></tr>
+<tr class="memdesc:a7b241bb2158bebba0ed37a440f90c336"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génération d'un nouveau jeu.  <br /></td></tr>
+<tr class="separator:a7b241bb2158bebba0ed37a440f90c336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36b4e70d9f780b621f52d8118a667331" id="r_a36b4e70d9f780b621f52d8118a667331"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36b4e70d9f780b621f52d8118a667331">free_game</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a36b4e70d9f780b621f52d8118a667331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libération d'un jeu.  <br /></td></tr>
+<tr class="separator:a36b4e70d9f780b621f52d8118a667331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70adf5f35b658c27134cbbcd37981c72" id="r_a70adf5f35b658c27134cbbcd37981c72"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70adf5f35b658c27134cbbcd37981c72">game_try_kill_player</a> (<a class="el" href="structgame.html">game</a> *, <a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a> *)</td></tr>
+<tr class="memdesc:a70adf5f35b658c27134cbbcd37981c72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si un minotaure se trouve à côté du joueur et tue le joueur si c'est le cas.  <br /></td></tr>
+<tr class="separator:a70adf5f35b658c27134cbbcd37981c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add31568d0a0d9e879b455dffd3a8dd6e" id="r_add31568d0a0d9e879b455dffd3a8dd6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add31568d0a0d9e879b455dffd3a8dd6e">game_consume_object</a> (<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="maze_8h.html#ad03408aabe16bb53c780fae6cf3910f9">object</a>)</td></tr>
+<tr class="memdesc:add31568d0a0d9e879b455dffd3a8dd6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le plateau jeu en retirant/ajoutant (suivant le signe du paramètre) plusieurs copies d'un objet donné au joueur.  <br /></td></tr>
+<tr class="separator:add31568d0a0d9e879b455dffd3a8dd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecccab600ba4deb9e9bc443bdd68e011" id="r_aecccab600ba4deb9e9bc443bdd68e011"><td class="memItemLeft" align="right" valign="top"><a class="el" href="maze_8h.html#ad03408aabe16bb53c780fae6cf3910f9">object</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecccab600ba4deb9e9bc443bdd68e011">game_treat_object</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:aecccab600ba4deb9e9bc443bdd68e011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si un objet se trouve sur la cellule du joueur et modifie le plateau en consommant cet objet (si cet objet est consommable).  <br /></td></tr>
+<tr class="separator:aecccab600ba4deb9e9bc443bdd68e011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24557969ad06611962cda880faddd1ce" id="r_a24557969ad06611962cda880faddd1ce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24557969ad06611962cda880faddd1ce">implement_game_move</a> (<a class="el" href="structgame.html">game</a> *, <a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a>, <a class="el" href="game__strategies_8h.html#ab621d71bb2cf38b09419ef3a5047e30c">strategy</a>)</td></tr>
+<tr class="memdesc:a24557969ad06611962cda880faddd1ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si un mouvement demandé par le joueur est réalisable et met à jour le plateau de jeu en conséquence. Sont modifiés: la position du joueur, les positions des minotaures, les trésors, le statut du joueur (a-t-il été tué par un minotaure ?), le nombre de tours joués et l'historique.  <br /></td></tr>
+<tr class="separator:a24557969ad06611962cda880faddd1ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18edc73b1a9ba5f2c91e4eefbb467c13" id="r_a18edc73b1a9ba5f2c91e4eefbb467c13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18edc73b1a9ba5f2c91e4eefbb467c13">game_bomb_wall</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a18edc73b1a9ba5f2c91e4eefbb467c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilise une bombe (si il y a une dans l'inventaire du joueur) et met à jour le plateau de jeu en conséquence.  <br /></td></tr>
+<tr class="separator:a18edc73b1a9ba5f2c91e4eefbb467c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa10b5aa05a5b5082b2b67b6d20efe93d" id="r_aa10b5aa05a5b5082b2b67b6d20efe93d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa10b5aa05a5b5082b2b67b6d20efe93d">game_kill_minotaurs</a> (<a class="el" href="structgame.html">game</a> *, int d)</td></tr>
+<tr class="memdesc:aa10b5aa05a5b5082b2b67b6d20efe93d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilise un poly d'algo (si c'est possible) et met à jour le plateau de jeu en conséquence.  <br /></td></tr>
+<tr class="separator:aa10b5aa05a5b5082b2b67b6d20efe93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca482a8b8fdc5823f751afb650a19e37" id="r_aca482a8b8fdc5823f751afb650a19e37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca482a8b8fdc5823f751afb650a19e37">game_undo</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:aca482a8b8fdc5823f751afb650a19e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Annulation d'une action à partir de l'historique.  <br /></td></tr>
+<tr class="separator:aca482a8b8fdc5823f751afb650a19e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bae13aefe8424359f80259a5a34ee44" id="r_a4bae13aefe8424359f80259a5a34ee44"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bae13aefe8424359f80259a5a34ee44">game_redo</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a4bae13aefe8424359f80259a5a34ee44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restauration d'une action à partir de l'historique.  <br /></td></tr>
+<tr class="separator:a4bae13aefe8424359f80259a5a34ee44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Définition et manipulation du plateau de jeu. </p>
+<p>Contient le type utilisé pour représenter un plateau jeu ainsi que les fonctions dont on se servira pour le manipuler: création, implémentation d'un tour et libération. </p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a7b241bb2158bebba0ed37a440f90c336" name="a7b241bb2158bebba0ed37a440f90c336"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b241bb2158bebba0ed37a440f90c336">&#9670;&#160;</a></span>create_newgame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgame.html">game</a> * create_newgame </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>hsize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>vsize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmask.html">mask</a> *</td>          <td class="paramname"><span class="paramname"><em>themask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze__gen_8h.html#ad18616e742f0f017314e5ead22459ce4">generator</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze__objects_8h.html#aad0efd3db6aedca6febfef5e717151fa">objgenerator</a></td>          <td class="paramname"><span class="paramname"><em>obj_mode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>mino_count</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>braidodds</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Génération d'un nouveau jeu. </p>
+<dl class="section remark"><dt>Remarques</dt><dd>La fonction prend à la fois un masque et des dimensions pour le plateau de jeu à construire. Si les dimensions prises en entrée sont différentes de celles du masque, on se servira des premières: le masque doit être redimensionné.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>Tous les champs de la structure doivent être initialisés, y compris ceux qui correspondent à des parties du projet qui ne sont pas (encore) implémentées. En particulier, l'historique DOIT être initialisé à NULL si cette fonctionnalité n'a pas (encore) été implémentée. Cela permet à l'interface de détecter qu'il n'y pas d'historique (et donc de ne pas crasher).</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur vers le plateau de jeu généré. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hsize</td><td>Taille horizontale.  </td></tr>
+    <tr><td class="paramname">vsize</td><td>Taille verticale.  </td></tr>
+    <tr><td class="paramname">themask</td><td>Masque à utiliser (si ce paramètre est NULL, on n'utilisera pas de masque).  </td></tr>
+    <tr><td class="paramname">mode</td><td>Le générateur de labyrinthe à utiliser.  </td></tr>
+    <tr><td class="paramname">obj_mode</td><td>Le générateur d'objets à utiliser.  </td></tr>
+    <tr><td class="paramname">mino_count</td><td>Le nombre de minotaures à générer.  </td></tr>
+    <tr><td class="paramname">braidodds</td><td>Le pourcentage de tressage à utiliser (élimination des culs-de-sac). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a36b4e70d9f780b621f52d8118a667331" name="a36b4e70d9f780b621f52d8118a667331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36b4e70d9f780b621f52d8118a667331">&#9670;&#160;</a></span>free_game()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_game </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libération d'un jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a18edc73b1a9ba5f2c91e4eefbb467c13" name="a18edc73b1a9ba5f2c91e4eefbb467c13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18edc73b1a9ba5f2c91e4eefbb467c13">&#9670;&#160;</a></span>game_bomb_wall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool game_bomb_wall </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Utilise une bombe (si il y a une dans l'inventaire du joueur) et met à jour le plateau de jeu en conséquence. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Si l'action échoue, elle ne compte pas comme un tour.</dd></dl>
+<dl class="section remark"><dt>Remarques</dt><dd>Si il y a une bombe dans l'inventaire, on mettra à jour les paramètres suivants du jeu:<ul>
+<li>Les murs: si il y a un mur qui mène à une cellule valide dans la direction du joueur, alors on le détruit.</li>
+<li>Le nombre de bombes du joueur: on le décrémente.</li>
+<li>Le statut du joueur: on le tue si le mur détruit mène à un minotaure (propriété qu'on testera avec "game_try_kill_player").</li>
+<li>L'historique: on ajoute une entrée qui enregistre le tour.</li>
+<li>Le nombre de tours joués: on l'incrémente.</li>
+</ul>
+</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un Booléen indiquant si l'action a pu être effectuée. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="add31568d0a0d9e879b455dffd3a8dd6e" name="add31568d0a0d9e879b455dffd3a8dd6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add31568d0a0d9e879b455dffd3a8dd6e">&#9670;&#160;</a></span>game_consume_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void game_consume_object </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#ad03408aabe16bb53c780fae6cf3910f9">object</a></td>          <td class="paramname"><span class="paramname"><em>obj</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met à jour le plateau jeu en retirant/ajoutant (suivant le signe du paramètre) plusieurs copies d'un objet donné au joueur. </p>
+<dl class="section remark"><dt>Remarques</dt><dd>Ne fait rien pour les sorties (qui ne sont pas des objets ramassables). Pour les trésors, il faut ajouter au score du joueur le montant correspondant au type de trésor (petit/moyen/grand). </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">n</td><td>Le nombre de copies à ajouter/retirer.  </td></tr>
+    <tr><td class="paramname">obj</td><td>L'objet à ajouter/retirer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa10b5aa05a5b5082b2b67b6d20efe93d" name="aa10b5aa05a5b5082b2b67b6d20efe93d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa10b5aa05a5b5082b2b67b6d20efe93d">&#9670;&#160;</a></span>game_kill_minotaurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool game_kill_minotaurs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Utilise un poly d'algo (si c'est possible) et met à jour le plateau de jeu en conséquence. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Si l'action échoue, elle ne compte pas comme un tour. Il y a deux façons d'échouer:<ul>
+<li>Il n'y a pas de poly d'algo dans l'inventaire du joueur.</li>
+<li>Il n'y a aucun minotaure à portée.</li>
+</ul>
+</dd></dl>
+<dl class="section remark"><dt>Remarques</dt><dd>Si l'action peut être effectuée, on mettra à jour les paramètres suivants du jeu:<ul>
+<li>Les minotaures: on tue tous ceux qui sont à portée (la portée est passée en paramêtre).</li>
+<li>L'historique: on ajoute une entrée qui enregistre le tour.</li>
+<li>Le nombre de tours joués: on l'incrémente.</li>
+</ul>
+</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un Booléen indiquant si l'action a pu être effectuée. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">d</td><td>La portée: un minotaure est tué si sa distance horizontale ou sa distance verticale est inférieure ou égale à d. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4bae13aefe8424359f80259a5a34ee44" name="a4bae13aefe8424359f80259a5a34ee44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bae13aefe8424359f80259a5a34ee44">&#9670;&#160;</a></span>game_redo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool game_redo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Restauration d'une action à partir de l'historique. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Cette action ne peut pas être effectuée si il n'y a pas d'entrée future enregistrée dans l'historique).</dd></dl>
+<dl class="section remark"><dt>Remarques</dt><dd>Si l'action est effectuée, il faut incrémenter le nombre de tours joués.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un Booléen indiquant si l'action a pu être effectuée. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aecccab600ba4deb9e9bc443bdd68e011" name="aecccab600ba4deb9e9bc443bdd68e011"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecccab600ba4deb9e9bc443bdd68e011">&#9670;&#160;</a></span>game_treat_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="maze_8h.html#ad03408aabe16bb53c780fae6cf3910f9">object</a> game_treat_object </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teste si un objet se trouve sur la cellule du joueur et modifie le plateau en consommant cet objet (si cet objet est consommable). </p>
+<dl class="section remark"><dt>Remarques</dt><dd>Si l'objet est un trésor, une bombe ou un poly, il est retiré de la cellule et les paramètres du joueur doivent être mis à jour avec "game_consume_object". Si l'objet est une sortie, on ne modifie pas le jeu.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'objet présent sur la cellule du joueur. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a70adf5f35b658c27134cbbcd37981c72" name="a70adf5f35b658c27134cbbcd37981c72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70adf5f35b658c27134cbbcd37981c72">&#9670;&#160;</a></span>game_try_kill_player()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int game_try_kill_player </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a> *</td>          <td class="paramname"><span class="paramname"><em>dir</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teste si un minotaure se trouve à côté du joueur et tue le joueur si c'est le cas. </p>
+<dl class="section remark"><dt>Remarques</dt><dd>Le second paramètre permet de retourner (par pointeur) la direction dans laquelle se trouve le joueur par rapport au minotaure adjacent (si il y en a un).</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le numéro d'un minotaure à côté du joueur si il y en a un. Renvoie -1 sinon. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">dir</td><td>Sert à retourner (par pointeur) la direction dans laquelle se trouve le joueur par rapport au minotaure quand on a trouvé un minotaure adjacent. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aca482a8b8fdc5823f751afb650a19e37" name="aca482a8b8fdc5823f751afb650a19e37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca482a8b8fdc5823f751afb650a19e37">&#9670;&#160;</a></span>game_undo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool game_undo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Annulation d'une action à partir de l'historique. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Cette action ne peut pas être effectuée si il n'y a pas d'entrée passée enregistrée dans l'historique).</dd></dl>
+<dl class="section remark"><dt>Remarques</dt><dd>Si l'action est effectuée, il faut décrémenter le nombre de tours joués.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un Booléen indiquant si l'action a pu être effectuée.</dd></dl>
+<p>Gestion de l'historique </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a24557969ad06611962cda880faddd1ce" name="a24557969ad06611962cda880faddd1ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24557969ad06611962cda880faddd1ce">&#9670;&#160;</a></span>implement_game_move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool implement_game_move </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a></td>          <td class="paramname"><span class="paramname"><em>themove</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="game__strategies_8h.html#ab621d71bb2cf38b09419ef3a5047e30c">strategy</a></td>          <td class="paramname"><span class="paramname"><em>minotaur_strat</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teste si un mouvement demandé par le joueur est réalisable et met à jour le plateau de jeu en conséquence. Sont modifiés: la position du joueur, les positions des minotaures, les trésors, le statut du joueur (a-t-il été tué par un minotaure ?), le nombre de tours joués et l'historique. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Un mouvement échoué ne compte pas comme un tour. Il y a deux cas dans lesquels le mouvement peut échouer:<ul>
+<li>Le joueur est mort.</li>
+<li>Le joueur est bloqué par un mur. Dans ce second cas on tournera la joueur vers la direction demandée sans le déplacer (le minotaures ne bougent pas non plus).</li>
+</ul>
+</dd></dl>
+<dl class="section remark"><dt>Remarques</dt><dd>Si le le mouvement a pu être effectué, alors les paramètres suivants doivent être mis à jour:<ul>
+<li>Les positions des minotaures. Leurs mouvements sont donnés par la stratégie passée en entrée. En particulier, il faudra vérfier pour chaque minotaure si le mouvement donné par la stratégie est possible (le minotaure n'est ni mort ni bloqué). Si le minotaure est bloqué, on le tourne vers la direction demandée sans le déplacer.</li>
+<li>Les trésors (en utilisant "game_treat_object").</li>
+<li>Le statut du joueur: on le tue si il y a un minotaure adjacent (propriété qu'on testera avec "game_try_kill_player").</li>
+<li>L'historique: on ajoute une entrée qui enregistre le tour.</li>
+<li>Le nombre de tours joués: on l'incrémente.</li>
+</ul>
+</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un Booléen indiquant si la mouvement a pu être effectué. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">themove</td><td>Le mouvement demandé par le joueur.  </td></tr>
+    <tr><td class="paramname">minotaur_strat</td><td>La stratégie à utiliser pour déterminer les mouvements demandés par les minotaures. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="game_8h.html">game.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

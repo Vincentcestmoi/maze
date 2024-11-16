@@ -1,0 +1,1447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet labyrinthe: Référence du fichier gui_rendering.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet labyrinthe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('gui__rendering_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier gui_rendering.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interface: affichage du plateau de jeu. Ne PAS modifier.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL2_gfxPrimitives.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_timer.h&gt;</code><br />
+<code>#include &lt;dirent.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="game_8h_source.html">game.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="solve__adv_8h_source.html">solve_adv.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="maze_8h_source.html">maze.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gui__init__graphic_8h_source.html">gui_init_graphic.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gui__gamevars_8h_source.html">gui_gamevars.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gui__menus_8h_source.html">gui_menus.h</a>&quot;</code><br />
+</div>
+<p><a href="gui__rendering_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a42b8fcfb8080088f0bb30d1ba4e140d7" id="r_a42b8fcfb8080088f0bb30d1ba4e140d7"><td class="memItemLeft" align="right" valign="top"><a id="a42b8fcfb8080088f0bb30d1ba4e140d7" name="a42b8fcfb8080088f0bb30d1ba4e140d7"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42b8fcfb8080088f0bb30d1ba4e140d7">toon_type</a> </td></tr>
+<tr class="memdesc:a42b8fcfb8080088f0bb30d1ba4e140d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Les deux types de toons. <br /></td></tr>
+<tr class="separator:a42b8fcfb8080088f0bb30d1ba4e140d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aa8b98b92aae2a2408df8bd66cf5e7252" id="r_aa8b98b92aae2a2408df8bd66cf5e7252"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8b98b92aae2a2408df8bd66cf5e7252">render_get_cellpos</a> (int, int, SDL_Rect *)</td></tr>
+<tr class="memdesc:aa8b98b92aae2a2408df8bd66cf5e7252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupération de la position correspondant à une cellule sur l'écran (coin Nord-Ouest).  <br /></td></tr>
+<tr class="separator:aa8b98b92aae2a2408df8bd66cf5e7252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab648943b7ffb616b084eadb55bb969f8" id="r_ab648943b7ffb616b084eadb55bb969f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab648943b7ffb616b084eadb55bb969f8">render_outofview</a> (int, int)</td></tr>
+<tr class="memdesc:ab648943b7ffb616b084eadb55bb969f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un Booléen indiquant si une cellule est hors de la zone à afficher.  <br /></td></tr>
+<tr class="separator:ab648943b7ffb616b084eadb55bb969f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b173348c5e0fb3006203ed4f1841738" id="r_a3b173348c5e0fb3006203ed4f1841738"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b173348c5e0fb3006203ed4f1841738">render_print_floor_tile</a> (SDL_Rect *, int)</td></tr>
+<tr class="memdesc:a3b173348c5e0fb3006203ed4f1841738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'une unique tile de sol.  <br /></td></tr>
+<tr class="separator:a3b173348c5e0fb3006203ed4f1841738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7edd0f1de02c9c6a63069c375e25665a" id="r_a7edd0f1de02c9c6a63069c375e25665a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7edd0f1de02c9c6a63069c375e25665a">render_print_floor_cell</a> (int, int)</td></tr>
+<tr class="memdesc:a7edd0f1de02c9c6a63069c375e25665a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du sol pour une cellule.  <br /></td></tr>
+<tr class="separator:a7edd0f1de02c9c6a63069c375e25665a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4656f636dd15adabe2cef900afaf7bb" id="r_ac4656f636dd15adabe2cef900afaf7bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4656f636dd15adabe2cef900afaf7bb">render_print_block_cell</a> (int, int)</td></tr>
+<tr class="memdesc:ac4656f636dd15adabe2cef900afaf7bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'une cellule bloquée (ce sont les cellules non-accessibles à cause d'un masque).  <br /></td></tr>
+<tr class="separator:ac4656f636dd15adabe2cef900afaf7bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eca56103900b0e53e852ed63c318ad8" id="r_a5eca56103900b0e53e852ed63c318ad8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5eca56103900b0e53e852ed63c318ad8">render_whole_floor</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a5eca56103900b0e53e852ed63c318ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de tout le sol.  <br /></td></tr>
+<tr class="separator:a5eca56103900b0e53e852ed63c318ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ba078843d64cc2fa98311e42bb77a0f" id="r_a6ba078843d64cc2fa98311e42bb77a0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ba078843d64cc2fa98311e42bb77a0f">render_print_remains</a> (<a class="el" href="structgame.html">game</a> *, bool, bool *)</td></tr>
+<tr class="memdesc:a6ba078843d64cc2fa98311e42bb77a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage des restes des toons (sang et cendres).  <br /></td></tr>
+<tr class="separator:a6ba078843d64cc2fa98311e42bb77a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e56053819048ebc2811544b87156345" id="r_a4e56053819048ebc2811544b87156345"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e56053819048ebc2811544b87156345">render_printhwall</a> (SDL_Rect *, int)</td></tr>
+<tr class="memdesc:a4e56053819048ebc2811544b87156345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un mur Nord.  <br /></td></tr>
+<tr class="separator:a4e56053819048ebc2811544b87156345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad186d7a203c05b98a6978ae60d47282a" id="r_ad186d7a203c05b98a6978ae60d47282a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad186d7a203c05b98a6978ae60d47282a">render_should_print_wall</a> (<a class="el" href="structmaze.html">maze</a> *, int, <a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a>)</td></tr>
+<tr class="memdesc:ad186d7a203c05b98a6978ae60d47282a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un Booléen indiquant si un mur doit être affiché ou non.  <br /></td></tr>
+<tr class="separator:ad186d7a203c05b98a6978ae60d47282a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb9d64a4d95eb04b255bca077d846114" id="r_aeb9d64a4d95eb04b255bca077d846114"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb9d64a4d95eb04b255bca077d846114">render_print_walls_cell</a> (<a class="el" href="structmaze.html">maze</a> *, int, int)</td></tr>
+<tr class="memdesc:aeb9d64a4d95eb04b255bca077d846114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage des murs Nord et Ouest dans une cellule.  <br /></td></tr>
+<tr class="separator:aeb9d64a4d95eb04b255bca077d846114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c93d35c14d051ed2fbe8dcbf91efe6d" id="r_a3c93d35c14d051ed2fbe8dcbf91efe6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c93d35c14d051ed2fbe8dcbf91efe6d">render_all_walls</a> (<a class="el" href="structmaze.html">maze</a> *)</td></tr>
+<tr class="memdesc:a3c93d35c14d051ed2fbe8dcbf91efe6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de tous les murs d'un labyrinthe.  <br /></td></tr>
+<tr class="separator:a3c93d35c14d051ed2fbe8dcbf91efe6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a366a7c667adbabb47ee29b715bda1986" id="r_a366a7c667adbabb47ee29b715bda1986"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a366a7c667adbabb47ee29b715bda1986">render_print_link</a> (<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a>)</td></tr>
+<tr class="memdesc:a366a7c667adbabb47ee29b715bda1986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un maillon de chemin.  <br /></td></tr>
+<tr class="separator:a366a7c667adbabb47ee29b715bda1986"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6861f0ff102b216aa6e6ec735baaa4a9" id="r_a6861f0ff102b216aa6e6ec735baaa4a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6861f0ff102b216aa6e6ec735baaa4a9">render_print_path</a> (<a class="el" href="structgame.html">game</a> *, <a class="el" href="structsim__path.html">sim_path</a> *, SDL_Color)</td></tr>
+<tr class="memdesc:a6861f0ff102b216aa6e6ec735baaa4a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un chemin entier.  <br /></td></tr>
+<tr class="separator:a6861f0ff102b216aa6e6ec735baaa4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef2367c0b18ce65313d220c21e1a1427" id="r_aef2367c0b18ce65313d220c21e1a1427"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef2367c0b18ce65313d220c21e1a1427">render_search</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:aef2367c0b18ce65313d220c21e1a1427"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de tout un parcours.  <br /></td></tr>
+<tr class="separator:aef2367c0b18ce65313d220c21e1a1427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1c14b02c23c8fc59769b82ba963d173" id="r_aa1c14b02c23c8fc59769b82ba963d173"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1c14b02c23c8fc59769b82ba963d173">render_print_complex_path</a> (<a class="el" href="structgame.html">game</a> *, <a class="el" href="structcmp__search.html">cmp_search</a> *)</td></tr>
+<tr class="memdesc:aa1c14b02c23c8fc59769b82ba963d173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du résumé d'un chemin complexe.  <br /></td></tr>
+<tr class="separator:aa1c14b02c23c8fc59769b82ba963d173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72b3135df7fe36d2ec7b7dee92f6baec" id="r_a72b3135df7fe36d2ec7b7dee92f6baec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72b3135df7fe36d2ec7b7dee92f6baec">render_one_object</a> (int, int, <a class="el" href="maze_8h.html#ad03408aabe16bb53c780fae6cf3910f9">object</a>)</td></tr>
+<tr class="memdesc:a72b3135df7fe36d2ec7b7dee92f6baec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un seul objet.  <br /></td></tr>
+<tr class="separator:a72b3135df7fe36d2ec7b7dee92f6baec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b3a3c4369015d76b114e930d14391d7" id="r_a5b3a3c4369015d76b114e930d14391d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b3a3c4369015d76b114e930d14391d7">render_all_objects</a> (<a class="el" href="structmaze.html">maze</a> *)</td></tr>
+<tr class="memdesc:a5b3a3c4369015d76b114e930d14391d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de tous les objets d'un labyrinthe.  <br /></td></tr>
+<tr class="separator:a5b3a3c4369015d76b114e930d14391d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58fb0279733cec766d9ae7f24ad63bec" id="r_a58fb0279733cec766d9ae7f24ad63bec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58fb0279733cec766d9ae7f24ad63bec">render_scene</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a58fb0279733cec766d9ae7f24ad63bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de toute une scène (sans les toons).  <br /></td></tr>
+<tr class="separator:a58fb0279733cec766d9ae7f24ad63bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63094368dd714e806ee868e2ac6ebb5f" id="r_a63094368dd714e806ee868e2ac6ebb5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63094368dd714e806ee868e2ac6ebb5f">render_scene_unkill</a> (<a class="el" href="structgame.html">game</a> *, bool, bool *)</td></tr>
+<tr class="memdesc:a63094368dd714e806ee868e2ac6ebb5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de toute une scène (sans les toons). Permet de modifier le statut mort/vivant par rapport à celui indiqué dans le jeu (utile lors des animations).  <br /></td></tr>
+<tr class="separator:a63094368dd714e806ee868e2ac6ebb5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c9e954c9f3e4a08c79fa47171ebee56" id="r_a0c9e954c9f3e4a08c79fa47171ebee56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c9e954c9f3e4a08c79fa47171ebee56">render_toon_idle</a> (<a class="el" href="#a42b8fcfb8080088f0bb30d1ba4e140d7">toon_type</a>, bool, <a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a>, int, int)</td></tr>
+<tr class="memdesc:a0c9e954c9f3e4a08c79fa47171ebee56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un toon immobile.  <br /></td></tr>
+<tr class="separator:a0c9e954c9f3e4a08c79fa47171ebee56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f139c2eb5aa086ecbcf4d638bd65e4b" id="r_a8f139c2eb5aa086ecbcf4d638bd65e4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f139c2eb5aa086ecbcf4d638bd65e4b">render_toon_walking</a> (<a class="el" href="#a42b8fcfb8080088f0bb30d1ba4e140d7">toon_type</a>, <a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a>, <a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a>, int, int, int)</td></tr>
+<tr class="memdesc:a8f139c2eb5aa086ecbcf4d638bd65e4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un toon en déplacement.  <br /></td></tr>
+<tr class="separator:a8f139c2eb5aa086ecbcf4d638bd65e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60a881a817a4850b2677cc8e67d05917" id="r_a60a881a817a4850b2677cc8e67d05917"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60a881a817a4850b2677cc8e67d05917">render_minotaur_attacking</a> (<a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a>, int, int, int)</td></tr>
+<tr class="memdesc:a60a881a817a4850b2677cc8e67d05917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'une attaque de minotaure.  <br /></td></tr>
+<tr class="separator:a60a881a817a4850b2677cc8e67d05917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85d79f7d93560383f02a50d39cd2b842" id="r_a85d79f7d93560383f02a50d39cd2b842"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85d79f7d93560383f02a50d39cd2b842">render_all_toons_idle</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a85d79f7d93560383f02a50d39cd2b842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de tout les toons immobiles.  <br /></td></tr>
+<tr class="separator:a85d79f7d93560383f02a50d39cd2b842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a921b12bcda6da71bb669c2991bb09a77" id="r_a921b12bcda6da71bb669c2991bb09a77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a921b12bcda6da71bb669c2991bb09a77">render_all_minotaurs_idle</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a921b12bcda6da71bb669c2991bb09a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de tout les minotaures immobiles.  <br /></td></tr>
+<tr class="separator:a921b12bcda6da71bb669c2991bb09a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b16b5dbc9305b0170f93604a4d8ed9d" id="r_a2b16b5dbc9305b0170f93604a4d8ed9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b16b5dbc9305b0170f93604a4d8ed9d">render_idle_game</a> (<a class="el" href="structgame.html">game</a> *, bool)</td></tr>
+<tr class="memdesc:a2b16b5dbc9305b0170f93604a4d8ed9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de tout le jeu entre deux tours.  <br /></td></tr>
+<tr class="separator:a2b16b5dbc9305b0170f93604a4d8ed9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae074bcb9ee46f6cf17511ada40542a87" id="r_ae074bcb9ee46f6cf17511ada40542a87"><td class="memItemLeft" align="right" valign="top"><a id="ae074bcb9ee46f6cf17511ada40542a87" name="ae074bcb9ee46f6cf17511ada40542a87"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>render_null_game</b> (void)</td></tr>
+<tr class="memdesc:ae074bcb9ee46f6cf17511ada40542a87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un jeu vide (quand les fonctions de création d'un jeu ne sont pas écrites). <br /></td></tr>
+<tr class="separator:ae074bcb9ee46f6cf17511ada40542a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a567ca0a02ab4d2b35a427f1b4df65e8b" id="r_a567ca0a02ab4d2b35a427f1b4df65e8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a567ca0a02ab4d2b35a427f1b4df65e8b">walk_shift_screen</a> (<a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a>)</td></tr>
+<tr class="memdesc:a567ca0a02ab4d2b35a427f1b4df65e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Déplacement de l'écran (simule le mouvement du joueur).  <br /></td></tr>
+<tr class="separator:a567ca0a02ab4d2b35a427f1b4df65e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b9409ba4e8735c79602c907af54dd1" id="r_a53b9409ba4e8735c79602c907af54dd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53b9409ba4e8735c79602c907af54dd1">render_all_toons_move</a> (<a class="el" href="structgame.html">game</a> *, int)</td></tr>
+<tr class="memdesc:a53b9409ba4e8735c79602c907af54dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de tous les toons en déplacement.  <br /></td></tr>
+<tr class="separator:a53b9409ba4e8735c79602c907af54dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4856a9bf6d318bc16fb19c32464412c2" id="r_a4856a9bf6d318bc16fb19c32464412c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4856a9bf6d318bc16fb19c32464412c2">render_walk_animation</a> (<a class="el" href="structgame.html">game</a> *, int, int)</td></tr>
+<tr class="memdesc:a4856a9bf6d318bc16fb19c32464412c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage complet d'une frame de déplacement (plateau + toons).  <br /></td></tr>
+<tr class="separator:a4856a9bf6d318bc16fb19c32464412c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeef445451ab12036d615eb6e2725a1f5" id="r_aeef445451ab12036d615eb6e2725a1f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeef445451ab12036d615eb6e2725a1f5">render_all_toons_move_back</a> (<a class="el" href="structgame.html">game</a> *, int)</td></tr>
+<tr class="memdesc:aeef445451ab12036d615eb6e2725a1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de tous les toons lors d'une annulation de déplacement.  <br /></td></tr>
+<tr class="separator:aeef445451ab12036d615eb6e2725a1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af95671695869498c504840fb51432cf2" id="r_af95671695869498c504840fb51432cf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af95671695869498c504840fb51432cf2">render_undo_walk_animation</a> (<a class="el" href="structgame.html">game</a> *, int, int)</td></tr>
+<tr class="memdesc:af95671695869498c504840fb51432cf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage complet d'une frame d'annulation de déplacement (plateau + toons).  <br /></td></tr>
+<tr class="separator:af95671695869498c504840fb51432cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ab289bc591ef77c6787c23b2c2964e" id="r_a23ab289bc591ef77c6787c23b2c2964e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23ab289bc591ef77c6787c23b2c2964e">render_kill_animation</a> (<a class="el" href="structgame.html">game</a> *, int, int)</td></tr>
+<tr class="memdesc:a23ab289bc591ef77c6787c23b2c2964e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de toute la scène d'une attaque de minotaure.  <br /></td></tr>
+<tr class="separator:a23ab289bc591ef77c6787c23b2c2964e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6175e3f2da79e32873dfda93d243b33e" id="r_a6175e3f2da79e32873dfda93d243b33e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6175e3f2da79e32873dfda93d243b33e">render_undo_kill_animation</a> (<a class="el" href="structgame.html">game</a> *, int, int)</td></tr>
+<tr class="memdesc:a6175e3f2da79e32873dfda93d243b33e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de toute la scène d'une annulation d'attaque de minotaure.  <br /></td></tr>
+<tr class="separator:a6175e3f2da79e32873dfda93d243b33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af74aa8cbc3e0495db3abd1a4e2620ae0" id="r_af74aa8cbc3e0495db3abd1a4e2620ae0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af74aa8cbc3e0495db3abd1a4e2620ae0">render_holy_poly</a> (<a class="el" href="structgame.html">game</a> *, int, int)</td></tr>
+<tr class="memdesc:af74aa8cbc3e0495db3abd1a4e2620ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de toute la scène de l'utilisation d'un poly d'algo.  <br /></td></tr>
+<tr class="separator:af74aa8cbc3e0495db3abd1a4e2620ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8abb67ae3e5b8855a93923b9d0a7ba73" id="r_a8abb67ae3e5b8855a93923b9d0a7ba73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8abb67ae3e5b8855a93923b9d0a7ba73">render_undo_holy_poly</a> (<a class="el" href="structgame.html">game</a> *, int, int)</td></tr>
+<tr class="memdesc:a8abb67ae3e5b8855a93923b9d0a7ba73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de toute la scène de l'annulation de l'utilisation d'un poly d'algo.  <br /></td></tr>
+<tr class="separator:a8abb67ae3e5b8855a93923b9d0a7ba73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7fd0fa5b416067842b3e2003a012494" id="r_ad7fd0fa5b416067842b3e2003a012494"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7fd0fa5b416067842b3e2003a012494">render_bombing</a> (<a class="el" href="structgame.html">game</a> *, int, int)</td></tr>
+<tr class="memdesc:ad7fd0fa5b416067842b3e2003a012494"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de toute la scène de l'utilisation d'une bombe.  <br /></td></tr>
+<tr class="separator:ad7fd0fa5b416067842b3e2003a012494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a085dd8f62a11db5dfb7b6ce2e34c1cda" id="r_a085dd8f62a11db5dfb7b6ce2e34c1cda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a085dd8f62a11db5dfb7b6ce2e34c1cda">render_undo_bombing</a> (<a class="el" href="structgame.html">game</a> *, int, int)</td></tr>
+<tr class="memdesc:a085dd8f62a11db5dfb7b6ce2e34c1cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de toute la scène de l'annulation de l'utilisation d'une bombe.  <br /></td></tr>
+<tr class="separator:a085dd8f62a11db5dfb7b6ce2e34c1cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Interface: affichage du plateau de jeu. Ne PAS modifier. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Cette partie est déjà implémentée. Il ne faut PAS la modifier. </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a921b12bcda6da71bb669c2991bb09a77" name="a921b12bcda6da71bb669c2991bb09a77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a921b12bcda6da71bb669c2991bb09a77">&#9670;&#160;</a></span>render_all_minotaurs_idle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_all_minotaurs_idle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de tout les minotaures immobiles. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b3a3c4369015d76b114e930d14391d7" name="a5b3a3c4369015d76b114e930d14391d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b3a3c4369015d76b114e930d14391d7">&#9670;&#160;</a></span>render_all_objects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_all_objects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmaze.html">maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de tous les objets d'un labyrinthe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Le labyrinthe </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a85d79f7d93560383f02a50d39cd2b842" name="a85d79f7d93560383f02a50d39cd2b842"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85d79f7d93560383f02a50d39cd2b842">&#9670;&#160;</a></span>render_all_toons_idle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_all_toons_idle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de tout les toons immobiles. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a53b9409ba4e8735c79602c907af54dd1" name="a53b9409ba4e8735c79602c907af54dd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b9409ba4e8735c79602c907af54dd1">&#9670;&#160;</a></span>render_all_toons_move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_all_toons_move </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de tous les toons en déplacement. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">frame</td><td>La frame d'animation à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeef445451ab12036d615eb6e2725a1f5" name="aeef445451ab12036d615eb6e2725a1f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeef445451ab12036d615eb6e2725a1f5">&#9670;&#160;</a></span>render_all_toons_move_back()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_all_toons_move_back </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de tous les toons lors d'une annulation de déplacement. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">frame</td><td>La frame d'animation à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3c93d35c14d051ed2fbe8dcbf91efe6d" name="a3c93d35c14d051ed2fbe8dcbf91efe6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c93d35c14d051ed2fbe8dcbf91efe6d">&#9670;&#160;</a></span>render_all_walls()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_all_walls </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmaze.html">maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de tous les murs d'un labyrinthe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Le labyrinthe </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad7fd0fa5b416067842b3e2003a012494" name="ad7fd0fa5b416067842b3e2003a012494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7fd0fa5b416067842b3e2003a012494">&#9670;&#160;</a></span>render_bombing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_bombing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de toute la scène de l'utilisation d'une bombe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">frame</td><td>La frame d'animation à afficher.  </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa8b98b92aae2a2408df8bd66cf5e7252" name="aa8b98b92aae2a2408df8bd66cf5e7252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8b98b92aae2a2408df8bd66cf5e7252">&#9670;&#160;</a></span>render_get_cellpos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_get_cellpos </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupération de la position correspondant à une cellule sur l'écran (coin Nord-Ouest). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Coordonnée horizontale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée verticale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">pos</td><td>Retour par pointeur de la position. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af74aa8cbc3e0495db3abd1a4e2620ae0" name="af74aa8cbc3e0495db3abd1a4e2620ae0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af74aa8cbc3e0495db3abd1a4e2620ae0">&#9670;&#160;</a></span>render_holy_poly()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_holy_poly </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de toute la scène de l'utilisation d'un poly d'algo. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">frame</td><td>La frame d'animation à afficher.  </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2b16b5dbc9305b0170f93604a4d8ed9d" name="a2b16b5dbc9305b0170f93604a4d8ed9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b16b5dbc9305b0170f93604a4d8ed9d">&#9670;&#160;</a></span>render_idle_game()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_idle_game </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>player_won</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de tout le jeu entre deux tours. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">player_won</td><td>Booléen indiquant si le joueur a gagné (auquel cas un message doit être affiché). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a23ab289bc591ef77c6787c23b2c2964e" name="a23ab289bc591ef77c6787c23b2c2964e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23ab289bc591ef77c6787c23b2c2964e">&#9670;&#160;</a></span>render_kill_animation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_kill_animation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de toute la scène d'une attaque de minotaure. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">frame</td><td>La frame d'animation à afficher.  </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a60a881a817a4850b2677cc8e67d05917" name="a60a881a817a4850b2677cc8e67d05917"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60a881a817a4850b2677cc8e67d05917">&#9670;&#160;</a></span>render_minotaur_attacking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_minotaur_attacking </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a></td>          <td class="paramname"><span class="paramname"><em>dir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'une attaque de minotaure. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>Direction de l'attaque.  </td></tr>
+    <tr><td class="paramname">i</td><td>Coordonnée horizontale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée verticale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">frame</td><td>Frame de l'animation à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a72b3135df7fe36d2ec7b7dee92f6baec" name="a72b3135df7fe36d2ec7b7dee92f6baec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72b3135df7fe36d2ec7b7dee92f6baec">&#9670;&#160;</a></span>render_one_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_one_object </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#ad03408aabe16bb53c780fae6cf3910f9">object</a></td>          <td class="paramname"><span class="paramname"><em>obj</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un seul objet. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Coordonnée horizontale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée verticale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">obj</td><td>L'objet à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab648943b7ffb616b084eadb55bb969f8" name="ab648943b7ffb616b084eadb55bb969f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab648943b7ffb616b084eadb55bb969f8">&#9670;&#160;</a></span>render_outofview()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool render_outofview </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne un Booléen indiquant si une cellule est hors de la zone à afficher. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Coordonnée horizontale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée verticale de la cellule dans le labyrinthe. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac4656f636dd15adabe2cef900afaf7bb" name="ac4656f636dd15adabe2cef900afaf7bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4656f636dd15adabe2cef900afaf7bb">&#9670;&#160;</a></span>render_print_block_cell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_print_block_cell </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'une cellule bloquée (ce sont les cellules non-accessibles à cause d'un masque). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Coordonnée horizontale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée verticale de la cellule dans le labyrinthe. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa1c14b02c23c8fc59769b82ba963d173" name="aa1c14b02c23c8fc59769b82ba963d173"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c14b02c23c8fc59769b82ba963d173">&#9670;&#160;</a></span>render_print_complex_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_print_complex_path </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcmp__search.html">cmp_search</a> *</td>          <td class="paramname"><span class="paramname"><em>path</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du résumé d'un chemin complexe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">path</td><td>Le chemin. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7edd0f1de02c9c6a63069c375e25665a" name="a7edd0f1de02c9c6a63069c375e25665a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7edd0f1de02c9c6a63069c375e25665a">&#9670;&#160;</a></span>render_print_floor_cell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_print_floor_cell </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du sol pour une cellule. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Coordonnée horizontale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée verticale de la cellule dans le labyrinthe. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3b173348c5e0fb3006203ed4f1841738" name="a3b173348c5e0fb3006203ed4f1841738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b173348c5e0fb3006203ed4f1841738">&#9670;&#160;</a></span>render_print_floor_tile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_print_floor_tile </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Rect *</td>          <td class="paramname"><span class="paramname"><em>ppos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>s</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'une unique tile de sol. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppos</td><td>Position sur l'écran.  </td></tr>
+    <tr><td class="paramname">s</td><td>Entier utilisé pour sélectionner la tile à afficher parmi les 4 textures disponibles. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a366a7c667adbabb47ee29b715bda1986" name="a366a7c667adbabb47ee29b715bda1986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a366a7c667adbabb47ee29b715bda1986">&#9670;&#160;</a></span>render_print_link()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_print_link </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a></td>          <td class="paramname"><span class="paramname"><em>dir</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un maillon de chemin. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">start</td><td>La cellule.  </td></tr>
+    <tr><td class="paramname">dir</td><td>La direction. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6861f0ff102b216aa6e6ec735baaa4a9" name="a6861f0ff102b216aa6e6ec735baaa4a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6861f0ff102b216aa6e6ec735baaa4a9">&#9670;&#160;</a></span>render_print_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_print_path </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structsim__path.html">sim_path</a> *</td>          <td class="paramname"><span class="paramname"><em>thepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Color</td>          <td class="paramname"><span class="paramname"><em>col</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un chemin entier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">thepath</td><td>Le chemin.  </td></tr>
+    <tr><td class="paramname">col</td><td>La couleur à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6ba078843d64cc2fa98311e42bb77a0f" name="a6ba078843d64cc2fa98311e42bb77a0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ba078843d64cc2fa98311e42bb77a0f">&#9670;&#160;</a></span>render_print_remains()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_print_remains </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>player_alive</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>minotaurs_alive</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage des restes des toons (sang et cendres). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">player_alive</td><td>Booléen indiquant si le joueur est vivant.  </td></tr>
+    <tr><td class="paramname">minotaurs_alive</td><td>Tableau de Booléens indiquant pour chaque minotaur si celui-ci est vivant. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeb9d64a4d95eb04b255bca077d846114" name="aeb9d64a4d95eb04b255bca077d846114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb9d64a4d95eb04b255bca077d846114">&#9670;&#160;</a></span>render_print_walls_cell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_print_walls_cell </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmaze.html">maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage des murs Nord et Ouest dans une cellule. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Le labyrinthe.  </td></tr>
+    <tr><td class="paramname">i</td><td>Coordonnée horizontale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée verticale de la cellule dans le labyrinthe. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e56053819048ebc2811544b87156345" name="a4e56053819048ebc2811544b87156345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e56053819048ebc2811544b87156345">&#9670;&#160;</a></span>render_printhwall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_printhwall </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Rect *</td>          <td class="paramname"><span class="paramname"><em>ppos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>s</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un mur Nord. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppos</td><td>Position sur l'écran.  </td></tr>
+    <tr><td class="paramname">s</td><td>Entier utilisé pour sélectionner la tile à afficher parmi les 3 textures disponibles. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a58fb0279733cec766d9ae7f24ad63bec" name="a58fb0279733cec766d9ae7f24ad63bec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58fb0279733cec766d9ae7f24ad63bec">&#9670;&#160;</a></span>render_scene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_scene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de toute une scène (sans les toons). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a63094368dd714e806ee868e2ac6ebb5f" name="a63094368dd714e806ee868e2ac6ebb5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63094368dd714e806ee868e2ac6ebb5f">&#9670;&#160;</a></span>render_scene_unkill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_scene_unkill </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>player_alive</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>minotaurs_alive</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de toute une scène (sans les toons). Permet de modifier le statut mort/vivant par rapport à celui indiqué dans le jeu (utile lors des animations). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">player_alive</td><td>Booléen indiquant si le joueur doit être affiché vivant.  </td></tr>
+    <tr><td class="paramname">minotaurs_alive</td><td>Tableau de Booléens indiquant pour chaque minotaure si celui-ci doit être affiché vivant. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aef2367c0b18ce65313d220c21e1a1427" name="aef2367c0b18ce65313d220c21e1a1427"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef2367c0b18ce65313d220c21e1a1427">&#9670;&#160;</a></span>render_search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_search </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de tout un parcours. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad186d7a203c05b98a6978ae60d47282a" name="ad186d7a203c05b98a6978ae60d47282a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad186d7a203c05b98a6978ae60d47282a">&#9670;&#160;</a></span>render_should_print_wall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool render_should_print_wall </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmaze.html">maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>cell</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a></td>          <td class="paramname"><span class="paramname"><em>dir</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne un Booléen indiquant si un mur doit être affiché ou non. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Le labyrinthe.  </td></tr>
+    <tr><td class="paramname">cell</td><td>La cellule  </td></tr>
+    <tr><td class="paramname">dir</td><td>La direction dans laquelle se trouve le mur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0c9e954c9f3e4a08c79fa47171ebee56" name="a0c9e954c9f3e4a08c79fa47171ebee56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c9e954c9f3e4a08c79fa47171ebee56">&#9670;&#160;</a></span>render_toon_idle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_toon_idle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a42b8fcfb8080088f0bb30d1ba4e140d7">toon_type</a></td>          <td class="paramname"><span class="paramname"><em>thetype</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>alive</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a></td>          <td class="paramname"><span class="paramname"><em>dir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un toon immobile. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thetype</td><td>Type de toon.  </td></tr>
+    <tr><td class="paramname">alive</td><td>Le toon est-il vivant?  </td></tr>
+    <tr><td class="paramname">dir</td><td>Dans quelle direction regarde le toon?  </td></tr>
+    <tr><td class="paramname">i</td><td>Coordonnée horizontale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée verticale de la cellule dans le labyrinthe. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8f139c2eb5aa086ecbcf4d638bd65e4b" name="a8f139c2eb5aa086ecbcf4d638bd65e4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f139c2eb5aa086ecbcf4d638bd65e4b">&#9670;&#160;</a></span>render_toon_walking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_toon_walking </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a42b8fcfb8080088f0bb30d1ba4e140d7">toon_type</a></td>          <td class="paramname"><span class="paramname"><em>thetype</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a></td>          <td class="paramname"><span class="paramname"><em>tdir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a></td>          <td class="paramname"><span class="paramname"><em>pdir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un toon en déplacement. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thetype</td><td>Type de toon.  </td></tr>
+    <tr><td class="paramname">tdir</td><td>Mouvement effectué par le toon.  </td></tr>
+    <tr><td class="paramname">pdir</td><td>Mouvement simultané effectué par le joueur.  </td></tr>
+    <tr><td class="paramname">i</td><td>Coordonnée horizontale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée verticale de la cellule dans le labyrinthe.  </td></tr>
+    <tr><td class="paramname">frame</td><td>Frame de l'animation à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a085dd8f62a11db5dfb7b6ce2e34c1cda" name="a085dd8f62a11db5dfb7b6ce2e34c1cda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a085dd8f62a11db5dfb7b6ce2e34c1cda">&#9670;&#160;</a></span>render_undo_bombing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_undo_bombing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de toute la scène de l'annulation de l'utilisation d'une bombe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">frame</td><td>La frame d'animation à afficher.  </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8abb67ae3e5b8855a93923b9d0a7ba73" name="a8abb67ae3e5b8855a93923b9d0a7ba73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8abb67ae3e5b8855a93923b9d0a7ba73">&#9670;&#160;</a></span>render_undo_holy_poly()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_undo_holy_poly </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de toute la scène de l'annulation de l'utilisation d'un poly d'algo. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">frame</td><td>La frame d'animation à afficher.  </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6175e3f2da79e32873dfda93d243b33e" name="a6175e3f2da79e32873dfda93d243b33e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6175e3f2da79e32873dfda93d243b33e">&#9670;&#160;</a></span>render_undo_kill_animation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_undo_kill_animation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de toute la scène d'une annulation d'attaque de minotaure. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">frame</td><td>La frame d'animation à afficher.  </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af95671695869498c504840fb51432cf2" name="af95671695869498c504840fb51432cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95671695869498c504840fb51432cf2">&#9670;&#160;</a></span>render_undo_walk_animation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_undo_walk_animation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage complet d'une frame d'annulation de déplacement (plateau + toons). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">frame</td><td>La frame d'animation à afficher.  </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse de déplacement. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4856a9bf6d318bc16fb19c32464412c2" name="a4856a9bf6d318bc16fb19c32464412c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4856a9bf6d318bc16fb19c32464412c2">&#9670;&#160;</a></span>render_walk_animation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_walk_animation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage complet d'une frame de déplacement (plateau + toons). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">frame</td><td>La frame d'animation à afficher.  </td></tr>
+    <tr><td class="paramname">speed</td><td>Vitesse de déplacement. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5eca56103900b0e53e852ed63c318ad8" name="a5eca56103900b0e53e852ed63c318ad8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eca56103900b0e53e852ed63c318ad8">&#9670;&#160;</a></span>render_whole_floor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_whole_floor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de tout le sol. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a567ca0a02ab4d2b35a427f1b4df65e8b" name="a567ca0a02ab4d2b35a427f1b4df65e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a567ca0a02ab4d2b35a427f1b4df65e8b">&#9670;&#160;</a></span>walk_shift_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void walk_shift_screen </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a></td>          <td class="paramname"><span class="paramname"><em>direc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Déplacement de l'écran (simule le mouvement du joueur). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direc</td><td>La direction dans laquelle on fait le déplacement. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="gui__rendering_8h.html">gui_rendering.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

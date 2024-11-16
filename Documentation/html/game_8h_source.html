@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet labyrinthe:  Fichier source de game.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet labyrinthe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('game_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">game.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="game_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef GAME_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define GAME_H_</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="alloc_8h.html">alloc.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="error_8h.html">error.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="maze_8h.html">maze.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="maze__gen_8h.html">maze_gen.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="maze__objects_8h.html">maze_objects.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="maze__braiding_8h.html">maze_braiding.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="game__strategies_8h.html">game_strategies.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="game__history_8h.html">game_history.h</a>&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> <span class="comment">/*   ____           _   _                   _                        */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> <span class="comment">/*  / ___| ___  ___| |_(_) ___  _ __     __| |_   _                  */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> <span class="comment">/* | |  _ / _ \/ __| __| |/ _ \| &#39;_ \   / _` | | | |                 */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> <span class="comment">/* | |_| |  __/\__ \ |_| | (_) | | | | | (_| | |_| |                 */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> <span class="comment">/*  \____|\___||___/\__|_|\___/|_| |_|  \__,_|\__,_|   _             */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> <span class="comment">/*  _ __ | | __ _| |_ ___  __ _ _   _    __| | ___    (_) ___ _   _  */</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> <span class="comment">/* | &#39;_ \| |/ _` | __/ _ \/ _` | | | |  / _` |/ _ \   | |/ _ \ | | | */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> <span class="comment">/* | |_) | | (_| | ||  __/ (_| | |_| | | (_| |  __/   | |  __/ |_| | */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> <span class="comment">/* | .__/|_|\__,_|\__\___|\__,_|\__,_|  \__,_|\___|  _/ |\___|\__,_| */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> <span class="comment">/* |_|                                              |__/             */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> /*************/</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> <span class="comment">/*+ Le type +*/</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> /*************/</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structgame.html">   43</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structgame.html#a0a852d3ba3400c90d11762ef252a1995">   45</a></span>  <a class="code hl_struct" href="structmaze.html">maze</a>* <a class="code hl_variable" href="structgame.html#a0a852d3ba3400c90d11762ef252a1995">m</a>; </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structgame.html#af3ed17909828bd041bda4844f48dba23">   47</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structgame.html#af3ed17909828bd041bda4844f48dba23">score</a>; </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structgame.html#a38b00ff374acf3027e8fe55461495d67">   49</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structgame.html#a38b00ff374acf3027e8fe55461495d67">nbombs</a>; </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structgame.html#a77a84ceb42226daf00909cfab832a759">   51</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structgame.html#a77a84ceb42226daf00909cfab832a759">npolys</a>; </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structgame.html#a51bc00488f64251ae1c3539095eda4e4">   53</a></span>  <span class="keywordtype">bool</span> <a class="code hl_variable" href="structgame.html#a51bc00488f64251ae1c3539095eda4e4">player_alive</a>; </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structgame.html#a6a8812775fbdc197185acd736090e1d9">   55</a></span>  <a class="code hl_enumeration" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a> <a class="code hl_variable" href="structgame.html#a6a8812775fbdc197185acd736090e1d9">player_dir</a>; </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structgame.html#a509febd0ab8fc2fc339d56d72a6840bd">   57</a></span>  <span class="keywordtype">bool</span>* <a class="code hl_variable" href="structgame.html#a509febd0ab8fc2fc339d56d72a6840bd">minotaurs_alive</a>; </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structgame.html#a43f668d27d3ce2a6de768ecd70545941">   59</a></span>  <a class="code hl_enumeration" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a>* <a class="code hl_variable" href="structgame.html#a43f668d27d3ce2a6de768ecd70545941">minotaurs_dirs</a>; </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structgame.html#ae6820cefef8ad5c6b34464e9ad206639">   61</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structgame.html#ae6820cefef8ad5c6b34464e9ad206639">nb_deadends</a>; </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structgame.html#a5005b64ff67dc66505e761763ab862a6">   63</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structgame.html#a5005b64ff67dc66505e761763ab862a6">exits</a>; </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="structgame.html#ac8d3972293850a6cc1b26a1107503522">   65</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structgame.html#ac8d3972293850a6cc1b26a1107503522">turns</a>; </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structgame.html#ac7d1406fbc63457de1fc5a5f69b11bf8">   67</a></span>  history* <a class="code hl_variable" href="structgame.html#ac7d1406fbc63457de1fc5a5f69b11bf8">log</a>; </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>} <a class="code hl_struct" href="structgame.html">game</a>;</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">/****************************/</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/*+ Création et libération +*/</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">/****************************/</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><a class="code hl_struct" href="structgame.html">game</a>* <a class="code hl_function" href="game_8h.html#a7b241bb2158bebba0ed37a440f90c336">create_newgame</a>(<span class="keywordtype">int</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  , <span class="keywordtype">int</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  , <a class="code hl_struct" href="structmask.html">mask</a>* </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  , <a class="code hl_enumeration" href="maze__gen_8h.html#ad18616e742f0f017314e5ead22459ce4">generator</a> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  , <a class="code hl_enumeration" href="maze__objects_8h.html#aad0efd3db6aedca6febfef5e717151fa">objgenerator</a> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  , <span class="keywordtype">int</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  , <span class="keywordtype">int</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keywordtype">void</span> <a class="code hl_function" href="game_8h.html#a36b4e70d9f780b621f52d8118a667331">free_game</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">/***********************************************/</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">/*+ Implémentation des attaques de minotaures +*/</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">/***********************************************/</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keywordtype">int</span> <a class="code hl_function" href="game_8h.html#a70adf5f35b658c27134cbbcd37981c72">game_try_kill_player</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  , <a class="code hl_enumeration" href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a>* </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">/***************************/</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">/*+ Traitement des objets +*/</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">/***************************/</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keywordtype">void</span> <a class="code hl_function" href="game_8h.html#add31568d0a0d9e879b455dffd3a8dd6e">game_consume_object</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  , <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>  , <span class="keywordtype">object</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keywordtype">object</span> <a class="code hl_function" href="game_8h.html#aecccab600ba4deb9e9bc443bdd68e011">game_treat_object</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">/**********************************************************/</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">/*+ Implémentation d&#39;une demande de mouvement du joueur  +*/</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">/**********************************************************/</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="keywordtype">bool</span> <a class="code hl_function" href="game_8h.html#a24557969ad06611962cda880faddd1ce">implement_game_move</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>  , <a class="code hl_enumeration" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>  , <a class="code hl_enumeration" href="game__strategies_8h.html#ab621d71bb2cf38b09419ef3a5047e30c">strategy</a> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">/*******************************/</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">/*+ Implémentation des bombes +*/</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">/*******************************/</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="keywordtype">bool</span> <a class="code hl_function" href="game_8h.html#a18edc73b1a9ba5f2c91e4eefbb467c13">game_bomb_wall</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment">/*************************************/</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">/*+ Implémentation des polys d&#39;algo +*/</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">/*************************************/</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="keywordtype">bool</span> <a class="code hl_function" href="game_8h.html#aa10b5aa05a5b5082b2b67b6d20efe93d">game_kill_minotaurs</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>  , <span class="keywordtype">int</span> d </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment">/*****************************/</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment">/*+ Gestion de l&#39;historique +*/</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment">/*****************************/</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="keywordtype">bool</span> <a class="code hl_function" href="game_8h.html#aca482a8b8fdc5823f751afb650a19e37">game_undo</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="keywordtype">bool</span> <a class="code hl_function" href="game_8h.html#a4bae13aefe8424359f80259a5a34ee44">game_redo</a>(<a class="code hl_struct" href="structgame.html">game</a>* </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>);</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="preprocessor">#endif </span><span class="comment">// GAME_H_</span></div>
+<div class="ttc" id="aalloc_8h_html"><div class="ttname"><a href="alloc_8h.html">alloc.h</a></div><div class="ttdoc">Macros et fonctions d'allocation mémoire.</div></div>
+<div class="ttc" id="aerror_8h_html"><div class="ttname"><a href="error_8h.html">error.h</a></div><div class="ttdoc">Macros permettant d'afficher des messages d'erreur.</div></div>
+<div class="ttc" id="agame_8h_html_a18edc73b1a9ba5f2c91e4eefbb467c13"><div class="ttname"><a href="game_8h.html#a18edc73b1a9ba5f2c91e4eefbb467c13">game_bomb_wall</a></div><div class="ttdeci">bool game_bomb_wall(game *)</div><div class="ttdoc">Utilise une bombe (si il y a une dans l'inventaire du joueur) et met à jour le plateau de jeu en cons...</div><div class="ttdef"><b>Definition</b> game.c:258</div></div>
+<div class="ttc" id="agame_8h_html_a24557969ad06611962cda880faddd1ce"><div class="ttname"><a href="game_8h.html#a24557969ad06611962cda880faddd1ce">implement_game_move</a></div><div class="ttdeci">bool implement_game_move(game *, move, strategy)</div><div class="ttdoc">Teste si un mouvement demandé par le joueur est réalisable et met à jour le plateau de jeu en conséqu...</div><div class="ttdef"><b>Definition</b> game.c:166</div></div>
+<div class="ttc" id="agame_8h_html_a36b4e70d9f780b621f52d8118a667331"><div class="ttname"><a href="game_8h.html#a36b4e70d9f780b621f52d8118a667331">free_game</a></div><div class="ttdeci">void free_game(game *)</div><div class="ttdoc">Libération d'un jeu.</div><div class="ttdef"><b>Definition</b> game.c:86</div></div>
+<div class="ttc" id="agame_8h_html_a4bae13aefe8424359f80259a5a34ee44"><div class="ttname"><a href="game_8h.html#a4bae13aefe8424359f80259a5a34ee44">game_redo</a></div><div class="ttdeci">bool game_redo(game *)</div><div class="ttdoc">Restauration d'une action à partir de l'historique.</div><div class="ttdef"><b>Definition</b> game.c:413</div></div>
+<div class="ttc" id="agame_8h_html_a70adf5f35b658c27134cbbcd37981c72"><div class="ttname"><a href="game_8h.html#a70adf5f35b658c27134cbbcd37981c72">game_try_kill_player</a></div><div class="ttdeci">int game_try_kill_player(game *, cardinal *)</div><div class="ttdoc">Teste si un minotaure se trouve à côté du joueur et tue le joueur si c'est le cas.</div><div class="ttdef"><b>Definition</b> game.c:102</div></div>
+<div class="ttc" id="agame_8h_html_a7b241bb2158bebba0ed37a440f90c336"><div class="ttname"><a href="game_8h.html#a7b241bb2158bebba0ed37a440f90c336">create_newgame</a></div><div class="ttdeci">game * create_newgame(int, int, mask *, generator, objgenerator, int, int)</div><div class="ttdoc">Génération d'un nouveau jeu.</div><div class="ttdef"><b>Definition</b> game.c:10</div></div>
+<div class="ttc" id="agame_8h_html_aa10b5aa05a5b5082b2b67b6d20efe93d"><div class="ttname"><a href="game_8h.html#aa10b5aa05a5b5082b2b67b6d20efe93d">game_kill_minotaurs</a></div><div class="ttdeci">bool game_kill_minotaurs(game *, int d)</div><div class="ttdoc">Utilise un poly d'algo (si c'est possible) et met à jour le plateau de jeu en conséquence.</div><div class="ttdef"><b>Definition</b> game.c:300</div></div>
+<div class="ttc" id="agame_8h_html_aca482a8b8fdc5823f751afb650a19e37"><div class="ttname"><a href="game_8h.html#aca482a8b8fdc5823f751afb650a19e37">game_undo</a></div><div class="ttdeci">bool game_undo(game *)</div><div class="ttdoc">Annulation d'une action à partir de l'historique.</div><div class="ttdef"><b>Definition</b> game.c:354</div></div>
+<div class="ttc" id="agame_8h_html_add31568d0a0d9e879b455dffd3a8dd6e"><div class="ttname"><a href="game_8h.html#add31568d0a0d9e879b455dffd3a8dd6e">game_consume_object</a></div><div class="ttdeci">void game_consume_object(game *, int, object)</div><div class="ttdoc">Met à jour le plateau jeu en retirant/ajoutant (suivant le signe du paramètre) plusieurs copies d'un ...</div><div class="ttdef"><b>Definition</b> game.c:127</div></div>
+<div class="ttc" id="agame_8h_html_aecccab600ba4deb9e9bc443bdd68e011"><div class="ttname"><a href="game_8h.html#aecccab600ba4deb9e9bc443bdd68e011">game_treat_object</a></div><div class="ttdeci">object game_treat_object(game *)</div><div class="ttdoc">Teste si un objet se trouve sur la cellule du joueur et modifie le plateau en consommant cet objet (s...</div><div class="ttdef"><b>Definition</b> game.c:150</div></div>
+<div class="ttc" id="agame__history_8h_html"><div class="ttname"><a href="game__history_8h.html">game_history.h</a></div><div class="ttdoc">Gestion de l'historique.</div></div>
+<div class="ttc" id="agame__strategies_8h_html"><div class="ttname"><a href="game__strategies_8h.html">game_strategies.h</a></div><div class="ttdoc">Stratégies pour les minotaures.</div></div>
+<div class="ttc" id="agame__strategies_8h_html_ab621d71bb2cf38b09419ef3a5047e30c"><div class="ttname"><a href="game__strategies_8h.html#ab621d71bb2cf38b09419ef3a5047e30c">strategy</a></div><div class="ttdeci">strategy</div><div class="ttdoc">La liste des noms internes des stratégies.</div><div class="ttdef"><b>Definition</b> game_strategies.h:61</div></div>
+<div class="ttc" id="amaze_8h_html"><div class="ttname"><a href="maze_8h.html">maze.h</a></div><div class="ttdoc">Gestion des labyrinthes.</div></div>
+<div class="ttc" id="amaze_8h_html_a1eae2f0eb13d25eaa55d5334838178c1"><div class="ttname"><a href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a></div><div class="ttdeci">move</div><div class="ttdoc">Les cinq mouvements possibles dans un labyrinthe.</div><div class="ttdef"><b>Definition</b> maze.h:64</div></div>
+<div class="ttc" id="amaze_8h_html_a468af3d7606639780e81c5e1e403b356"><div class="ttname"><a href="maze_8h.html#a468af3d7606639780e81c5e1e403b356">cardinal</a></div><div class="ttdeci">cardinal</div><div class="ttdoc">Les quatre directions possibles dans un labyrinthe.</div><div class="ttdef"><b>Definition</b> maze.h:48</div></div>
+<div class="ttc" id="amaze__braiding_8h_html"><div class="ttname"><a href="maze__braiding_8h.html">maze_braiding.h</a></div><div class="ttdoc">Tressage des labyrinthes.</div></div>
+<div class="ttc" id="amaze__gen_8h_html"><div class="ttname"><a href="maze__gen_8h.html">maze_gen.h</a></div><div class="ttdoc">Générateurs de labyrinthes.</div></div>
+<div class="ttc" id="amaze__gen_8h_html_ad18616e742f0f017314e5ead22459ce4"><div class="ttname"><a href="maze__gen_8h.html#ad18616e742f0f017314e5ead22459ce4">generator</a></div><div class="ttdeci">generator</div><div class="ttdoc">La liste des noms internes des générateurs de labyrinthes.</div><div class="ttdef"><b>Definition</b> maze_gen.h:54</div></div>
+<div class="ttc" id="amaze__objects_8h_html"><div class="ttname"><a href="maze__objects_8h.html">maze_objects.h</a></div><div class="ttdoc">Générateurs d'objets.</div></div>
+<div class="ttc" id="amaze__objects_8h_html_aad0efd3db6aedca6febfef5e717151fa"><div class="ttname"><a href="maze__objects_8h.html#aad0efd3db6aedca6febfef5e717151fa">objgenerator</a></div><div class="ttdeci">objgenerator</div><div class="ttdoc">La liste des noms internes des générateurs d'objets.</div><div class="ttdef"><b>Definition</b> maze_objects.h:51</div></div>
+<div class="ttc" id="astructgame_html"><div class="ttname"><a href="structgame.html">game</a></div><div class="ttdoc">Le type utilisé pour représenter le plateau jeu.</div><div class="ttdef"><b>Definition</b> game.h:43</div></div>
+<div class="ttc" id="astructgame_html_a0a852d3ba3400c90d11762ef252a1995"><div class="ttname"><a href="structgame.html#a0a852d3ba3400c90d11762ef252a1995">game::m</a></div><div class="ttdeci">maze * m</div><div class="ttdoc">Le labyrinthe.</div><div class="ttdef"><b>Definition</b> game.h:45</div></div>
+<div class="ttc" id="astructgame_html_a38b00ff374acf3027e8fe55461495d67"><div class="ttname"><a href="structgame.html#a38b00ff374acf3027e8fe55461495d67">game::nbombs</a></div><div class="ttdeci">int nbombs</div><div class="ttdoc">Nombre de bombes du joueur (initialisé à 0).</div><div class="ttdef"><b>Definition</b> game.h:49</div></div>
+<div class="ttc" id="astructgame_html_a43f668d27d3ce2a6de768ecd70545941"><div class="ttname"><a href="structgame.html#a43f668d27d3ce2a6de768ecd70545941">game::minotaurs_dirs</a></div><div class="ttdeci">cardinal * minotaurs_dirs</div><div class="ttdoc">Tableau indiquant pour chaque minotaures la direction vers laquelle celui-ci est tourné.</div><div class="ttdef"><b>Definition</b> game.h:59</div></div>
+<div class="ttc" id="astructgame_html_a5005b64ff67dc66505e761763ab862a6"><div class="ttname"><a href="structgame.html#a5005b64ff67dc66505e761763ab862a6">game::exits</a></div><div class="ttdeci">int exits</div><div class="ttdoc">Le nombre de sorties sur le plateau.</div><div class="ttdef"><b>Definition</b> game.h:63</div></div>
+<div class="ttc" id="astructgame_html_a509febd0ab8fc2fc339d56d72a6840bd"><div class="ttname"><a href="structgame.html#a509febd0ab8fc2fc339d56d72a6840bd">game::minotaurs_alive</a></div><div class="ttdeci">bool * minotaurs_alive</div><div class="ttdoc">Tableau de Booléens indiquant si chaque minotaure est vivant ou non (le nombre de minotaures est indi...</div><div class="ttdef"><b>Definition</b> game.h:57</div></div>
+<div class="ttc" id="astructgame_html_a51bc00488f64251ae1c3539095eda4e4"><div class="ttname"><a href="structgame.html#a51bc00488f64251ae1c3539095eda4e4">game::player_alive</a></div><div class="ttdeci">bool player_alive</div><div class="ttdoc">Booléen indiquant si le joueur est vivant.</div><div class="ttdef"><b>Definition</b> game.h:53</div></div>
+<div class="ttc" id="astructgame_html_a6a8812775fbdc197185acd736090e1d9"><div class="ttname"><a href="structgame.html#a6a8812775fbdc197185acd736090e1d9">game::player_dir</a></div><div class="ttdeci">cardinal player_dir</div><div class="ttdoc">La direction vers laquelle est tourné le joueur.</div><div class="ttdef"><b>Definition</b> game.h:55</div></div>
+<div class="ttc" id="astructgame_html_a77a84ceb42226daf00909cfab832a759"><div class="ttname"><a href="structgame.html#a77a84ceb42226daf00909cfab832a759">game::npolys</a></div><div class="ttdeci">int npolys</div><div class="ttdoc">Nombre de polys d'algo du joueur (initialisé à 0).</div><div class="ttdef"><b>Definition</b> game.h:51</div></div>
+<div class="ttc" id="astructgame_html_ac7d1406fbc63457de1fc5a5f69b11bf8"><div class="ttname"><a href="structgame.html#ac7d1406fbc63457de1fc5a5f69b11bf8">game::log</a></div><div class="ttdeci">history * log</div><div class="ttdoc">L'historique de la partie. Si l'historique n'est pas encore implémenté, ce pointeur doit être initial...</div><div class="ttdef"><b>Definition</b> game.h:67</div></div>
+<div class="ttc" id="astructgame_html_ac8d3972293850a6cc1b26a1107503522"><div class="ttname"><a href="structgame.html#ac8d3972293850a6cc1b26a1107503522">game::turns</a></div><div class="ttdeci">int turns</div><div class="ttdoc">Nombre de tours joués.</div><div class="ttdef"><b>Definition</b> game.h:65</div></div>
+<div class="ttc" id="astructgame_html_ae6820cefef8ad5c6b34464e9ad206639"><div class="ttname"><a href="structgame.html#ae6820cefef8ad5c6b34464e9ad206639">game::nb_deadends</a></div><div class="ttdeci">int nb_deadends</div><div class="ttdoc">Nombre de culs-de-sac dans le labyrinthe (doit être calculé avec la fonction prévue dans maze_braidin...</div><div class="ttdef"><b>Definition</b> game.h:61</div></div>
+<div class="ttc" id="astructgame_html_af3ed17909828bd041bda4844f48dba23"><div class="ttname"><a href="structgame.html#af3ed17909828bd041bda4844f48dba23">game::score</a></div><div class="ttdeci">int score</div><div class="ttdoc">Score du joueur (initialisé à 0).</div><div class="ttdef"><b>Definition</b> game.h:47</div></div>
+<div class="ttc" id="astructmask_html"><div class="ttname"><a href="structmask.html">mask</a></div><div class="ttdoc">Le type utilisé pour représenter un masque.</div><div class="ttdef"><b>Definition</b> back_maze_mask.h:49</div></div>
+<div class="ttc" id="astructmaze_html"><div class="ttname"><a href="structmaze.html">maze</a></div><div class="ttdoc">Le type utilisé pour représenter un labyrinthe.</div><div class="ttdef"><b>Definition</b> maze.h:111</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="game_8h.html">game.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

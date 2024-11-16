@@ -1,0 +1,1047 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet labyrinthe: Référence du fichier gui_menus.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet labyrinthe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('gui__menus_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier gui_menus.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interface: affichage des menus. Ne PAS modifier.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL2_gfxPrimitives.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_timer.h&gt;</code><br />
+<code>#include &lt;dirent.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="game_8h_source.html">game.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="maze_8h_source.html">maze.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gui__init__graphic_8h_source.html">gui_init_graphic.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gui__gamevars_8h_source.html">gui_gamevars.h</a>&quot;</code><br />
+</div>
+<p><a href="gui__menus_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:af066dd01b4084623c107c8c327603831" id="r_af066dd01b4084623c107c8c327603831"><td class="memItemLeft" align="right" valign="top"><a id="af066dd01b4084623c107c8c327603831" name="af066dd01b4084623c107c8c327603831"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BUTTON_SIZE</b>&#160;&#160;&#160;44;</td></tr>
+<tr class="memdesc:af066dd01b4084623c107c8c327603831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille d'un bouton. <br /></td></tr>
+<tr class="separator:af066dd01b4084623c107c8c327603831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:acc639e6e890c4a17b4bc9ee05715f46b" id="r_acc639e6e890c4a17b4bc9ee05715f46b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc639e6e890c4a17b4bc9ee05715f46b">render_text</a> (int, int, const char *, TTF_Font *)</td></tr>
+<tr class="memdesc:acc639e6e890c4a17b4bc9ee05715f46b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un texte (point d'ancrage Nord-Ouest).  <br /></td></tr>
+<tr class="separator:acc639e6e890c4a17b4bc9ee05715f46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27ac791ef65b839a64bc136c7f9480b6" id="r_a27ac791ef65b839a64bc136c7f9480b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27ac791ef65b839a64bc136c7f9480b6">render_text_centered</a> (int, int, const char *, TTF_Font *)</td></tr>
+<tr class="memdesc:a27ac791ef65b839a64bc136c7f9480b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un texte (point d'ancrage Nord-Centre).  <br /></td></tr>
+<tr class="separator:a27ac791ef65b839a64bc136c7f9480b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecb9c70aa45ab9233a3f029d12fc14a9" id="r_aecb9c70aa45ab9233a3f029d12fc14a9"><td class="memItemLeft" align="right" valign="top"><a id="aecb9c70aa45ab9233a3f029d12fc14a9" name="aecb9c70aa45ab9233a3f029d12fc14a9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>print_text_buffer_center</b> (void)</td></tr>
+<tr class="memdesc:aecb9c70aa45ab9233a3f029d12fc14a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un texte lors de l'utilisation d'un buffer de saisie. <br /></td></tr>
+<tr class="separator:aecb9c70aa45ab9233a3f029d12fc14a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc33e78ee74e13073227d50f68ff0663" id="r_abc33e78ee74e13073227d50f68ff0663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc33e78ee74e13073227d50f68ff0663">render_bomb_button</a> (int, int, bool)</td></tr>
+<tr class="memdesc:abc33e78ee74e13073227d50f68ff0663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du bouton bombe.  <br /></td></tr>
+<tr class="separator:abc33e78ee74e13073227d50f68ff0663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5a112256a26683d1d4ca116e81e76e2" id="r_af5a112256a26683d1d4ca116e81e76e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5a112256a26683d1d4ca116e81e76e2">render_poly_button</a> (int, int, bool)</td></tr>
+<tr class="memdesc:af5a112256a26683d1d4ca116e81e76e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du bouton poly.  <br /></td></tr>
+<tr class="separator:af5a112256a26683d1d4ca116e81e76e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd81063b28f89354fdca31617d4762b" id="r_aebd81063b28f89354fdca31617d4762b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebd81063b28f89354fdca31617d4762b">render_exit_button</a> (int, int, bool)</td></tr>
+<tr class="memdesc:aebd81063b28f89354fdca31617d4762b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du bouton sortie.  <br /></td></tr>
+<tr class="separator:aebd81063b28f89354fdca31617d4762b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15cbdac1400001b3b1ff4673fafaed0c" id="r_a15cbdac1400001b3b1ff4673fafaed0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15cbdac1400001b3b1ff4673fafaed0c">render_undo_button</a> (int, int, bool)</td></tr>
+<tr class="memdesc:a15cbdac1400001b3b1ff4673fafaed0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du bouton annuler.  <br /></td></tr>
+<tr class="separator:a15cbdac1400001b3b1ff4673fafaed0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6c725d67bef4fe08de4df8a633f9430" id="r_ac6c725d67bef4fe08de4df8a633f9430"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6c725d67bef4fe08de4df8a633f9430">render_redo_button</a> (int, int, bool)</td></tr>
+<tr class="memdesc:ac6c725d67bef4fe08de4df8a633f9430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du bouton refaire.  <br /></td></tr>
+<tr class="separator:ac6c725d67bef4fe08de4df8a633f9430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabf15f354aef69a4d2d6f6e58d6c7729" id="r_aabf15f354aef69a4d2d6f6e58d6c7729"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabf15f354aef69a4d2d6f6e58d6c7729">render_help_button</a> (int, int, bool)</td></tr>
+<tr class="memdesc:aabf15f354aef69a4d2d6f6e58d6c7729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du bouton aide.  <br /></td></tr>
+<tr class="separator:aabf15f354aef69a4d2d6f6e58d6c7729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae54fe039150f23606cd171e6a089453b" id="r_ae54fe039150f23606cd171e6a089453b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae54fe039150f23606cd171e6a089453b">render_came_button</a> (int, int, bool)</td></tr>
+<tr class="memdesc:ae54fe039150f23606cd171e6a089453b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du bouton centrage de la caméra.  <br /></td></tr>
+<tr class="separator:ae54fe039150f23606cd171e6a089453b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a28d1d9b33cb3fed2fc2fb0892a3c10" id="r_a6a28d1d9b33cb3fed2fc2fb0892a3c10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a28d1d9b33cb3fed2fc2fb0892a3c10">render_move_button</a> (int, int, bool, <a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a>)</td></tr>
+<tr class="memdesc:a6a28d1d9b33cb3fed2fc2fb0892a3c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage des boutons de déplacement.  <br /></td></tr>
+<tr class="separator:a6a28d1d9b33cb3fed2fc2fb0892a3c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ccb84dd85700b78ba933d18d53ee220" id="r_a1ccb84dd85700b78ba933d18d53ee220"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ccb84dd85700b78ba933d18d53ee220">render_scale_tube</a> (int, int, int, int, int, unsigned char, bool, bool)</td></tr>
+<tr class="memdesc:a1ccb84dd85700b78ba933d18d53ee220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un tube.  <br /></td></tr>
+<tr class="separator:a1ccb84dd85700b78ba933d18d53ee220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add39bf3d03b0365c88f6e891589f7d22" id="r_add39bf3d03b0365c88f6e891589f7d22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add39bf3d03b0365c88f6e891589f7d22">render_selector</a> (int, int, int, const char *, TTF_Font *, bool, bool)</td></tr>
+<tr class="memdesc:add39bf3d03b0365c88f6e891589f7d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un sélecteur.  <br /></td></tr>
+<tr class="separator:add39bf3d03b0365c88f6e891589f7d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad75ea909debce38064c68adbc1321622" id="r_ad75ea909debce38064c68adbc1321622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad75ea909debce38064c68adbc1321622">render_selector_edit</a> (int, int, int, const char *, TTF_Font *, bool)</td></tr>
+<tr class="memdesc:ad75ea909debce38064c68adbc1321622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'une boite de saisie de texte.  <br /></td></tr>
+<tr class="separator:ad75ea909debce38064c68adbc1321622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12b1a4ace6fb761a6f906d60f9630e9f" id="r_a12b1a4ace6fb761a6f906d60f9630e9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12b1a4ace6fb761a6f906d60f9630e9f">render_color_indicator</a> (int, int, int, const char *, int)</td></tr>
+<tr class="memdesc:a12b1a4ace6fb761a6f906d60f9630e9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un indicateur coloré.  <br /></td></tr>
+<tr class="separator:a12b1a4ace6fb761a6f906d60f9630e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce4a0b7e38bbda9715edb727d043a9a" id="r_afce4a0b7e38bbda9715edb727d043a9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afce4a0b7e38bbda9715edb727d043a9a">render_bigbutton</a> (int, const char *, TTF_Font *, bool)</td></tr>
+<tr class="memdesc:afce4a0b7e38bbda9715edb727d043a9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un gros bouton centré.  <br /></td></tr>
+<tr class="separator:afce4a0b7e38bbda9715edb727d043a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd6428d4121727f39adefb3214854620" id="r_abd6428d4121727f39adefb3214854620"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd6428d4121727f39adefb3214854620">render_smallbutton</a> (int, int, int, const char *, bool)</td></tr>
+<tr class="memdesc:abd6428d4121727f39adefb3214854620"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un petit bouton.  <br /></td></tr>
+<tr class="separator:abd6428d4121727f39adefb3214854620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab886393a2ee0b3fde1d95ae6f8b046ce" id="r_ab886393a2ee0b3fde1d95ae6f8b046ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab886393a2ee0b3fde1d95ae6f8b046ce">render_frame</a> (int x, int, int, int, const char *)</td></tr>
+<tr class="memdesc:ab886393a2ee0b3fde1d95ae6f8b046ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un cadre.  <br /></td></tr>
+<tr class="separator:ab886393a2ee0b3fde1d95ae6f8b046ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65f047beaf945a21bfb69fa388781ebc" id="r_a65f047beaf945a21bfb69fa388781ebc"><td class="memItemLeft" align="right" valign="top"><a id="a65f047beaf945a21bfb69fa388781ebc" name="a65f047beaf945a21bfb69fa388781ebc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>render_gamenull</b> (void)</td></tr>
+<tr class="memdesc:a65f047beaf945a21bfb69fa388781ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message indiquant qu'aucun jeu n'a été généré. <br /></td></tr>
+<tr class="separator:a65f047beaf945a21bfb69fa388781ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa346748a9e679401398524cd177bdfa0" id="r_aa346748a9e679401398524cd177bdfa0"><td class="memItemLeft" align="right" valign="top"><a id="aa346748a9e679401398524cd177bdfa0" name="aa346748a9e679401398524cd177bdfa0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>render_victory</b> (void)</td></tr>
+<tr class="memdesc:aa346748a9e679401398524cd177bdfa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message indiquant la victoire. <br /></td></tr>
+<tr class="separator:aa346748a9e679401398524cd177bdfa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9145786a900c7e060a985dc863a5c626" id="r_a9145786a900c7e060a985dc863a5c626"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9145786a900c7e060a985dc863a5c626">render_informations</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a9145786a900c7e060a985dc863a5c626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informations communes à tous les menus.  <br /></td></tr>
+<tr class="separator:a9145786a900c7e060a985dc863a5c626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae803dd21dc1bc6eb97c80b4073a568a0" id="r_ae803dd21dc1bc6eb97c80b4073a568a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae803dd21dc1bc6eb97c80b4073a568a0">render_play_informations</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ae803dd21dc1bc6eb97c80b4073a568a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informations spécifiques au menu de jeu.  <br /></td></tr>
+<tr class="separator:ae803dd21dc1bc6eb97c80b4073a568a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ccbc581a606bb675544cbebbbd33f14" id="r_a0ccbc581a606bb675544cbebbbd33f14"><td class="memItemLeft" align="right" valign="top"><a id="a0ccbc581a606bb675544cbebbbd33f14" name="a0ccbc581a606bb675544cbebbbd33f14"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>render_gen_informations</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:a0ccbc581a606bb675544cbebbbd33f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informations spécifiques au menu de génération. <br /></td></tr>
+<tr class="separator:a0ccbc581a606bb675544cbebbbd33f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4b80620c63725f9b1cde9fcf2224a20" id="r_ac4b80620c63725f9b1cde9fcf2224a20"><td class="memItemLeft" align="right" valign="top"><a id="ac4b80620c63725f9b1cde9fcf2224a20" name="ac4b80620c63725f9b1cde9fcf2224a20"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>render_sim_informations</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ac4b80620c63725f9b1cde9fcf2224a20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informations spécifiques au menu du solveur simple. <br /></td></tr>
+<tr class="separator:ac4b80620c63725f9b1cde9fcf2224a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad51375b373591525d0c331b5ef112784" id="r_ad51375b373591525d0c331b5ef112784"><td class="memItemLeft" align="right" valign="top"><a id="ad51375b373591525d0c331b5ef112784" name="ad51375b373591525d0c331b5ef112784"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>render_cmp_searchs</b> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ad51375b373591525d0c331b5ef112784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informations spécifiques au menu du solveur avancé. <br /></td></tr>
+<tr class="separator:ad51375b373591525d0c331b5ef112784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad027473e4a175926f17209008f86f88a" id="r_ad027473e4a175926f17209008f86f88a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad027473e4a175926f17209008f86f88a">render_all_informations</a> (<a class="el" href="structgame.html">game</a> *)</td></tr>
+<tr class="memdesc:ad027473e4a175926f17209008f86f88a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du menu complet.  <br /></td></tr>
+<tr class="separator:ad027473e4a175926f17209008f86f88a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Interface: affichage des menus. Ne PAS modifier. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Cette partie est déjà implémentée. Il ne faut PAS la modifier. </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ad027473e4a175926f17209008f86f88a" name="ad027473e4a175926f17209008f86f88a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad027473e4a175926f17209008f86f88a">&#9670;&#160;</a></span>render_all_informations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_all_informations </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du menu complet. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afce4a0b7e38bbda9715edb727d043a9a" name="afce4a0b7e38bbda9715edb727d043a9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afce4a0b7e38bbda9715edb727d043a9a">&#9670;&#160;</a></span>render_bigbutton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_bigbutton </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>thefont</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>ron</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un gros bouton centré. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">y</td><td>Coordonnée verticale.  </td></tr>
+    <tr><td class="paramname">label</td><td>Label.  </td></tr>
+    <tr><td class="paramname">thefont</td><td>La font à utiliser.  </td></tr>
+    <tr><td class="paramname">ron</td><td>Le bouton est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abc33e78ee74e13073227d50f68ff0663" name="abc33e78ee74e13073227d50f68ff0663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc33e78ee74e13073227d50f68ff0663">&#9670;&#160;</a></span>render_bomb_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_bomb_button </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>on</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du bouton bombe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée vertical.  </td></tr>
+    <tr><td class="paramname">on</td><td>Le bouton est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae54fe039150f23606cd171e6a089453b" name="ae54fe039150f23606cd171e6a089453b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae54fe039150f23606cd171e6a089453b">&#9670;&#160;</a></span>render_came_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_came_button </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>on</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du bouton centrage de la caméra. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée vertical.  </td></tr>
+    <tr><td class="paramname">on</td><td>Le bouton est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a12b1a4ace6fb761a6f906d60f9630e9f" name="a12b1a4ace6fb761a6f906d60f9630e9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12b1a4ace6fb761a6f906d60f9630e9f">&#9670;&#160;</a></span>render_color_indicator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_color_indicator </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>title</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un indicateur coloré. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée verticale.  </td></tr>
+    <tr><td class="paramname">width</td><td>Largeur.  </td></tr>
+    <tr><td class="paramname">title</td><td>Le message à afficher.  </td></tr>
+    <tr><td class="paramname">color</td><td>La couleur à utiliser (1: rouge, 2: vert, 3: bleu, autre: gris) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aebd81063b28f89354fdca31617d4762b" name="aebd81063b28f89354fdca31617d4762b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebd81063b28f89354fdca31617d4762b">&#9670;&#160;</a></span>render_exit_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_exit_button </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>on</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du bouton sortie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée vertical.  </td></tr>
+    <tr><td class="paramname">on</td><td>Le bouton est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab886393a2ee0b3fde1d95ae6f8b046ce" name="ab886393a2ee0b3fde1d95ae6f8b046ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab886393a2ee0b3fde1d95ae6f8b046ce">&#9670;&#160;</a></span>render_frame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_frame </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>title</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un cadre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée verticale.  </td></tr>
+    <tr><td class="paramname">w</td><td>Largeur.  </td></tr>
+    <tr><td class="paramname">h</td><td>Hauteur.  </td></tr>
+    <tr><td class="paramname">title</td><td>Titre. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aabf15f354aef69a4d2d6f6e58d6c7729" name="aabf15f354aef69a4d2d6f6e58d6c7729"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabf15f354aef69a4d2d6f6e58d6c7729">&#9670;&#160;</a></span>render_help_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_help_button </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>on</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du bouton aide. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée vertical.  </td></tr>
+    <tr><td class="paramname">on</td><td>Le bouton est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9145786a900c7e060a985dc863a5c626" name="a9145786a900c7e060a985dc863a5c626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9145786a900c7e060a985dc863a5c626">&#9670;&#160;</a></span>render_informations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_informations </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Informations communes à tous les menus. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6a28d1d9b33cb3fed2fc2fb0892a3c10" name="a6a28d1d9b33cb3fed2fc2fb0892a3c10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a28d1d9b33cb3fed2fc2fb0892a3c10">&#9670;&#160;</a></span>render_move_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_move_button </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>on</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a></td>          <td class="paramname"><span class="paramname"><em>dir</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage des boutons de déplacement. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée vertical.  </td></tr>
+    <tr><td class="paramname">on</td><td>Le bouton est-il enfoncé?  </td></tr>
+    <tr><td class="paramname">dir</td><td>Le déplacement voulu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae803dd21dc1bc6eb97c80b4073a568a0" name="ae803dd21dc1bc6eb97c80b4073a568a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae803dd21dc1bc6eb97c80b4073a568a0">&#9670;&#160;</a></span>render_play_informations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_play_informations </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Informations spécifiques au menu de jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af5a112256a26683d1d4ca116e81e76e2" name="af5a112256a26683d1d4ca116e81e76e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5a112256a26683d1d4ca116e81e76e2">&#9670;&#160;</a></span>render_poly_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_poly_button </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>on</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du bouton poly. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée vertical.  </td></tr>
+    <tr><td class="paramname">on</td><td>Le bouton est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac6c725d67bef4fe08de4df8a633f9430" name="ac6c725d67bef4fe08de4df8a633f9430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6c725d67bef4fe08de4df8a633f9430">&#9670;&#160;</a></span>render_redo_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_redo_button </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>on</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du bouton refaire. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée vertical.  </td></tr>
+    <tr><td class="paramname">on</td><td>Le bouton est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1ccb84dd85700b78ba933d18d53ee220" name="a1ccb84dd85700b78ba933d18d53ee220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ccb84dd85700b78ba933d18d53ee220">&#9670;&#160;</a></span>render_scale_tube()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_scale_tube </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fill</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxfill</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char</td>          <td class="paramname"><span class="paramname"><em>zoom</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>lon</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>ron</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un tube. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée verticale.  </td></tr>
+    <tr><td class="paramname">width</td><td>Largeur.  </td></tr>
+    <tr><td class="paramname">fill</td><td>Remplissage actuel.  </td></tr>
+    <tr><td class="paramname">maxfill</td><td>Remplissage maximal.  </td></tr>
+    <tr><td class="paramname">zoom</td><td>Niveau de zoom.  </td></tr>
+    <tr><td class="paramname">lon</td><td>Le bouton gauche est-il enfoncé?  </td></tr>
+    <tr><td class="paramname">ron</td><td>Le bouton droit est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="add39bf3d03b0365c88f6e891589f7d22" name="add39bf3d03b0365c88f6e891589f7d22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add39bf3d03b0365c88f6e891589f7d22">&#9670;&#160;</a></span>render_selector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_selector </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>title</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>thefont</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>lon</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>ron</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un sélecteur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée verticale.  </td></tr>
+    <tr><td class="paramname">width</td><td>Largeur.  </td></tr>
+    <tr><td class="paramname">title</td><td>Le message à afficher.  </td></tr>
+    <tr><td class="paramname">thefont</td><td>La font à utiliser.  </td></tr>
+    <tr><td class="paramname">lon</td><td>Le bouton gauche est-il enfoncé?  </td></tr>
+    <tr><td class="paramname">ron</td><td>Le bouton droit est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad75ea909debce38064c68adbc1321622" name="ad75ea909debce38064c68adbc1321622"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad75ea909debce38064c68adbc1321622">&#9670;&#160;</a></span>render_selector_edit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_selector_edit </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>title</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>thefont</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>ron</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'une boite de saisie de texte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée verticale.  </td></tr>
+    <tr><td class="paramname">width</td><td>Largeur.  </td></tr>
+    <tr><td class="paramname">title</td><td>Le message à afficher.  </td></tr>
+    <tr><td class="paramname">thefont</td><td>La font à utiliser.  </td></tr>
+    <tr><td class="paramname">ron</td><td>Le bouton droit est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abd6428d4121727f39adefb3214854620" name="abd6428d4121727f39adefb3214854620"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd6428d4121727f39adefb3214854620">&#9670;&#160;</a></span>render_smallbutton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_smallbutton </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>ron</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un petit bouton. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée verticale.  </td></tr>
+    <tr><td class="paramname">width</td><td>Largeur.  </td></tr>
+    <tr><td class="paramname">label</td><td>Label.  </td></tr>
+    <tr><td class="paramname">ron</td><td>Le bouton est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acc639e6e890c4a17b4bc9ee05715f46b" name="acc639e6e890c4a17b4bc9ee05715f46b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc639e6e890c4a17b4bc9ee05715f46b">&#9670;&#160;</a></span>render_text()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int render_text </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un texte (point d'ancrage Nord-Ouest). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée verticale.  </td></tr>
+    <tr><td class="paramname">text</td><td>Chaîne de caractères.  </td></tr>
+    <tr><td class="paramname">font</td><td>Font à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a27ac791ef65b839a64bc136c7f9480b6" name="a27ac791ef65b839a64bc136c7f9480b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27ac791ef65b839a64bc136c7f9480b6">&#9670;&#160;</a></span>render_text_centered()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int render_text_centered </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un texte (point d'ancrage Nord-Centre). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée verticale.  </td></tr>
+    <tr><td class="paramname">text</td><td>Chaîne de caractères.  </td></tr>
+    <tr><td class="paramname">font</td><td>Font à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a15cbdac1400001b3b1ff4673fafaed0c" name="a15cbdac1400001b3b1ff4673fafaed0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15cbdac1400001b3b1ff4673fafaed0c">&#9670;&#160;</a></span>render_undo_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_undo_button </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>on</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du bouton annuler. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée horizontale.  </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée vertical.  </td></tr>
+    <tr><td class="paramname">on</td><td>Le bouton est-il enfoncé? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="gui__menus_8h.html">gui_menus.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

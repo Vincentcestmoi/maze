@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet labyrinthe: Référence du fichier gui_init_graphic.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet labyrinthe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('gui__init__graphic_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier gui_init_graphic.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interface: initialisation de l'affichage. Ne PAS modifier.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="gui__textbuf_8h_source.html">gui_textbuf.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gui__gamevars_8h_source.html">gui_gamevars.h</a>&quot;</code><br />
+</div>
+<p><a href="gui__init__graphic_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a74597c8261dcbfa4f25506599ba25218" id="r_a74597c8261dcbfa4f25506599ba25218"><td class="memItemLeft" align="right" valign="top"><a id="a74597c8261dcbfa4f25506599ba25218" name="a74597c8261dcbfa4f25506599ba25218"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74597c8261dcbfa4f25506599ba25218">textureclips</a> </td></tr>
+<tr class="memdesc:a74597c8261dcbfa4f25506599ba25218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Noms internes des coordonnées des textures. <br /></td></tr>
+<tr class="separator:a74597c8261dcbfa4f25506599ba25218"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a0be96fe948a4e4932930c16fed3199a6" id="r_a0be96fe948a4e4932930c16fed3199a6"><td class="memItemLeft" align="right" valign="top"><a id="a0be96fe948a4e4932930c16fed3199a6" name="a0be96fe948a4e4932930c16fed3199a6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init_fonts</b> (void)</td></tr>
+<tr class="memdesc:a0be96fe948a4e4932930c16fed3199a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chargement des fonts. <br /></td></tr>
+<tr class="separator:a0be96fe948a4e4932930c16fed3199a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c0eb5e939b28e38585244f9213ea937" id="r_a7c0eb5e939b28e38585244f9213ea937"><td class="memItemLeft" align="right" valign="top"><a id="a7c0eb5e939b28e38585244f9213ea937" name="a7c0eb5e939b28e38585244f9213ea937"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init_image</b> (void)</td></tr>
+<tr class="memdesc:a7c0eb5e939b28e38585244f9213ea937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation du module pour charger les PNGs. <br /></td></tr>
+<tr class="separator:a7c0eb5e939b28e38585244f9213ea937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f55be8dbff6bde6bcc55c96db3a705b" id="r_a5f55be8dbff6bde6bcc55c96db3a705b"><td class="memItemLeft" align="right" valign="top"><a id="a5f55be8dbff6bde6bcc55c96db3a705b" name="a5f55be8dbff6bde6bcc55c96db3a705b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init_load_sprites</b> (void)</td></tr>
+<tr class="memdesc:a5f55be8dbff6bde6bcc55c96db3a705b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation des sprites. <br /></td></tr>
+<tr class="separator:a5f55be8dbff6bde6bcc55c96db3a705b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae843387ce32187e6aba40284ef57e847" id="r_ae843387ce32187e6aba40284ef57e847"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae843387ce32187e6aba40284ef57e847">init_SDL</a> (short, short)</td></tr>
+<tr class="memdesc:ae843387ce32187e6aba40284ef57e847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation de la fenêtre SDL.  <br /></td></tr>
+<tr class="separator:ae843387ce32187e6aba40284ef57e847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11d3389615088ca85bcbce108b9e3dbd" id="r_a11d3389615088ca85bcbce108b9e3dbd"><td class="memItemLeft" align="right" valign="top"><a id="a11d3389615088ca85bcbce108b9e3dbd" name="a11d3389615088ca85bcbce108b9e3dbd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown_SDL</b> (void)</td></tr>
+<tr class="memdesc:a11d3389615088ca85bcbce108b9e3dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fermeture de SDL. <br /></td></tr>
+<tr class="separator:a11d3389615088ca85bcbce108b9e3dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Interface: initialisation de l'affichage. Ne PAS modifier. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Cette partie est déjà implémentée. Il ne faut PAS la modifier. </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ae843387ce32187e6aba40284ef57e847" name="ae843387ce32187e6aba40284ef57e847"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae843387ce32187e6aba40284ef57e847">&#9670;&#160;</a></span>init_SDL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool init_SDL </td>
+          <td>(</td>
+          <td class="paramtype">short</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialisation de la fenêtre SDL. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>Largeur.  </td></tr>
+    <tr><td class="paramname">height</td><td>Hauteur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="gui__init__graphic_8h.html">gui_init_graphic.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

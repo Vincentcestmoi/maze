@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['scroll_5fmanual_0',['scroll_manual',['../gui__gamevars_8h.html#a0cbf4fd946c6d3edc276358a07c9cf25',1,'gui_gamevars.c']]],
+  ['scroll_5fto_5fcell_1',['scroll_to_cell',['../gui__gamevars_8h.html#a6ea322c7d4d113a41d58cb5b2685147d',1,'gui_gamevars.c']]],
+  ['scroll_5fto_5fplayer_2',['scroll_to_player',['../gui__gamevars_8h.html#ac8619ac9cb8f516832c416c23d5657e9',1,'gui_gamevars.c']]],
+  ['scroll_5fupdate_5fborders_3',['scroll_update_borders',['../gui__gamevars_8h.html#a9a14c3e70187ec8db245482607d9c067',1,'gui_gamevars.c']]],
+  ['scroll_5fwith_5fmouse_4',['scroll_with_mouse',['../gui__gamevars_8h.html#addd811dc5aa1d7b1483f07e317431160',1,'gui_gamevars.c']]],
+  ['set_5fflag_5',['set_flag',['../gui__controller_8h.html#ae558b8a0ead24446b29c5bed1d1cac3d',1,'gui_controller.c']]],
+  ['shrink_5fbinheap_6',['shrink_binheap',['../data__binheap_8h.html#a52233176f33f4b208913f03ab4a08f2c',1,'data_binheap.c']]],
+  ['shrink_5fqueue_7',['shrink_queue',['../data__queue_8h.html#a683af62d2a349d22775836e2bf78ea37',1,'data_queue.c']]],
+  ['shutdown_5fsdl_8',['shutdown_SDL',['../gui__init__graphic_8h.html#a11d3389615088ca85bcbce108b9e3dbd',1,'gui_init_graphic.c']]],
+  ['sim_5faddtopath_9',['sim_addtopath',['../solve_8h.html#a90eb3ae26b55ddeb0933463e05d06249',1,'solve.c']]],
+  ['sim_5fastar_10',['sim_astar',['../solve_8h.html#a5a7ac6353d01de3c7d4f83fcf164cb26',1,'solve.c']]],
+  ['sim_5fbfs_11',['sim_bfs',['../solve_8h.html#abdfb4971ffd3704b61843042b0dbbafa',1,'solve.c']]],
+  ['sim_5fcopypath_12',['sim_copypath',['../solve_8h.html#a6e9ba9e48f1346ae38c8eae5890df63b',1,'solve.c']]],
+  ['sim_5fcreate_5fsearch_13',['sim_create_search',['../solve_8h.html#a733207a15dd7ea7bea916bdfd3f39115',1,'solve.c']]],
+  ['sim_5fdfs_14',['sim_dfs',['../solve_8h.html#aa3ac01c9d68887448715c0a4f3872b00',1,'solve.c']]],
+  ['sim_5femptypath_15',['sim_emptypath',['../solve_8h.html#a38020c857b9c5411c63b6319d8fb1c86',1,'solve.c']]],
+  ['sim_5ffree_5fsearch_16',['sim_free_search',['../solve_8h.html#ab1b9a52f7afbd77a3452a85adfd28700',1,'solve.c']]],
+  ['sim_5ffreepath_17',['sim_freepath',['../solve_8h.html#ac1abe6ab05bcfb486db2d0d85fb2a42c',1,'solve.c']]],
+  ['size_5fdyn_18',['size_dyn',['../data__dynarray_8h.html#a2e967a6e21826ba138e24f41b60550d3',1,'data_dynarray.c']]],
+  ['sizeclass_5fufind_19',['sizeclass_ufind',['../data__ufind_8h.html#a34cfc43b404cd7101ca9a141b6eae6e7',1,'data_ufind.c']]],
+  ['sizenext_5fhistory_20',['sizenext_history',['../game__history_8h.html#ac3ccc9f878abf3ef823c875b2cc11cb1',1,'game_history.c']]],
+  ['sizepar_5fufind_21',['sizepar_ufind',['../data__ufind_8h.html#a55a74368260beac7f0602a1493d01d7f',1,'data_ufind.c']]],
+  ['sizeprev_5fhistory_22',['sizeprev_history',['../game__history_8h.html#ac0984fdecfbee79af76a726f0df3a237',1,'game_history.c']]],
+  ['sizeset_5fufind_23',['sizeset_ufind',['../data__ufind_8h.html#a9c8b9cee4d6de083455ed73847b37f3e',1,'data_ufind.c']]]
+];

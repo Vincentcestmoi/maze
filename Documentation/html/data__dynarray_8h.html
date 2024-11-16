@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet labyrinthe: Référence du fichier data_dynarray.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet labyrinthe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('data__dynarray_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier data_dynarray.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implémentation d'un tableau dynamique de nombres entiers.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="alloc_8h_source.html">alloc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="error_8h_source.html">error.h</a>&quot;</code><br />
+</div>
+<p><a href="data__dynarray_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdynarray.html">dynarray</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implémentation d'un tableau dynamique.  <a href="structdynarray.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aba3f518228cae4c1df83a9a5855a13fe" id="r_aba3f518228cae4c1df83a9a5855a13fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba3f518228cae4c1df83a9a5855a13fe">double_dyn</a> (<a class="el" href="structdynarray.html">dynarray</a> *)</td></tr>
+<tr class="memdesc:aba3f518228cae4c1df83a9a5855a13fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplication par deux de la taille du tableau array.  <br /></td></tr>
+<tr class="separator:aba3f518228cae4c1df83a9a5855a13fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9256c07ec8d6a77d9fee466c87ffe4aa" id="r_a9256c07ec8d6a77d9fee466c87ffe4aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9256c07ec8d6a77d9fee466c87ffe4aa">divide_dyn</a> (<a class="el" href="structdynarray.html">dynarray</a> *)</td></tr>
+<tr class="memdesc:a9256c07ec8d6a77d9fee466c87ffe4aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Division par deux de la taille du tableau array.  <br /></td></tr>
+<tr class="separator:a9256c07ec8d6a77d9fee466c87ffe4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07340f7f4715cb50fffae8460064ff72" id="r_a07340f7f4715cb50fffae8460064ff72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdynarray.html">dynarray</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07340f7f4715cb50fffae8460064ff72">create_dyn</a> (void)</td></tr>
+<tr class="memdesc:a07340f7f4715cb50fffae8460064ff72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Création d'un tableau dynamique vide.  <br /></td></tr>
+<tr class="separator:a07340f7f4715cb50fffae8460064ff72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1eb895608b778e1f82dca544011a653" id="r_ad1eb895608b778e1f82dca544011a653"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1eb895608b778e1f82dca544011a653">free_dyn</a> (<a class="el" href="structdynarray.html">dynarray</a> *)</td></tr>
+<tr class="memdesc:ad1eb895608b778e1f82dca544011a653"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libération d'un tableau dynamique.  <br /></td></tr>
+<tr class="separator:ad1eb895608b778e1f82dca544011a653"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e967a6e21826ba138e24f41b60550d3" id="r_a2e967a6e21826ba138e24f41b60550d3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e967a6e21826ba138e24f41b60550d3">size_dyn</a> (<a class="el" href="structdynarray.html">dynarray</a> *)</td></tr>
+<tr class="memdesc:a2e967a6e21826ba138e24f41b60550d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la taille d'un tableau dynamique.  <br /></td></tr>
+<tr class="separator:a2e967a6e21826ba138e24f41b60550d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78ca073ed635c0a46be587fb5b8da253" id="r_a78ca073ed635c0a46be587fb5b8da253"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78ca073ed635c0a46be587fb5b8da253">is_empty_dyn</a> (<a class="el" href="structdynarray.html">dynarray</a> *)</td></tr>
+<tr class="memdesc:a78ca073ed635c0a46be587fb5b8da253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si un tableau dynamique est vide.  <br /></td></tr>
+<tr class="separator:a78ca073ed635c0a46be587fb5b8da253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e1e1ff640ef44e805a04b555e4905e0" id="r_a4e1e1ff640ef44e805a04b555e4905e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e1e1ff640ef44e805a04b555e4905e0">push_dyn</a> (int, <a class="el" href="structdynarray.html">dynarray</a> *)</td></tr>
+<tr class="memdesc:a4e1e1ff640ef44e805a04b555e4905e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insertion d'une nouvelle valeur à la fin d'un tableau dynamique.  <br /></td></tr>
+<tr class="separator:a4e1e1ff640ef44e805a04b555e4905e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3578b09c95136517c7c4d7eec67822d" id="r_ae3578b09c95136517c7c4d7eec67822d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3578b09c95136517c7c4d7eec67822d">pop_dyn</a> (<a class="el" href="structdynarray.html">dynarray</a> *)</td></tr>
+<tr class="memdesc:ae3578b09c95136517c7c4d7eec67822d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression de la dernière valeur à la fin d'un tableau dynamique.  <br /></td></tr>
+<tr class="separator:ae3578b09c95136517c7c4d7eec67822d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Implémentation d'un tableau dynamique de nombres entiers. </p>
+<p>La structure de données est identique à celle utilisée pour implémenter une pile.</p>
+<dl class="section remark"><dt>Remarques</dt><dd>Cette structure de données est utilisée régulièrement dans le projet. En particulier, il est possible de s'en servir lorsque l'on a besoin d'une pile. </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a07340f7f4715cb50fffae8460064ff72" name="a07340f7f4715cb50fffae8460064ff72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07340f7f4715cb50fffae8460064ff72">&#9670;&#160;</a></span>create_dyn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdynarray.html">dynarray</a> * create_dyn </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Création d'un tableau dynamique vide. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Le tableau dynamique créé. </dd></dl>
+
+</div>
+</div>
+<a id="a9256c07ec8d6a77d9fee466c87ffe4aa" name="a9256c07ec8d6a77d9fee466c87ffe4aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9256c07ec8d6a77d9fee466c87ffe4aa">&#9670;&#160;</a></span>divide_dyn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void divide_dyn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdynarray.html">dynarray</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Division par deux de la taille du tableau array. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Le tableau dynamique. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aba3f518228cae4c1df83a9a5855a13fe" name="aba3f518228cae4c1df83a9a5855a13fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba3f518228cae4c1df83a9a5855a13fe">&#9670;&#160;</a></span>double_dyn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void double_dyn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdynarray.html">dynarray</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplication par deux de la taille du tableau array. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Le tableau dynamique. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad1eb895608b778e1f82dca544011a653" name="ad1eb895608b778e1f82dca544011a653"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1eb895608b778e1f82dca544011a653">&#9670;&#160;</a></span>free_dyn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_dyn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdynarray.html">dynarray</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libération d'un tableau dynamique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Le tableau dynamique. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a78ca073ed635c0a46be587fb5b8da253" name="a78ca073ed635c0a46be587fb5b8da253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78ca073ed635c0a46be587fb5b8da253">&#9670;&#160;</a></span>is_empty_dyn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_empty_dyn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdynarray.html">dynarray</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teste si un tableau dynamique est vide. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Un Booléeen indiquant si le tableau dynamique est vide. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Le tableau dynamique. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae3578b09c95136517c7c4d7eec67822d" name="ae3578b09c95136517c7c4d7eec67822d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3578b09c95136517c7c4d7eec67822d">&#9670;&#160;</a></span>pop_dyn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int pop_dyn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdynarray.html">dynarray</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Suppression de la dernière valeur à la fin d'un tableau dynamique. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>La valeur supprimée. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Le tableau dynamique. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e1e1ff640ef44e805a04b555e4905e0" name="a4e1e1ff640ef44e805a04b555e4905e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e1e1ff640ef44e805a04b555e4905e0">&#9670;&#160;</a></span>push_dyn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void push_dyn </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdynarray.html">dynarray</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insertion d'une nouvelle valeur à la fin d'un tableau dynamique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>La valeur à insérer.  </td></tr>
+    <tr><td class="paramname">a</td><td>Le tableau dynamique. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2e967a6e21826ba138e24f41b60550d3" name="a2e967a6e21826ba138e24f41b60550d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e967a6e21826ba138e24f41b60550d3">&#9670;&#160;</a></span>size_dyn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int size_dyn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdynarray.html">dynarray</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule la taille d'un tableau dynamique. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>La taille du tableau dynamique. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Le tableau dynamique. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="data__dynarray_8h.html">data_dynarray.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

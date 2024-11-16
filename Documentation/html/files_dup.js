@@ -1,0 +1,28 @@
+var files_dup =
+[
+    [ "alloc.c", "alloc_8c.html", "alloc_8c" ],
+    [ "alloc.h", "alloc_8h.html", "alloc_8h" ],
+    [ "back_maze_mask.h", "back__maze__mask_8h_source.html", null ],
+    [ "data_binheap.h", "data__binheap_8h.html", "data__binheap_8h" ],
+    [ "data_dynarray.h", "data__dynarray_8h.html", "data__dynarray_8h" ],
+    [ "data_queue.h", "data__queue_8h.html", "data__queue_8h" ],
+    [ "data_ufind.h", "data__ufind_8h.html", "data__ufind_8h" ],
+    [ "error.h", "error_8h.html", "error_8h" ],
+    [ "game.h", "game_8h.html", "game_8h" ],
+    [ "game_history.h", "game__history_8h.html", "game__history_8h" ],
+    [ "game_strategies.h", "game__strategies_8h.html", "game__strategies_8h" ],
+    [ "gui_controller.h", "gui__controller_8h.html", "gui__controller_8h" ],
+    [ "gui_gamevars.h", "gui__gamevars_8h.html", "gui__gamevars_8h" ],
+    [ "gui_init_graphic.h", "gui__init__graphic_8h.html", "gui__init__graphic_8h" ],
+    [ "gui_menus.h", "gui__menus_8h.html", "gui__menus_8h" ],
+    [ "gui_rendering.h", "gui__rendering_8h.html", "gui__rendering_8h" ],
+    [ "gui_textbuf.h", "gui__textbuf_8h.html", "gui__textbuf_8h" ],
+    [ "main.h", "main_8h.html", "main_8h" ],
+    [ "maze.h", "maze_8h.html", "maze_8h" ],
+    [ "maze_braiding.h", "maze__braiding_8h.html", "maze__braiding_8h" ],
+    [ "maze_gen.h", "maze__gen_8h.html", "maze__gen_8h" ],
+    [ "maze_masks.h", "maze__masks_8h.html", "maze__masks_8h" ],
+    [ "maze_objects.h", "maze__objects_8h.html", "maze__objects_8h" ],
+    [ "solve.h", "solve_8h.html", "solve_8h" ],
+    [ "solve_adv.h", "solve__adv_8h.html", "solve__adv_8h" ]
+];

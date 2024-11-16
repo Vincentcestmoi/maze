@@ -1,0 +1,770 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet labyrinthe: Référence du fichier solve.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet labyrinthe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('solve_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier solve.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Solveur: chemins simples.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="game_8h_source.html">game.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="data__binheap_8h_source.html">data_binheap.h</a>&quot;</code><br />
+</div>
+<p><a href="solve_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsim__move__seq.html">sim_move_seq</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représentation d'une séquence de mouvements.  <a href="structsim__move__seq.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsim__path.html">sim_path</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représentation d'un chemin simple (sans cycle).  <a href="structsim__path.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsim__search.html">sim_search</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représentation de l'information récupérée lors d'un parcours du labyrinthe en utilisant un des algorithmes de parcours.  <a href="structsim__search.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a04e5ec9e8eefc2f63e8d96f36fa5110c" id="r_a04e5ec9e8eefc2f63e8d96f36fa5110c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04e5ec9e8eefc2f63e8d96f36fa5110c">sim_algorithm</a> { <a class="el" href="#a04e5ec9e8eefc2f63e8d96f36fa5110cadeb158aa31adfe05f61a8ee86447f4c5">ALG_BFS</a>
+, <a class="el" href="#a04e5ec9e8eefc2f63e8d96f36fa5110caa7c66ac3463d68ce5798812be341e1d0">ALG_DFS</a>
+, <a class="el" href="#a04e5ec9e8eefc2f63e8d96f36fa5110ca4d268c7134f4ba63de6d5b99c9709ee4">ALG_AST</a>
+, <b>ALG_SIZE</b>
+ }</td></tr>
+<tr class="memdesc:a04e5ec9e8eefc2f63e8d96f36fa5110c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Les différents algorithmes de parcours disponibles.  <a href="#a04e5ec9e8eefc2f63e8d96f36fa5110c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a04e5ec9e8eefc2f63e8d96f36fa5110c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99115e196712f4882a03b85feed22eee" id="r_a99115e196712f4882a03b85feed22eee"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a> { <a class="el" href="#a99115e196712f4882a03b85feed22eeeaec0a48702eb800fb85f87baa80802fb1">GOA_TREASURE</a>
+, <a class="el" href="#a99115e196712f4882a03b85feed22eeea1f6f68b42e998652beb08a6936232531">GOA_BOMB</a>
+, <a class="el" href="#a99115e196712f4882a03b85feed22eeeafe5bb7e5ad686dce0aca6769b3423e11">GOA_POLY</a>
+, <a class="el" href="#a99115e196712f4882a03b85feed22eeeac93e6b4857749e9033e40bae352b74c5">GOA_EXIT</a>
+, <b>GOA_SIZE</b>
+ }</td></tr>
+<tr class="memdesc:a99115e196712f4882a03b85feed22eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Les différents types d'objets qu'on peut rechercher en utilisant un parcours.  <a href="#a99115e196712f4882a03b85feed22eee">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a99115e196712f4882a03b85feed22eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa29ef5a69e52eaed5de345b6599491d" id="r_afa29ef5a69e52eaed5de345b6599491d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa29ef5a69e52eaed5de345b6599491d">heuristic</a> { <a class="el" href="#afa29ef5a69e52eaed5de345b6599491daa023c9ac01f82a194736bdba249d8060">HEU_NONE</a>
+, <a class="el" href="#afa29ef5a69e52eaed5de345b6599491da313fc3d8154db2af45fffbba64d893f6">HEU_MANH</a>
+, <a class="el" href="#afa29ef5a69e52eaed5de345b6599491da06a6f93e01675704e33b86025172479e">HEU_RUNA</a>
+, <b>HEU_SIZE</b>
+ }</td></tr>
+<tr class="memdesc:afa29ef5a69e52eaed5de345b6599491d"><td class="mdescLeft">&#160;</td><td class="mdescRight">La liste des noms internes des heuristiques (utile uniquement pour l'algorithme A*).  <a href="#afa29ef5a69e52eaed5de345b6599491d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afa29ef5a69e52eaed5de345b6599491d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a38020c857b9c5411c63b6319d8fb1c86" id="r_a38020c857b9c5411c63b6319d8fb1c86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsim__path.html">sim_path</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38020c857b9c5411c63b6319d8fb1c86">sim_emptypath</a> (int)</td></tr>
+<tr class="memdesc:a38020c857b9c5411c63b6319d8fb1c86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Création d'un nouveau chemin (vide).  <br /></td></tr>
+<tr class="separator:a38020c857b9c5411c63b6319d8fb1c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90eb3ae26b55ddeb0933463e05d06249" id="r_a90eb3ae26b55ddeb0933463e05d06249"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90eb3ae26b55ddeb0933463e05d06249">sim_addtopath</a> (<a class="el" href="structmaze.html">maze</a> *, <a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a>, <a class="el" href="structsim__path.html">sim_path</a> *)</td></tr>
+<tr class="memdesc:a90eb3ae26b55ddeb0933463e05d06249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajout un mouvement supplémentaire au début d'un chemin.  <br /></td></tr>
+<tr class="separator:a90eb3ae26b55ddeb0933463e05d06249"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e9ba9e48f1346ae38c8eae5890df63b" id="r_a6e9ba9e48f1346ae38c8eae5890df63b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsim__path.html">sim_path</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e9ba9e48f1346ae38c8eae5890df63b">sim_copypath</a> (<a class="el" href="structsim__path.html">sim_path</a> *)</td></tr>
+<tr class="memdesc:a6e9ba9e48f1346ae38c8eae5890df63b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une copie d'un chemin existant.  <br /></td></tr>
+<tr class="separator:a6e9ba9e48f1346ae38c8eae5890df63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1abe6ab05bcfb486db2d0d85fb2a42c" id="r_ac1abe6ab05bcfb486db2d0d85fb2a42c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1abe6ab05bcfb486db2d0d85fb2a42c">sim_freepath</a> (<a class="el" href="structsim__path.html">sim_path</a> *)</td></tr>
+<tr class="memdesc:ac1abe6ab05bcfb486db2d0d85fb2a42c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libération d'un chemin.  <br /></td></tr>
+<tr class="separator:ac1abe6ab05bcfb486db2d0d85fb2a42c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a733207a15dd7ea7bea916bdfd3f39115" id="r_a733207a15dd7ea7bea916bdfd3f39115"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsim__search.html">sim_search</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a733207a15dd7ea7bea916bdfd3f39115">sim_create_search</a> (<a class="el" href="#a04e5ec9e8eefc2f63e8d96f36fa5110c">sim_algorithm</a>, <a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a>)</td></tr>
+<tr class="memdesc:a733207a15dd7ea7bea916bdfd3f39115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Création d'un nouveau parcours "vide". Il sera ensuite rempli par l'un des algorithmes.  <br /></td></tr>
+<tr class="separator:a733207a15dd7ea7bea916bdfd3f39115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1b9a52f7afbd77a3452a85adfd28700" id="r_ab1b9a52f7afbd77a3452a85adfd28700"><td class="memItemLeft" align="right" valign="top"><a id="ab1b9a52f7afbd77a3452a85adfd28700" name="ab1b9a52f7afbd77a3452a85adfd28700"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sim_free_search</b> (<a class="el" href="structsim__search.html">sim_search</a> *)</td></tr>
+<tr class="memdesc:ab1b9a52f7afbd77a3452a85adfd28700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libération d'un parcours. <br /></td></tr>
+<tr class="separator:ab1b9a52f7afbd77a3452a85adfd28700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06017250a00fb2e7f1410ca388e4e74d" id="r_a06017250a00fb2e7f1410ca388e4e74d"><td class="memItemLeft" align="right" valign="top"><a id="a06017250a00fb2e7f1410ca388e4e74d" name="a06017250a00fb2e7f1410ca388e4e74d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>astar_none</b> (<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *)</td></tr>
+<tr class="memdesc:a06017250a00fb2e7f1410ca388e4e74d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heuristique constante (donne un parcours BFS). <br /></td></tr>
+<tr class="separator:a06017250a00fb2e7f1410ca388e4e74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8b6ecd6a8ed83a012b9b7b76e792007" id="r_aa8b6ecd6a8ed83a012b9b7b76e792007"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8b6ecd6a8ed83a012b9b7b76e792007">astar_manhattan</a> (<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *)</td></tr>
+<tr class="memdesc:aa8b6ecd6a8ed83a012b9b7b76e792007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance manhattan avec la sortie la plus proche.  <br /></td></tr>
+<tr class="separator:aa8b6ecd6a8ed83a012b9b7b76e792007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2125c728736d92efcc46c9aa6d192af" id="r_ad2125c728736d92efcc46c9aa6d192af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2125c728736d92efcc46c9aa6d192af">astar_runaway</a> (<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *)</td></tr>
+<tr class="memdesc:ad2125c728736d92efcc46c9aa6d192af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heuristique cherchant à éviter les minotaures.  <br /></td></tr>
+<tr class="separator:ad2125c728736d92efcc46c9aa6d192af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdfb4971ffd3704b61843042b0dbbafa" id="r_abdfb4971ffd3704b61843042b0dbbafa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsim__search.html">sim_search</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abdfb4971ffd3704b61843042b0dbbafa">sim_bfs</a> (<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a>, int(*)(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *), bool)</td></tr>
+<tr class="memdesc:abdfb4971ffd3704b61843042b0dbbafa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithme de parcours en largeur.  <br /></td></tr>
+<tr class="separator:abdfb4971ffd3704b61843042b0dbbafa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ac01c9d68887448715c0a4f3872b00" id="r_aa3ac01c9d68887448715c0a4f3872b00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsim__search.html">sim_search</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3ac01c9d68887448715c0a4f3872b00">sim_dfs</a> (<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a>, int(*)(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *), bool)</td></tr>
+<tr class="memdesc:aa3ac01c9d68887448715c0a4f3872b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithme de parcours en profondeur.  <br /></td></tr>
+<tr class="separator:aa3ac01c9d68887448715c0a4f3872b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a7ac6353d01de3c7d4f83fcf164cb26" id="r_a5a7ac6353d01de3c7d4f83fcf164cb26"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsim__search.html">sim_search</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a7ac6353d01de3c7d4f83fcf164cb26">sim_astar</a> (<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a>, int(*)(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *), bool)</td></tr>
+<tr class="memdesc:a5a7ac6353d01de3c7d4f83fcf164cb26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithme A*.  <br /></td></tr>
+<tr class="separator:a5a7ac6353d01de3c7d4f83fcf164cb26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a8cfa4bcf3e858d92bc5d4e658ffdc512" id="r_a8cfa4bcf3e858d92bc5d4e658ffdc512"><td class="memItemLeft" align="right" valign="top"><a id="a8cfa4bcf3e858d92bc5d4e658ffdc512" name="a8cfa4bcf3e858d92bc5d4e658ffdc512"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>salgo_names</b> [ALG_SIZE]</td></tr>
+<tr class="memdesc:a8cfa4bcf3e858d92bc5d4e658ffdc512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tableau des noms des algorithmes de parcours qui appraissent dans l'interface. <br /></td></tr>
+<tr class="separator:a8cfa4bcf3e858d92bc5d4e658ffdc512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a723a75fe04441283fa8314d9763272ed" id="r_a723a75fe04441283fa8314d9763272ed"><td class="memItemLeft" align="right" valign="top"><a id="a723a75fe04441283fa8314d9763272ed" name="a723a75fe04441283fa8314d9763272ed"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>sgoal_names</b> [GOA_SIZE]</td></tr>
+<tr class="memdesc:a723a75fe04441283fa8314d9763272ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tableau des noms des types d'objets qui appraissent dans l'interface. <br /></td></tr>
+<tr class="separator:a723a75fe04441283fa8314d9763272ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeee0efbc1c3fd5bdcaf5cbe35819387d" id="r_aeee0efbc1c3fd5bdcaf5cbe35819387d"><td class="memItemLeft" align="right" valign="top"><a id="aeee0efbc1c3fd5bdcaf5cbe35819387d" name="aeee0efbc1c3fd5bdcaf5cbe35819387d"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>heu_names</b> [HEU_SIZE]</td></tr>
+<tr class="memdesc:aeee0efbc1c3fd5bdcaf5cbe35819387d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le tableau des noms qui apparaissent dans l'interface pour chaque heuristique (utile uniquement pour l'algorithme A*). <br /></td></tr>
+<tr class="separator:aeee0efbc1c3fd5bdcaf5cbe35819387d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cf2d3980ce113d03821e0b19d4cae1b" id="r_a8cf2d3980ce113d03821e0b19d4cae1b"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cf2d3980ce113d03821e0b19d4cae1b">heu_funs</a> [HEU_SIZE])(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *)</td></tr>
+<tr class="memdesc:a8cf2d3980ce113d03821e0b19d4cae1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le tableau des heuristiques (utile uniquement pour l'algorithme A*).  <br /></td></tr>
+<tr class="separator:a8cf2d3980ce113d03821e0b19d4cae1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e401e7f60b91935c0f0474aebe9b5c8" id="r_a7e401e7f60b91935c0f0474aebe9b5c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsim__search.html">sim_search</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e401e7f60b91935c0f0474aebe9b5c8">salgo_funs</a> [ALG_SIZE])(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a>, int(heu_fun)(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *), bool)</td></tr>
+<tr class="memdesc:a7e401e7f60b91935c0f0474aebe9b5c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tableaux des fonctions qui implémentent les algorithmes de parcours.  <br /></td></tr>
+<tr class="separator:a7e401e7f60b91935c0f0474aebe9b5c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Solveur: chemins simples. </p>
+<p>Contient le type qu'on utilise pour représenter un chemin "simple" et les algorithmes de parcours qu'on utilise pour les générer (BFS, DFS et A*).</p>
+<dl class="section remark"><dt>Remarques</dt><dd>Un chemin simple est un chemin qui ne contient PAS de cycle. Même si le type qu'on va utiliser ici permet théoriquement de représenter un chemin qui possède un cycle, nous ne nous en servirons pas de cette façon. Les chemins qui peuvent contenir des cycles sont traités par les fonctions décrites dans "solve_adv.h": on les manipule comme des séquences de plusieurs chemins simples (on parle de chemins "complexes"). </dd></dl>
+</div><h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="afa29ef5a69e52eaed5de345b6599491d" name="afa29ef5a69e52eaed5de345b6599491d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa29ef5a69e52eaed5de345b6599491d">&#9670;&#160;</a></span>heuristic</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#afa29ef5a69e52eaed5de345b6599491d">heuristic</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La liste des noms internes des heuristiques (utile uniquement pour l'algorithme A*). </p>
+<dl class="section attention"><dt>Attention</dt><dd>Le dernier nom ("HEU_SIZE") est fictif: il sert uniquement à calculer automatiquement le nombre d'heuristiques.</dd></dl>
+<dl class="section remark"><dt>Remarques</dt><dd>Pour ajouter une nouvelle heuristique, vous devez procéder en quatre étapes:<ol type="1">
+<li>Écrire la fonction.</li>
+<li>Ajouter un nouveau nom à la fin de cet "enum" (juste avant "HEU_SIZE")</li>
+<li>Ajouter un pointeur vers la nouvelle fonction à la fin du tableau "heu_funs" dans solve_astar.c</li>
+<li>Ajouter le nom qui apparaîtra dans l'interface pour cete heuristique à la fin du tableau "heu_names" dans solve_astar.c </li>
+</ol>
+</dd></dl>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="afa29ef5a69e52eaed5de345b6599491daa023c9ac01f82a194736bdba249d8060" name="afa29ef5a69e52eaed5de345b6599491daa023c9ac01f82a194736bdba249d8060"></a>HEU_NONE&#160;</td><td class="fielddoc"><p>Heurstique constante. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa29ef5a69e52eaed5de345b6599491da313fc3d8154db2af45fffbba64d893f6" name="afa29ef5a69e52eaed5de345b6599491da313fc3d8154db2af45fffbba64d893f6"></a>HEU_MANH&#160;</td><td class="fielddoc"><p>Distance manhattan avec la sortie la plus proche. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afa29ef5a69e52eaed5de345b6599491da06a6f93e01675704e33b86025172479e" name="afa29ef5a69e52eaed5de345b6599491da06a6f93e01675704e33b86025172479e"></a>HEU_RUNA&#160;</td><td class="fielddoc"><p>Augmente plus les minotaures sont proches. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a04e5ec9e8eefc2f63e8d96f36fa5110c" name="a04e5ec9e8eefc2f63e8d96f36fa5110c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04e5ec9e8eefc2f63e8d96f36fa5110c">&#9670;&#160;</a></span>sim_algorithm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a04e5ec9e8eefc2f63e8d96f36fa5110c">sim_algorithm</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Les différents algorithmes de parcours disponibles. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a04e5ec9e8eefc2f63e8d96f36fa5110cadeb158aa31adfe05f61a8ee86447f4c5" name="a04e5ec9e8eefc2f63e8d96f36fa5110cadeb158aa31adfe05f61a8ee86447f4c5"></a>ALG_BFS&#160;</td><td class="fielddoc"><p>Parcours en largeur. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a04e5ec9e8eefc2f63e8d96f36fa5110caa7c66ac3463d68ce5798812be341e1d0" name="a04e5ec9e8eefc2f63e8d96f36fa5110caa7c66ac3463d68ce5798812be341e1d0"></a>ALG_DFS&#160;</td><td class="fielddoc"><p>Parcours en profondeur. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a04e5ec9e8eefc2f63e8d96f36fa5110ca4d268c7134f4ba63de6d5b99c9709ee4" name="a04e5ec9e8eefc2f63e8d96f36fa5110ca4d268c7134f4ba63de6d5b99c9709ee4"></a>ALG_AST&#160;</td><td class="fielddoc"><p>Algorithme A*. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a99115e196712f4882a03b85feed22eee" name="a99115e196712f4882a03b85feed22eee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99115e196712f4882a03b85feed22eee">&#9670;&#160;</a></span>sim_goal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Les différents types d'objets qu'on peut rechercher en utilisant un parcours. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a99115e196712f4882a03b85feed22eeeaec0a48702eb800fb85f87baa80802fb1" name="a99115e196712f4882a03b85feed22eeeaec0a48702eb800fb85f87baa80802fb1"></a>GOA_TREASURE&#160;</td><td class="fielddoc"><p>Trésor. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a99115e196712f4882a03b85feed22eeea1f6f68b42e998652beb08a6936232531" name="a99115e196712f4882a03b85feed22eeea1f6f68b42e998652beb08a6936232531"></a>GOA_BOMB&#160;</td><td class="fielddoc"><p>Bombe. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a99115e196712f4882a03b85feed22eeeafe5bb7e5ad686dce0aca6769b3423e11" name="a99115e196712f4882a03b85feed22eeeafe5bb7e5ad686dce0aca6769b3423e11"></a>GOA_POLY&#160;</td><td class="fielddoc"><p>Poly d'algo. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a99115e196712f4882a03b85feed22eeeac93e6b4857749e9033e40bae352b74c5" name="a99115e196712f4882a03b85feed22eeeac93e6b4857749e9033e40bae352b74c5"></a>GOA_EXIT&#160;</td><td class="fielddoc"><p>Sortie. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aa8b6ecd6a8ed83a012b9b7b76e792007" name="aa8b6ecd6a8ed83a012b9b7b76e792007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8b6ecd6a8ed83a012b9b7b76e792007">&#9670;&#160;</a></span>astar_manhattan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int astar_manhattan </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdynarray.html">dynarray</a> *</td>          <td class="paramname"><span class="paramname"><em>searched</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Distance manhattan avec la sortie la plus proche. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">start</td><td>La cellule.  </td></tr>
+    <tr><td class="paramname">searched</td><td>La liste des cellules qu'on recherche. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad2125c728736d92efcc46c9aa6d192af" name="ad2125c728736d92efcc46c9aa6d192af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2125c728736d92efcc46c9aa6d192af">&#9670;&#160;</a></span>astar_runaway()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int astar_runaway </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdynarray.html">dynarray</a> *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Heuristique cherchant à éviter les minotaures. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">start</td><td>La cellule. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a90eb3ae26b55ddeb0933463e05d06249" name="a90eb3ae26b55ddeb0933463e05d06249"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90eb3ae26b55ddeb0933463e05d06249">&#9670;&#160;</a></span>sim_addtopath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sim_addtopath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmaze.html">maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="maze_8h.html#a1eae2f0eb13d25eaa55d5334838178c1">move</a></td>          <td class="paramname"><span class="paramname"><em>themove</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structsim__path.html">sim_path</a> *</td>          <td class="paramname"><span class="paramname"><em>path</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajout un mouvement supplémentaire au début d'un chemin. </p>
+<dl class="section attention"><dt>Attention</dt><dd>Puisqu'on ajoute le mouvement AU DÉBUT de la séquence, la cellule de départ et la longueur douvent être modifiés. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Le labyrinthe (utilisé pour calculer le nouveau point de départ).  </td></tr>
+    <tr><td class="paramname">themove</td><td>Le mouvement à ajouter.  </td></tr>
+    <tr><td class="paramname">path</td><td>Le chemin à modifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5a7ac6353d01de3c7d4f83fcf164cb26" name="a5a7ac6353d01de3c7d4f83fcf164cb26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a7ac6353d01de3c7d4f83fcf164cb26">&#9670;&#160;</a></span>sim_astar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsim__search.html">sim_search</a> * sim_astar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a></td>          <td class="paramname"><span class="paramname"><em>goal</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int(*</td>          <td class="paramname"><span class="paramname"><em>heu_fun&#160;</em></span>)(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *), </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>minos</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Algorithme A*. </p>
+<dl class="section remark"><dt>Remarques</dt><dd>Il s'agit du seul parmi les trois algorithmes qui utilise l'heuristique passée en entrée.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le parcours. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">start</td><td>La cellule de départ.  </td></tr>
+    <tr><td class="paramname">goal</td><td>Le type d'objet recherché.  </td></tr>
+    <tr><td class="paramname">minos</td><td>Doit-on prendre en compte les minotaures? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abdfb4971ffd3704b61843042b0dbbafa" name="abdfb4971ffd3704b61843042b0dbbafa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdfb4971ffd3704b61843042b0dbbafa">&#9670;&#160;</a></span>sim_bfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsim__search.html">sim_search</a> * sim_bfs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a></td>          <td class="paramname"><span class="paramname"><em>goal</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int(*</td>          <td class="paramname"><span class="paramname"><em>&#160;</em></span>)(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *), </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>minos</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Algorithme de parcours en largeur. </p>
+<dl class="section remark"><dt>Remarques</dt><dd>L'heuristique passée en entrée n'est pas utilisée par cet algorithme (elle est là car toutes les fonctions de parcours doivent avoir le même type).</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le parcours. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">start</td><td>La cellule de départ.  </td></tr>
+    <tr><td class="paramname">goal</td><td>Le type d'objet recherché.  </td></tr>
+    <tr><td class="paramname">minos</td><td>Doit-on prendre en compte les minotaures? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6e9ba9e48f1346ae38c8eae5890df63b" name="a6e9ba9e48f1346ae38c8eae5890df63b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e9ba9e48f1346ae38c8eae5890df63b">&#9670;&#160;</a></span>sim_copypath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsim__path.html">sim_path</a> * sim_copypath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsim__path.html">sim_path</a> *</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée une copie d'un chemin existant. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>La copie. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Le chemin à copier. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a733207a15dd7ea7bea916bdfd3f39115" name="a733207a15dd7ea7bea916bdfd3f39115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a733207a15dd7ea7bea916bdfd3f39115">&#9670;&#160;</a></span>sim_create_search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsim__search.html">sim_search</a> * sim_create_search </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a04e5ec9e8eefc2f63e8d96f36fa5110c">sim_algorithm</a></td>          <td class="paramname"><span class="paramname"><em>algo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a></td>          <td class="paramname"><span class="paramname"><em>goal</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Création d'un nouveau parcours "vide". Il sera ensuite rempli par l'un des algorithmes. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">algo</td><td>L'algorithme qui va être utilisé.  </td></tr>
+    <tr><td class="paramname">goal</td><td>Le type d'objet qui va être recherché. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa3ac01c9d68887448715c0a4f3872b00" name="aa3ac01c9d68887448715c0a4f3872b00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ac01c9d68887448715c0a4f3872b00">&#9670;&#160;</a></span>sim_dfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsim__search.html">sim_search</a> * sim_dfs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em>thegame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a></td>          <td class="paramname"><span class="paramname"><em>goal</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int(*</td>          <td class="paramname"><span class="paramname"><em>&#160;</em></span>)(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *), </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>minos</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Algorithme de parcours en profondeur. </p>
+<dl class="section remark"><dt>Remarques</dt><dd>L'heuristique passée en entrée n'est pas utilisée par cet algorithme (elle est là car toutes les fonctions de parcours doivent avoir le même type).</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le parcours. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thegame</td><td>Le jeu.  </td></tr>
+    <tr><td class="paramname">start</td><td>La cellule de départ.  </td></tr>
+    <tr><td class="paramname">goal</td><td>Le type d'objet recherché.  </td></tr>
+    <tr><td class="paramname">minos</td><td>Doit-on prendre en compte les minotaures? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a38020c857b9c5411c63b6319d8fb1c86" name="a38020c857b9c5411c63b6319d8fb1c86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38020c857b9c5411c63b6319d8fb1c86">&#9670;&#160;</a></span>sim_emptypath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsim__path.html">sim_path</a> * sim_emptypath </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>start</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Création d'un nouveau chemin (vide). </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Le chemin vide. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>Le point de départ. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac1abe6ab05bcfb486db2d0d85fb2a42c" name="ac1abe6ab05bcfb486db2d0d85fb2a42c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1abe6ab05bcfb486db2d0d85fb2a42c">&#9670;&#160;</a></span>sim_freepath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sim_freepath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsim__path.html">sim_path</a> *</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libération d'un chemin. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Le chemin à libérer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a8cf2d3980ce113d03821e0b19d4cae1b" name="a8cf2d3980ce113d03821e0b19d4cae1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cf2d3980ce113d03821e0b19d4cae1b">&#9670;&#160;</a></span>heu_funs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int(* heu_funs[HEU_SIZE])(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdynarray.html">dynarray</a> *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Le tableau des heuristiques (utile uniquement pour l'algorithme A*). </p>
+<p>Une heuristique prend trois paramètres:</p><ol type="1">
+<li>Le jeu.</li>
+<li>L'index d'une cellule.</li>
+<li>La liste des cellules qu'on cherche à atteindre (sous la forme d'un tableau dynamique).</li>
+</ol>
+<p>Elle retourne un entier qui, intuitivement, correspond à une approximation de la distance qui reste à parcourir pour atteindre l'une des cellules voulues. </p>
+
+</div>
+</div>
+<a id="a7e401e7f60b91935c0f0474aebe9b5c8" name="a7e401e7f60b91935c0f0474aebe9b5c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e401e7f60b91935c0f0474aebe9b5c8">&#9670;&#160;</a></span>salgo_funs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsim__search.html">sim_search</a> *(* salgo_funs[ALG_SIZE])(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a>, int(heu_fun)(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *), bool) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgame.html">game</a> *</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a99115e196712f4882a03b85feed22eee">sim_goal</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int(heu_fun)(<a class="el" href="structgame.html">game</a> *, int, <a class="el" href="structdynarray.html">dynarray</a> *)</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tableaux des fonctions qui implémentent les algorithmes de parcours. </p>
+<dl class="section remark"><dt>Remarques</dt><dd>Une telle fonction retourne le parcours effectué et prend les deux paramètres suivants en entrée:<ol type="1">
+<li>Le jeu.</li>
+<li>La cellule dont part le parcours.</li>
+<li>Une heuristique. Ce paramètre est utilisé uniquement par l'algorithme A* (pour les autres algorithmes, il est là car toutes les fonctions de parcours doivent avoir le même type).</li>
+<li>Un Booléen qui indique si les minotaures doivent être pris en compte ou pas (si c'est le cas, ils bloquent le joueur mais sont supposés immobiles). </li>
+</ol>
+</dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="solve_8h.html">solve.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

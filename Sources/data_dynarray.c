@@ -67,6 +67,6 @@ int pop_dyn(dynarray* dyn) {
     return dyn -> array[dyn -> size];
 }
 
-bool is_empty_dyn(dynarray*) {
-    return false;
+bool is_empty_dyn(const dynarray *dyn) {
+    return dyn -> size == 0;
 }

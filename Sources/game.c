@@ -19,8 +19,8 @@ game* create_newgame(const int sh, const int sv, mask *m, generator f, objgenera
     p_maze = create_proto_maze_nomask(sh, sv);
   }
   gen_minotaurs_maze(p_maze, nb_minotaure);
-  f(p_maze);
-  fo(p_maze);
+  generate_objects_maze(p_maze, fo);
+  generate_maze(p_maze, f);
   braid_maze(p_maze, tressage);
   game *p_game = malloc(sizeof(game));
   p_game->m = p_maze;

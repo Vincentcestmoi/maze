@@ -5,24 +5,23 @@
 /*************************/
 
 void grow_queue(queue *p) {
-    int *n_array = (int*) malloc(p->size_array * 2 * sizeof(int));
+    int *n_array = malloc(p->size_array * 2 * sizeof(int));
     int k = 0;
     do {
         n_array[p->size_array + k] = p->array[p->left % p->size_array];
         p->left++;
         k++;
-    }while ((p->left) % (p->size_array) != p->right % p->size_array);
+    }while (p->left % p->size_array != p->right % p->size_array);
     free(p->array);
     p->array = n_array;
     p->left = p->size_array;
     p->size_array *= 2;
     p->right = 0;
-    return;
 }
 
 
 void shrink_queue(queue *p) {
-    int *n_array = (int*) malloc(p->size_array / 2 * sizeof(int));
+    int *n_array = malloc(p->size_array / 2 * sizeof(int));
     for (int k = 0; k < p->size_array / 4; k++){
         n_array[k + p->size_array / 4] = p->array[p->left % p->size_array];
         p->left++;
@@ -32,7 +31,6 @@ void shrink_queue(queue *p) {
     p->left = p->size_array / 4;
     p->size_array /= 2;
     p->right = 0;
-    return;
 }
 
 
@@ -57,7 +55,6 @@ queue* create_queue(void) {
 void delete_queue(queue *p) {
     free(p->array);
     free(p);
-    return;
 }
 
 
@@ -70,7 +67,7 @@ bool is_empty_queue(queue *p) {
 int getsize_queue(queue *p) {
     if (is_empty_queue(p)) // si vide retourne 0
         return 0;
-    int delta = p->right - p->left;
+    const int delta = p->right - p->left;
 
     if (p->right == p->left){ // si plein
         return p->size_array;
@@ -81,7 +78,7 @@ int getsize_queue(queue *p) {
 }
 
 
-int read_queue(queue *p, int indice) {
+int read_queue(queue *p, const int indice) {
     if (getsize_queue(p) < indice){
         fprintf(stderr, "Ne peut lire un élément qui n'existe pas\n");
         exit(EXIT_FAILURE); // si on dépasse le nombre d'élément, la lecture aurait un comportement aléatoire
@@ -92,17 +89,16 @@ int read_queue(queue *p, int indice) {
 
 
 
-void enqueue(int val, queue *p) {
+void enqueue(const int val, queue *p) {
     if (getsize_queue(p)==p->size_array && !is_empty_queue(p)){
         grow_queue(p); // si la queue est pleine on l'agrandit
     }
     p->empty = false;
-    p->left --;
-    if (p->left <0){
+    p->left--;
+    if (p->left < 0){
       p->left += p->size_array; // on décale left "à gauche"
     }
     p->array[p->left] = val; //on ajoute notre élément en début de queue
-    return;
 }
 
 
@@ -111,14 +107,14 @@ int dequeue(queue *p) {
         fprintf(stderr, "Ne peut retirer un élément de la file quand elle est vide\n");
         exit(EXIT_FAILURE); // si la queue est vide on ne peut pas supprimer d'éléménts
     }
-    p->right --;
+    p->right--;
     if (p->right < 0) {
         p->right += p->size_array;  // Ajuster à la fin du tableau
     }
     if (p->right == p->left){
         p->empty = true; // si la file est vide on la déclare vide
     }
-    if (1< getsize_queue(p) &&  getsize_queue(p) <= p->size_array / 4){
+    if (1 < getsize_queue(p) &&  getsize_queue(p) <= p->size_array / 4){
         shrink_queue(p);
     }
 

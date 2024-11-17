@@ -43,7 +43,7 @@ void free_dyn(dynarray *dyn) {
 }
 
 
-int size_dyn(const dynarray *dyn) {
+int size_dyn(dynarray *dyn) {
     return dyn -> size;
 }
 
@@ -67,6 +67,6 @@ int pop_dyn(dynarray* dyn) {
     return dyn -> array[dyn -> size];
 }
 
-bool is_empty_dyn(const dynarray *dyn) {
+bool is_empty_dyn(dynarray *dyn) {
     return dyn -> size == 0;
 }

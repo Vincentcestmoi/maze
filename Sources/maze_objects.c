@@ -12,3 +12,16 @@ void obj_simple(maze*) {
     return;
 }
 
+void generate_objects_maze(maze* p_maze, objgenerator f) {
+    switch(f)
+    {
+    case OBJ_EMPTY:
+        obj_empty(p_maze);
+        return;
+    case OBJ_SIMPLE:
+        obj_simple(p_maze);
+        return;
+    default:
+        return;
+    }
+}

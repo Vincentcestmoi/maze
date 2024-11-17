@@ -39,39 +39,3 @@ void random_maze_rec(maze*) {
     return;
 }
 
-void generate_maze(maze* p_maze, generator f) {
-    switch(f)
-    {
-    case GEN_TEST:
-        maze_test(p_maze);
-        return;
-    case GEN_AB:
-        random_maze_ab(p_maze);
-        return;
-    case GEN_WIL:
-        random_maze_wilson(p_maze);
-        return;
-    case GEN_HKLIN:
-        random_maze_hklinear(p_maze);
-        return;
-    case GEN_HKDFS:
-        random_maze_hkdfs(p_maze);
-        return;
-    case GEN_HKRAND:
-        random_maze_hkrandom(p_maze);
-        return;
-    case GEN_PRIM:
-        random_maze_prim(p_maze);
-        return;
-    case GEN_KRUSKAL:
-        random_maze_kruskal(p_maze);
-        return;
-    case GEN_REC:
-        random_maze_rec(p_maze);
-        return;
-    default:
-        fprintf(stderr, "generate_maze: générateur inconnu\n");
-        exit(EXIT_FAILURE);
-    }
-}
-

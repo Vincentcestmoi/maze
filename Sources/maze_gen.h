@@ -160,9 +160,4 @@ void random_maze_kruskal(maze* //!< Le proto-labyrinthe.
 void random_maze_rec(maze* //!< Le proto-labyrinthe.
 );
 
-void generate_maze(maze* //!< Le proto-labyrinthe.
-    , generator //!< Le générateur à utiliser.
-);
-
-
 #endif

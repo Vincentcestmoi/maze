@@ -88,10 +88,6 @@ void obj_empty(maze* //!< Le labyrinthe.
 void obj_simple(maze* //!< Le labyrinthe.
 );
 
-void generate_objects_maze(maze* //!< Le labyrinthe.
-    , objgenerator //!< Le générateur d'objets à utiliser.
-);
-
 
 
 #endif

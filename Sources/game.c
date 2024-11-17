@@ -7,8 +7,40 @@
 /****************************/
 
 // Génération d'un nouveau jeu
-game* create_newgame(int, int, mask*, generator, objgenerator, int, int) {
-  return NULL;
+game* create_newgame(const int sh, const int sv, mask *m, generator f, objgenerator fo, const int nb_minotaure, int tressage)
+{
+  maze *p_maze;
+  if(m->hsize != sh || m->vsize != sv)
+  {
+    p_maze = create_proto_maze(m);
+  }
+  else
+  {
+    p_maze = create_proto_maze_nomask(sh, sv);
+  }
+  gen_minotaurs_maze(p_maze, nb_minotaure);
+  f(p_maze);
+  fo(p_maze);
+  braid_maze(p_maze, tressage);
+  game *p_game = malloc(sizeof(game));
+  p_game->m = p_maze;
+  p_game->score = 0;
+  p_game->nbombs = 0;
+  p_game->npolys = 0;
+  p_game->player_alive = true;
+  p_game->player_dir = NORTH;
+  p_game->minotaurs_alive = malloc(nb_minotaure * sizeof(bool));
+  p_game->minotaurs_dirs = malloc(nb_minotaure * sizeof(cardinal));
+  for(int i = 0; i < nb_minotaure; i++)
+  {
+    p_game->minotaurs_alive[i] = true;
+    p_game->minotaurs_dirs[i] = NORTH;
+  }
+  p_game->nb_deadends = 0;
+  p_game->exits = 0;
+  p_game->turns = 0;
+  p_game->log = NULL;
+  return p_game;
 }
 
 void free_game(game*) {

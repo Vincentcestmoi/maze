@@ -46,6 +46,7 @@ bool valid_maze(maze *p_maze, const int cellule) {
     if(cellule < 0 || cellule / p_maze->vsize >= p_maze->hsize || cellule % p_maze->vsize >= p_maze->vsize) { // Si la cellule n'est pas dans la grille
         return false;
     }
+    // ReSharper disable once CppDFANullDereference
     return !(p_maze->props[cellule] & 32); // Si la cellule est accessible (booléen stocké dans le 6ème bit)
 }
 

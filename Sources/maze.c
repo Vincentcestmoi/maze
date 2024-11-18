@@ -177,8 +177,13 @@ void add_object_maze(maze *p_maze, const int cellule, const object obj) {
 
 int get_exits_maze(maze *p_maze) {
     int exits = 0;
-    //TODO : comprendre la consigne
-    p_maze->props[p_maze->player] &= 64; // action au pif pour bypath le warning
+    for(int i = 0; i < p_maze->vsize * p_maze->hsize; i++)
+    {
+        if(p_maze->objects[i] == EXIT)
+        {
+            exits++;
+        }
+    }
     return exits;
 }
 

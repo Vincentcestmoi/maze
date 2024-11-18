@@ -82,19 +82,28 @@ void random_maze_wilson(maze *p_maze) {
         {
             visited[cell1] = true; //la case est visitée
             visited_count--; //on décrémente le nombre de cases à visiter
-            int diff = cell - cell1;
+            const int diff = cell - cell1;
+            //TODO : vérifier la cohérnece valeur/direction
             if (diff == 1) //cell1 à l'ouest de cell
+            {
                 del_wall_maze(p_maze, cell, WEST);
-            else if (diff == -1){
-                del_wall_maze(p_maze, cell, EAST);}
+            }
+            else if (diff == -1)
+            {
+                del_wall_maze(p_maze, cell, EAST);
+            }
 
             else if (diff == p_maze->hsize) //cell1 au nord de cell
+            {
                 del_wall_maze(p_maze, cell, NORTH);
-
+            }
             else if (diff == -p_maze->hsize)
+            {
                 del_wall_maze(p_maze, cell, SOUTH);
+            }
 
-            else{
+            else
+            {
                 fprintf(stderr, "Erreur: les cases ne sont pas voisines\n");
                 free_dyn(path);
                 free_maze(p_maze);

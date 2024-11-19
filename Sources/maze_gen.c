@@ -20,11 +20,34 @@ void random_maze_ab(maze *p_maze) {
     {
         const cardinal card = rand() % 4; //direction aléatoire
         const int neigbour = get_adj_maze(p_maze, cell, card); //case voisine
-        if(neigbour !=1)
+        if(neigbour != -1)
         {
             if(!visited[neigbour]) //si la case voisine n'a pas été visitée, on la visite
             {
-                mask_cell_maze(p_maze, cell); //on casse le mur entre la case actuelle et la case voisine
+                const int diff = cell - neigbour;
+                if (diff == 1)
+                {
+                    del_wall_maze(p_maze, cell, WEST);
+                }
+                else if (diff == -1)
+                {
+                    del_wall_maze(p_maze, cell, EAST);
+                }
+                else if (diff == p_maze->hsize)
+                {
+                    del_wall_maze(p_maze, cell, NORTH);
+                }
+                else if (diff == -p_maze->hsize)
+                {
+                    del_wall_maze(p_maze, cell, SOUTH);
+                }
+
+                else
+                {
+                    fprintf(stderr, "Erreur rma: les cases ne sont pas voisines\n");
+                    free_maze(p_maze);
+                    exit(EXIT_FAILURE);
+                }
                 visited[neigbour] = true;
                 visited_count--;
             }

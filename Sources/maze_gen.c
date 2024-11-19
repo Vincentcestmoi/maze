@@ -104,7 +104,7 @@ void random_maze_wilson(maze *p_maze) {
 
             else
             {
-                fprintf(stderr, "Erreur: les cases ne sont pas voisines\n");
+                fprintf(stderr, "Erreur rmw: les cases ne sont pas voisines\n");
                 free_dyn(path);
                 free_maze(p_maze);
                 exit(EXIT_FAILURE);

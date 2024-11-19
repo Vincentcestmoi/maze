@@ -31,28 +31,25 @@ int count_dead_ends(maze* p_maze) {
 }
 
 void remove_one_dead_end(maze* p_maze, const int cell, const int odds) {
-    if(rand() % 100 + 1 < odds){
-        printf("bullshit\n");
-    }
-    fflush(stdout);
-    return;
     bool tab[4] = {0};
-    if (is_dead_end(p_maze, cell) && rand() % 100 + 1 < odds){
+    if (valid_maze(p_maze, cell && is_dead_end(p_maze, cell) && rand() % 100 < odds)){
         for (int i = 0 ; i < 4 ; i++){
-            if ((p_maze->props[cell] & 32) &&
-                has_wall_maze(p_maze, cell, i) &&
+            if (has_wall_maze(p_maze, cell, i) &&
                 (!has_wall_maze(p_maze, cell, (i + 2) % 4) ||
-                (!has_wall_maze(p_maze, cell, (i + 1) % 4 ) && has_wall_maze(p_maze, get_adj_maze(p_maze, cell, (i + 1) % 4), i))||
-                (!has_wall_maze(p_maze, cell, (i + 3) % 4) && has_wall_maze(p_maze, get_adj_maze(p_maze, cell, (i + 3) % 4), i)))){
+                (!has_wall_maze(p_maze, cell, (i + 1) % 4 ) && get_adj_maze(p_maze, cell, (i + 1) % 4) != -1 && has_wall_maze(p_maze, get_adj_maze(p_maze, cell, i), i))||
+                (!has_wall_maze(p_maze, cell, (i + 3) % 4) && get_adj_maze(p_maze, cell, (i + 3) % 4) != -1 && has_wall_maze(p_maze, get_adj_maze(p_maze, cell, i), i)))){
                 tab[i] = 1;
             }
         }
     }
     char c = 0;
-    for (int i = 0; i < 4 ;i++){
+    for(int i = 0; i < 4 ;i++) {
         if (tab[i]){
             c++;
         }
+    }
+    if (c == 0){
+        return;
     }
     unsigned char card = rand() % c;
     while(!has_wall_maze(p_maze, cell, card)){

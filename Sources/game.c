@@ -18,16 +18,10 @@ game* create_newgame(const int sh, const int sv, mask *m, const generator f, con
   {
     p_maze = create_proto_maze_nomask(sh, sv);
   }
-  printf("Faute à Vincent ?\n");
-  fflush(stdout);
   gen_minotaurs_maze(p_maze, nb_minotaure);
   (*gen_funs[f]) (p_maze);
   (*obj_funs[fo]) (p_maze);
-  printf("Non \nFaute à Micky ?\n");
-  fflush(stdout);
   braid_maze(p_maze, tressage);
-  printf("Non\n");
-  fflush(stdout);
   game *p_game = malloc(sizeof(game));
   p_game->m = p_maze;
   p_game->score = 0;
@@ -46,7 +40,7 @@ game* create_newgame(const int sh, const int sv, mask *m, const generator f, con
   p_game->exits = 0;
   p_game->turns = 0;
   p_game->log = NULL;
-  printf("alive\n");
+  printf("Alive\n");
   return p_game;
 }
 

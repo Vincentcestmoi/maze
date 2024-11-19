@@ -9,22 +9,22 @@
 int get_adj_maze(maze* p_maze, const int cellule, const cardinal card) {
     switch (card) {
         case NORTH:
-            if(cellule < p_maze->vsize) { // Si on est sur la première ligne (on ne peut donc aller plus au nord)
+            if(cellule < p_maze->hsize) { // Si on est sur la première ligne (on ne peut donc aller plus au nord)
                 return -1;
             }
             return cellule - p_maze->hsize;
         case EAST:
-            if(cellule % p_maze->vsize == p_maze->vsize - 1) { // Si on est sur la dernière colonne (on ne peut donc aller plus à l'est)
+            if(cellule % p_maze->hsize == p_maze->hsize - 1) { // Si on est sur la dernière colonne (on ne peut donc aller plus à l'est)
                 return -1;
             }
             return cellule + 1;
         case SOUTH:
-            if(cellule >= p_maze->vsize * (p_maze->hsize - 1)) { // Si on est sur la dernière ligne (on ne peut donc aller plus au sud)
+            if(cellule >= (p_maze->vsize - 1) * p_maze->hsize) { // Si on est sur la dernière ligne (on ne peut donc aller plus au sud)
                 return -1;
             }
             return cellule + p_maze->hsize;
         case WEST:
-            if(cellule % p_maze->vsize == 0) { // Si on est sur la première colonne (on ne peut donc aller plus à l'ouest)
+            if(cellule % p_maze->hsize == 0) { // Si on est sur la première colonne (on ne peut donc aller plus à l'ouest)
                 return -1;
             }
             return cellule - 1;
@@ -294,8 +294,8 @@ void gen_minotaurs_maze(maze *p_maze, int nb_minotaurs) {
         fprintf(stderr, "gen_minotaurs_maze: erreur d'allocation\n");
         exit(EXIT_FAILURE);
     }
+    int cellule;
     for(int i = 0; i < nb_minotaurs; i++) {
-        int cellule = rand() % (p_maze->vsize * p_maze->hsize); // NOLINT(*-msc50-cpp)
         do{
             cellule = rand() % (p_maze->vsize * p_maze->hsize); // NOLINT(*-msc50-cpp)
         }

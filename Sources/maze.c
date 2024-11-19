@@ -211,9 +211,9 @@ maze* create_proto_maze_nomask(const int size, const int height) {
     }
     p_maze->nb_minotaurs = 0;
     p_maze->minotaurs = NULL;
-    p_maze->nb_reachable = 0; //puisque les cellules sont murées, aucune n'est accessible
+    p_maze->nb_reachable = size * height; //puisque les cellules sont murées, aucune n'est accessible
     for(int i = 0; i < size * height; i++) {
-        p_maze->props[i] = 15; // On initialise les propriétés des cellules (toutes les cellules sont murées dans les quatre directions, non occupées et non masquées)
+        p_maze->props[i] = 79; // On initialise les propriétés des cellules (toutes les cellules sont murées dans les quatre directions, non occupées et non masquées)
         p_maze->objects[i] = NONE; // On initialise les objets à NONE
     }
     const int i = rand() % (size * height); // NOLINT(*-msc50-cpp)
@@ -240,7 +240,7 @@ maze* create_proto_maze(mask *m) {
     }
     p_maze->nb_minotaurs = 0;
     p_maze->minotaurs = NULL;
-    p_maze->nb_reachable = 0; //puisque les cellules sont murées, aucune n'est accessible
+    p_maze->nb_reachable = 1; //puisque le joueur est placé dans une cellule, une seule cellule est accessible
     for(int i = 0; i < m->vsize * m->hsize; i++) {
         p_maze->props[i] = 15; // On initialise les murs (toutes les cellules sont murées dans les quatre directions)
         p_maze->objects[i] = NONE;

@@ -4,7 +4,7 @@
 
 bool is_dead_end(maze* p_maze, const int cell) {
     char c = 0;
-    const unsigned char value = p_maze->props[cell] & 1111;
+    const unsigned char value = p_maze->props[cell] & 31;
     if (value & 1){
         c++;
     }
@@ -32,30 +32,79 @@ int count_dead_ends(maze* p_maze) {
 
 void remove_one_dead_end(maze* p_maze, const int cell, const int odds) {
     bool tab[4] = {0};
+    bool tab_prio[4] = {0};
     if (valid_maze(p_maze, cell) && is_dead_end(p_maze, cell) && rand() % 100 < odds){
         for (int i = 0 ; i < 4 ; i++){
-            if (has_wall_maze(p_maze, cell, i) &&
-                (!has_wall_maze(p_maze, cell, (i + 2) % 4) ||
-                (!has_wall_maze(p_maze, cell, (i + 1) % 4 ) && get_adj_maze(p_maze, cell, (i + 1) % 4) != -1 && has_wall_maze(p_maze, get_adj_maze(p_maze, cell, i), i))||
-                (!has_wall_maze(p_maze, cell, (i + 3) % 4) && get_adj_maze(p_maze, cell, (i + 3) % 4) != -1 && has_wall_maze(p_maze, get_adj_maze(p_maze, cell, i), i)))){
-                tab[i] = 1;
+            if(has_wall_maze(p_maze, cell, i))
+            {
+                continue;
+            }
+            //on n'a pas de mur
+            int n = get_adj_maze(p_maze, cell, (i + 2) % 4);
+            if(n != -1)
+            {
+                tab[(i + 2) % 4] = true;
+                if(is_dead_end(p_maze, n))
+                {
+                    tab_prio[(i + 2) % 4] = true;
+                }
+            }
+            n = get_adj_maze(p_maze, cell, i);
+            if(n == -1)
+            {
+                break;
+            }
+            if(has_wall_maze(p_maze, n, (i + 1) % 4))
+            {
+                tab[(i + 1) % 4] = true;
+                if(is_dead_end(p_maze, n))
+                {
+                    tab_prio[(i + 1) % 4] = true;
+                }
+            }
+            if(has_wall_maze(p_maze, n, (i + 3) % 4))
+            {
+                tab[(i + 3) % 4] = true;
+                if(is_dead_end(p_maze, n))
+                {
+                    tab_prio[(i + 3) % 4] = true;
+                }
             }
         }
     }
-    char c = 0;
-    for(int i = 0; i < 4 ;i++) {
-        if (tab[i]){
+
+    // On choisit un mur à enlever parmis les prioritaires
+    char c = 0, cp = 0;
+    for(int i = 0 ; i < 4 ; i++)
+    {
+        if(tab_prio[i])
+        {
+            cp++;
+        }
+        if(tab[i])
+        {
             c++;
         }
     }
-    if (c == 0){
+    if(cp > 0)
+    {
+        int r = rand() % 4;
+        while (tab_prio[r] == false)
+        {
+            r = rand() % 4;
+        }
+        del_wall_maze(p_maze, cell, r);
         return;
     }
-    unsigned char card = rand() % c;
-    while(!has_wall_maze(p_maze, cell, card)){
-        card = (card + 1) % 4;
+    if(c > 0)
+    {
+        int r = rand() % 4;
+        while (tab[r] == false)
+        {
+            r = rand() % 4;
+        }
+        del_wall_maze(p_maze, cell, r);
     }
-    del_wall_maze(p_maze, cell, card);
 }
 
 void braid_maze(maze* p_maze, const int odds) {

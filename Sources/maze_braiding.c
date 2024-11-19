@@ -41,29 +41,30 @@ void remove_one_dead_end(maze* p_maze, const int cell, const int odds) {
             }
             //on n'a pas de mur
             int n = get_adj_maze(p_maze, cell, (i + 2) % 4);
+            printf("cell : %d, mur libre : %d, voisin : %d\n", cell, i, n);
             if(n != -1)
             {
+                printf("mur entre %d et %d cassable\n", cell, n);
                 tab[(i + 2) % 4] = true;
                 if(is_dead_end(p_maze, n))
                 {
                     tab_prio[(i + 2) % 4] = true;
                 }
             }
-            n = get_adj_maze(p_maze, cell, i);
-            if(n == -1)
+            n = get_adj_maze(p_maze, cell, (i + 1) % 4);
+            if(n != -1 && has_wall_maze(p_maze, n, (i + 3) % 4))
             {
-                break;
-            }
-            if(has_wall_maze(p_maze, n, (i + 1) % 4))
-            {
+                printf("mur de %d cassable vers %d", cell, (i + 1) % 4);
                 tab[(i + 1) % 4] = true;
                 if(is_dead_end(p_maze, n))
                 {
                     tab_prio[(i + 1) % 4] = true;
                 }
             }
-            if(has_wall_maze(p_maze, n, (i + 3) % 4))
+            n = get_adj_maze(p_maze, cell, (i + 3) % 4);
+            if(n != -1 && has_wall_maze(p_maze, n, (i + 1) % 4))
             {
+                printf("mur de %d cassable vers %d", cell, (i + 3) % 4);
                 tab[(i + 3) % 4] = true;
                 if(is_dead_end(p_maze, n))
                 {
@@ -109,6 +110,8 @@ void remove_one_dead_end(maze* p_maze, const int cell, const int odds) {
 
 void braid_maze(maze* p_maze, const int odds) {
     for (int i = 0 ; i < p_maze->hsize * p_maze->vsize ; i++){
+        printf("i = %d\n", i);
         remove_one_dead_end(p_maze, i, odds);
     }
+    printf("fin\n");
 }

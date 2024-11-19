@@ -21,6 +21,9 @@ void grow_queue(queue *p) {
 
 
 void shrink_queue(queue *p) {
+    if(p->size_array <= 1){
+        return;
+    }
     int *n_array = malloc(p->size_array / 2 * sizeof(int));
     for (int k = 0; k < p->size_array / 4; k++){
         n_array[k + p->size_array / 4] = p->array[p->left % p->size_array];

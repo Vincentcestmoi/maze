@@ -32,7 +32,7 @@ int count_dead_ends(maze* p_maze) {
 
 void remove_one_dead_end(maze* p_maze, const int cell, const int odds) {
     bool tab[4] = {0};
-    if (valid_maze(p_maze, cell && is_dead_end(p_maze, cell) && rand() % 100 < odds)){
+    if (valid_maze(p_maze, cell) && is_dead_end(p_maze, cell) && rand() % 100 < odds){
         for (int i = 0 ; i < 4 ; i++){
             if (has_wall_maze(p_maze, cell, i) &&
                 (!has_wall_maze(p_maze, cell, (i + 2) % 4) ||

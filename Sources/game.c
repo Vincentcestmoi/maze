@@ -40,7 +40,6 @@ game* create_newgame(const int sh, const int sv, mask *m, const generator f, con
   p_game->exits = 0;
   p_game->turns = 0;
   p_game->log = NULL;
-  printf("Alive\n");
   return p_game;
 }
 

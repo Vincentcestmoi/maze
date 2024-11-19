@@ -12,7 +12,7 @@ int get_adj_maze(maze* p_maze, const int cellule, const cardinal card) {
             if(cellule < p_maze->vsize) { // Si on est sur la première ligne (on ne peut donc aller plus au nord)
                 return -1;
             }
-            return cellule - p_maze->vsize;
+            return cellule - p_maze->hsize;
         case EAST:
             if(cellule % p_maze->vsize == p_maze->vsize - 1) { // Si on est sur la dernière colonne (on ne peut donc aller plus à l'est)
                 return -1;
@@ -22,7 +22,7 @@ int get_adj_maze(maze* p_maze, const int cellule, const cardinal card) {
             if(cellule >= p_maze->vsize * (p_maze->hsize - 1)) { // Si on est sur la dernière ligne (on ne peut donc aller plus au sud)
                 return -1;
             }
-            return cellule + p_maze->vsize;
+            return cellule + p_maze->hsize;
         case WEST:
             if(cellule % p_maze->vsize == 0) { // Si on est sur la première colonne (on ne peut donc aller plus à l'ouest)
                 return -1;
@@ -285,7 +285,7 @@ void gen_minotaurs_maze(maze *p_maze, int nb_minotaurs) {
         free(p_maze->minotaurs);
     }
     if(nb_minotaurs > p_maze -> hsize * p_maze -> vsize - 1) { // Si le nombre de minotaures est supérieur au nombre de cellules - 1
-        nb_minotaurs = p_maze -> hsize * p_maze -> vsize - 1; // On réduit le nombre de minotaures au nombre de cellules - 1
+        nb_minotaurs = p_maze -> hsize * p_maze -> vsize - 1; // On réduit au maximum disponible
     }
     p_maze->nb_minotaurs = nb_minotaurs;
     p_maze->minotaurs = malloc(nb_minotaurs * sizeof(int));
@@ -296,11 +296,12 @@ void gen_minotaurs_maze(maze *p_maze, int nb_minotaurs) {
     }
     for(int i = 0; i < nb_minotaurs; i++) {
         int cellule = rand() % (p_maze->vsize * p_maze->hsize); // NOLINT(*-msc50-cpp)
-        while(!valid_maze(p_maze, cellule) || is_occupied_maze(p_maze, cellule)) // On place les minotaures dans des cellules aléatoires valides et non occupées
-        {
+        do{
             cellule = rand() % (p_maze->vsize * p_maze->hsize); // NOLINT(*-msc50-cpp)
         }
+        while(!valid_maze(p_maze, cellule) || is_occupied_maze(p_maze, cellule)); // On place les minotaures dans des cellules aléatoires valides et non occupées
         p_maze->minotaurs[i] = cellule; // On place le minotaure dans la cellule
+        make_occupied_maze(p_maze, cellule); // On marque la cellule comme occupée
     }
 }
 

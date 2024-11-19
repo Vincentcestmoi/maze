@@ -75,16 +75,24 @@ void random_maze_wilson(maze *p_maze) {
         } while(visited[cell]);
 
         bool path_visited[p_maze->hsize * p_maze->vsize]; // Tableau de booléens pour savoir si une case a été visitée dans le chemin
+        for(int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
+        {
+            path_visited[i] = false; //aucune case n'a été visitée
+        }
         //hérence jusqu'à une case visitée
         dynarray* path = create_dyn(); //liste des cases visitées
         while(!visited[cell]) //tant que la case n'a pas été visitée
         {
+            int neighbour;
             push_dyn(cell, path); //on ajoute la case à la liste
-            const cardinal card = rand() % 4; //direction aléatoire
-            const int neigbour = get_adj_maze(p_maze, cell, card); //case voisine
-            if(neigbour != 1) //si le voisin existe
+            do
             {
-                cell = neigbour; //on se déplace
+                const cardinal card = rand() % 4; //direction aléatoire
+                neighbour = get_adj_maze(p_maze, cell, card); //case voisine
+            }
+            while(neighbour == -1); //si le voisin existe
+            {
+                cell = neighbour; //on se déplace
 
                 //résolution des cycles
                 if(path_visited[cell]) //si la case a déjà été visitée, c'est un cycle
@@ -97,17 +105,17 @@ void random_maze_wilson(maze *p_maze) {
                     } while(cell != cycle); //tant qu'on n'a pas atteint le début du cycle
                 }
                 path_visited[cell] = true; //on marque la case comme visitée
+                push_dyn(cell, path); //on ajoute la case à la liste
             }
         }
         int cell1 = pop_dyn(path); //cell1 est la cellule sur le chemin (pas encore visitée)
         //on casse les murs
-        for(int i = 0; i < size_dyn(path) - 1; i++)
+        while(!is_empty_dyn(path)) //tant qu'il reste des cases à visiter
         {
             visited[cell1] = true; //la case est visitée
             visited_count--; //on décrémente le nombre de cases à visiter
             const int diff = cell - cell1;
-            //TODO : vérifier la cohérnece valeur/direction
-            if (diff == 1) //cell1 à l'ouest de cell
+            if (diff == 1)
             {
                 del_wall_maze(p_maze, cell, WEST);
             }
@@ -115,8 +123,7 @@ void random_maze_wilson(maze *p_maze) {
             {
                 del_wall_maze(p_maze, cell, EAST);
             }
-
-            else if (diff == p_maze->hsize) //cell1 au nord de cell
+            else if (diff == p_maze->hsize)
             {
                 del_wall_maze(p_maze, cell, NORTH);
             }
@@ -127,12 +134,10 @@ void random_maze_wilson(maze *p_maze) {
 
             else
             {
-                fprintf(stderr, "Erreur rmw: les cases ne sont pas voisines\n");
-                free_dyn(path);
+                fprintf(stderr, "Erreur rma: les cases ne sont pas voisines\n");
                 free_maze(p_maze);
                 exit(EXIT_FAILURE);
             }
-
             cell = cell1; //la cellule actuelle devient la cellule précédente (visitée)
             cell1 = pop_dyn(path); //la cellule précédente devient la cellule sur le chemin (pas encore visitée)
         }

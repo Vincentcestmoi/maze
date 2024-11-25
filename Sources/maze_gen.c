@@ -79,41 +79,38 @@ void random_maze_wilson(maze *p_maze) {
         {
             path_visited[i] = false; //aucune case n'a été visitée
         }
+
         //hérence jusqu'à une case visitée
-        dynarray* path = create_dyn(); //liste des cases visitées
+        dynarray* path = create_dyn(); //liste des cases du chemin
+        push_dyn(cell, path); //on initialise le chemin
+        path_visited[cell] = true; //la case est visitée
+        int neighbour; //case voisine
         while(!visited[cell]) //tant que la case n'a pas été visitée
         {
-            int neighbour;
-            push_dyn(cell, path); //on ajoute la case à la liste
-            do
+            push_dyn(cell, path); //on ajoute la case au chemin
+
+            do //on cherche un voisin
             {
                 const cardinal card = rand() % 4; //direction aléatoire
                 neighbour = get_adj_maze(p_maze, cell, card); //case voisine
             }
             while(neighbour == -1); //si le voisin existe
-            {
-                cell = neighbour; //on se déplace
 
-                //résolution des cycles
-                if(path_visited[cell]) //si la case a déjà été visitée, c'est un cycle
-                {
-                    const int cycle = cell;
-                    do
-                    {
-                        cell = pop_dyn(path); //on enlève la dernière case de la liste
-                        path_visited[cell] = false; //on marque la case comme non visitée
-                    } while(cell != cycle); //tant qu'on n'a pas atteint le début du cycle
-                }
-                path_visited[cell] = true; //on marque la case comme visitée
-                push_dyn(cell, path); //on ajoute la case à la liste
+            cell = neighbour; //on se déplace
+
+            //résolution des cycles
+            while(path_visited[cell] && !is_empty_dyn(path)) //si la case a déjà été visitée, c'est un cycle (qui potentiellement vient du départ)
+            {
+                path_visited[cell] = false; //on efface le chemin en remontant le cycle
+                cell = pop_dyn(path);
             }
+            path_visited[cell] = true; //on marque la case dans le chemin
         }
+
         int cell1 = pop_dyn(path); //cell1 est la cellule sur le chemin (pas encore visitée)
         //on casse les murs
-        while(!is_empty_dyn(path)) //tant qu'il reste des cases à visiter
+        while(!is_empty_dyn(path)) //tant qu'il reste des cases sur le chemin
         {
-            visited[cell1] = true; //la case est visitée
-            visited_count--; //on décrémente le nombre de cases à visiter
             const int diff = cell - cell1;
             if (diff == 1)
             {
@@ -138,6 +135,8 @@ void random_maze_wilson(maze *p_maze) {
                 free_maze(p_maze);
                 exit(EXIT_FAILURE);
             }
+            visited[cell1] = true; //la case est visitée
+            visited_count--; //on décrémente le nombre de cases à visiter
             cell = cell1; //la cellule actuelle devient la cellule précédente (visitée)
             cell1 = pop_dyn(path); //la cellule précédente devient la cellule sur le chemin (pas encore visitée)
         }

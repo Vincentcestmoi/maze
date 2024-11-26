@@ -5,24 +5,24 @@
 /***************************************/
 
 void double_dyn(dynarray *dyn) {
-    dyn->array = realloc(dyn->array, dyn->capacity * 2); // NOLINT(*-suspicious-realloc-usage)
-    if(dyn -> array == NULL) {
+    dyn -> capacity *= 2;
+    dyn->array = realloc(dyn->array, dyn->capacity * sizeof(dyn->array));
+    if(dyn->array == NULL) {
         fprintf(stderr, "Error: realloc failed.\n");
         exit(EXIT_FAILURE);
     }
-    dyn->capacity *= 2;
 }
 
 void divide_dyn(dynarray *dyn) {
     if(dyn -> capacity < 2) { // On ne peut pas diviser un tableau de taille 1.
         return;
     }
-    dyn -> array = realloc(dyn->array, dyn->capacity / 2); // NOLINT(*-suspicious-realloc-usage)
-    if(dyn -> array == NULL) {
+    dyn->capacity /= 2;
+    dyn->array = realloc(dyn->array, dyn->capacity * sizeof(dyn->array));
+    if(dyn->array == NULL) {
         fprintf(stderr, "Error: realloc failed.\n");
         exit(EXIT_FAILURE);
     }
-    dyn->capacity /= 2;
 }
 
 /****************/

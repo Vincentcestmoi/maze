@@ -161,7 +161,7 @@ void random_maze_hkdfs(maze*) {
     return;
 }
 
-void random_maze_hkrandom(maze* p_maze) 
+void random_maze_hkrandom(maze* p_maze) {
     bool visited[p_maze->hsize * p_maze->vsize];
     int visited_count = p_maze->hsize * p_maze->vsize - 1; //nombre de case à visiter (la case de départ est déjà visitée)
     for(int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
@@ -177,8 +177,7 @@ void random_maze_hkrandom(maze* p_maze)
     }
     int cell = rand() % (p_maze->hsize * p_maze->vsize); //case de départ aléatoire
     visited[cell] = true; //on visite la case de départ
-    phase_kill(p_maze, visited);{
-    return;
+    phase_kill(p_maze, visited);
 }
 
 void random_maze_hklinear(maze*) {

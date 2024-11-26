@@ -3,15 +3,18 @@
 #include <limits.h>
 
 
-ufind* create_ufind(int)
+ufind* create_ufind(int n)
 {
     return NULL;
 }
 
 
-void delete_ufind(ufind*)
+void delete_ufind(ufind* uf)
 {
-    return;
+    free(uf -> parent);
+    free(uf -> rank);
+    free(uf -> sizec);
+    free(uf);
 }
 
 int sizeset_ufind(ufind*)

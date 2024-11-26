@@ -20,7 +20,7 @@ void random_maze_ab(maze *p_maze) {
     {
         const cardinal card = rand() % 4; //direction aléatoire
         const int neigbour = get_adj_maze(p_maze, cell, card); //case voisine
-        if(neigbour != -1)
+        if(neigbour != -1 && is_reach_maze(p_maze, neigbour)) //si la case voisine existe et est accessible
         {
             if(!visited[neigbour]) //si la case voisine n'a pas été visitée, on la visite
             {
@@ -58,11 +58,19 @@ void random_maze_ab(maze *p_maze) {
 
 void random_maze_wilson(maze *p_maze) {
     bool visited[p_maze->hsize * p_maze->vsize]; // Tableau de booléens pour savoir si une case a été visitée
+    int visited_count = p_maze->hsize * p_maze->vsize - 1; //nombre de case à visiter (la case de départ est déjà visitée)
     for(int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
     {
-        visited[i] = false; //aucune case n'a été visitée
+        if(is_reach_maze(p_maze, i)) //si la case est accessible
+        {
+            visited[i] = false; //on doit la visiter
+        }
+        else
+        {
+            visited[i] = false; //sinon on ne la visite pas
+            visited_count--; //on décrémente le nombre de cases à visiter
+        }
     }
-    int visited_count = p_maze->hsize * p_maze->vsize - 1; //nombre de case à visiter (la case de départ est déjà visitée)
     int cell = rand() % (p_maze->hsize * p_maze->vsize); //case de départ aléatoire
     visited[cell] = true; //on visite la case de départ
     while(visited_count > 0)
@@ -94,7 +102,7 @@ void random_maze_wilson(maze *p_maze) {
                 const cardinal card = rand() % 4; //direction aléatoire
                 neighbour = get_adj_maze(p_maze, cell, card); //case voisine
             }
-            while(neighbour == -1); //si le voisin existe
+            while(neighbour == -1 || !is_reach_maze(p_maze, neighbour)); //si le voisin existe
 
             cell = neighbour; //on se déplace
 

@@ -3,7 +3,7 @@
 #include <limits.h>
 
 
-ufind* create_ufind(int n)
+ufind* create_ufind(int)
 {
     return NULL;
 }

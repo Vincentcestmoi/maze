@@ -67,7 +67,6 @@ void random_maze_wilson(maze *p_maze) {
         }
         else
         {
-            visited[i] = false; //sinon on ne la visite pas
             visited_count--; //on décrémente le nombre de cases à visiter
         }
     }
@@ -151,12 +150,34 @@ void random_maze_wilson(maze *p_maze) {
     }
 }
 
+static void phase_kill(maze* p_maze, bool *visited){
+    if (!visited && !p_maze){
+
+    }
+    return;
+}
+
 void random_maze_hkdfs(maze*) {
     return;
 }
 
-void random_maze_hkrandom(maze*) {
-    return;
+void random_maze_hkrandom(maze* p_maze) {
+    bool visited[p_maze->hsize * p_maze->vsize];
+    int visited_count = p_maze->hsize * p_maze->vsize - 1; //nombre de case à visiter (la case de départ est déjà visitée)
+    for(int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
+    {
+        if(is_reach_maze(p_maze, i)) //si la case est accessible
+        {
+            visited[i] = false; //on doit la visiter
+        }
+        else
+        {
+            visited_count--; //on décrémente le nombre de cases à visiter
+        }
+    }
+    int cell = rand() % (p_maze->hsize * p_maze->vsize); //case de départ aléatoire
+    visited[cell] = true; //on visite la case de départ
+    phase_kill(p_maze, visited);
 }
 
 void random_maze_hklinear(maze*) {

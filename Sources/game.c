@@ -55,7 +55,41 @@ void free_game(game *g) {
 /*+ Implémentation des attaques de minotaures +*/
 /***********************************************/
 
-int game_try_kill_player(game*, cardinal*) {
+int game_try_kill_player(game *g, cardinal *card) {
+  const int cell = g->m->player;
+  int neighbour = get_adj_maze(g->m, cell, NORTH);
+  if(neighbour != -1) {
+    const int mino = has_minotaur_maze(g->m, neighbour);
+    if(mino != -1) {
+      *card = SOUTH;
+      return mino;
+    }
+  }
+  neighbour = get_adj_maze(g->m, cell, EAST);
+  if(neighbour != -1) {
+    const int mino = has_minotaur_maze(g->m, neighbour);
+    if(mino != -1) {
+      *card = WEST;
+      return mino;
+    }
+  }
+  neighbour = get_adj_maze(g->m, cell, SOUTH);
+  if(neighbour != -1) {
+    const int mino = has_minotaur_maze(g->m, neighbour);
+    if(mino != -1) {
+      *card = NORTH;
+      return mino;
+    }
+  }
+  neighbour = get_adj_maze(g->m, cell, WEST);
+  if(neighbour != -1) {
+    const int mino = has_minotaur_maze(g->m, neighbour);
+    if(mino != -1) {
+      *card = EAST;
+      return mino;
+    }
+  }
+  //on n'a pas trouvé de minotaure
   return -1;
 }
 
@@ -66,20 +100,50 @@ int game_try_kill_player(game*, cardinal*) {
 /*+ Traitement des objets +*/
 /***************************/
 
-void game_consume_object(game*, int, object) {
-  return;
+void game_consume_object(game *g, const int inter, const object obj) {
+  switch (obj) {
+    case SMALLT:
+      g->score += inter * VALSMALL;
+      break;
+    case MEDT:
+      g->score += inter * VALMED;
+      break;
+    case LARGET:
+      g->score += inter * VALLARGE;
+      break;
+    case BOMB:
+      g->nbombs += inter;
+      break;
+    case POLY:
+      g->npolys += inter;
+      break;
+    default: //inclue EXIT et NONE
+      break;
+  }
 }
 
-object game_treat_object(game*) {
-  return NONE;
+object game_treat_object(game *g) {
+  const int cell = g->m->player;
+  const object obj = get_object_maze(g->m, cell);
+  game_consume_object(g, 1, obj);
+  if(obj != EXIT)
+  {
+    add_object_maze(g->m, cell, NONE);
+  }
+  return obj;
 }
 
 /**********************************************************/
 /*+ Implémentation d'une demande de mouvement du joueur  +*/
 /**********************************************************/
 
-bool implement_game_move(game*, move, strategy) {
-  return false;
+bool implement_game_move(game *g, move mv, strategy strat) {
+  int cell = g->m->player;
+  int neighbour = get_adj_maze(g->m, cell, (cardinal)mv);
+  if(!valid_maze(g->m, neighbour) || has_wall_maze(g->m, cell, (cardinal)mv))
+  {
+    return false;
+  }
 }
 
 
@@ -112,8 +176,3 @@ bool game_undo(game*) {
 bool game_redo(game*) {
   return false;
 }
-
-
-
-
-

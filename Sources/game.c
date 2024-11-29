@@ -10,8 +10,9 @@
 game* create_newgame(const int sh, const int sv, mask *m, const generator f, const objgenerator fo, const int nb_minotaure, int tressage)
 {
   maze *p_maze;
-  if(m && (m->hsize != sh || m->vsize != sv))
+  if(m != NULL)
   {
+    resize_mask(m, sh, sv);
     p_maze = create_proto_maze(m);
   }
   else
@@ -137,13 +138,8 @@ object game_treat_object(game *g) {
 /*+ Implémentation d'une demande de mouvement du joueur  +*/
 /**********************************************************/
 
-bool implement_game_move(game *g, move mv, strategy strat) {
-  int cell = g->m->player;
-  int neighbour = get_adj_maze(g->m, cell, (cardinal)mv);
-  if(!valid_maze(g->m, neighbour) || has_wall_maze(g->m, cell, (cardinal)mv))
-  {
-    return false;
-  }
+bool implement_game_move(game *, move , strategy ) {
+  return false;
 }
 
 

@@ -51,6 +51,7 @@
 typedef enum {
     OBJ_EMPTY,
     OBJ_SIMPLE,
+    OBJ_MONNEY,
     OBJ_SIZE,
 } objgenerator;
 
@@ -88,6 +89,15 @@ void obj_empty(maze* //!< Le labyrinthe.
 void obj_simple(maze* //!< Le labyrinthe.
 );
 
+/**
+ * @brief Fonction de génération de trésors.
+ * @details La fonction commence par créer une unique sortie sur une cellule choisie
+ *  aléatoirement. Pour toutes les autres cellules, il y a une chance de 25% qu'elle
+ * contienne un trésor. Le type de trésor est alors choisi aléatoirement en favorisant
+ * les plus petits trésors.
+ */
+void obj_monney(maze* //!< Le labyrinthe.
+);
 
 
 #endif

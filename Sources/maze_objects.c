@@ -16,6 +16,10 @@ void obj_simple(maze *p_maze) {
     }while(!valid_maze(p_maze, cell));
     p_maze->objects[cell] = EXIT;
     for(int i = 0; i < p_maze->hsize * p_maze->vsize; i++) {
+        if(!(valid_maze(p_maze, i) && is_reach_maze(p_maze, i))) {
+            p_maze->objects[i] = NONE;
+            continue;
+        }
         getrandom(&cell, sizeof(cell), 0);
         cell %= 50;
         if(cell == 0 && p_maze->objects[i] != EXIT) {
@@ -44,6 +48,10 @@ void obj_monney(maze *p_maze) {
     }while(!valid_maze(p_maze, cell));
     p_maze->objects[cell] = EXIT;
     for(int i = 0; i < p_maze->hsize * p_maze->vsize; i++) {
+        if(!(valid_maze(p_maze, i) && is_reach_maze(p_maze, i))) {
+            p_maze->objects[i] = NONE;
+            continue;
+        }
         getrandom(&cell, sizeof(cell), 0);
         cell %= 4;
         if(cell == 0 && p_maze->objects[i] != EXIT) {

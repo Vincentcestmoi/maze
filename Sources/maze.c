@@ -258,6 +258,7 @@ maze* create_proto_maze(mask *m) {
     queue *q = create_queue();
     enqueue(i, q);
     make_reach_maze(p_maze, i); // On marque la cellule comme accessible
+    p_maze->nb_reachable = 1;
     while(!is_empty_queue(q)) {
         i = dequeue(q);
         for(cardinal c = NORTH; c < 4; c++) {
@@ -265,6 +266,7 @@ maze* create_proto_maze(mask *m) {
             if(valid_maze(p_maze, neighbour) && !is_reach_maze(p_maze, neighbour)) {
                 enqueue(neighbour, q);
                 make_reach_maze(p_maze, neighbour); // On marque les cellules accessibles
+                p_maze->nb_reachable++;
             }
         }
     }

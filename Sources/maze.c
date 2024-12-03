@@ -314,7 +314,7 @@ void gen_minotaurs_maze(maze *p_maze, int nb_minotaurs) {
         do{
             cellule = rand() % (p_maze->vsize * p_maze->hsize); // NOLINT(*-msc50-cpp)
         }
-        while(!valid_maze(p_maze, cellule) || is_occupied_maze(p_maze, cellule)); // On place les minotaures dans des cellules aléatoires valides et non occupées
+        while(!valid_maze(p_maze, cellule) || is_occupied_maze(p_maze, cellule) || !is_reach_maze(p_maze, cellule)); // On place les minotaures dans des cellules aléatoires valides et non occupées
         p_maze->minotaurs[i] = cellule; // On place le minotaure dans la cellule
         make_occupied_maze(p_maze, cellule); // On marque la cellule comme occupée
     }

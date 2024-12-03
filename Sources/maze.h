@@ -251,6 +251,15 @@ void free_occupied_maze(maze* //!< Le labyrinthe.
     , int //!< Le numéro de la cellule.
 );
 
+/**
+ *
+ * @return
+ * si la cellule est usable ie. si elle est valide, accessible et non masquée
+ */
+bool can_be_used(maze* //!< Le labyrinthe.
+    , int //!< Le numéro de la cellule.
+);
+
 /************************/
 /*+ Gestion des objets +*/
 /************************/

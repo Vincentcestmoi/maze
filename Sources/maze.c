@@ -161,6 +161,10 @@ void free_occupied_maze(maze *p_maze, const int cellule) {
     p_maze->props[cellule] &= 239; // On libère la cellule (on met le 5ème bit à 0)
 }
 
+bool can_be_used(maze *p_maze, const int cellule) {
+    return is_reach_maze(p_maze, cellule) && valid_maze(p_maze, cellule); // Si la cellule est utilisable
+}
+
 
 /************************/
 /*+ Gestion des objets +*/

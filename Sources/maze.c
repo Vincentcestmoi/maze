@@ -1,5 +1,7 @@
 #include "maze.h"
 
+#include "data_queue.h"
+
 #include <bits/types/siginfo_t.h>
 
 /*****************************************/
@@ -211,14 +213,14 @@ maze* create_proto_maze_nomask(const int size, const int height) {
     }
     p_maze->nb_minotaurs = 0;
     p_maze->minotaurs = NULL;
-    p_maze->nb_reachable = size * height; //puisque les cellules sont murées, aucune n'est accessible
+    p_maze->nb_reachable = size * height; //puisqu'il n'y a pas de masque, toutes les cellules sont accessibles
     for(int i = 0; i < size * height; i++) {
-        p_maze->props[i] = 79; // On initialise les propriétés des cellules (toutes les cellules sont murées dans les quatre directions, non occupées et non masquées)
+        p_maze->props[i] = 79; // On initialise les propriétés des cellules (toutes les cellules sont murées dans les quatre directions, non occupées, non masquées et accessibles)
         p_maze->objects[i] = NONE; // On initialise les objets à NONE
     }
-    const int i = rand() % (size * height); // NOLINT(*-msc50-cpp)
+    const int i = rand() % (size * height);
     p_maze->player = i; // On place le joueur dans une cellule aléatoire
-    p_maze->props[i] += 16; // On marque la cellule comme occupée (on met le 5ème bit à 1)
+    make_occupied_maze(p_maze, i); // On marque la cellule comme occupée
     return p_maze;
 }
 
@@ -240,12 +242,11 @@ maze* create_proto_maze(mask *m) {
     }
     p_maze->nb_minotaurs = 0;
     p_maze->minotaurs = NULL;
-    p_maze->nb_reachable = 1; //puisque le joueur est placé dans une cellule, une seule cellule est accessible
     for(int i = 0; i < m->vsize * m->hsize; i++) {
         p_maze->props[i] = 15; // On initialise les murs (toutes les cellules sont murées dans les quatre directions)
         p_maze->objects[i] = NONE;
         if(m->grid[i]) {
-            p_maze->props[i] += 32; // On masque la cellule (on met le 6ème bit à 1)
+            mask_cell_maze(p_maze, i); // On masque les cellules masquées
         }
     }
     int i = rand() % (m->vsize * m->hsize); // NOLINT(*-msc50-cpp)
@@ -254,7 +255,21 @@ maze* create_proto_maze(mask *m) {
         i = rand() % (m->vsize * m->hsize); // NOLINT(*-msc50-cpp)
     }
     p_maze->player = i; // On place le joueur dans une cellule aléatoire
-    p_maze->props[i] += 16; // On marque la cellule comme occupée (on met le 5ème bit à 1)
+    queue *q = create_queue();
+    enqueue(i, q);
+    make_reach_maze(p_maze, i); // On marque la cellule comme accessible
+    p_maze->nb_reachable = 1;
+    while(!is_empty_queue(q)) {
+        i = dequeue(q);
+        for(cardinal c = NORTH; c < 4; c++) {
+            const int neighbour = get_adj_maze(p_maze, i, c);
+            if(valid_maze(p_maze, neighbour) && !is_reach_maze(p_maze, neighbour)) {
+                enqueue(neighbour, q);
+                make_reach_maze(p_maze, neighbour); // On marque les cellules accessibles
+                p_maze->nb_reachable++;
+            }
+        }
+    }
     return p_maze;
 }
 
@@ -299,7 +314,7 @@ void gen_minotaurs_maze(maze *p_maze, int nb_minotaurs) {
         do{
             cellule = rand() % (p_maze->vsize * p_maze->hsize); // NOLINT(*-msc50-cpp)
         }
-        while(!valid_maze(p_maze, cellule) || is_occupied_maze(p_maze, cellule)); // On place les minotaures dans des cellules aléatoires valides et non occupées
+        while(!valid_maze(p_maze, cellule) || is_occupied_maze(p_maze, cellule) || !is_reach_maze(p_maze, cellule)); // On place les minotaures dans des cellules aléatoires valides et non occupées
         p_maze->minotaurs[i] = cellule; // On place le minotaure dans la cellule
         make_occupied_maze(p_maze, cellule); // On marque la cellule comme occupée
     }

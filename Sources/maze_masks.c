@@ -27,31 +27,61 @@ void free_mask(mask *m) {
 }
 
 void resize_mask(mask *m, const int hsize, const int vsize) {
-    //TODO : corriger la fonction
     if(m == NULL) {
         return;
     }
-    int dhsize = hsize - m->hsize;
-    int dvsize = vsize - m->vsize;
-    m->nbmasked = 0;
-    bool *newgrid = malloc(hsize*vsize*sizeof(bool));
-    for(int i = 0; i < hsize; i++) {
-        for(int j = 0; j < vsize; j++) {
-            newgrid[j*hsize+i] = false;
+    int delta = m->hsize - hsize; // la variation de taille horizontale
+    bool inter[hsize * m->vsize];
+    if(delta > 0) { //on doit ajouter des colonnes
+        for(int i = 0; i < m->vsize; i++) {
+            for(int j = 0; j < hsize; j++) {
+                inter[i * hsize + j] = m->grid[i * m->hsize + j];
+            }
         }
     }
-    for(int i = 0; i < m->vsize; i++) {
-        for(int j = 0; j < m->hsize; j++) {
-            if(m->grid[i*m->hsize+j]) {
-                m->nbmasked++;
-                if(i+dvsize >= 0 && i+dvsize < vsize && j+dhsize >= 0 && j+dhsize < hsize) {
-                    newgrid[(i+dvsize)*hsize+j+dhsize] = true;
-                }
+    else if (delta < 0) { //on doit supprimer des colonnes
+        for(int i = 0; i < m->vsize; i++) {
+            for(int j = 0; j < hsize; j++) {
+                //TODO
+            }
+        }
+    }
+    // delta = 0, on copie simplement
+    else {
+        for(int i = 0; i < m->vsize; i++) {
+            for(int j = 0; j < m->hsize; j++) {
+                //TODO
+            }
+        }
+    }
+    delta = vsize - m->vsize;
+    bool *newgrid = malloc(sizeof(bool) * hsize * vsize);
+    if(delta > 0) { //on doit ajouter des lignes
+        for(int i = 0; i < m->vsize; i++) {
+            for(int j = 0; j < m->hsize; j++) {
+                //TODO
+            }
+        }
+    }
+    else if (delta < 0) { //on doit supprimer des lignes
+        for(int i = 0; i < vsize; i++) {
+            for(int j = 0; j < m->hsize; j++) {
+                //TODO
+            }
+        }
+    }
+    // delta == 0, on copie simplement
+    else {
+        for(int i = 0; i < m->vsize; i++) {
+            for(int j = 0; j < m->hsize; j++) {
+                newgrid[i * hsize + j] = inter[i * m->hsize + j];
             }
         }
     }
     free(m->grid);
     m->grid = newgrid;
+    m->hsize = hsize;
+    m->vsize = vsize;
 }
 
 

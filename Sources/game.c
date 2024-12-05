@@ -101,22 +101,22 @@ int game_try_kill_player(game *g, cardinal *card) {
 /*+ Traitement des objets +*/
 /***************************/
 
-void game_consume_object(game *g, const int inter, const object obj) {
+void game_consume_object(game *g, const int iter, const object obj) {
   switch (obj) {
     case SMALLT:
-      g->score += inter * VALSMALL;
+      g->score += iter * VALSMALL;
       break;
     case MEDT:
-      g->score += inter * VALMED;
+      g->score += iter * VALMED;
       break;
     case LARGET:
-      g->score += inter * VALLARGE;
+      g->score += iter * VALLARGE;
       break;
     case BOMB:
-      g->nbombs += inter;
+      g->nbombs += iter;
       break;
     case POLY:
-      g->npolys += inter;
+      g->npolys += iter;
       break;
     default: //inclue EXIT et NONE
       break;
@@ -138,8 +138,35 @@ object game_treat_object(game *g) {
 /*+ Implémentation d'une demande de mouvement du joueur  +*/
 /**********************************************************/
 
-bool implement_game_move(game *, move , strategy ) {
-  return false;
+bool implement_game_move(game *g, const move mv, strategy strat) {
+  if (!g->player_alive)
+  {
+      return false;
+  }
+    g->player_dir = (cardinal)mv;
+    const int cell = g->m->player;
+    if (has_wall_maze(g->m, cell, g->player_dir))
+    {
+        return false;
+    }
+    //TODO : mouvement des minotaures
+    const int neighbour = get_adj_maze(g->m, cell, g->player_dir);
+    g->m->player = neighbour;
+    cardinal *card = malloc(sizeof(card));
+    if (card == NULL)
+    {
+        fprintf(stderr, "Erreur d'allocation\n");
+        exit(EXIT_FAILURE);
+    }
+    if (game_try_kill_player(g, card) != -1)
+    {   //TODO : gestion de la mort du joueur
+        g->player_alive = false;
+    }
+    free(card);
+    game_treat_object(g);
+    //TODO : gestion de l'historique
+    g->turns++;
+    return true;
 }
 
 
@@ -148,16 +175,110 @@ bool implement_game_move(game *, move , strategy ) {
 /*+ Implémentation des bombes +*/
 /*******************************/
 
-bool game_bomb_wall(game*) {
-  return false;
+bool game_bomb_wall(game *g) {
+  if (g->nbombs == 0)
+  {
+    return false;
+  }
+    const int neighbour = get_adj_maze(g->m, g->m->player, g->player_dir);
+    if (!can_be_used(g->m, neighbour))
+    {
+        return false;
+    }
+    g->nbombs--;
+    g->turns++;
+    del_wall_maze(g->m, g->m->player, g->player_dir);
+    cardinal *card = malloc(sizeof(card));
+    if (game_try_kill_player(g, card) != -1)
+    {   //TODO : gestion de la mort du joueur
+        g->player_alive = false;
+    }
+    free(card);
+    //TODO : gestion de l'historique
+    return true;
 }
 
 /*************************************/
 /*+ Implémentation des polys d'algo +*/
 /*************************************/
 
-bool game_kill_minotaurs(game*, int) {
-  return false;
+static bool mino_reachable(maze *p_maze, const int mino, const int cell, const int d)
+{
+    if (!can_be_used(p_maze, cell))
+    {
+        return false;
+    }
+    if (mino == cell)
+    {
+        return true;
+    }
+    if (d == 0)
+    {
+        return false;
+    }
+    int c = get_adj_maze(p_maze, cell, NORTH);
+    if (mino_reachable(p_maze, mino, c, d - 1))
+    {
+        return true;
+    }
+    c = get_adj_maze(p_maze, c, EAST);
+    if (mino_reachable(p_maze, mino, c, d - 1))
+    {
+        return true;
+    }
+    c = get_adj_maze(p_maze, c, WEST);
+    if (mino_reachable(p_maze, mino, c, d - 1))
+    {
+        return true;
+    }
+    c = get_adj_maze(p_maze, cell, EAST);
+    if (mino_reachable(p_maze, mino, c, d - 1))
+    {
+        return true;
+    }
+    c = get_adj_maze(p_maze, cell, SOUTH);
+    if (mino_reachable(p_maze, mino, c, d - 1))
+    {
+        return true;
+    }
+    c = get_adj_maze(p_maze, c, EAST);
+    if (mino_reachable(p_maze, mino, c, d - 1))
+    {
+        return true;
+    }
+    c = get_adj_maze(p_maze, c, WEST);
+    if (mino_reachable(p_maze, mino, c, d - 1))
+    {
+        return true;
+    }
+    c = get_adj_maze(p_maze, cell, WEST);
+    return mino_reachable(p_maze, mino, c, d - 1);
+}
+
+bool game_kill_minotaurs(game *g, int d) {
+  if (g->npolys == 0)
+  {
+      return false;
+  }
+    const int cell = g->m->player;
+    bool done = false;
+    for (int i = 0; i < g->m->nb_minotaurs; i++)
+    {
+        if (g->minotaurs_alive[i] && mino_reachable(g->m, g->m->minotaurs[i], cell, d))
+        {
+            g->minotaurs_alive[i] = false;
+            g->npolys--;
+            done = true;
+            //TODO : gestion de l'historique
+            //TODO : gestion de l'animation
+        }
+    }
+    if (!done)
+    {
+        return false;
+    }
+    g->turns++;
+    return true;
 }
 
 

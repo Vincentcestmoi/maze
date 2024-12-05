@@ -150,6 +150,10 @@ bool implement_game_move(game *g, const move mv, strategy strat) {
         return false;
     }
     //TODO : mouvement des minotaures
+    if (!strat)
+    {
+
+    }
     const int neighbour = get_adj_maze(g->m, cell, g->player_dir);
     g->m->player = neighbour;
     cardinal *card = malloc(sizeof(card));

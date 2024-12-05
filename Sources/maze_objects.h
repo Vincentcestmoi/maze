@@ -100,5 +100,12 @@ void obj_simple(maze* //!< Le labyrinthe.
 void obj_monney(maze* //!< Le labyrinthe.
 );
 
+/**
+ * @brief Fonction de génération minimale.
+ * @details La fonction crée uniquement une sortie sur une cellule choisie aléatoirement.
+ */
+void obj_minimal(maze* //!< Le labyrinthe.
+);
+
 
 #endif

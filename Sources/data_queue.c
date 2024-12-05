@@ -4,14 +4,17 @@
 /* Fonctions auxiliaires */
 /*************************/
 
-void grow_queue(queue *p) {
+void grow_queue(queue *p)
+{
     int *n_array = malloc(p->size_array * 2 * sizeof(int));
     int k = 0;
-    do {
+    do
+    {
         n_array[p->size_array + k] = p->array[p->left % p->size_array];
         p->left++;
         k++;
-    }while (p->left % p->size_array != p->right % p->size_array);
+    }
+    while (p->left % p->size_array != p->right % p->size_array);
     free(p->array);
     p->array = n_array;
     p->left = p->size_array;
@@ -20,12 +23,15 @@ void grow_queue(queue *p) {
 }
 
 
-void shrink_queue(queue *p) {
-    if(p->size_array <= 1){
+void shrink_queue(queue *p)
+{
+    if (p->size_array <= 1)
+    {
         return;
     }
     int *n_array = malloc(p->size_array / 2 * sizeof(int));
-    for (int k = 0; k < p->size_array / 4; k++){
+    for (int k = 0; k < p->size_array / 4; k++)
+    {
         n_array[k + p->size_array / 4] = p->array[p->left % p->size_array];
         p->left++;
     }
@@ -37,52 +43,57 @@ void shrink_queue(queue *p) {
 }
 
 
-
 /************************/
 /* Fonctions primitives */
 /************************/
 
 
-
-queue* create_queue(void) {
+queue *create_queue(void)
+{
     queue *p = malloc(sizeof(queue));
     p->array = malloc(sizeof(int));
     p->size_array = 1;
     p->left = 0;
     p->right = 0;
     p->empty = true;
-  return p;
+    return p;
 }
 
 
-void delete_queue(queue *p) {
+void delete_queue(queue *p)
+{
     free(p->array);
     free(p);
 }
 
 
-bool is_empty_queue(queue *p) {
-    return p->empty;;
+bool is_empty_queue(queue *p)
+{
+    return p->empty;
+    ;
 }
 
 
-
-int getsize_queue(queue *p) {
+int getsize_queue(queue *p)
+{
     if (is_empty_queue(p)) // si vide retourne 0
         return 0;
     const int delta = p->right - p->left;
 
-    if (p->right == p->left){ // si plein
+    if (p->right == p->left)
+    { // si plein
         return p->size_array;
     }
     if (delta < 0)
         return p->size_array + delta;
-  return delta;
+    return delta;
 }
 
 
-int read_queue(queue *p, const int indice) {
-    if (getsize_queue(p) < indice){
+int read_queue(queue *p, const int indice)
+{
+    if (getsize_queue(p) < indice)
+    {
         fprintf(stderr, "Ne peut lire un élément qui n'existe pas\n");
         exit(EXIT_FAILURE); // si on dépasse le nombre d'élément, la lecture aurait un comportement aléatoire
     }
@@ -90,36 +101,52 @@ int read_queue(queue *p, const int indice) {
 }
 
 
-
-
-void enqueue(const int val, queue *p) {
-    if (getsize_queue(p)==p->size_array && !is_empty_queue(p)){
+void enqueue(const int val, queue *p)
+{
+    if (getsize_queue(p) == p->size_array && !is_empty_queue(p))
+    {
         grow_queue(p); // si la queue est pleine on l'agrandit
     }
     p->empty = false;
     p->left--;
-    if (p->left < 0){
-      p->left += p->size_array; // on décale left "à gauche"
+    if (p->left < 0)
+    {
+        p->left += p->size_array; // on décale left "à gauche"
     }
-    p->array[p->left] = val; //on ajoute notre élément en début de queue
+    p->array[p->left] = val; // on ajoute notre élément en début de queue
 }
 
 
-int dequeue(queue *p) {
-    if (is_empty_queue(p)){
+int dequeue(queue *q)
+{
+    if (is_empty_queue(q))
+    {
         fprintf(stderr, "Ne peut retirer un élément de la file quand elle est vide\n");
         exit(EXIT_FAILURE); // si la queue est vide on ne peut pas supprimer d'éléménts
     }
-    p->right--;
-    if (p->right < 0) {
-        p->right += p->size_array;  // Ajuster à la fin du tableau
+    // Décrémenter l'indice `q->right` correctement
+    if (q->right == 0)
+    {
+        q->right = q->size_array - 1;
     }
-    if (p->right == p->left){
-        p->empty = true; // si la file est vide on la déclare vide
-    }
-    if (1 < getsize_queue(p) &&  getsize_queue(p) <= p->size_array / 4){
-        shrink_queue(p);
+    else
+    {
+        q->right--;
     }
 
-  return  p->array[p->right]; // on récupère la valeur de la cellule que nous voulons renvoyer
+    // Récupérer la valeur à retirer
+    uint value = q->array[q->right];
+
+    // Vérifier si la deque doit être réduite
+    if (1 < getsize_queue(q) && getsize_queue(q) <= q->size_array / 4)
+    {
+        shrink_queue(q);
+    }
+
+    // Vérifier si la deque est vide
+    if (q->left == q->right)
+    {
+        q->empty = true;
+    }
+    return value; // on récupère la valeur de la cellule que nous voulons renvoyer
 }

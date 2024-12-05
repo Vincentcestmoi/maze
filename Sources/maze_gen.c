@@ -1,8 +1,5 @@
 #include "maze_gen.h"
 
-#include <bits/types/siginfo_t.h>
-#include <sys/random.h>
-
 void (*gen_funs[GEN_SIZE])(maze *) = {
     &maze_test, &random_maze_ab,
     &random_maze_wilson, &random_maze_hklinear,
@@ -26,32 +23,29 @@ void maze_test(maze *)
 
 void random_maze_ab(maze *p_maze)
 {
-    bool visited[p_maze->hsize * p_maze->vsize]; // Tableau de booléens pour savoir si une case a été visitée
-    int visited_count = 0; // nombre de cases à visiter
+    bool
+        visited[p_maze->hsize * p_maze->vsize]; // Tableau de booléens pour savoir
+                                                // si une case a été visitée
     for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
     {
         visited[i] = false; // aucune case n'a été visitée
-        if (can_be_used(p_maze, i))
-        {
-            visited_count++; // on incrémente le nombre de cases à visiter
-        }
     }
-    uint cell;
-    do {
-        getrandom(&cell, sizeof(cell), 0);
-        cell %= p_maze->hsize * p_maze->vsize;
-    }while(!can_be_used(p_maze, cell)); // on cherche une case utilisable
-
-    visited[cell] = true; // on visite la case de départ
-    visited_count--;
+    int visited_count =
+        p_maze->hsize * p_maze->vsize -
+        1; // nombre de case à visiter (la case de départ est déjà visitée)
+    int cell =
+        rand() % (p_maze->hsize * p_maze->vsize); // case de départ aléatoire
+    visited[cell] = true;                         // on visite la case de départ
     while (visited_count > 0)
     {
         const cardinal card = rand() % 4;                      // direction aléatoire
         const int neigbour = get_adj_maze(p_maze, cell, card); // case voisine
-        if (can_be_used(p_maze, neigbour)) //si le voisin est exploitable
+        if (neigbour != -1 &&
+            is_reach_maze(p_maze,
+                          neigbour)) // si la case voisine existe et est accessible
         {
-            if (!visited[neigbour])
-            // si la case voisine n'a pas été visitée, on la visite
+            if (!visited[neigbour]) // si la case voisine n'a pas été visitée, on la
+                                    // visite
             {
                 const int diff = cell - neigbour;
                 if (diff == 1)
@@ -87,13 +81,15 @@ void random_maze_ab(maze *p_maze)
 
 void random_maze_wilson(maze *p_maze)
 {
-    bool visited[p_maze->hsize * p_maze->vsize]; // Tableau de booléens pour savoir si une case a été visitée
-    int visited_count =p_maze->hsize * p_maze->vsize - 1;
-    // nombre de case à visiter (la case de départ est déjà visitée)
+    bool
+        visited[p_maze->hsize * p_maze->vsize]; // Tableau de booléens pour savoir
+                                                // si une case a été visitée
+    int visited_count =
+        p_maze->hsize * p_maze->vsize -
+        1; // nombre de case à visiter (la case de départ est déjà visitée)
     for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
     {
-        if (can_be_used(p_maze, i))
-        // si la case est accessible
+        if (is_reach_maze(p_maze, i)) // si la case est accessible
         {
             visited[i] = false; // on doit la visiter
         }
@@ -102,21 +98,21 @@ void random_maze_wilson(maze *p_maze)
             visited_count--; // on décrémente le nombre de cases à visiter
         }
     }
-    int cell;
-    do {
-        getrandom(&cell, sizeof(cell), 0);
-        cell %= p_maze->hsize * p_maze->vsize;
-    }while(!can_be_used(p_maze, cell)); // on cherche une case utilisable
-
-    visited[cell] = true;   // on visite la case de départ
-    while (visited_count > 0) // recherche d'une case non visitée
+    int cell =
+        rand() % (p_maze->hsize * p_maze->vsize); // case de départ aléatoire
+    visited[cell] = true;                         // on visite la case de départ
+    while (visited_count > 0)
     {
+
+        // recherche d'une case non visitée
         do
         {
             cell = rand() % (p_maze->hsize * p_maze->vsize); // case aléatoire
-        } while (visited[cell] || !can_be_used(p_maze, cell)); // tant que la case a été visitée ou n'est pas utilisable
+        } while (visited[cell]);
 
-        bool path_visited[p_maze->hsize * p_maze->vsize]; // Tableau de booléens pour savoir si une case a été visitée
+        bool path_visited[p_maze->hsize *
+                          p_maze->vsize]; // Tableau de booléens pour savoir si une
+                                          // case a été visitée dans le chemin
         for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
         {
             path_visited[i] = false; // aucune case n'a été visitée
@@ -127,22 +123,23 @@ void random_maze_wilson(maze *p_maze)
         push_dyn(cell, path);          // on initialise le chemin
         path_visited[cell] = true;     // la case est visitée
         int neighbour;                 // case voisine
-        cardinal card;                  // direction aléatoire
         while (!visited[cell])         // tant que la case n'a pas été visitée
         {
             push_dyn(cell, path); // on ajoute la case au chemin
 
             do // on cherche un voisin
             {
-                getrandom(&card, sizeof(card), 0);
-                card %= 4;
+                const cardinal card = rand() % 4;             // direction aléatoire
                 neighbour = get_adj_maze(p_maze, cell, card); // case voisine
-            } while (!can_be_used(p_maze, neighbour)); // jusqu'à trouver un voisin convenable
+            } while (neighbour == -1 ||
+                     !is_reach_maze(p_maze, neighbour)); // si le voisin existe
 
             cell = neighbour; // on se déplace
 
             // résolution des cycles
-            while (path_visited[cell] && !is_empty_dyn(path)) // si la case a déjà été visitée, c'est un cycle
+            while (path_visited[cell] &&
+                   !is_empty_dyn(path)) // si la case a déjà été visitée, c'est un
+                                        // cycle (qui potentiellement vient du départ)
             {
                 path_visited[cell] = false; // on efface le chemin en remontant le cycle
                 cell = pop_dyn(path);
@@ -150,7 +147,8 @@ void random_maze_wilson(maze *p_maze)
             path_visited[cell] = true; // on marque la case dans le chemin
         }
 
-        int cell1 = pop_dyn(path); // cell1 est la cellule sur le chemin (pas encore visitée)
+        int cell1 = pop_dyn(
+            path); // cell1 est la cellule sur le chemin (pas encore visitée)
         // on casse les murs
         while (!is_empty_dyn(path)) // tant qu'il reste des cases sur le chemin
         {
@@ -180,8 +178,10 @@ void random_maze_wilson(maze *p_maze)
             }
             visited[cell1] = true; // la case est visitée
             visited_count--;       // on décrémente le nombre de cases à visiter
-            cell = cell1;             // la cellule actuelle devient la cellule précédente (visitée)
-            cell1 = pop_dyn(path); // la cellule précédente devient la cellule chemin (pas encore visitée)
+            cell =
+                cell1;             // la cellule actuelle devient la cellule précédente (visitée)
+            cell1 = pop_dyn(path); // la cellule précédente devient la cellule sur le
+                                   // chemin (pas encore visitée)
         }
     }
 }

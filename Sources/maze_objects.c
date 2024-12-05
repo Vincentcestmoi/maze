@@ -1,8 +1,8 @@
 #include "maze_objects.h"
 #include "sys/random.h"
 
-void (*obj_funs[OBJ_SIZE]) (maze*) = { &obj_empty, &obj_simple, &obj_monney };
-const char* obj_names[OBJ_SIZE] = { "Pas d'objets", "Simple", "Trésor" };
+void (*obj_funs[OBJ_SIZE]) (maze*) = { &obj_empty, &obj_simple, &obj_monney &obj_minimal};
+const char* obj_names[OBJ_SIZE] = { "Pas d'objets", "Simple", "Trésor", "Minimal", };
 
 
 void obj_empty(maze*) {
@@ -70,3 +70,13 @@ void obj_monney(maze *p_maze) {
     }
 }
 
+
+void obj_minimal(maze *p_maze){
+    int cell;
+    do
+    {
+        getrandom(&cell, sizeof(cell), 0);
+        cell %= p_maze->vsize * p_maze->hsize;
+    } while (!valid_maze(p_maze, cell));
+    p_maze->objects[cell] = EXIT;
+}

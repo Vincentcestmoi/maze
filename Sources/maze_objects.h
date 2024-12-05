@@ -52,6 +52,7 @@ typedef enum {
     OBJ_EMPTY,
     OBJ_SIMPLE,
     OBJ_MONNEY,
+    OBJ_MINIMAL,
     OBJ_SIZE,
 } objgenerator;
 

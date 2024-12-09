@@ -1,5 +1,6 @@
 #include "maze_gen.h"
 #include "data_binheap.h"
+#include "maze.h"
 
 #include <sys/random.h>
 
@@ -192,6 +193,8 @@ void random_maze_wilson(maze *p_maze)
 
 static void phase_kill_hkdfs(maze *p_maze, bool *visited, int cell, dynarray *d)
 {
+    printf("début hk\n");
+    printf("cell is : %d, visited[cell] is : %d\n", cell, visited[cell]);
     visited[cell] = true; // on visite la case où nous sommes
     // int dir_tab[4] = {0};
     //   tableau de booléens pour savoir si une direction est possible
@@ -209,12 +212,14 @@ static void phase_kill_hkdfs(maze *p_maze, bool *visited, int cell, dynarray *d)
     if (possible_dir == 0)
     {
         // si aucune direction n'est possible, on retourne
+        printf("terminé ? \n");
         return;
     }
-
+    printf("possible_dir is : %d\n", possible_dir);
     int random_dir = rand() % 4;
     while (get_adj_maze(p_maze, cell, random_dir) == -1 || visited[get_adj_maze(p_maze, cell, random_dir)])
     {
+        printf("random_dir is : %d\n", random_dir);
         random_dir = rand() % 4;
     }
     push_dyn(get_adj_maze(p_maze, cell, random_dir), d);
@@ -227,26 +232,31 @@ static void phase_kill_hkdfs(maze *p_maze, bool *visited, int cell, dynarray *d)
 
 void random_maze_hkdfs(maze *p_maze)
 {
+    printf("\n\n--------------\n");
     bool visited[p_maze->hsize * p_maze->vsize];
     // tableau de booléens pour savoir si une case a été visitée
-    int visited_count = p_maze->hsize * p_maze->vsize;
-    // nombre de cases à visiter
     for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
     {
-        if (is_reach_maze(p_maze, i)) // si la case est accessible
+        if (can_be_used(p_maze, i)) // si la case est accessible
         {
             visited[i] = false; // on doit la visiter
         }
         else
         {
-            visited_count--; // on décrémente le nombre de cases à visiter
+            visited[i] = true; // on ne doit pas la visiter
         }
     }
     dynarray *d = create_dyn();
     // on choisit une case aléatoire, on la visite et on lance la phase de kill
     int cell = rand() % (p_maze->hsize * p_maze->vsize); // case aléatoire
+    do
+    {
+        cell = rand() % (p_maze->hsize * p_maze->vsize);
+    }
+    while (visited[cell]);
+    printf("first cell is : %d\n", cell);
     push_dyn(cell, d);
-
+    phase_kill_hkdfs(p_maze, visited, pop_dyn(d), d);
     // booléen pour savoir si la case a des voisins visités
     while (!is_empty_dyn(d))
     {

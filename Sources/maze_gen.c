@@ -3,12 +3,9 @@
 
 #include <sys/random.h>
 
-void (*gen_funs[GEN_SIZE])(maze *) = {
-    &maze_test, &random_maze_ab,
-    &random_maze_wilson, &random_maze_hklinear,
-    &random_maze_hkdfs, &random_maze_hkrandom,
-    &random_maze_prim, &random_maze_kruskal,
-    &random_maze_rec};
+void (*gen_funs[GEN_SIZE])(maze *) = {&maze_test,         &random_maze_ab,       &random_maze_wilson, &random_maze_hklinear,
+                                      &random_maze_hkdfs, &random_maze_hkrandom, &random_maze_prim,   &random_maze_kruskal,
+                                      &random_maze_rec};
 const char *gen_names[GEN_SIZE] = {"Test (pas de génération)",
                                    "Aldous-Broder",
                                    "Wilson",
@@ -37,18 +34,20 @@ void random_maze_ab(maze *p_maze)
         }
     }
     uint cell;
-    do {
+    do
+    {
         getrandom(&cell, sizeof(cell), 0);
         cell %= p_maze->hsize * p_maze->vsize;
-    }while(!can_be_used(p_maze, cell)); // on cherche une case utilisable
+    }
+    while (!can_be_used(p_maze, cell)); // on cherche une case utilisable
 
     visited[cell] = true; // on visite la case de départ
     visited_count--;
     while (visited_count > 0)
     {
-        const cardinal card = rand() % 4;                      // direction aléatoire
+        const cardinal card = rand() % 4; // direction aléatoire
         const int neigbour = get_adj_maze(p_maze, cell, card); // case voisine
-        if (can_be_used(p_maze, neigbour)) //si le voisin est exploitable
+        if (can_be_used(p_maze, neigbour)) // si le voisin est exploitable
         {
             if (!visited[neigbour])
             // si la case voisine n'a pas été visitée, on la visite
@@ -88,7 +87,7 @@ void random_maze_ab(maze *p_maze)
 void random_maze_wilson(maze *p_maze)
 {
     bool visited[p_maze->hsize * p_maze->vsize]; // Tableau de booléens pour savoir si une case a été visitée
-    int visited_count =p_maze->hsize * p_maze->vsize - 1;
+    int visited_count = p_maze->hsize * p_maze->vsize - 1;
     // nombre de case à visiter (la case de départ est déjà visitée)
     for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
     {
@@ -103,18 +102,21 @@ void random_maze_wilson(maze *p_maze)
         }
     }
     int cell;
-    do {
+    do
+    {
         getrandom(&cell, sizeof(cell), 0);
         cell %= p_maze->hsize * p_maze->vsize;
-    }while(!can_be_used(p_maze, cell)); // on cherche une case utilisable
+    }
+    while (!can_be_used(p_maze, cell)); // on cherche une case utilisable
 
-    visited[cell] = true;   // on visite la case de départ
+    visited[cell] = true; // on visite la case de départ
     while (visited_count > 0) // recherche d'une case non visitée
     {
         do
         {
             cell = rand() % (p_maze->hsize * p_maze->vsize); // case aléatoire
-        } while (visited[cell] || !can_be_used(p_maze, cell)); // tant que la case a été visitée ou n'est pas utilisable
+        }
+        while (visited[cell] || !can_be_used(p_maze, cell)); // tant que la case a été visitée ou n'est pas utilisable
 
         bool path_visited[p_maze->hsize * p_maze->vsize]; // Tableau de booléens pour savoir si une case a été visitée
         for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
@@ -124,11 +126,11 @@ void random_maze_wilson(maze *p_maze)
 
         // hérence jusqu'à une case visitée
         dynarray *path = create_dyn(); // liste des cases du chemin
-        push_dyn(cell, path);          // on initialise le chemin
-        path_visited[cell] = true;     // la case est visitée
-        int neighbour;                 // case voisine
-        cardinal card;                  // direction aléatoire
-        while (!visited[cell])         // tant que la case n'a pas été visitée
+        push_dyn(cell, path); // on initialise le chemin
+        path_visited[cell] = true; // la case est visitée
+        int neighbour; // case voisine
+        cardinal card; // direction aléatoire
+        while (!visited[cell]) // tant que la case n'a pas été visitée
         {
             push_dyn(cell, path); // on ajoute la case au chemin
 
@@ -137,7 +139,8 @@ void random_maze_wilson(maze *p_maze)
                 getrandom(&card, sizeof(card), 0);
                 card %= 4;
                 neighbour = get_adj_maze(p_maze, cell, card); // case voisine
-            } while (!can_be_used(p_maze, neighbour)); // jusqu'à trouver un voisin convenable
+            }
+            while (!can_be_used(p_maze, neighbour)); // jusqu'à trouver un voisin convenable
 
             cell = neighbour; // on se déplace
 
@@ -179,21 +182,83 @@ void random_maze_wilson(maze *p_maze)
                 exit(EXIT_FAILURE);
             }
             visited[cell1] = true; // la case est visitée
-            visited_count--;       // on décrémente le nombre de cases à visiter
-            cell = cell1;             // la cellule actuelle devient la cellule précédente (visitée)
+            visited_count--; // on décrémente le nombre de cases à visiter
+            cell = cell1; // la cellule actuelle devient la cellule précédente (visitée)
             cell1 = pop_dyn(path); // la cellule précédente devient la cellule chemin (pas encore visitée)
         }
     }
 }
 
 
-void random_maze_hkdfs(maze *) { return; }
-
-static void phase_kill_hkrandom(maze *p_maze, bool *visited, int cell,
-                                int *visited_count)
+static void phase_kill_hkdfs(maze *p_maze, bool *visited, int cell, dynarray *d)
 {
     visited[cell] = true; // on visite la case où nous sommes
-    (*visited_count)--;   // on décrémente le nombre de cases à visiter
+    // int dir_tab[4] = {0};
+    //   tableau de booléens pour savoir si une direction est possible
+    int possible_dir = 0; // nombre de directions possibles
+    for (int i = 0; i < 4; i++)
+    {
+        int neighbour = get_adj_maze(p_maze, cell, i); // case voisine
+        if (neighbour != -1 && !visited[neighbour])
+        {
+            // si la case voisine existe et n'a pas été visitée
+            // dir_tab[i] = true;
+            possible_dir++;
+        }
+    }
+    if (possible_dir == 0)
+    {
+        // si aucune direction n'est possible, on retourne
+        return;
+    }
+
+    int random_dir = rand() % 4;
+    while (get_adj_maze(p_maze, cell, random_dir) == -1 || visited[get_adj_maze(p_maze, cell, random_dir)])
+    {
+        random_dir = rand() % 4;
+    }
+    push_dyn(get_adj_maze(p_maze, cell, random_dir), d);
+    del_wall_maze(p_maze, cell, random_dir);
+    phase_kill_hkdfs(p_maze, visited, get_adj_maze(p_maze, cell, random_dir), d);
+    // on continue la phase de kill
+    return;
+}
+
+
+void random_maze_hkdfs(maze *p_maze)
+{
+    bool visited[p_maze->hsize * p_maze->vsize];
+    // tableau de booléens pour savoir si une case a été visitée
+    int visited_count = p_maze->hsize * p_maze->vsize;
+    // nombre de cases à visiter
+    for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
+    {
+        if (is_reach_maze(p_maze, i)) // si la case est accessible
+        {
+            visited[i] = false; // on doit la visiter
+        }
+        else
+        {
+            visited_count--; // on décrémente le nombre de cases à visiter
+        }
+    }
+    dynarray *d = create_dyn();
+    // on choisit une case aléatoire, on la visite et on lance la phase de kill
+    int cell = rand() % (p_maze->hsize * p_maze->vsize); // case aléatoire
+    push_dyn(cell, d);
+
+    // booléen pour savoir si la case a des voisins visités
+    while (!is_empty_dyn(d))
+    {
+        phase_kill_hkdfs(p_maze, visited, pop_dyn(d), d);
+    }
+    return;
+}
+
+static void phase_kill_hkrandom(maze *p_maze, bool *visited, int cell, int *visited_count)
+{
+    visited[cell] = true; // on visite la case où nous sommes
+    (*visited_count)--; // on décrémente le nombre de cases à visiter
     int dir_tab[4] = {0};
     // tableau de booléens pour savoir si une direction est possible
     int possible_dir = 0; // nombre de directions possibles
@@ -219,8 +284,7 @@ static void phase_kill_hkrandom(maze *p_maze, bool *visited, int cell,
         random_dir = (random_dir + 1) % 4;
     }
     del_wall_maze(p_maze, cell, random_dir);
-    phase_kill_hkrandom(p_maze, visited, get_adj_maze(p_maze, cell, random_dir),
-                        visited_count);
+    phase_kill_hkrandom(p_maze, visited, get_adj_maze(p_maze, cell, random_dir), visited_count);
     // on continue la phase de kill
     return;
 }
@@ -256,7 +320,7 @@ void random_maze_hkrandom(maze *p_maze)
         do
         {
             cell = rand() % (p_maze->hsize * p_maze->vsize); // case aléatoire
-            has_adjacent_visited_ = false;                   // on réinitialise le booléen
+            has_adjacent_visited_ = false; // on réinitialise le booléen
             for (int i = 0; i < 4; i++)
             {
                 dir_tab[i] = false; // on réinitialise le tableau de booléens
@@ -273,7 +337,8 @@ void random_maze_hkrandom(maze *p_maze)
                     has_adjacent_visited_ = true;
                 }
             }
-        } while (visited[cell] || !has_adjacent_visited_);
+        }
+        while (visited[cell] || !has_adjacent_visited_);
         // tant que la case a été visitée ou n'a pas de voisins visités
 
         if (has_adjacent_visited_)
@@ -413,104 +478,15 @@ static void random_maze_hklinear1(maze *p_maze)
     return;
 }
 */
-static void phase_kill_hklinear(maze *p_maze, bool *visited, int cell, dynarray *d)
-{
-    visited[cell] = true; // on visite la case où nous sommes
-    // int dir_tab[4] = {0};
-    //   tableau de booléens pour savoir si une direction est possible
-    int possible_dir = 0; // nombre de directions possibles
-    for (int i = 0; i < 4; i++)
-    {
-        int neighbour = get_adj_maze(p_maze, cell, i); // case voisine
-        if (neighbour != -1 && !visited[neighbour])
-        {
-            // si la case voisine existe et n'a pas été visitée
-            // dir_tab[i] = true;
-            possible_dir++;
-        }
-    }
-    if (possible_dir == 0)
-    {
-        // si aucune direction n'est possible, on retourne
-        return;
-    }
-
-    int random_dir = rand() % 4;
-    while (get_adj_maze(p_maze, cell, random_dir) == -1 || visited[get_adj_maze(p_maze, cell, random_dir)])
-    {
-        random_dir = rand() % 4;
-    }
-    push_dyn(get_adj_maze(p_maze, cell, random_dir), d);
-    del_wall_maze(p_maze, cell, random_dir);
-    phase_kill_hklinear(p_maze, visited, get_adj_maze(p_maze, cell, random_dir), d);
-    // on continue la phase de kill
-    return;
-}
+static void phase_kill_hklinear() { return; }
 
 void random_maze_hklinear(maze *p_maze)
 {
-    bool visited[p_maze->hsize * p_maze->vsize];
-    // tableau de booléens pour savoir si une case a été visitée
-    int visited_count = p_maze->hsize * p_maze->vsize;
-    // nombre de cases à visiter
-    for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
+    if (p_maze)
     {
-        if (is_reach_maze(p_maze, i)) // si la case est accessible
-        {
-            visited[i] = false; // on doit la visiter
-        }
-        else
-        {
-            visited_count--; // on décrémente le nombre de cases à visiter
-        }
+        return;
     }
-    dynarray *d = create_dyn();
-    // on choisit une case aléatoire, on la visite et on lance la phase de kill
-    int cell = rand() % (p_maze->hsize * p_maze->vsize); // case aléatoire
-    push_dyn(cell, d);
-    phase_kill_hklinear(p_maze, visited, cell, d);
-
-    // booléen pour savoir si la case a des voisins visités
-    while (!is_empty_dyn(d))
-    {
-
-        cell = pop_dyn(d);                  // case actuelle
-        bool has_adjacent_visited_ = false; // on réinitialise le booléen
-        int neighbour = -1;
-        int dir = -1;
-        if (get_adj_maze(p_maze, cell, NORTH) != -1 && !visited[get_adj_maze(p_maze, cell, NORTH)])
-        {
-            // si la case voisine existe et a été visitée
-            has_adjacent_visited_ = true;
-            dir = NORTH;
-        }
-        else if (get_adj_maze(p_maze, cell, WEST) != -1 && !visited[get_adj_maze(p_maze, cell, WEST)])
-        {
-            // si la case voisine existe et a été visitée
-            has_adjacent_visited_ = true;
-            dir = WEST;
-        }
-        else if (get_adj_maze(p_maze, cell, EAST) != -1 && !visited[get_adj_maze(p_maze, cell, EAST)])
-        {
-            // si la case voisine existe et a été visitée
-            has_adjacent_visited_ = true;
-            dir = EAST;
-        }
-        else if (get_adj_maze(p_maze, cell, SOUTH) != -1 && !visited[get_adj_maze(p_maze, cell, SOUTH)])
-        {
-            // si la case voisine existe et a été visitée
-            has_adjacent_visited_ = true;
-            dir = SOUTH;
-        }
-        if (has_adjacent_visited_)
-        {
-            del_wall_maze(p_maze, cell, dir);
-            // on casse un mur
-            neighbour = get_adj_maze(p_maze, cell, dir);
-
-            phase_kill_hklinear(p_maze, visited, neighbour, d);
-        }
-    }
+    phase_kill_hklinear();
     return;
 }
 void random_maze_prim(maze *) { return; }

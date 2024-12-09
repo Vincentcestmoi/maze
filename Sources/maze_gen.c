@@ -319,12 +319,10 @@ void random_maze_hkrandom(maze *p_maze)
     }
 }
 
-/*
-static void phase_kill_hklinear1(maze *p_maze, bool *visited, int cell)
+
+static void phase_kill_hklinear(maze *p_maze, bool *visited, int cell)
 {
     visited[cell] = true; // on visite la case où nous sommes
-    // int dir_tab[4] = {0};
-    //   tableau de booléens pour savoir si une direction est possible
     int possible_dir = 0; // nombre de directions possibles
     for (int i = 0; i < 4; i++)
     {
@@ -332,35 +330,26 @@ static void phase_kill_hklinear1(maze *p_maze, bool *visited, int cell)
         if (neighbour != -1 && !visited[neighbour])
         {
             // si la case voisine existe et n'a pas été visitée
-            // dir_tab[i] = true;
             possible_dir++;
         }
     }
     if (possible_dir == 0)
     {
-        printf("je termine\n");
-        // si aucune direction n'est possible, on retourne
         return;
     }
 
-    // int random_dir = rand() % possible_dir;
-    // while (dir_tab[random_dir] == false)
-    // {
-    //     // on cherche une direction possible
-    //     random_dir = (random_dir + 1) % 4;
-    // }
     int random_dir = rand() % 4;
     while (get_adj_maze(p_maze, cell, random_dir) == -1 || visited[get_adj_maze(p_maze, cell, random_dir)])
     {
         random_dir = rand() % 4;
     }
     del_wall_maze(p_maze, cell, random_dir);
-    phase_kill_hklinear1(p_maze, visited, get_adj_maze(p_maze, cell, random_dir));
+    phase_kill_hklinear(p_maze, visited, get_adj_maze(p_maze, cell, random_dir));
     // on continue la phase de kill
     return;
 }
 
-static void random_maze_hklinear1(maze *p_maze)
+void random_maze_hklinear(maze *p_maze)
 {
     bool visited[p_maze->hsize * p_maze->vsize];
     // tableau de booléens pour savoir si une case a été visitée
@@ -380,45 +369,15 @@ static void random_maze_hklinear1(maze *p_maze)
     // on choisit une case aléatoire, on la visite et on lance la phase de kill
     int cell = rand() % (p_maze->hsize * p_maze->vsize); // case aléatoire
 
-    phase_kill_hklinear1(p_maze, visited, cell);
-    printf("first cell is : %d\n", cell);
-    bool has_adjacent_visited_ = false;
-    // booléen pour savoir si la case a des voisins visités
-    int x = 0, y = 0;
+    phase_kill_hklinear(p_maze, visited, cell);
+    int x = 0, y = 0, x0 = 0, y0 = 0;
     while (true)
     {
-
-        cell = x + p_maze->hsize * y;  // case actuelle
-        has_adjacent_visited_ = false; // on réinitialise le booléen
-        int neighbour = -1;
-        int dir = -1;
-        while (!visited[cell] || !has_adjacent_visited_)
+        cell = x0 + p_maze->hsize * y0;
+        x = x0, y = y0;
+        while (!visited[cell])
         {
             cell = x + p_maze->hsize * y;
-            if (get_adj_maze(p_maze, cell, NORTH) != -1 && !visited[get_adj_maze(p_maze, cell, NORTH)])
-            {
-                // si la case voisine existe et a été visitée
-                has_adjacent_visited_ = true;
-                dir = NORTH;
-            }
-            else if (get_adj_maze(p_maze, cell, WEST) != -1 && !visited[get_adj_maze(p_maze, cell, WEST)])
-            {
-                // si la case voisine existe et a été visitée
-                has_adjacent_visited_ = true;
-                dir = WEST;
-            }
-            else if (get_adj_maze(p_maze, cell, EAST) != -1 && !visited[get_adj_maze(p_maze, cell, EAST)])
-            {
-                // si la case voisine existe et a été visitée
-                has_adjacent_visited_ = true;
-                dir = EAST;
-            }
-            else if (get_adj_maze(p_maze, cell, SOUTH) != -1 && !visited[get_adj_maze(p_maze, cell, SOUTH)])
-            {
-                // si la case voisine existe et a été visitée
-                has_adjacent_visited_ = true;
-                dir = SOUTH;
-            }
             x++;
             if (x == p_maze->hsize)
             {
@@ -430,28 +389,21 @@ static void random_maze_hklinear1(maze *p_maze)
                 return;
             }
         };
-
-        del_wall_maze(p_maze, cell, dir);
-        // on casse un mur
-        x = 0, y = 0;
-        neighbour = get_adj_maze(p_maze, cell, dir);
-
-        phase_kill_hklinear1(p_maze, visited, neighbour);
+        phase_kill_hklinear(p_maze, visited, cell);
+        x0++;
+        if (x0 == p_maze->hsize)
+        {
+            x0 = 0;
+            y0 += 1;
+        }
+        if (y0 == p_maze->vsize)
+        {
+            return;
+        }
     }
     return;
 }
-*/
-static void phase_kill_hklinear() { return; }
 
-void random_maze_hklinear(maze *p_maze)
-{
-    if (p_maze)
-    {
-        return;
-    }
-    phase_kill_hklinear();
-    return;
-}
 void random_maze_prim(maze *) { return; }
 
 void random_maze_kruskal(maze *) { return; }

@@ -64,35 +64,35 @@ int game_try_kill_player(game *g, cardinal *card) {
     const int mino = has_minotaur_maze(g->m, neighbour);
     if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, NORTH)) {
       *card = SOUTH;
-      g->player_alive = false;
-      return mino;
+        g->player_alive = false;
+        return mino;
     }
   }
   neighbour = get_adj_maze(g->m, cell, EAST);
   if(neighbour != -1) {
     const int mino = has_minotaur_maze(g->m, neighbour);
     if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, EAST)) {
-      *card = WEST;
-      g->player_alive = false;
-      return mino;
+        *card = WEST;
+        g->player_alive = false;
+        return mino;
     }
   }
   neighbour = get_adj_maze(g->m, cell, SOUTH);
   if(neighbour != -1) {
     const int mino = has_minotaur_maze(g->m, neighbour);
     if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, SOUTH)) {
-      *card = NORTH;
-      g->player_alive = false;
-      return mino;
+        *card = NORTH;
+        g->player_alive = false;
+        return mino;
     }
   }
   neighbour = get_adj_maze(g->m, cell, WEST);
   if(neighbour != -1) {
     const int mino = has_minotaur_maze(g->m, neighbour);
-    if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, EAST)) {
-      *card = EAST;
-      g->player_alive = false;
-      return mino;
+    if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, WEST)) {
+        *card = EAST;
+        g->player_alive = false;
+        return mino;
     }
   }
   //on n'a pas trouvé de minotaure
@@ -158,10 +158,7 @@ bool implement_game_move(game *g, const move mv, const strategy strat) {
         fprintf(stderr, "Erreur d'allocation\n");
         exit(EXIT_FAILURE);
     }
-    if (game_try_kill_player(g, card) != -1)
-    {
-        g->player_alive = false;
-    }
+    game_try_kill_player(g, card);
     if (mv != M_WAIT)
     {
         free_occupied_maze(g->m, g->m->player);
@@ -188,10 +185,7 @@ bool implement_game_move(game *g, const move mv, const strategy strat) {
             }
         }
     }
-    if (game_try_kill_player(g, card) != -1)
-    {
-        g->player_alive = false;
-    }
+    game_try_kill_player(g, card);
     free(card);
     game_treat_object(g);
     //TODO : gestion de l'historique

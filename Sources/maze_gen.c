@@ -1,6 +1,7 @@
 #include "maze_gen.h"
 #include "data_binheap.h"
 #include "maze.h"
+#include "maze_2.h"
 
 #include <sys/random.h>
 

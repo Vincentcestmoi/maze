@@ -1,4 +1,5 @@
 #include "game.h"
+#include "maze_2.h"
 
 
 
@@ -159,12 +160,18 @@ bool implement_game_move(game *g, const move mv, const strategy strat) {
     str_funs[strat](g->m, mv, mino_move);
     for (int i = 0; i < g->m->nb_minotaurs; i++)
     {
+        if (mino_move[i] != M_WAIT)
+        {
+            g->minotaurs_dirs[i] = (cardinal)mino_move[i];
+        }
         if (g->minotaurs_alive[i] && valid_move_maze(g->m, g->m->minotaurs[i], mino_move[i]))
         {
+            //si le mino veut et peut bouger
             if (mino_move[i] != M_WAIT)
             {
-                g->minotaurs_dirs[i] = (cardinal)mino_move[i];
+                free_occupied_maze(g->m, g->m->minotaurs[i]);
                 g->m->minotaurs[i] = get_adj_maze(g->m, g->m->minotaurs[i], g->minotaurs_dirs[i]);
+                make_occupied_maze(g->m, g->m->minotaurs[i]);
             }
         }
     }

@@ -1,4 +1,4 @@
-#include "maze.h"
+#include "maze_2.h"
 
 #include "data_queue.h"
 

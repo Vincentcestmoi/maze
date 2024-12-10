@@ -144,17 +144,30 @@ object game_treat_object(game *g) {
 /**********************************************************/
 
 bool implement_game_move(game *g, const move mv, const strategy strat) {
-    if (!g->player_alive)
-    {
-      return false;
-    }
     if (mv != M_WAIT)
     {
         g->player_dir = (cardinal)mv;
     }
-    if(!valid_move_maze(g->m, g->m->player, mv))
+    if (!g->player_alive || !valid_move_maze(g->m, g->m->player, mv))
     {
-        return false;
+      return false;
+    }
+    cardinal *card = malloc(sizeof(card));
+    if (card == NULL)
+    {
+        fprintf(stderr, "Erreur d'allocation\n");
+        exit(EXIT_FAILURE);
+    }
+    if (game_try_kill_player(g, card) != -1)
+    {
+        g->player_alive = false;
+    }
+    if (mv != M_WAIT)
+    {
+        free_occupied_maze(g->m, g->m->player);
+        g->player_dir = (cardinal)mv;
+        g->m->player = get_adj_maze(g->m, g->m->player, g->player_dir);
+        make_occupied_maze(g->m, g->m->player);
     }
     move mino_move[g->m->nb_minotaurs]; //pour stocker les mouvements des minotaures
     str_funs[strat](g->m, mv, mino_move);
@@ -175,17 +188,10 @@ bool implement_game_move(game *g, const move mv, const strategy strat) {
             }
         }
     }
-    if (mv != M_WAIT)
+    if (game_try_kill_player(g, card) != -1)
     {
-        g->m->player = get_adj_maze(g->m, g->m->player, g->player_dir);
+        g->player_alive = false;
     }
-    cardinal *card = malloc(sizeof(card));
-    if (card == NULL)
-    {
-        fprintf(stderr, "Erreur d'allocation\n");
-        exit(EXIT_FAILURE);
-    }
-    game_try_kill_player(g, card);
     free(card);
     game_treat_object(g);
     //TODO : gestion de l'historique

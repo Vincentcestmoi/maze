@@ -40,7 +40,7 @@
 typedef struct {
     int* array; //!< Le tableau contenant les valeurs.
     int size; //!< Le nombre de valeurs dans la structure.
-    int capacity; //!< La capcité totale actuelle du tableau array.
+    int capacity; //!< La capacité totale actuelle du tableau array.
 } dynarray;
 
 /***************************************/

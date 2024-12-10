@@ -255,6 +255,7 @@ void random_maze_hkdfs(maze *p_maze)
     }
     while (visited[cell]);
     printf("first cell is : %d\n", cell);
+
     push_dyn(cell, d);
     phase_kill_hkdfs(p_maze, visited, pop_dyn(d), d);
     // booléen pour savoir si la case a des voisins visités
@@ -267,12 +268,11 @@ void random_maze_hkdfs(maze *p_maze)
 
 static void phase_kill_hkrandom(maze *p_maze, bool *visited, int cell, int *visited_count)
 {
-    if (visited[cell])
+    if (!visited[cell])
     {
-        return;
+        (*visited_count)--; // on décrémente le nombre de cases à visiter
     }
     visited[cell] = true; // on visite la case où nous sommes
-    (*visited_count)--; // on décrémente le nombre de cases à visiter
     int dir_tab[4] = {0};
     // tableau de booléens pour savoir si une direction est possible
     int possible_dir = 0; // nombre de directions possibles
@@ -311,21 +311,33 @@ void random_maze_hkrandom(maze *p_maze)
     // nombre de cases à visiter
     for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
     {
-        if (is_reach_maze(p_maze, i)) // si la case est accessible
+        if (can_be_used(p_maze, i)) // si la case est accessible
         {
             visited[i] = false; // on doit la visiter
         }
         else
         {
+            visited[i] = true;
             visited_count--; // on décrémente le nombre de cases à visiter
         }
     }
     // on choisit une case aléatoire et on lance la phase de kill
-    phase_kill_hkrandom(p_maze, visited, rand() % (p_maze->hsize * p_maze->vsize), &visited_count);
+    int cell;
+    do
+    {
+        cell = rand() % (p_maze->hsize * p_maze->vsize);
+    }
+    while (visited[cell] || !can_be_used(p_maze, cell));
+    phase_kill_hkrandom(p_maze, visited, cell, &visited_count);
 
     while (visited_count > 0)
     {
-        phase_kill_hkrandom(p_maze, visited, rand() % (p_maze->hsize * p_maze->vsize), &visited_count);
+        do
+        {
+            cell = rand() % (p_maze->hsize * p_maze->vsize);
+        }
+        while (!visited[cell] || !can_be_used(p_maze, cell));
+        phase_kill_hkrandom(p_maze, visited, cell, &visited_count);
     }
 }
 

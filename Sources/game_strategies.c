@@ -2,9 +2,11 @@
 
 #include <sys/random.h>
 
+#include "game.h"
 
-const char* str_names[STR_SIZE] = { "Immobile","Aléatoire", "Opposée", "Agressive", "BFS", "Attroupement" };
-void(*str_funs[STR_SIZE]) (maze*, move, move*) = { &minotaurs_still, &minotaurs_random, &minotaurs_reverse, &minotaurs_closein, &minotaurs_bfs, &minotaurs_centre };
+
+const char* str_names[STR_SIZE] = { "Immobile","Aléatoire", "Opposée", "Agressive", "BFS", "Attroupement", "Anti-jeu", "Détection" };
+void(*str_funs[STR_SIZE]) (maze*, move, move*) = { &minotaurs_still, &minotaurs_random, &minotaurs_reverse, &minotaurs_closein, &minotaurs_bfs, &minotaurs_centre, &minotaurs_exit, &minotaurs_range };
 
 
 void minotaurs_still(maze *m, move, move *mino_move) {
@@ -126,6 +128,79 @@ void minotaurs_centre(maze *m, move, move *mino_move) {
                     mino_move[mino] = (move)((c + 2) % 4);
                 }
             }
+        }
+    }
+}
+
+void minotaurs_exit(maze *m, move, move *mino_move) {
+    queue *q = create_queue();
+    bool visited[m->hsize * m->vsize];
+    for (int i = 0; i < m->hsize * m->vsize; i++) {
+        visited[i] = false;
+    }
+    for (int i = 0; i < m->vsize * m->hsize; i++) {
+        if (get_object_maze(m, i) == EXIT) {
+            enqueue(i, q);
+            visited[i] = true;
+            break;
+        }
+    }
+    visited[m->player] = true;
+    while (!is_empty_queue(q))
+    {
+        const int cell = dequeue(q);
+        for (cardinal c = NORTH; c < 4; c++)
+        {
+            const int neighbour = get_adj_maze(m, cell, c);
+            if (valid_maze(m, neighbour) && !visited[neighbour] && !has_wall_maze(m, cell, c))
+            {
+                visited[neighbour] = true;
+                enqueue(neighbour, q);
+                const int mino = has_minotaur_maze(m, neighbour);
+                if (mino != -1)
+                {
+                    mino_move[mino] = (move)((c + 2) % 4);
+                }
+            }
+        }
+    }
+}
+
+void minotaurs_range(maze *m, move, move *mino_move){
+    queue *q = create_queue();
+    bool visited[m->hsize * m->vsize];
+    for (int i = 0; i < m->hsize * m->vsize; i++) {
+        visited[i] = false;
+    }
+    enqueue(m->player, q);
+    visited[m->player] = true;
+    int size_gen = 0;
+    int gen = 0;
+    int gen_rest = 1;
+    while (!is_empty_queue(q) && gen < 10) //les minotaures sont trop bêtes pour prévoir plus de 10 cases à l'avance
+    {
+        const int cell = dequeue(q);
+        gen_rest--;
+        for (cardinal c = NORTH; c < 4; c++)
+        {
+            const int neighbour = get_adj_maze(m, cell, c);
+            if (valid_maze(m, neighbour) && !visited[neighbour] && !has_wall_maze(m, cell, c))
+            {
+                visited[neighbour] = true;
+                enqueue(neighbour, q);
+                size_gen++;
+                const int mino = has_minotaur_maze(m, neighbour);
+                if (mino != -1)
+                {
+                    mino_move[mino] = (move)((c + 2) % 4);
+                }
+            }
+        }
+        if (gen_rest == 0)
+        {
+            gen++;
+            gen_rest = size_gen;
+            size_gen = 0;
         }
     }
 }

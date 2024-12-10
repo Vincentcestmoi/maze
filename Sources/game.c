@@ -1,4 +1,5 @@
 #include "game.h"
+#include "maze_2.h"
 
 
 
@@ -142,28 +143,42 @@ object game_treat_object(game *g) {
 /*+ Implémentation d'une demande de mouvement du joueur  +*/
 /**********************************************************/
 
-bool implement_game_move(game *g, const move mv, strategy strat) {
-  if (!g->player_alive)
-  {
+bool implement_game_move(game *g, const move mv, const strategy strat) {
+    if (!g->player_alive)
+    {
       return false;
-  }
-    g->player_dir = (cardinal)mv;
-    const int cell = g->m->player;
-    if (has_wall_maze(g->m, cell, g->player_dir))
+    }
+    if (mv != M_WAIT)
+    {
+        g->player_dir = (cardinal)mv;
+    }
+    if(!valid_move_maze(g->m, g->m->player, mv))
     {
         return false;
     }
-    //TODO : mouvement des minotaures
-    if (!strat)
+    move mino_move[g->m->nb_minotaurs]; //pour stocker les mouvements des minotaures
+    str_funs[strat](g->m, mv, mino_move);
+    for (int i = 0; i < g->m->nb_minotaurs; i++)
     {
-
+        if (mino_move[i] != M_WAIT)
+        {
+            g->minotaurs_dirs[i] = (cardinal)mino_move[i];
+        }
+        if (g->minotaurs_alive[i] && valid_move_maze(g->m, g->m->minotaurs[i], mino_move[i]))
+        {
+            //si le mino veut et peut bouger
+            if (mino_move[i] != M_WAIT)
+            {
+                free_occupied_maze(g->m, g->m->minotaurs[i]);
+                g->m->minotaurs[i] = get_adj_maze(g->m, g->m->minotaurs[i], g->minotaurs_dirs[i]);
+                make_occupied_maze(g->m, g->m->minotaurs[i]);
+            }
+        }
     }
-    const int neighbour = get_adj_maze(g->m, cell, g->player_dir);
-    if (!can_be_used(g->m, neighbour) || is_occupied_maze(g->m, neighbour))
+    if (mv != M_WAIT)
     {
-        return false;
+        g->m->player = get_adj_maze(g->m, g->m->player, g->player_dir);
     }
-    g->m->player = neighbour;
     cardinal *card = malloc(sizeof(card));
     if (card == NULL)
     {
@@ -185,7 +200,7 @@ bool implement_game_move(game *g, const move mv, strategy strat) {
 /*******************************/
 
 bool game_bomb_wall(game *g) {
-  if (g->nbombs == 0)
+  if (g->nbombs == 0 || !g->player_alive)
   {
     return false;
   }
@@ -198,8 +213,13 @@ bool game_bomb_wall(game *g) {
     g->turns++;
     del_wall_maze(g->m, g->m->player, g->player_dir);
     cardinal *card = malloc(sizeof(card));
+    if (card == NULL)
+    {
+        fprintf(stderr, "Erreur d'allocation\n");
+        exit(EXIT_FAILURE);
+    }
     if (game_try_kill_player(g, card) != -1)
-    {   //TODO : gestion de la mort du joueur
+    {
         g->player_alive = false;
     }
     free(card);
@@ -279,7 +299,6 @@ bool game_kill_minotaurs(game *g, const int d) {
             free_occupied_maze(g->m, g->m->minotaurs[i]);
             done = true;
             //TODO : gestion de l'historique
-            //TODO : gestion de l'animation
         }
     }
     if (!done)

@@ -142,14 +142,16 @@ object game_treat_object(game *g) {
 /*+ Implémentation d'une demande de mouvement du joueur  +*/
 /**********************************************************/
 
-bool implement_game_move(game *g, const move mv, strategy strat) {
-  if (!g->player_alive)
-  {
+bool implement_game_move(game *g, const move mv, const strategy strat) {
+    if (!g->player_alive)
+    {
       return false;
-  }
-    g->player_dir = (cardinal)mv;
-    const int cell = g->m->player;
-    if (has_wall_maze(g->m, cell, g->player_dir))
+    }
+    if (mv != M_WAIT)
+    {
+        g->player_dir = (cardinal)mv;
+    }
+    if(!valid_move_maze(g->m, g->m->player, mv))
     {
         return false;
     }
@@ -158,12 +160,10 @@ bool implement_game_move(game *g, const move mv, strategy strat) {
     {
 
     }
-    const int neighbour = get_adj_maze(g->m, cell, g->player_dir);
-    if (!can_be_used(g->m, neighbour) || is_occupied_maze(g->m, neighbour))
+    if (mv != M_WAIT)
     {
-        return false;
+        g->m->player = get_adj_maze(g->m, g->m->player, g->player_dir);
     }
-    g->m->player = neighbour;
     cardinal *card = malloc(sizeof(card));
     if (card == NULL)
     {

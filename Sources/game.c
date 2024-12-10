@@ -162,7 +162,6 @@ bool implement_game_move(game *g, const move mv, const strategy strat) {
     if (mv != M_WAIT)
     {
         free_occupied_maze(g->m, g->m->player);
-        g->player_dir = (cardinal)mv;
         g->m->player = get_adj_maze(g->m, g->m->player, g->player_dir);
         make_occupied_maze(g->m, g->m->player);
     }

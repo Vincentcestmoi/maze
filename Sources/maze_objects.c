@@ -1,4 +1,7 @@
 #include "maze_objects.h"
+
+#include <maze_2.h>
+
 #include "sys/random.h"
 
 void (*obj_funs[OBJ_SIZE]) (maze*) = { &obj_empty, &obj_simple, &obj_monney, &obj_minimal};
@@ -13,10 +16,10 @@ void obj_simple(maze *p_maze) {
     do {
       getrandom(&cell, sizeof(cell), 0);
       cell %= p_maze->vsize * p_maze->hsize;
-    }while(!valid_maze(p_maze, cell));
+    }while(!can_be_used(p_maze, cell));
     p_maze->objects[cell] = EXIT;
     for(int i = 0; i < p_maze->hsize * p_maze->vsize; i++) {
-        if(!(valid_maze(p_maze, i) && is_reach_maze(p_maze, i))) {
+        if(!can_be_used(p_maze, i)) {
             p_maze->objects[i] = NONE;
             continue;
         }
@@ -45,7 +48,7 @@ void obj_monney(maze *p_maze) {
     do {
         getrandom(&cell, sizeof(cell), 0);
         cell %= p_maze->vsize * p_maze->hsize;
-    }while(!valid_maze(p_maze, cell));
+    }while(!can_be_used(p_maze, cell));
     p_maze->objects[cell] = EXIT;
     for(int i = 0; i < p_maze->hsize * p_maze->vsize; i++) {
         if(!(valid_maze(p_maze, i) && is_reach_maze(p_maze, i))) {
@@ -77,6 +80,6 @@ void obj_minimal(maze *p_maze){
     {
         getrandom(&cell, sizeof(cell), 0);
         cell %= p_maze->vsize * p_maze->hsize;
-    } while (!valid_maze(p_maze, cell));
+    } while (!can_be_used(p_maze, cell));
     p_maze->objects[cell] = EXIT;
 }

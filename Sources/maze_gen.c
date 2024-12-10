@@ -194,8 +194,6 @@ void random_maze_wilson(maze *p_maze)
 
 static void phase_kill_hkdfs(maze *p_maze, bool *visited, int cell, dynarray *d)
 {
-    printf("début hk\n");
-    printf("cell is : %d, visited[cell] is : %d\n", cell, visited[cell]);
     visited[cell] = true; // on visite la case où nous sommes
     // int dir_tab[4] = {0};
     //   tableau de booléens pour savoir si une direction est possible
@@ -207,21 +205,17 @@ static void phase_kill_hkdfs(maze *p_maze, bool *visited, int cell, dynarray *d)
         {
             // si la case voisine existe et n'a pas été visitée
             // dir_tab[i] = true;
-            printf("hey !!!\n");
             possible_dir++;
         }
     }
     if (possible_dir == 0)
     {
         // si aucune direction n'est possible, on retourne
-        printf("terminé ? \n");
         return;
     }
-    printf("possible_dir is : %d\n", possible_dir);
     int random_dir = rand() % 4;
     while (get_adj_maze(p_maze, cell, random_dir) == -1 || visited[get_adj_maze(p_maze, cell, random_dir)] || !can_be_used(p_maze, cell))
     {
-        printf("random_dir is : %d\n", random_dir);
         random_dir = rand() % 4;
     }
     push_dyn(cell, d);
@@ -234,7 +228,6 @@ static void phase_kill_hkdfs(maze *p_maze, bool *visited, int cell, dynarray *d)
 
 void random_maze_hkdfs(maze *p_maze)
 {
-    printf("\n\n--------------\n");
     bool visited[p_maze->hsize * p_maze->vsize];
     // tableau de booléens pour savoir si une case a été visitée
     for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
@@ -256,7 +249,6 @@ void random_maze_hkdfs(maze *p_maze)
         cell = rand() % (p_maze->hsize * p_maze->vsize);
     }
     while (visited[cell] || !can_be_used(p_maze, cell));
-    printf("first cell is : %d\n", cell);
     push_dyn(cell, d);
     phase_kill_hkdfs(p_maze, visited, pop_dyn(d), d);
     // booléen pour savoir si la case a des voisins visités

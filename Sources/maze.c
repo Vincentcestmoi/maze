@@ -338,7 +338,7 @@ bool valid_move_maze(maze *p_maze, const int cellule, const move mv)
     if(neighbour == -1) {
         return false; // Si il n'y a pas de cellule adjacente dans la direction donnée, le mouvement n'est pas valide
     }
-    return !has_wall_maze(p_maze, cellule, (cardinal)mv) && valid_maze(p_maze, neighbour) && !is_occupied_maze(p_maze, neighbour);
+    return !has_wall_maze(p_maze, cellule, (cardinal)mv) && can_be_used(p_maze, neighbour) && !is_occupied_maze(p_maze, neighbour);
     // Si il n'y a pas de mur, que la cellule adjacente est valide et non occupée, le mouvement est valide
 }
 

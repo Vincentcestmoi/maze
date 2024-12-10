@@ -198,8 +198,13 @@ bool game_bomb_wall(game *g) {
     g->turns++;
     del_wall_maze(g->m, g->m->player, g->player_dir);
     cardinal *card = malloc(sizeof(card));
+    if (card == NULL)
+    {
+        fprintf(stderr, "Erreur d'allocation\n");
+        exit(EXIT_FAILURE);
+    }
     if (game_try_kill_player(g, card) != -1)
-    {   //TODO : gestion de la mort du joueur
+    {
         g->player_alive = false;
     }
     free(card);
@@ -279,7 +284,6 @@ bool game_kill_minotaurs(game *g, const int d) {
             free_occupied_maze(g->m, g->m->minotaurs[i]);
             done = true;
             //TODO : gestion de l'historique
-            //TODO : gestion de l'animation
         }
     }
     if (!done)

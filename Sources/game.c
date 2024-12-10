@@ -61,32 +61,36 @@ int game_try_kill_player(game *g, cardinal *card) {
   int neighbour = get_adj_maze(g->m, cell, NORTH);
   if(neighbour != -1) {
     const int mino = has_minotaur_maze(g->m, neighbour);
-    if(mino != -1) {
+    if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, NORTH)) {
       *card = SOUTH;
+      g->player_alive = false;
       return mino;
     }
   }
   neighbour = get_adj_maze(g->m, cell, EAST);
   if(neighbour != -1) {
     const int mino = has_minotaur_maze(g->m, neighbour);
-    if(mino != -1) {
+    if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, EAST)) {
       *card = WEST;
+      g->player_alive = false;
       return mino;
     }
   }
   neighbour = get_adj_maze(g->m, cell, SOUTH);
   if(neighbour != -1) {
     const int mino = has_minotaur_maze(g->m, neighbour);
-    if(mino != -1) {
+    if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, SOUTH)) {
       *card = NORTH;
+      g->player_alive = false;
       return mino;
     }
   }
   neighbour = get_adj_maze(g->m, cell, WEST);
   if(neighbour != -1) {
     const int mino = has_minotaur_maze(g->m, neighbour);
-    if(mino != -1) {
+    if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, EAST)) {
       *card = EAST;
+      g->player_alive = false;
       return mino;
     }
   }
@@ -155,6 +159,10 @@ bool implement_game_move(game *g, const move mv, strategy strat) {
 
     }
     const int neighbour = get_adj_maze(g->m, cell, g->player_dir);
+    if (!can_be_used(g->m, neighbour) || is_occupied_maze(g->m, neighbour))
+    {
+        return false;
+    }
     g->m->player = neighbour;
     cardinal *card = malloc(sizeof(card));
     if (card == NULL)
@@ -162,10 +170,7 @@ bool implement_game_move(game *g, const move mv, strategy strat) {
         fprintf(stderr, "Erreur d'allocation\n");
         exit(EXIT_FAILURE);
     }
-    if (game_try_kill_player(g, card) != -1)
-    {   //TODO : gestion de la mort du joueur
-        g->player_alive = false;
-    }
+    game_try_kill_player(g, card);
     free(card);
     game_treat_object(g);
     //TODO : gestion de l'historique
@@ -185,7 +190,7 @@ bool game_bomb_wall(game *g) {
     return false;
   }
     const int neighbour = get_adj_maze(g->m, g->m->player, g->player_dir);
-    if (!can_be_used(g->m, neighbour))
+    if (!can_be_used(g->m, neighbour) || !has_wall_maze(g->m, g->m->player, g->player_dir))
     {
         return false;
     }
@@ -259,8 +264,8 @@ static bool mino_reachable(maze *p_maze, const int mino, const int cell, const i
     return mino_reachable(p_maze, mino, c, d - 1);
 }
 
-bool game_kill_minotaurs(game *g, int d) {
-  if (g->npolys == 0)
+bool game_kill_minotaurs(game *g, const int d) {
+  if (g->npolys == 0 || !g->player_alive)
   {
       return false;
   }
@@ -271,7 +276,7 @@ bool game_kill_minotaurs(game *g, int d) {
         if (g->minotaurs_alive[i] && mino_reachable(g->m, g->m->minotaurs[i], cell, d))
         {
             g->minotaurs_alive[i] = false;
-            g->npolys--;
+            free_occupied_maze(g->m, g->m->minotaurs[i]);
             done = true;
             //TODO : gestion de l'historique
             //TODO : gestion de l'animation
@@ -281,6 +286,7 @@ bool game_kill_minotaurs(game *g, int d) {
     {
         return false;
     }
+    g->npolys--;
     g->turns++;
     return true;
 }

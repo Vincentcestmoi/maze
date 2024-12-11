@@ -330,14 +330,14 @@ void random_maze_hkrandom(maze *p_maze)
 }
 
 
-static void phase_kill_hklinear(maze *p_maze, bool *visited, int cell)
+static void phase_kill_hklinear(maze *p_maze, char *visited, int cell, int *cell_min)
 {
-    visited[cell] = true; // on visite la case où nous sommes
+    visited[cell] = 1; // on visite la case où nous sommes
     int possible_dir = 0; // nombre de directions possibles
     for (int i = 0; i < 4; i++)
     {
         int neighbour = get_adj_maze(p_maze, cell, i); // case voisine
-        if (neighbour != -1 && !visited[neighbour])
+        if (neighbour != -1 && !visited[neighbour] && can_be_used(p_maze, neighbour))
         {
             // si la case voisine existe et n'a pas été visitée
             possible_dir++;
@@ -345,73 +345,68 @@ static void phase_kill_hklinear(maze *p_maze, bool *visited, int cell)
     }
     if (possible_dir == 0)
     {
+        visited[cell] = 2;
         return;
     }
 
     int random_dir = rand() % 4;
-    while (get_adj_maze(p_maze, cell, random_dir) == -1 || visited[get_adj_maze(p_maze, cell, random_dir)])
+    while (get_adj_maze(p_maze, cell, random_dir) == -1 || visited[get_adj_maze(p_maze, cell, random_dir)] == 1 ||
+           !can_be_used(p_maze, get_adj_maze(p_maze, cell, random_dir)))
     {
         random_dir = rand() % 4;
     }
     del_wall_maze(p_maze, cell, random_dir);
-    phase_kill_hklinear(p_maze, visited, get_adj_maze(p_maze, cell, random_dir));
+
+    if (cell < *cell_min)
+        *cell_min = cell;
+    phase_kill_hklinear(p_maze, visited, get_adj_maze(p_maze, cell, random_dir), cell_min);
     // on continue la phase de kill
     return;
 }
 
 void random_maze_hklinear(maze *p_maze)
 {
-    bool visited[p_maze->hsize * p_maze->vsize];
+    char visited[p_maze->hsize * p_maze->vsize];
     // tableau de booléens pour savoir si une case a été visitée
-    int visited_count = p_maze->hsize * p_maze->vsize;
     // nombre de cases à visiter
     for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
     {
-        if (is_reach_maze(p_maze, i)) // si la case est accessible
+        if (can_be_used(p_maze, i)) // si la case est accessible
         {
-            visited[i] = false; // on doit la visiter
+            visited[i] = 0; // on doit la visiter
         }
         else
         {
-            visited_count--; // on décrémente le nombre de cases à visiter
+            visited[i] = 2; // on ne doit pas la visiter
         }
     }
     // on choisit une case aléatoire, on la visite et on lance la phase de kill
-    int cell = rand() % (p_maze->hsize * p_maze->vsize); // case aléatoire
-
-    phase_kill_hklinear(p_maze, visited, cell);
-    int x = 0, y = 0, x0 = 0, y0 = 0;
-    while (true)
+    int cell;
+    do
     {
-        cell = x0 + p_maze->hsize * y0;
-        x = x0, y = y0;
-        while (!visited[cell])
+        cell = rand() % (p_maze->hsize * p_maze->vsize); // case aléatoire}
+    }
+    while (!can_be_used(p_maze, cell));
+
+    phase_kill_hklinear(p_maze, visited, cell, &cell);
+
+    while (cell != p_maze->hsize * p_maze->vsize)
+    {
+        int n_cell = cell;
+        while (visited[n_cell] == 2 || visited[n_cell] == 0)
         {
-            cell = x + p_maze->hsize * y;
-            x++;
-            if (x == p_maze->hsize)
+            n_cell++;
+            if (visited[n_cell] == 1 && can_be_used(p_maze, n_cell))
             {
-                x = 0;
-                y += 1;
+                cell = n_cell;
             }
-            if (y == p_maze->vsize)
+            if (n_cell == p_maze->hsize * p_maze->vsize)
             {
                 return;
             }
-        };
-        phase_kill_hklinear(p_maze, visited, cell);
-        x0++;
-        if (x0 == p_maze->hsize)
-        {
-            x0 = 0;
-            y0 += 1;
         }
-        if (y0 == p_maze->vsize)
-        {
-            return;
-        }
+        phase_kill_hklinear(p_maze, visited, cell, &cell);
     }
-    return;
 }
 
 void random_maze_prim(maze *) { return; }

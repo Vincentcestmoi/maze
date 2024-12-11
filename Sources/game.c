@@ -4,7 +4,7 @@
 
 #include "maze_2.h"
 
-
+#define CHECK_ALLOC(ptr) do { if (ptr == NULL) { fprintf(stderr, "Erreur d'allocation\n"); exit(EXIT_FAILURE); } } while(0)
 
 /****************************/
 /*+ Création et libération +*/
@@ -28,6 +28,7 @@ game* create_newgame(const int sh, const int sv, mask *m, const generator f, con
   (*obj_funs[fo]) (p_maze);
   braid_maze(p_maze, tressage);
   game *p_game = malloc(sizeof(game));
+  CHECK_ALLOC(p_game);
   p_game->m = p_maze;
   p_game->score = 0;
   p_game->nbombs = 0;
@@ -35,17 +36,20 @@ game* create_newgame(const int sh, const int sv, mask *m, const generator f, con
   p_game->player_alive = true;
   p_game->player_dir = NORTH;
   p_game->minotaurs_alive = malloc(nb_minotaure * sizeof(bool));
-  p_game->minotaurs_dirs = calloc(nb_minotaure, sizeof(cardinal));
+  CHECK_ALLOC(p_game->minotaurs_alive);
   for(int i = 0; i < nb_minotaure; i++)
   {
-    p_game->minotaurs_alive[i] = true;
+      p_game->minotaurs_alive[i] = true;
   }
+  p_game->minotaurs_dirs = calloc(nb_minotaure, sizeof(cardinal));
+  CHECK_ALLOC(p_game->minotaurs_dirs);
   p_game->nb_deadends = count_dead_ends(p_maze);
   p_game->exits = get_exits_maze(p_maze);
   p_game->turns = 0;
   p_game->log = create_history();
   int start = p_maze->player;
-  while ((game_try_kill_player(p_game, NULL) != -1 && p_game->m->nb_minotaurs < p_game->m->nb_reachable - 10)
+  cardinal useless;
+  while ((game_try_kill_player(p_game, &useless) != -1 && p_game->m->nb_minotaurs < p_game->m->nb_reachable - 10)
       || get_object_maze(p_game->m, start) == EXIT || !can_be_used(p_game->m, start))
   {
       //on évite le spawn kill et le spawn win (cntraite du nombre de minotaures car faut pas forcer non plus)
@@ -69,6 +73,8 @@ void free_game(game *g) {
 /***********************************************/
 /*+ Implémentation des attaques de minotaures +*/
 /***********************************************/
+
+// ReSharper disable CppDFANullDereference
 
 int game_try_kill_player(game *g, cardinal *card) {
   const int cell = g->m->player;
@@ -116,8 +122,7 @@ int game_try_kill_player(game *g, cardinal *card) {
   return -1;
 }
 
-
-
+// ReSharper restore CppDFANullDereference
 
 /***************************/
 /*+ Traitement des objets +*/
@@ -200,11 +205,7 @@ bool implement_game_move(game *g, const move mv, const strategy strat) {
     }
     const t_type typ = T_MOVE;
     t_move *tmove = malloc(sizeof(t_move));
-    if (tmove == NULL)
-    {
-        fprintf(stderr, "Erreur d'allocation\n");
-        exit(EXIT_FAILURE);
-    }
+    CHECK_ALLOC(tmove);
     tmove->obj = game_treat_object(g);
     tmove->playermove = mv;
     tmove->minomoves = mino_move;
@@ -238,11 +239,7 @@ bool game_bomb_wall(game *g) {
     del_wall_maze(g->m, g->m->player, g->player_dir);
     const t_type typ = T_BOMB;
     t_bomb *tbomb = malloc(sizeof(t_bomb));
-    if (tbomb == NULL)
-    {
-        fprintf(stderr, "Erreur d'allocation\n");
-        exit(EXIT_FAILURE);
-    }
+    CHECK_ALLOC(tbomb);
     tbomb->bombdir = g->player_dir;
     tbomb->destroyed = true;
     cardinal card = NORTH;

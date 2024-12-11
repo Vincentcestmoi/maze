@@ -84,7 +84,7 @@ sim_path* sim_emptypath(int //!< Le point de départ.
  *
  * @attention
  * Puisqu'on ajoute le mouvement AU DÉBUT de la séquence, la cellule de départ et la longueur
- * douvent être modifiés.
+ * doivent être modifiés.
  */
 void sim_addtopath(maze*//!< Le labyrinthe (utilisé pour calculer le nouveau point de départ).
     , move //!< Le mouvement à ajouter.

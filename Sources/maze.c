@@ -186,7 +186,7 @@ int get_exits_maze(maze *p_maze) {
     int exits = 0;
     for(int i = 0; i < p_maze->vsize * p_maze->hsize; i++)
     {
-        if(p_maze->objects[i] == EXIT)
+        if(get_object_maze(p_maze, i) == EXIT)
         {
             exits++;
         }

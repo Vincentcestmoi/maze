@@ -4,9 +4,9 @@
 /*+ Définition et manipulation d'un chemin simple **/
 /***************************************************/
 
-sim_path *sim_emptypath(int start)
+sim_path *sim_emptypath(const int start)
 {
-    sim_path *path = (sim_path *)malloc(sizeof(sim_path));
+    sim_path *path = malloc(sizeof(sim_path));
     if (path == NULL)
     {
         perror("Failed to allocate memory for sim_path");
@@ -19,9 +19,9 @@ sim_path *sim_emptypath(int start)
     return path;
 }
 
-void sim_addtopath(maze *p_maze, move direction, sim_path *path)
+void sim_addtopath(maze *p_maze, const move direction, sim_path *path)
 {
-    sim_move_seq *new_move = (sim_move_seq *)malloc(sizeof(sim_move_seq));
+    sim_move_seq *new_move = malloc(sizeof(sim_move_seq));
     if (new_move == NULL)
     {
         fprintf(stderr, "Failed to allocate memory for sim_move_seq in sim_addtopath");
@@ -32,7 +32,7 @@ void sim_addtopath(maze *p_maze, move direction, sim_path *path)
     path->moves = new_move;
     path->length++;
 
-    int adj_cell = get_adj_maze(p_maze, path->start, (cardinal)direction);
+    const int adj_cell = get_adj_maze(p_maze, path->start, (cardinal)direction);
     if (adj_cell != -1)
     {
         path->start = adj_cell;
@@ -44,7 +44,7 @@ sim_path *sim_copypath(sim_path *original)
     if (original == NULL)
         return NULL;
 
-    sim_path *copy = (sim_path *)malloc(sizeof(sim_path));
+    sim_path *copy = malloc(sizeof(sim_path));
     if (copy == NULL)
     {
         fprintf(stderr, "Failed to allocate memory for sim_path in sim_copypath");
@@ -55,12 +55,12 @@ sim_path *sim_copypath(sim_path *original)
     copy->length = original->length;
     copy->moves = NULL;
 
-    sim_move_seq *current = original->moves;
+    const sim_move_seq *current = original->moves;
     sim_move_seq **copy_current = &copy->moves;
 
     while (current != NULL)
     {
-        *copy_current = (sim_move_seq *)malloc(sizeof(sim_move_seq));
+        *copy_current = malloc(sizeof(sim_move_seq));
         if (*copy_current == NULL)
         {
             fprintf(stderr, "Failed to allocate memory for sim_move_seq in sim_copypath");
@@ -99,7 +99,7 @@ const char *salgo_names[ALG_SIZE] = {"BFS", "DFS", "A*"};
 const char *sgoal_names[GOA_SIZE] = {"Trésor", "Bombe", "Poly d'algo", "Sortie"};
 
 
-sim_search *sim_create_search(sim_algorithm algo, sim_goal goal)
+sim_search *sim_create_search(const sim_algorithm algo, const sim_goal goal)
 {
     sim_search *search = (sim_search *)malloc(sizeof(sim_search));
     if (search == NULL)

@@ -64,6 +64,9 @@ typedef enum {
     STR_OPPO,
     STR_AGRE,
     STR_PBFS,
+    STR_MOB,
+    STR_ANTI_JEU,
+    STR_RANGE,
     STR_SIZE,
 }strategy;
 
@@ -121,5 +124,28 @@ void minotaurs_bfs(maze* //!< Le labyrinthe.
     , move* //!< Un tableau dont la taille est le nombre de minotaures. Il sert à retourner par pointeur les mouvements demandés pour les minotaures.
 );
 
+/**
+ * @brief Dans cette stratégie, les minotaures suivant toujours le chemin le plus court qui les mène au centre
+ */
+void minotaurs_centre(maze* //!< Le labyrinthe.
+    , move //!< Le dernier mouvement effectué par le joueur.
+    , move* //!< Un tableau dont la taille est le nombre de minotaures. Il sert à retourner par pointeur les mouvements demandés pour les minotaures.
+);
+
+/**
+ * @brief Dans cette stratégie, les minotaures suivent toujours le chemin le plus court qui les mène à la sortie
+ */
+void minotaurs_exit(maze* //!< Le labyrinthe.
+    , move //!< Le dernier mouvement effectué par le joueur.
+    , move* //!< Un tableau dont la taille est le nombre de minotaures. Il sert à retourner par pointeur les mouvements demandés pour les minotaures.
+);
+
+/**
+* @brief Dans cette stratégie, les minotaures se dirigent vers le joueur s'il est à portée
+*/
+void minotaurs_range(maze* //!< Le labyrinthe.
+    , move //!< Le dernier mouvement effectué par le joueur.
+    , move* //!< Un tableau dont la taille est le nombre de minotaures. Il sert à retourner par pointeur les mouvements demandés pour les minotaures.
+);
 
 #endif

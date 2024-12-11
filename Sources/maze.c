@@ -1,4 +1,4 @@
-#include "maze.h"
+#include "maze_2.h"
 
 #include "data_queue.h"
 
@@ -199,17 +199,17 @@ int get_exits_maze(maze *p_maze) {
 /**************************************/
 
 
-maze* create_proto_maze_nomask(const int size, const int height) {
+maze* create_proto_maze_nomask(const int hsize, const int vsize) {
     maze *p_maze = malloc(sizeof(maze));
     //check sécurité
     if(p_maze == NULL) {
         fprintf(stderr, "create_proto_maze_nomask: erreur d'allocation\n");
         exit(EXIT_FAILURE);
     }
-    p_maze->vsize = size;
-    p_maze->hsize = height;
-    p_maze->props = malloc(size * height * sizeof(unsigned char));
-    p_maze->objects = malloc(size * height * sizeof(object));
+    p_maze->hsize = hsize;
+    p_maze->vsize = vsize;
+    p_maze->props = malloc(hsize * vsize * sizeof(unsigned char));
+    p_maze->objects = malloc(hsize * vsize * sizeof(object));
     //check sécurité
     if(p_maze->props == NULL || p_maze->objects == NULL) {
         fprintf(stderr, "create_proto_maze_nomask: erreur d'allocation\n");
@@ -217,12 +217,12 @@ maze* create_proto_maze_nomask(const int size, const int height) {
     }
     p_maze->nb_minotaurs = 0;
     p_maze->minotaurs = NULL;
-    p_maze->nb_reachable = size * height; //puisqu'il n'y a pas de masque, toutes les cellules sont accessibles
-    for(int i = 0; i < size * height; i++) {
+    p_maze->nb_reachable = hsize * vsize; //puisqu'il n'y a pas de masque, toutes les cellules sont accessibles
+    for(int i = 0; i < hsize * vsize; i++) {
         p_maze->props[i] = 79; // On initialise les propriétés des cellules (toutes les cellules sont murées dans les quatre directions, non occupées, non masquées et accessibles)
         p_maze->objects[i] = NONE; // On initialise les objets à NONE
     }
-    const int i = rand() % (size * height);
+    const int i = rand() % (hsize * vsize);
     p_maze->player = i; // On place le joueur dans une cellule aléatoire
     make_occupied_maze(p_maze, i); // On marque la cellule comme occupée
     return p_maze;
@@ -338,7 +338,7 @@ bool valid_move_maze(maze *p_maze, const int cellule, const move mv)
     if(neighbour == -1) {
         return false; // Si il n'y a pas de cellule adjacente dans la direction donnée, le mouvement n'est pas valide
     }
-    return !has_wall_maze(p_maze, cellule, (cardinal)mv) && valid_maze(p_maze, neighbour) && !is_occupied_maze(p_maze, neighbour);
+    return !has_wall_maze(p_maze, cellule, (cardinal)mv) && can_be_used(p_maze, neighbour) && !is_occupied_maze(p_maze, neighbour);
     // Si il n'y a pas de mur, que la cellule adjacente est valide et non occupée, le mouvement est valide
 }
 

@@ -84,23 +84,23 @@
   /**
   * @brief Taille horizontale du labyrinthe initial.
   */
-#define INITIAL_HSIZE 200
+#define INITIAL_HSIZE 40
 
   /**
   * @brief  Taille verticale du labyrinthe initial.
   */
-#define INITIAL_VSIZE 200
+#define INITIAL_VSIZE 40
 
 
   /**
   * @brief  Générateur initial.
   */
-#define INITIAL_GENERATOR GEN_HKDFS
+#define INITIAL_GENERATOR GEN_AB
 
   /**
   * @brief  Nombre de minotaures initial.
   */
-#define INITIAL_MINOTAURS 200
+#define INITIAL_MINOTAURS 58
 
   /**
   * @brief  Taux de tressage initial (en %)

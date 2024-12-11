@@ -1,4 +1,5 @@
 #include "game.h"
+#include "maze_2.h"
 
 
 
@@ -40,7 +41,7 @@ game* create_newgame(const int sh, const int sv, mask *m, const generator f, con
   p_game->nb_deadends = 0;
   p_game->exits = 0;
   p_game->turns = 0;
-  p_game->log = NULL;
+  p_game->log = create_history();
   return p_game;
 }
 
@@ -61,33 +62,41 @@ int game_try_kill_player(game *g, cardinal *card) {
   int neighbour = get_adj_maze(g->m, cell, NORTH);
   if(neighbour != -1) {
     const int mino = has_minotaur_maze(g->m, neighbour);
-    if(mino != -1) {
+    if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, NORTH)) {
       *card = SOUTH;
-      return mino;
+        g->minotaurs_dirs[mino] = NORTH;
+        g->player_alive = false;
+        return mino;
     }
   }
   neighbour = get_adj_maze(g->m, cell, EAST);
   if(neighbour != -1) {
     const int mino = has_minotaur_maze(g->m, neighbour);
-    if(mino != -1) {
-      *card = WEST;
-      return mino;
+    if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, EAST)) {
+        *card = WEST;
+        g->minotaurs_dirs[mino] = EAST;
+        g->player_alive = false;
+        return mino;
     }
   }
   neighbour = get_adj_maze(g->m, cell, SOUTH);
   if(neighbour != -1) {
     const int mino = has_minotaur_maze(g->m, neighbour);
-    if(mino != -1) {
-      *card = NORTH;
-      return mino;
+    if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, SOUTH)) {
+        *card = NORTH;
+        g->player_alive = false;
+        g->minotaurs_dirs[mino] = SOUTH;
+        return mino;
     }
   }
   neighbour = get_adj_maze(g->m, cell, WEST);
   if(neighbour != -1) {
     const int mino = has_minotaur_maze(g->m, neighbour);
-    if(mino != -1) {
-      *card = EAST;
-      return mino;
+    if(mino != -1 && g->minotaurs_alive[mino] && !has_wall_maze(g->m, cell, WEST)) {
+        *card = EAST;
+        g->minotaurs_dirs[mino] = WEST;
+        g->player_alive = false;
+        return mino;
     }
   }
   //on n'a pas trouvé de minotaure
@@ -138,37 +147,55 @@ object game_treat_object(game *g) {
 /*+ Implémentation d'une demande de mouvement du joueur  +*/
 /**********************************************************/
 
-bool implement_game_move(game *g, const move mv, strategy strat) {
-  if (!g->player_alive)
-  {
+bool implement_game_move(game *g, const move mv, const strategy strat) {
+    if (mv != M_WAIT)
+    {
+        g->player_dir = (cardinal)mv;
+    }
+    if (!g->player_alive || !valid_move_maze(g->m, g->m->player, mv))
+    {
       return false;
-  }
-    g->player_dir = (cardinal)mv;
-    const int cell = g->m->player;
-    if (has_wall_maze(g->m, cell, g->player_dir))
-    {
-        return false;
     }
-    //TODO : mouvement des minotaures
-    if (!strat)
+    if (mv != M_WAIT)
     {
-
+        free_occupied_maze(g->m, g->m->player);
+        g->m->player = get_adj_maze(g->m, g->m->player, g->player_dir);
+        make_occupied_maze(g->m, g->m->player);
     }
-    const int neighbour = get_adj_maze(g->m, cell, g->player_dir);
-    g->m->player = neighbour;
-    cardinal *card = malloc(sizeof(card));
-    if (card == NULL)
+    move mino_move[g->m->nb_minotaurs]; //pour stocker les mouvements des minotaures
+    str_funs[strat](g->m, mv, mino_move);
+    for (int i = 0; i < g->m->nb_minotaurs; i++)
+    {
+        if (mino_move[i] != M_WAIT)
+        {
+            g->minotaurs_dirs[i] = (cardinal)mino_move[i];
+        }
+        if (g->minotaurs_alive[i] && valid_move_maze(g->m, g->m->minotaurs[i], mino_move[i]))
+        {
+            //si le mino veut et peut bouger
+            if (mino_move[i] != M_WAIT)
+            {
+                free_occupied_maze(g->m, g->m->minotaurs[i]);
+                g->m->minotaurs[i] = get_adj_maze(g->m, g->m->minotaurs[i], g->minotaurs_dirs[i]);
+                make_occupied_maze(g->m, g->m->minotaurs[i]);
+            }
+        }
+    }
+    const t_type typ = T_MOVE;
+    t_move *tmove = malloc(sizeof(t_move));
+    if (tmove == NULL)
     {
         fprintf(stderr, "Erreur d'allocation\n");
         exit(EXIT_FAILURE);
     }
-    if (game_try_kill_player(g, card) != -1)
-    {   //TODO : gestion de la mort du joueur
-        g->player_alive = false;
-    }
-    free(card);
-    game_treat_object(g);
-    //TODO : gestion de l'historique
+    tmove->obj = game_treat_object(g);
+    tmove->playermove = mv;
+    tmove->minomoves = mino_move;
+    cardinal card = NORTH;
+    tmove->killer = game_try_kill_player(g, &card);
+    tmove->dirkill = card;
+    const turn t = {typ, .tmove = tmove};
+    add_entry_history(t, g->log);
     g->turns++;
     return true;
 }
@@ -180,25 +207,32 @@ bool implement_game_move(game *g, const move mv, strategy strat) {
 /*******************************/
 
 bool game_bomb_wall(game *g) {
-  if (g->nbombs == 0)
+  if (g->nbombs == 0 || !g->player_alive)
   {
     return false;
   }
     const int neighbour = get_adj_maze(g->m, g->m->player, g->player_dir);
-    if (!can_be_used(g->m, neighbour))
+    if (!can_be_used(g->m, neighbour) || !has_wall_maze(g->m, g->m->player, g->player_dir))
     {
         return false;
     }
     g->nbombs--;
     g->turns++;
     del_wall_maze(g->m, g->m->player, g->player_dir);
-    cardinal *card = malloc(sizeof(card));
-    if (game_try_kill_player(g, card) != -1)
-    {   //TODO : gestion de la mort du joueur
-        g->player_alive = false;
+    const t_type typ = T_BOMB;
+    t_bomb *tbomb = malloc(sizeof(t_bomb));
+    if (tbomb == NULL)
+    {
+        fprintf(stderr, "Erreur d'allocation\n");
+        exit(EXIT_FAILURE);
     }
-    free(card);
-    //TODO : gestion de l'historique
+    tbomb->bombdir = g->player_dir;
+    tbomb->destroyed = true;
+    cardinal card = NORTH;
+    tbomb->killer = game_try_kill_player(g, &card);
+    tbomb->dirkill = card;
+    const turn t = {typ, .tbomb = tbomb};
+    add_entry_history(t, g->log);
     return true;
 }
 
@@ -259,29 +293,34 @@ static bool mino_reachable(maze *p_maze, const int mino, const int cell, const i
     return mino_reachable(p_maze, mino, c, d - 1);
 }
 
-bool game_kill_minotaurs(game *g, int d) {
-  if (g->npolys == 0)
+bool game_kill_minotaurs(game *g, const int d) {
+  if (g->npolys == 0 || !g->player_alive)
   {
       return false;
   }
     const int cell = g->m->player;
     bool done = false;
+    bool *minokilled = calloc(g->m->nb_minotaurs, sizeof(bool));
     for (int i = 0; i < g->m->nb_minotaurs; i++)
     {
         if (g->minotaurs_alive[i] && mino_reachable(g->m, g->m->minotaurs[i], cell, d))
         {
             g->minotaurs_alive[i] = false;
-            g->npolys--;
+            free_occupied_maze(g->m, g->m->minotaurs[i]);
             done = true;
-            //TODO : gestion de l'historique
-            //TODO : gestion de l'animation
+            minokilled[i] = true;
         }
     }
     if (!done)
     {
+        free(minokilled);
         return false;
     }
+    g->npolys--;
     g->turns++;
+    const t_type typ = T_POLY;
+    const turn t = {typ, .minokilled = minokilled};
+    add_entry_history(t, g->log);
     return true;
 }
 
@@ -290,10 +329,146 @@ bool game_kill_minotaurs(game *g, int d) {
 /*+ Gestion de l'historique +*/
 /*****************************/
 
-bool game_undo(game*) {
-  return false;
+bool game_undo(game *g) {
+    const turn *t = last_move_history(g->log);
+    if (t == NULL)
+    {
+        return false;
+    }
+    if (t->type == T_POLY)
+    {
+        g->npolys++;
+        for (int i = 0; i < g->m->nb_minotaurs; i++)
+        {
+            if (t->minokilled[i])
+            {
+                g->minotaurs_alive[i] = true;
+                make_occupied_maze(g->m, g->m->minotaurs[i]);
+            }
+        }
+        g->turns--;
+        rewind_history(g->log); //on note que le tour a été annulé
+        return true;
+    }
+    if (t->type == T_BOMB)
+    {
+        if (t->tbomb->destroyed)
+        {
+            build_wall_maze(g->m, g->m->player, t->tbomb->bombdir);
+            g->nbombs++;
+        }
+        if (t->tbomb->killer != -1)
+        {
+            g->player_alive = true;
+            make_occupied_maze(g->m, g->m->player);
+        }
+        g->turns--;
+        rewind_history(g->log); //on note que le tour a été annulé
+        return true;
+    }
+    if (t->type == T_MOVE)
+    {
+        if (t->tmove->obj != NONE)
+        {
+            add_object_maze(g->m, g->m->player, t->tmove->obj);
+            game_consume_object(g, -1, t->tmove->obj);
+        }
+        if (t->tmove->killer != -1)
+        {
+            g->player_alive = true;
+        }
+        if (t->tmove->playermove != M_WAIT)
+        {
+            free_occupied_maze(g->m, g->m->player);
+            g->m->player = get_adj_maze(g->m, g->m->player, (cardinal)((t->tmove->playermove + 2) % 4));
+            make_occupied_maze(g->m, g->m->player);
+        }
+        g->minotaurs_dirs = (cardinal*)t->tmove->minomoves;
+        for (int i = 0; i < g->m->nb_minotaurs; i++)
+        {
+            if (t->tmove->minomoves[i] != M_WAIT && g->minotaurs_alive[i])
+            {
+                free_occupied_maze(g->m, g->m->minotaurs[i]);
+                g->m->minotaurs[i] = get_adj_maze(g->m, g->m->minotaurs[i], (cardinal)((g->minotaurs_dirs[i] + 2) % 4));
+                make_occupied_maze(g->m, g->m->minotaurs[i]);
+            }
+        }
+        g->turns--;
+        rewind_history(g->log); //on note que le tour a été annulé
+        return true;
+    }
+    fprintf(stderr, "Erreur d'historique, type inconnu\n");
+    exit(EXIT_FAILURE);
 }
 
-bool game_redo(game*) {
-  return false;
+bool game_redo(game *g) {
+    const turn *t = next_move_history(g->log);
+    if (t == NULL)
+    {
+        return false;
+    }
+    if (t->type == T_POLY)
+    {
+        g->npolys--;
+        for (int i = 0; i < g->m->nb_minotaurs; i++)
+        {
+            if (t->minokilled[i])
+            {
+                g->minotaurs_alive[i] = false;
+                free_occupied_maze(g->m, g->m->minotaurs[i]);
+            }
+        }
+        g->turns++;
+        continue_history(g->log); //on note que le tour a été rejoué
+        return true;
+    }
+    if (t->type == T_BOMB)
+    {
+        if (t->tbomb->destroyed)
+        {
+            del_wall_maze(g->m, g->m->player, t->tbomb->bombdir);
+            g->nbombs--;
+        }
+        if (t->tbomb->killer != -1)
+        {
+            g->minotaurs_dirs[t->tbomb->killer] = t->tbomb->dirkill;
+            g->player_alive = false;
+            free_occupied_maze(g->m, g->m->player);
+        }
+        g->turns++;
+        continue_history(g->log); //on note que le tour a été rejoué
+        return true;
+    }
+    if (t->type == T_MOVE)
+    {
+        if (t->tmove->obj != NONE)
+        {
+            game_treat_object(g);
+        }
+        if (t->tmove->killer != -1)
+        {
+            g->player_alive = false;
+        }
+        if (t->tmove->playermove != M_WAIT)
+        {
+            free_occupied_maze(g->m, g->m->player);
+            g->m->player = get_adj_maze(g->m, g->m->player, (cardinal)t->tmove->playermove);
+            make_occupied_maze(g->m, g->m->player);
+        }
+        g->minotaurs_dirs = (cardinal*)t->tmove->minomoves;
+        for (int i = 0; i < g->m->nb_minotaurs; i++)
+        {
+            if (t->tmove->minomoves[i] != M_WAIT && g->minotaurs_alive[i])
+            {
+                free_occupied_maze(g->m, g->m->minotaurs[i]);
+                g->m->minotaurs[i] = get_adj_maze(g->m, g->m->minotaurs[i], (cardinal)t->tmove->minomoves[i]);
+                make_occupied_maze(g->m, g->m->minotaurs[i]);
+            }
+        }
+        g->turns++;
+        continue_history(g->log); //on note que le tour a été rejoué
+        return true;
+    }
+    fprintf(stderr, "Erreur d'historique, type inconnu\n");
+    exit(EXIT_FAILURE);
 }

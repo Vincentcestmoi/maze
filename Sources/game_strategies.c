@@ -94,10 +94,12 @@ void minotaurs_bfs(maze *m, move, move *mino_move) {
             {
                 visited[neighbour] = true;
                 enqueue(neighbour, q);
-                const int mino = has_minotaur_maze(m, neighbour);
-                if (mino != -1)
+                for (int i = 0; i < m->nb_minotaurs; i++)
                 {
-                    mino_move[mino] = (move)((c + 2) % 4);
+                    if (m->minotaurs[i] == neighbour)
+                    {
+                        mino_move[i] = (move)((c + 2) % 4);
+                    }
                 }
             }
         }
@@ -122,10 +124,12 @@ void minotaurs_centre(maze *m, move, move *mino_move) {
             {
                 visited[neighbour] = true;
                 enqueue(neighbour, q);
-                const int mino = has_minotaur_maze(m, neighbour);
-                if (mino != -1)
+                for  (int i = 0; i < m->nb_minotaurs; i++)
                 {
-                    mino_move[mino] = (move)((c + 2) % 4);
+                    if (m->minotaurs[i] == neighbour)
+                    {
+                        mino_move[i] = (move)((c + 2) % 4);
+                    }
                 }
             }
         }
@@ -156,10 +160,12 @@ void minotaurs_exit(maze *m, move, move *mino_move) {
             {
                 visited[neighbour] = true;
                 enqueue(neighbour, q);
-                const int mino = has_minotaur_maze(m, neighbour);
-                if (mino != -1)
+                for (int i = 0; i < m->nb_minotaurs; i++)
                 {
-                    mino_move[mino] = (move)((c + 2) % 4);
+                    if (m->minotaurs[i] == neighbour)
+                    {
+                        mino_move[i] = (move)((c + 2) % 4);
+                    }
                 }
             }
         }
@@ -189,10 +195,12 @@ void minotaurs_range(maze *m, move, move *mino_move){
                 visited[neighbour] = true;
                 enqueue(neighbour, q);
                 size_gen++;
-                const int mino = has_minotaur_maze(m, neighbour);
-                if (mino != -1)
+                for (int i = 0; i < m->nb_minotaurs; i++)
                 {
-                    mino_move[mino] = (move)((c + 2) % 4);
+                    if (m->minotaurs[i] == neighbour)
+                    {
+                        mino_move[i] = (move)((c + 2) % 4);
+                    }
                 }
             }
         }

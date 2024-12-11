@@ -32,11 +32,10 @@ game* create_newgame(const int sh, const int sv, mask *m, const generator f, con
   p_game->player_alive = true;
   p_game->player_dir = NORTH;
   p_game->minotaurs_alive = malloc(nb_minotaure * sizeof(bool));
-  p_game->minotaurs_dirs = malloc(nb_minotaure * sizeof(cardinal));
+  p_game->minotaurs_dirs = calloc(nb_minotaure, sizeof(cardinal));
   for(int i = 0; i < nb_minotaure; i++)
   {
     p_game->minotaurs_alive[i] = true;
-    p_game->minotaurs_dirs[i] = NORTH;
   }
   p_game->nb_deadends = 0;
   p_game->exits = 0;
@@ -46,11 +45,11 @@ game* create_newgame(const int sh, const int sv, mask *m, const generator f, con
 }
 
 void free_game(game *g) {
-  free(g->log);
-  free(g->minotaurs_alive);
-  free(g->minotaurs_dirs);
-  free_maze(g->m);
-  free(g);
+    free_history(g->log);
+    free(g->minotaurs_alive);
+    free(g->minotaurs_dirs);
+    free_maze(g->m);
+    free(g);
 }
 
 /***********************************************/
@@ -162,7 +161,7 @@ bool implement_game_move(game *g, const move mv, const strategy strat) {
         g->m->player = get_adj_maze(g->m, g->m->player, g->player_dir);
         make_occupied_maze(g->m, g->m->player);
     }
-    move mino_move[g->m->nb_minotaurs]; //pour stocker les mouvements des minotaures
+    move *mino_move = malloc(g->m->nb_minotaurs * sizeof(move));
     str_funs[strat](g->m, mv, mino_move);
     for (int i = 0; i < g->m->nb_minotaurs; i++)
     {
@@ -179,6 +178,10 @@ bool implement_game_move(game *g, const move mv, const strategy strat) {
                 g->m->minotaurs[i] = get_adj_maze(g->m, g->m->minotaurs[i], g->minotaurs_dirs[i]);
                 make_occupied_maze(g->m, g->m->minotaurs[i]);
             }
+        }
+        else
+        {
+            mino_move[i] = M_WAIT; //on corrige le mouvement pour l'historique
         }
     }
     const t_type typ = T_MOVE;
@@ -386,11 +389,15 @@ bool game_undo(game *g) {
         g->minotaurs_dirs = (cardinal*)t->tmove->minomoves;
         for (int i = 0; i < g->m->nb_minotaurs; i++)
         {
-            if (t->tmove->minomoves[i] != M_WAIT && g->minotaurs_alive[i])
+            if (t->tmove->minomoves[i] != M_WAIT)
             {
-                free_occupied_maze(g->m, g->m->minotaurs[i]);
-                g->m->minotaurs[i] = get_adj_maze(g->m, g->m->minotaurs[i], (cardinal)((g->minotaurs_dirs[i] + 2) % 4));
-                make_occupied_maze(g->m, g->m->minotaurs[i]);
+                g->minotaurs_dirs[i] = (cardinal)t->tmove->minomoves[i]; //on met à jour les directions des minotaures
+                if (g->minotaurs_alive[i])
+                {
+                    free_occupied_maze(g->m, g->m->minotaurs[i]);
+                    g->m->minotaurs[i] = get_adj_maze(g->m, g->m->minotaurs[i], (cardinal)((g->minotaurs_dirs[i] + 2) % 4));
+                    make_occupied_maze(g->m, g->m->minotaurs[i]);
+                }
             }
         }
         g->turns--;
@@ -427,6 +434,7 @@ bool game_redo(game *g) {
         if (t->tbomb->destroyed)
         {
             del_wall_maze(g->m, g->m->player, t->tbomb->bombdir);
+            g->player_dir = t->tbomb->bombdir;
             g->nbombs--;
         }
         if (t->tbomb->killer != -1)
@@ -455,14 +463,17 @@ bool game_redo(game *g) {
             g->m->player = get_adj_maze(g->m, g->m->player, (cardinal)t->tmove->playermove);
             make_occupied_maze(g->m, g->m->player);
         }
-        g->minotaurs_dirs = (cardinal*)t->tmove->minomoves;
         for (int i = 0; i < g->m->nb_minotaurs; i++)
         {
-            if (t->tmove->minomoves[i] != M_WAIT && g->minotaurs_alive[i])
+            if (t->tmove->minomoves[i] != M_WAIT)
             {
-                free_occupied_maze(g->m, g->m->minotaurs[i]);
-                g->m->minotaurs[i] = get_adj_maze(g->m, g->m->minotaurs[i], (cardinal)t->tmove->minomoves[i]);
-                make_occupied_maze(g->m, g->m->minotaurs[i]);
+                g->minotaurs_dirs[i] = (cardinal)t->tmove->minomoves[i]; //on met à jour les directions des minotaures
+                if (g->minotaurs_alive[i])
+                {
+                    free_occupied_maze(g->m, g->m->minotaurs[i]);
+                    g->m->minotaurs[i] = get_adj_maze(g->m, g->m->minotaurs[i], (cardinal)t->tmove->minomoves[i]);
+                    make_occupied_maze(g->m, g->m->minotaurs[i]);
+                }
             }
         }
         g->turns++;

@@ -267,22 +267,12 @@ static bool mino_reachable(maze *p_maze, const int mino, const int cell, const i
     {
         return true;
     }
-    c = get_adj_maze(p_maze, c, WEST);
+    c = get_adj_maze(p_maze, c, SOUTH);
     if (mino_reachable(p_maze, mino, c, d - 1))
     {
         return true;
     }
-    c = get_adj_maze(p_maze, cell, EAST);
-    if (mino_reachable(p_maze, mino, c, d - 1))
-    {
-        return true;
-    }
-    c = get_adj_maze(p_maze, cell, SOUTH);
-    if (mino_reachable(p_maze, mino, c, d - 1))
-    {
-        return true;
-    }
-    c = get_adj_maze(p_maze, c, EAST);
+    c = get_adj_maze(p_maze, c, SOUTH);
     if (mino_reachable(p_maze, mino, c, d - 1))
     {
         return true;
@@ -292,7 +282,17 @@ static bool mino_reachable(maze *p_maze, const int mino, const int cell, const i
     {
         return true;
     }
-    c = get_adj_maze(p_maze, cell, WEST);
+    c = get_adj_maze(p_maze, c, WEST);
+    if (mino_reachable(p_maze, mino, c, d - 1))
+    {
+        return true;
+    }
+    c = get_adj_maze(p_maze, c, NORTH);
+    if (mino_reachable(p_maze, mino, c, d - 1))
+    {
+        return true;
+    }
+    c = get_adj_maze(p_maze, cell, NORTH);
     return mino_reachable(p_maze, mino, c, d - 1);
 }
 

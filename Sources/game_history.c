@@ -30,6 +30,7 @@ history* create_history(void) {
     }
     h->size_past = 0;
     h->size_future = 0;
+    h->first_past = 0;
     h->capacity_past = 1;
     h->capacity_future = 1;
     return h;
@@ -185,9 +186,6 @@ static void add_past(const turn t, history *h) {
         h->past[(h->size_past + h->first_past) % h->capacity_past] = t;
         h->size_past++;
     }
-    if (h->size_future > 0) {
-        kill_future(h); // On ne peut pas restaurer un tour après en avoir joué un nouveau.
-    }
 }
 
 // * @brief
@@ -209,6 +207,7 @@ void free_history(history *h) {
 
 void add_entry_history(const turn t, history *h) {
     add_past(t, h); //redondant mais j'avais déjà codé ça :'(
+    kill_future(h);
 }
 
 int sizenext_history(history *h) {

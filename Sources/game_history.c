@@ -116,18 +116,19 @@ static void reduice_future(history *h) {
 // * supprime les tours annulés de l'historique.
 // */
 static void kill_future(history *h) {
-    free(h->future);
-    h->future = malloc(sizeof(turn));
-    if (h->future == NULL) {
+    turn * new_future = malloc(sizeof(turn));
+    if (new_future == NULL) {
         fprintf(stderr, "Erreur d'allocation\n");
         exit(EXIT_FAILURE);
     }
-    h->size_future = 0;
-    for (int i = 0; i < h->size_past; i++) {
-        if (h->past[(h->first_past + i) % h->capacity_past].type == T_POLY) {
-            free(h->past[(h->first_past + i) % h->capacity_past].minokilled); // On libère les tableaux de booléens.
+    for (int i = 0; i < h->size_future; i++) {
+        if (h->future[i].type == T_POLY) {
+            free(h->future[i].minokilled); // On libère les tableaux de booléens.
         }
     }
+    free(h->future);
+    h->future = new_future;
+    h->size_future = 0;
     h->capacity_future = 1;
 }
 
@@ -200,7 +201,17 @@ static void add_future(const turn t, history *h) {
 }
 
 void free_history(history *h) {
+    for (int i = 0; i < h->size_past; i++) {
+        if (h->past[(h->first_past + i) % h->capacity_past].type == T_POLY) {
+            free(h->past[(h->first_past + i) % h->capacity_past].minokilled); // On libère les tableaux de booléens.
+        }
+    }
     free(h->past);
+    for (int i = 0; i < h->size_future; i++) {
+        if (h->future[i].type == T_POLY) {
+            free(h->future[i].minokilled); // On libère les tableaux de booléens.
+        }
+    }
     free(h->future);
     free(h);
 }

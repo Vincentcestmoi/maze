@@ -1,4 +1,7 @@
 #include "game.h"
+
+#include <sys/random.h>
+
 #include "maze_2.h"
 
 
@@ -8,7 +11,7 @@
 /****************************/
 
 // Génération d'un nouveau jeu
-game* create_newgame(const int sh, const int sv, mask *m, const generator f, const objgenerator fo, const int nb_minotaure, int tressage)
+game* create_newgame(const int sh, const int sv, mask *m, const generator f, const objgenerator fo, const int nb_minotaure, const int tressage)
 {
   maze *p_maze;
   if(m != NULL)
@@ -37,10 +40,21 @@ game* create_newgame(const int sh, const int sv, mask *m, const generator f, con
   {
     p_game->minotaurs_alive[i] = true;
   }
-  p_game->nb_deadends = 0;
-  p_game->exits = 0;
+  p_game->nb_deadends = count_dead_ends(p_maze);
+  p_game->exits = get_exits_maze(p_maze);
   p_game->turns = 0;
   p_game->log = create_history();
+  int start = p_maze->player;
+  while ((game_try_kill_player(p_game, NULL) != -1 && p_game->m->nb_minotaurs < p_game->m->nb_reachable - 10)
+      || get_object_maze(p_game->m, start) == EXIT || !can_be_used(p_game->m, start))
+  {
+      //on évite le spawn kill et le spawn win (cntraite du nombre de minotaures car faut pas forcer non plus)
+      getrandom(&start, sizeof(start), 0);
+      start %= p_game->m->hsize * p_game->m->vsize;
+  }
+  free_occupied_maze(p_game->m, p_game->m->player);
+  p_game->m->player = start;
+  make_occupied_maze(p_game->m, start);
   return p_game;
 }
 

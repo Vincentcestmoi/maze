@@ -356,7 +356,7 @@ void render_print_path(game* thegame, sim_path* thepath, SDL_Color col) {
   }
 
 
-  SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(WHITE));
+  SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(BLACK));
 }
 
 
@@ -390,7 +390,7 @@ void render_search(game* thegame) {
     SDL_RenderFillRect(renderer, &pos);
   }
 
-  SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(WHITE));
+  SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(BLACK));
 
 }
 
@@ -421,7 +421,7 @@ void render_print_complex_path(game* thegame, cmp_search* path) {
 
   if (var_adv_mode == 2) {
     render_draw_pathline(path->array[var_adv_num]->start, path->array[var_adv_num]->end, thegame->m->hsize);
-    SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(WHITE));
+    SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(BLACK));
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     return;
   }
@@ -430,7 +430,7 @@ void render_print_complex_path(game* thegame, cmp_search* path) {
     render_draw_pathline(path->array[i]->start, path->array[i]->end, thegame->m->hsize);
 
   }
-  SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(WHITE));
+  SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(BLACK));
   SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
 
@@ -544,7 +544,7 @@ void render_scene(game* thegame) {
 
 void render_scene_unkill(game* thegame, bool player_alive, bool* minotaurs_alive) {
   CHECK_NULL(1, "The maze");
-  SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(WHITE));
+  SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(BLACK));
   SDL_RenderClear(renderer);
 
   // Affichage du sol

@@ -9,7 +9,7 @@ char message[512];
 // Affichage de texte
 int render_text(int x, int y, const char* text, TTF_Font* font) {
     //SDL_Color black = { 0, 0, 0, 0 };
-    SDL_Surface* surf_text = TTF_RenderUTF8_Blended(font, text, WHITE);
+SDL_Surface* surf_text = TTF_RenderUTF8_Blended(font, text, WHITE);
     SDL_Texture* text_text = SDL_CreateTextureFromSurface(renderer, surf_text);
     SDL_Rect pos;
     pos.x = x;

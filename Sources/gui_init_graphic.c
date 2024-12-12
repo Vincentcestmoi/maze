@@ -733,7 +733,7 @@ bool init_SDL(short width, short height) {
   init_load_sprites();
 
   SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-  SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(WHITE));
+  SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(BLACK));
   SDL_RenderClear(renderer);
 
   return true;

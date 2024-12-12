@@ -1970,7 +1970,7 @@ void event_loop(void) {
 
 
     // Affichage
-    SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(WHITE));
+    SDL_SetRenderDrawColor(renderer, COLOR_TUPLE(BLACK));
     SDL_RenderClear(renderer);
     switch (var_crender)
     {

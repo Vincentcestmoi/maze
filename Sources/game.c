@@ -64,10 +64,11 @@ static void prevent_bad_spawn(game *g)
             good_spawn = good_spawn && (has_wall_maze(g->m, i, SOUTH) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
             neighbour = get_adj_maze(g->m, i, WEST);
             good_spawn = good_spawn && (has_wall_maze(g->m, i, WEST) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
-            good_spawn = good_spawn && get_object_maze(g->m, i) != EXIT;
+            good_spawn = good_spawn && (get_object_maze(g->m, i) != EXIT);
             if (good_spawn)
             {
                 g->m->player = i;
+                make_occupied_maze(g->m, i);
                 break;
             }
         }
@@ -154,10 +155,6 @@ static void prevent_bad_spawn(game *g)
             g->m->minotaurs[mino] = place;
             make_occupied_maze(g->m, place);
         }
-    }
-    else
-    {
-        make_occupied_maze(g->m, g->m->player);
     }
 }
 

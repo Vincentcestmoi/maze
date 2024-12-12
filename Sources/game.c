@@ -11,6 +11,7 @@
 /****************************/
 
 // modifie la position du joueur pour éviter le spawn kill et le spawn win
+//implémenté par Vincent BRUNEAU ;)-
 static void prevent_bad_spawn(game *g)
 {
     if (g->m->nb_minotaurs == g->m->nb_reachable - 4)

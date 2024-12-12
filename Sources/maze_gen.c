@@ -447,4 +447,6 @@ static void maze_rec(maze *m, const int x, const int y, const int w, const int h
 
 void random_maze_rec(maze *p_maze){
     maze_rec(p_maze, 0, 0, p_maze->hsize, p_maze->vsize);
+
+
 }

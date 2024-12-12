@@ -1,4 +1,8 @@
 #include "solve.h"
+#include "data_dynarray.h"
+#include "data_queue.h"
+#include "maze.h"
+#include "maze_2.h"
 
 /***************************************************/
 /*+ Définition et manipulation d'un chemin simple **/
@@ -140,7 +144,7 @@ const char *heu_names[HEU_SIZE] = {"Neutre", "Manhattan", "Eviter les minotaures
 int (*heu_funs[HEU_SIZE])(game *, int, dynarray *) = {&astar_none, &astar_manhattan, &astar_runaway};
 
 
-int astar_none(game *, int, dynarray *) { return 0; }
+int astar_none(game *, int, dynarray *) { return 0;}
 
 int astar_manhattan(game *, int, dynarray *) { return 0; }
 
@@ -151,11 +155,151 @@ int astar_runaway(game *, int, dynarray *) { return 0; }
 /*+ Les algorithmes de parcours **/
 /*********************************/
 
+static sim_goal obj_to_goal(object obj) {
+    switch (obj) {
+        case SMALLT:
+        case MEDT:
+        case LARGET:
+            return GOA_TREASURE;
+        case BOMB:
+            return GOA_BOMB;
+        case POLY:
+            return GOA_POLY;
+        case EXIT:
+            return GOA_EXIT;
+        default: //inclue NONE
+            return GOA_SIZE;
+    }
+}
+
 sim_search *(*salgo_funs[ALG_SIZE])(game *, int, sim_goal, int(heu_fun)(game *, int, dynarray *), bool) = {&sim_bfs, &sim_dfs, &sim_astar};
 
+sim_search *sim_bfs(game *g, int init_cell, sim_goal goal, int (*heuristique)(game *, int, dynarray *), bool mino) {
+    if (heuristique){
+        //warning friendly
+    }
 
-sim_search *sim_bfs(game *, int, sim_goal, int (*)(game *, int, dynarray *), bool) { return NULL; }
+    queue *q = create_queue();
 
-sim_search *sim_dfs(game *, int, sim_goal, int (*)(game *, int, dynarray *), bool) { return NULL; }
+    // Initialisation d'un tableau de booléens pour marquer les cellules déjà visitées
+    bool visited[g->m->hsize * g->m->vsize];
+    cardinal card_tab[g->m->hsize * g->m->vsize];
+    sim_search *search = sim_create_search(ALG_BFS, goal);
+    dynarray *search_order = create_dyn();
+    for (int i = 0; i < g->m->hsize * g->m->vsize; i++){
+        visited[i] = false;
+        card_tab[i] = NORTH;
+    }
+    enqueue(init_cell, q);
+    visited[init_cell] = true;
+    while(!is_empty_queue(q)){
+        int cell = dequeue(q);
+        push_dyn(cell, search_order);
+        if(obj_to_goal(get_object_maze(g->m, cell)) == goal){
+            sim_path *path = sim_emptypath(cell);
+            search->path = path;
+            while(cell != init_cell){
+                fflush(stdout);
+                sim_addtopath(g->m, (move)card_tab[cell], path);
+                cell = get_adj_maze(g->m, cell, (card_tab[cell] + 2) % 4);
+            }
+            search->search = search_order;
+            delete_queue(q);
+            return search;
+        }
+        for (cardinal card = NORTH; card <= WEST; card++){
+            int adj = get_adj_maze(g->m, cell, card);
+            if(!has_wall_maze(g->m, cell, card) && can_be_used(g->m, adj) && !visited[adj]){
+                bool valid = true;
+                if(mino){
+                    for(int i = 0; i < g->m->nb_minotaurs; i++){
+                        if(g->minotaurs_alive[i] && g->m->minotaurs[i] == adj){
+                            //un minotaure bloque la route
+                            valid = false;
+                            break;
+                        }
+                    }
+                }
+                if(valid){
+                    enqueue(adj, q);
+                    visited[adj] = true;
+                    card_tab[adj] = card;
+                }
+            }
+        }
+    }
+    search->search = search_order;
+    delete_queue(q);
+    return search;
+}
+
+sim_search *sim_dfs(game *g, int init_cell, sim_goal goal, int (*heuristique)(game *, int, dynarray *), bool mino) {
+    if (heuristique)
+    {
+        // warning friendly
+    }
+
+    dynarray *d = create_dyn();
+
+    // Initialisation d'un tableau de booléens pour marquer les cellules déjà visitées
+    bool visited[g->m->hsize * g->m->vsize];
+    cardinal card_tab[g->m->hsize * g->m->vsize];
+    sim_search *search = sim_create_search(ALG_DFS, goal);
+    dynarray *search_order = create_dyn();
+    for (int i = 0; i < g->m->hsize * g->m->vsize; i++)
+    {
+        visited[i] = false;
+        card_tab[i] = NORTH;
+    }
+    push_dyn(init_cell, d);
+    visited[init_cell] = true;
+    while (!is_empty_dyn(d))
+    {
+        int cell = pop_dyn(d);
+        push_dyn(cell, search_order);
+        if (obj_to_goal(get_object_maze(g->m, cell)) == goal)
+        {
+            sim_path *path = sim_emptypath(cell);
+            search->path = path;
+            while (cell != init_cell)
+            {
+                fflush(stdout);
+                sim_addtopath(g->m, (move)card_tab[cell], path);
+                cell = get_adj_maze(g->m, cell, (card_tab[cell] + 2) % 4);
+            }
+            search->search = search_order;
+            free_dyn(d);
+            return search;
+        }
+        for (cardinal card = NORTH; card <= WEST; card++)
+        {
+            int adj = get_adj_maze(g->m, cell, card);
+            if (!has_wall_maze(g->m, cell, card) && can_be_used(g->m, adj) && !visited[adj])
+            {
+                if (mino)
+                {
+                    for (int i = 0; i < g->m->nb_minotaurs; i++)
+                    {
+                        if (g->minotaurs_alive[i] && g->m->minotaurs[i] == adj)
+                        {
+                            // un minotaure bloque la route
+                            push_dyn(adj, d);
+                            visited[adj] = true;
+                            card_tab[adj] = card;
+                        }
+                    }
+                }
+                else{
+                    push_dyn(adj, d);
+                    visited[adj] = true;
+                    card_tab[adj] = card;
+                }
+            }
+        }
+    }
+    search->search = search_order;
+    free_dyn(d);
+    return search;
+}
 
 sim_search *sim_astar(game *, int, sim_goal, int (*)(game *, int, dynarray *), bool) { return NULL; }

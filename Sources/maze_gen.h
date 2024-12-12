@@ -61,6 +61,7 @@ typedef enum {
     GEN_PRIM, //!< Prim
     GEN_KRUSKAL, //!< Kruskal
     GEN_REC, //!< Divisions récursives
+    GEN_SNAKE, //!< Labyrinthe en forme de serpent
     GEN_SIZE,
 } generator;
 
@@ -159,5 +160,13 @@ void random_maze_kruskal(maze* //!< Le proto-labyrinthe.
  */
 void random_maze_rec(maze* //!< Le proto-labyrinthe.
 );
+
+/**
+ * @brief
+ * Génération d'un labyrinthe en forme de serpent.
+ * à l'origine un test de l'algo de Prim, mais il a son charme.
+ */
+void snake_maze(maze * //!< Le proto-labyrinthe.
+    );
 
 #endif

@@ -1,4 +1,5 @@
 #include "maze_gen.h"
+
 #include "data_binheap.h"
 #include "maze.h"
 #include "maze_2.h"
@@ -7,7 +8,7 @@
 
 void (*gen_funs[GEN_SIZE])(maze *) = {&maze_test,         &random_maze_ab,       &random_maze_wilson, &random_maze_hklinear,
                                       &random_maze_hkdfs, &random_maze_hkrandom, &random_maze_prim,   &random_maze_kruskal,
-                                      &random_maze_rec};
+                                      &random_maze_rec, &snake_maze};
 const char *gen_names[GEN_SIZE] = {"Test (pas de génération)",
                                    "Aldous-Broder",
                                    "Wilson",
@@ -16,7 +17,8 @@ const char *gen_names[GEN_SIZE] = {"Test (pas de génération)",
                                    "Hunt & Kill: Aléatoire",
                                    "Prim",
                                    "Kruskal",
-                                   "Récursif"};
+                                   "Récursif",
+                                    "serpent"};
 
 void maze_test(maze *)
 {
@@ -383,9 +385,206 @@ void random_maze_hklinear(maze *p_maze)
     }
 }
 
-void random_maze_prim(maze *) { return; }
+//-------------------------Prim-------------------------
 
-void random_maze_kruskal(maze *) { return; }
+
+typedef struct {
+    int* array1;
+    cardinal* array2;
+    int size;
+    int true_size;
+    int capacity;
+} prim_array;
+
+static void grow_prim_array(prim_array* p_array) {
+    p_array->capacity *= 2;
+    int* new_array1 = malloc(p_array->capacity * sizeof(int));
+    cardinal* new_array2 = malloc(p_array->capacity * sizeof(cardinal));
+    if (new_array1 == NULL || new_array2 == NULL) {
+        perror("Failed to reallocate memory for prim_array");
+        exit(EXIT_FAILURE);
+    }
+    int j = 0;
+    for (int i = 0; i < p_array->size; i++) {
+        if (p_array->array1[i] != -1) {
+            new_array1[j] = p_array->array1[i];
+            new_array2[j] = p_array->array2[i];
+            j++;
+        }
+    }
+    p_array->size = j;
+    free(p_array->array1);
+    free(p_array->array2);
+    p_array->array1 = new_array1;
+    p_array->array2 = new_array2;
+    p_array->true_size = j;
+}
+
+static void shrink_prim_array(prim_array* p_array) {
+    p_array->capacity /= 2;
+    int* new_array1 = malloc(p_array->capacity * sizeof(int));
+    cardinal* new_array2 = malloc( p_array->capacity * sizeof(cardinal));
+    if (new_array1 == NULL || new_array2 == NULL) {
+        perror("Failed to reallocate memory for prim_array");
+        exit(EXIT_FAILURE);
+    }
+    int j = 0;
+    for (int i = 0; i < p_array->size; i++){
+        if(p_array->array1[i] != -1) {
+            new_array1[j] = p_array->array1[i];
+            new_array2[j] = p_array->array2[i];
+            j++;
+        }
+    }
+    p_array->size = j;
+    p_array->true_size = j;
+    free(p_array->array1);
+    free(p_array->array2);
+    p_array->array1 = new_array1;
+    p_array->array2 = new_array2;
+}
+
+static void clean_prim_array(prim_array* p_array) {
+    int j = 0;
+    for (int i = 0; i < p_array->size; i++) {
+        if (p_array->array1[i] != -1) {
+            p_array->array1[j] = p_array->array1[i];
+            p_array->array2[j] = p_array->array2[i];
+            j++;
+        }
+    }
+    p_array->size = j;
+}
+
+static prim_array* create_prim_array(void)
+{
+    prim_array* p_array = malloc(sizeof(prim_array));
+    if (p_array == NULL) {
+        perror("Failed to allocate memory for prim_array");
+        exit(EXIT_FAILURE);
+    }
+    p_array->array1 = malloc(sizeof(int));
+    p_array->array2 = malloc(sizeof(cardinal));
+    if (p_array->array1 == NULL || p_array->array2 == NULL) {
+        perror("Failed to allocate memory for prim_array");
+        exit(EXIT_FAILURE);
+    }
+    p_array->array1[0] = -1;
+    p_array->array2[0] = -1;
+    p_array->size = 0;
+    p_array->true_size = 0;
+    p_array->capacity = 1;
+    return p_array;
+}
+
+static void free_prim_array(prim_array* p_array)
+{
+    free(p_array->array1);
+    free(p_array->array2);
+    free(p_array);
+}
+
+static bool is_empty_prim_array(const prim_array* p_array)
+{
+    return p_array->true_size == 0;
+}
+
+static void push_prim_array(prim_array* p_array, const int value1, const cardinal value2)
+{
+    if (p_array->array1 == NULL || p_array->array2 == NULL) {
+        fprintf(stderr, "push_prim_array: array is NULL\n");
+        exit(EXIT_FAILURE);
+    }
+    //on s'assure d'avoir la place
+    if (p_array->size == p_array->capacity) {
+        if (p_array->size == p_array->true_size) {
+            grow_prim_array(p_array);
+        } else {
+            clean_prim_array(p_array);
+        }
+    }
+    p_array->array1[p_array->size] = value1;
+    p_array->array2[p_array->size] = value2;
+    p_array->size++;
+    p_array->true_size++;
+}
+
+//pop aléatoire
+static void pop_prim_array(prim_array* p_array, int* value1, cardinal* value2)
+{
+    if (is_empty_prim_array(p_array)) {
+        fprintf(stderr, "pop_prim_array: array is empty\n");
+        exit(EXIT_FAILURE);
+    }
+    if (p_array->array1 == NULL || p_array->array2 == NULL) {
+        fprintf(stderr, "pop_prim_array: array is NULL\n");
+        exit(EXIT_FAILURE);
+    }
+    int r;
+    getrandom(&r, sizeof(r), 0);
+    r = abs(r) % p_array->true_size;
+    int i = 0;
+    while (r > 0 || p_array->array1[i] == -1)
+    {
+        if (p_array->array1[i] != -1)
+        {
+            r--;
+        }
+        i++;
+    }
+    *value1 = p_array->array1[i];
+    *value2 = p_array->array2[i];
+    p_array->array1[i] = -1;
+    p_array->true_size--;
+    if (p_array->true_size < p_array->capacity / 4) {
+        shrink_prim_array(p_array);
+    }
+}
+
+//-------------------------Prim-------------------------
+
+void random_maze_prim(maze *p_maze) {
+    bool visited[p_maze->hsize * p_maze->vsize];
+    for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
+    {
+        if (can_be_used(p_maze, i))
+        {
+            visited[i] = false;
+        }
+    }
+    prim_array* edge = create_prim_array();
+    int cell;
+    do
+    {
+        getrandom(&cell, sizeof(cell), 0);
+        cell %= p_maze->hsize * p_maze->vsize;
+    }while (!can_be_used(p_maze, cell));
+    visited[cell] = true;
+    for (cardinal c = NORTH; c <= WEST; c++)
+    {
+        push_prim_array(edge, cell, c);
+    }
+    cardinal card;
+    while (!is_empty_prim_array(edge))
+    {
+        pop_prim_array(edge, &cell, &card);
+        const int neighbour = get_adj_maze(p_maze, cell, card);
+        if (!can_be_used(p_maze, neighbour) || visited[neighbour])
+        {
+            continue;
+        }
+        del_wall_maze(p_maze, cell, card);
+        visited[neighbour] = true;
+        for (cardinal c = NORTH; c <= WEST; c++)
+        {
+            push_prim_array(edge, neighbour, c);
+        }
+    }
+    free_prim_array(edge);
+}
+
+void random_maze_kruskal(maze *){
+}
 
 static void maze_rec(maze *m, const int x, const int y, const int w, const int h)
 {
@@ -416,4 +615,48 @@ static void maze_rec(maze *m, const int x, const int y, const int w, const int h
 
 void random_maze_rec(maze *p_maze){
     maze_rec(p_maze, 0, 0, p_maze->hsize, p_maze->vsize);
+}
+
+void snake_maze(maze *p_maze)
+{
+    //c'est pas optimisé mais ça fait partie de son charme
+    bool visited[p_maze->hsize * p_maze->vsize];
+    for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
+    {
+        if (can_be_used(p_maze, i))
+        {
+            visited[i] = false;
+        }
+    }
+    dynarray *cell_list = create_dyn();
+    dynarray *card_list = create_dyn();
+    int cell;
+    do
+    {
+        getrandom(&cell, sizeof(cell), 0);
+        cell %= p_maze->hsize * p_maze->vsize;
+    }while (!can_be_used(p_maze, cell));
+    visited[cell] = true;
+    for (cardinal c = NORTH; c <= WEST; c++)
+    {
+        push_dyn(cell, cell_list);
+        push_dyn(c, card_list);
+    }
+    while (!is_empty_dyn(card_list))
+    {
+        const cardinal card = pop_dyn(card_list);
+        cell = pop_dyn(cell_list);
+        const int neighbour = get_adj_maze(p_maze, cell, card);
+        if (!can_be_used(p_maze, neighbour) || visited[neighbour])
+        {
+            continue;
+        }
+        del_wall_maze(p_maze, cell, card);
+        visited[neighbour] = true;
+        for (cardinal c = NORTH; c <= WEST; c++)
+        {
+            push_dyn(neighbour, cell_list);
+            push_dyn(c, card_list);
+        }
+    }
 }

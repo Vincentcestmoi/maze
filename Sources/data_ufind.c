@@ -3,9 +3,16 @@
 #include <limits.h>
 
 
-ufind* create_ufind(int)
+ufind* create_ufind(int i)
 {
-    return NULL;
+    ufind *uf = malloc(sizeof(ufind));
+    if (uf == NULL)
+    {
+        perror("Failed to allocate memory for ufind");
+        exit(EXIT_FAILURE);
+    }
+    uf->size_tab = i;
+    return uf;
 }
 
 
@@ -47,5 +54,3 @@ void union_ufind(int, int, ufind*)
 {
     return;
 }
-
-

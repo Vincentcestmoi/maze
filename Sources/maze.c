@@ -303,8 +303,11 @@ void gen_minotaurs_maze(maze *p_maze, int nb_minotaurs) {
     {
         free(p_maze->minotaurs);
     }
-    if(nb_minotaurs > p_maze -> hsize * p_maze -> vsize - 1) { // Si le nombre de minotaures est supérieur au nombre de cellules - 1
-        nb_minotaurs = p_maze -> hsize * p_maze -> vsize - 1; // On réduit au maximum disponible
+    if(nb_minotaurs > p_maze -> nb_reachable - 4) { // Si le nombre de minotaures est supérieur au nombre de cellules - 1
+        nb_minotaurs = p_maze -> nb_reachable - 5; // On réduit au maximum disponible
+    }
+    if(nb_minotaurs < 0) {
+        nb_minotaurs = 0;
     }
     p_maze->nb_minotaurs = nb_minotaurs;
     p_maze->minotaurs = malloc(nb_minotaurs * sizeof(int));
@@ -341,18 +344,3 @@ bool valid_move_maze(maze *p_maze, const int cellule, const move mv)
     return !has_wall_maze(p_maze, cellule, (cardinal)mv) && can_be_used(p_maze, neighbour) && !is_occupied_maze(p_maze, neighbour);
     // Si il n'y a pas de mur, que la cellule adjacente est valide et non occupée, le mouvement est valide
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

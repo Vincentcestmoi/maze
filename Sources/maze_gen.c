@@ -26,14 +26,10 @@ void maze_test(maze *)
 void random_maze_ab(maze *p_maze)
 {
     bool visited[p_maze->hsize * p_maze->vsize]; // Tableau de booléens pour savoir si une case a été visitée
-    int visited_count = 0; // nombre de cases à visiter
+    int visited_count = p_maze->nb_reachable; // nombre de case à visiter
     for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
     {
         visited[i] = false; // aucune case n'a été visitée
-        if (can_be_used(p_maze, i))
-        {
-            visited_count++; // on incrémente le nombre de cases à visiter
-        }
     }
     uint cell;
     do
@@ -54,30 +50,7 @@ void random_maze_ab(maze *p_maze)
             if (!visited[neigbour])
             // si la case voisine n'a pas été visitée, on la visite
             {
-                const int diff = cell - neigbour;
-                if (diff == 1)
-                {
-                    del_wall_maze(p_maze, cell, WEST);
-                }
-                else if (diff == -1)
-                {
-                    del_wall_maze(p_maze, cell, EAST);
-                }
-                else if (diff == p_maze->hsize)
-                {
-                    del_wall_maze(p_maze, cell, NORTH);
-                }
-                else if (diff == -p_maze->hsize)
-                {
-                    del_wall_maze(p_maze, cell, SOUTH);
-                }
-
-                else
-                {
-                    fprintf(stderr, "Erreur rma: les cases ne sont pas voisines\n");
-                    free_maze(p_maze);
-                    exit(EXIT_FAILURE);
-                }
+                del_wall_maze(p_maze, cell, card); // on casse le mur
                 visited[neigbour] = true;
                 visited_count--;
             }
@@ -89,7 +62,7 @@ void random_maze_ab(maze *p_maze)
 void random_maze_wilson(maze *p_maze)
 {
     bool visited[p_maze->hsize * p_maze->vsize]; // Tableau de booléens pour savoir si une case a été visitée
-    int visited_count = p_maze->hsize * p_maze->vsize - 1;
+    int visited_count = p_maze->nb_reachable;
     // nombre de case à visiter (la case de départ est déjà visitée)
     for (int i = 0; i < p_maze->hsize * p_maze->vsize; i++)
     {
@@ -97,10 +70,6 @@ void random_maze_wilson(maze *p_maze)
         // si la case est accessible
         {
             visited[i] = false; // on doit la visiter
-        }
-        else
-        {
-            visited_count--; // on décrémente le nombre de cases à visiter
         }
     }
     int cell;
@@ -160,11 +129,11 @@ void random_maze_wilson(maze *p_maze)
         while (!is_empty_dyn(path)) // tant qu'il reste des cases sur le chemin
         {
             const int diff = cell - cell1;
-            if (diff == 1)
+            if (diff == 1 && p_maze->hsize != 1)
             {
                 del_wall_maze(p_maze, cell, WEST);
             }
-            else if (diff == -1)
+            else if (diff == -1 && p_maze->hsize != 1)
             {
                 del_wall_maze(p_maze, cell, EAST);
             }
@@ -430,7 +399,7 @@ static void maze_rec(maze *m, const int x, const int y, const int w, const int h
         const int middle = x + w / 2; //la coordonnée x du mur à casser
         getrandom(&wall, sizeof(wall), 0);
         wall = y + wall % h; //la coordonné y du mur à casser
-        del_wall_maze(m, wall * m->vsize + middle, WEST);
+        del_wall_maze(m, wall * m->hsize + middle, WEST);
         maze_rec(m, x, y, middle - x, h);
         maze_rec(m, middle, y, x + w - middle, h);
     }
@@ -439,7 +408,7 @@ static void maze_rec(maze *m, const int x, const int y, const int w, const int h
         const int middle = y + h / 2; //la coordonnée y du mur à casser
         getrandom(&wall, sizeof(wall), 0);
         wall = x + wall % w; //la coordonné x du mur à casser
-        del_wall_maze(m, middle * m->vsize + wall, NORTH);
+        del_wall_maze(m, middle * m->hsize + wall, NORTH);
         maze_rec(m, x, y, w, middle - y);
         maze_rec(m, x, middle, w, y + h - middle);
     }
@@ -447,6 +416,4 @@ static void maze_rec(maze *m, const int x, const int y, const int w, const int h
 
 void random_maze_rec(maze *p_maze){
     maze_rec(p_maze, 0, 0, p_maze->hsize, p_maze->vsize);
-
-
 }

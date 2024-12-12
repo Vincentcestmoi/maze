@@ -155,6 +155,10 @@ static void prevent_bad_spawn(game *g)
             make_occupied_maze(g->m, place);
         }
     }
+    else
+    {
+        make_occupied_maze(g->m, g->m->player);
+    }
 }
 
 // Génération d'un nouveau jeu

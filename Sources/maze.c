@@ -259,6 +259,7 @@ maze* create_proto_maze(mask *m) {
         i = rand() % (m->vsize * m->hsize); // NOLINT(*-msc50-cpp)
     }
     p_maze->player = i; // On place le joueur dans une cellule aléatoire
+    make_occupied_maze(p_maze, i); // On marque la cellule comme occupée
     queue *q = create_queue();
     enqueue(i, q);
     make_reach_maze(p_maze, i); // On marque la cellule comme accessible

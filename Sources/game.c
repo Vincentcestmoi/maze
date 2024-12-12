@@ -10,6 +10,152 @@
 /*+ Création et libération +*/
 /****************************/
 
+// modifie la position du joueur pour éviter le spawn kill et le spawn win
+static void prevent_bad_spawn(game *g)
+{
+    if (g->m->nb_minotaurs == g->m->nb_reachable - 4)
+    {
+        //avec autant de minotaure, cette fonction serait une perte de temps
+        printf("Debbug prevent_bad_spawn: trop de minotaures pour être efficace, abandon de la fonction\n");
+        return;
+    }
+    const int save = g->m->player; //la cellule qui contient le joueur
+    free_occupied_maze(g->m, save);
+    int neighbour = get_adj_maze(g->m, save, NORTH);
+    bool good_spawn = has_wall_maze(g->m, save, NORTH) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour);
+    neighbour = get_adj_maze(g->m, save, EAST);
+    good_spawn = good_spawn && (has_wall_maze(g->m, save, EAST) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
+    neighbour = get_adj_maze(g->m, save, SOUTH);
+    good_spawn = good_spawn && (has_wall_maze(g->m, save, SOUTH) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
+    neighbour = get_adj_maze(g->m, save, WEST);
+    good_spawn = good_spawn && (has_wall_maze(g->m, save, WEST) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
+    good_spawn = good_spawn && get_object_maze(g->m, save) != EXIT;
+    int fusible = g->m->hsize * g->m->vsize / 2; // on limite le nombre de tentatives
+    while (!good_spawn && fusible-- > 0)
+    {
+        getrandom(&g->m->player, sizeof(g->m->player), 0);
+        g->m->player = abs(g->m->player) % (g->m->hsize * g->m->vsize);
+        //le départ doit être valide
+        good_spawn = can_be_used(g->m, g->m->player) && !is_occupied_maze(g->m, g->m->player);
+        //le départ ne doit pas tuer le joueur
+        neighbour = get_adj_maze(g->m, g->m->player, NORTH);
+        good_spawn = good_spawn && (has_wall_maze(g->m, g->m->player, NORTH) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
+        neighbour = get_adj_maze(g->m, g->m->player, EAST);
+        good_spawn = good_spawn && (has_wall_maze(g->m, g->m->player, EAST) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
+        neighbour = get_adj_maze(g->m, g->m->player, SOUTH);
+        good_spawn = good_spawn && (has_wall_maze(g->m, g->m->player, SOUTH) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
+        neighbour = get_adj_maze(g->m, g->m->player, WEST);
+        good_spawn = good_spawn && (has_wall_maze(g->m, g->m->player, WEST) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
+        //le départ ne doit pas être la sortie
+        good_spawn = good_spawn && get_object_maze(g->m, g->m->player) != EXIT;
+    }
+    if (fusible <= 0)
+    {
+        fprintf(stderr, "Warning prevent_bad_spawn: impossible de trouver un spawn correct dans un delai raisonnable\n");
+        for (int i = 0; i < g->m->hsize * g->m->vsize; i++)
+        {
+            good_spawn = can_be_used(g->m, i) && !is_occupied_maze(g->m, i);
+            neighbour = get_adj_maze(g->m, i, NORTH);
+            good_spawn = good_spawn && (has_wall_maze(g->m, i, NORTH) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
+            neighbour = get_adj_maze(g->m, i, EAST);
+            good_spawn = good_spawn && (has_wall_maze(g->m, i, EAST) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
+            neighbour = get_adj_maze(g->m, i, SOUTH);
+            good_spawn = good_spawn && (has_wall_maze(g->m, i, SOUTH) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
+            neighbour = get_adj_maze(g->m, i, WEST);
+            good_spawn = good_spawn && (has_wall_maze(g->m, i, WEST) || !can_be_used(g->m, neighbour) || !is_occupied_maze(g->m, neighbour));
+            good_spawn = good_spawn && get_object_maze(g->m, i) != EXIT;
+            if (good_spawn)
+            {
+                g->m->player = i;
+                break;
+            }
+        }
+    }
+    if (!good_spawn)
+    {
+        fprintf(stdout, "Warnint prevent_bad_spawn: impossible de trouver un spawn correct\n");
+        //plutôt que de bouger le joueur, on bouge les minotaures
+        g->m->player = save;
+        make_occupied_maze(g->m, save);
+        neighbour = get_adj_maze(g->m, save, NORTH);
+        int mino = has_minotaur_maze(g->m, neighbour);
+        if (mino != -1 && !has_wall_maze(g->m, save, NORTH))
+        {
+            int place; //la cellule qui contient le minotaure actuel
+            do
+            {
+                getrandom(&place, sizeof(place), 0);
+                place %= g->m->hsize * g->m->vsize;
+                good_spawn = can_be_used(g->m, place) && !is_occupied_maze(g->m, place);
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, NORTH) != save || has_wall_maze(g->m, place, NORTH));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, EAST) != save || has_wall_maze(g->m, place, EAST));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, WEST) != save || has_wall_maze(g->m, place, WEST));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, SOUTH) != save || has_wall_maze(g->m, place, SOUTH));
+            } while (!good_spawn);
+            free_occupied_maze(g->m, g->m->minotaurs[mino]);
+            g->m->minotaurs[mino] = place;
+            make_occupied_maze(g->m, place);
+        }
+        neighbour = get_adj_maze(g->m, save, SOUTH);
+        mino = has_minotaur_maze(g->m, neighbour);
+        if (mino != -1 && !has_wall_maze(g->m, save, SOUTH))
+        {
+            int place; //la cellule qui contient le minotaure actuel
+            do
+            {
+                getrandom(&place, sizeof(place), 0);
+                place %= g->m->hsize * g->m->vsize;
+                good_spawn = can_be_used(g->m, place) && !is_occupied_maze(g->m, place);
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, EAST) != save || has_wall_maze(g->m, place, EAST));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, SOUTH) != save || has_wall_maze(g->m, place, SOUTH));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, WEST) != save || has_wall_maze(g->m, place, WEST));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, NORTH) != save || has_wall_maze(g->m, place, NORTH));
+            } while (!good_spawn);
+            free_occupied_maze(g->m, g->m->minotaurs[mino]);
+            g->m->minotaurs[mino] = place;
+            make_occupied_maze(g->m, place);
+        }
+        neighbour = get_adj_maze(g->m, save, EAST);
+        mino = has_minotaur_maze(g->m, neighbour);
+        if (mino != -1 && !has_wall_maze(g->m, save, EAST))
+        {
+            int place; //la cellule qui contient le minotaure actuel
+            do
+            {
+                getrandom(&place, sizeof(place), 0);
+                place %= g->m->hsize * g->m->vsize;
+                good_spawn = can_be_used(g->m, place) && !is_occupied_maze(g->m, place);
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, NORTH) != save || has_wall_maze(g->m, place, NORTH));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, EAST) != save || has_wall_maze(g->m, place, EAST));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, SOUTH) != save || has_wall_maze(g->m, place, SOUTH));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, WEST) != save || has_wall_maze(g->m, place, WEST));
+            } while (!good_spawn);
+            free_occupied_maze(g->m, g->m->minotaurs[mino]);
+            g->m->minotaurs[mino] = place;
+            make_occupied_maze(g->m, place);
+        }
+        neighbour = get_adj_maze(g->m, save, WEST);
+        mino = has_minotaur_maze(g->m, neighbour);
+        if (mino != -1 && !has_wall_maze(g->m, save, WEST))
+        {
+            int place; //la cellule qui contient le minotaure actuel
+            do
+            {
+                getrandom(&place, sizeof(place), 0);
+                place %= g->m->hsize * g->m->vsize;
+                good_spawn = can_be_used(g->m, place) && !is_occupied_maze(g->m, place);
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, NORTH) != save || has_wall_maze(g->m, place, NORTH));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, SOUTH) != save || has_wall_maze(g->m, place, SOUTH));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, WEST) != save || has_wall_maze(g->m, place, WEST));
+                good_spawn = good_spawn && (get_adj_maze(g->m, place, EAST) != save || has_wall_maze(g->m, place, EAST));
+            } while (!good_spawn);
+            free_occupied_maze(g->m, g->m->minotaurs[mino]);
+            g->m->minotaurs[mino] = place;
+            make_occupied_maze(g->m, place);
+        }
+    }
+}
+
 // Génération d'un nouveau jeu
 game* create_newgame(const int sh, const int sv, mask *m, const generator f, const objgenerator fo, const int nb_minotaure, const int tressage)
 {
@@ -47,18 +193,7 @@ game* create_newgame(const int sh, const int sv, mask *m, const generator f, con
   p_game->exits = get_exits_maze(p_maze);
   p_game->turns = 0;
   p_game->log = create_history();
-  int start = p_maze->player;
-  cardinal useless;
-  while ((game_try_kill_player(p_game, &useless) != -1 && p_game->m->nb_minotaurs < p_game->m->nb_reachable - 10)
-      || get_object_maze(p_game->m, start) == EXIT || !can_be_used(p_game->m, start))
-  {
-      //on évite le spawn kill et le spawn win (cntraite du nombre de minotaures car faut pas forcer non plus)
-      getrandom(&start, sizeof(start), 0);
-      start %= p_game->m->hsize * p_game->m->vsize;
-  }
-  free_occupied_maze(p_game->m, p_game->m->player);
-  p_game->m->player = start;
-  make_occupied_maze(p_game->m, start);
+  prevent_bad_spawn(p_game);
   return p_game;
 }
 

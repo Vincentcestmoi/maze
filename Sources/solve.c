@@ -42,38 +42,41 @@ void sim_addtopath(maze *p_maze, const move direction, sim_path *path)
 sim_path *sim_copypath(sim_path *original)
 {
     if (original == NULL)
+    {
         return NULL;
-
+    }
     sim_path *copy = malloc(sizeof(sim_path));
     if (copy == NULL)
     {
-        fprintf(stderr, "Failed to allocate memory for sim_path in sim_copypath");
+        fprintf(stderr, "Failed to allocate memory for sim_path copy\n");
         exit(EXIT_FAILURE);
     }
     copy->start = original->start;
     copy->end = original->end;
     copy->length = original->length;
+
     copy->moves = NULL;
+    sim_move_seq *current_original = original->moves;
+    sim_move_seq **current_copy_ptr = &(copy->moves);
 
-    const sim_move_seq *current = original->moves;
-    sim_move_seq **copy_current = &copy->moves;
-
-    while (current != NULL)
+    while (current_original != NULL)
     {
-        *copy_current = malloc(sizeof(sim_move_seq));
-        if (*copy_current == NULL)
+        sim_move_seq *new_move = malloc(sizeof(sim_move_seq));
+        if (new_move == NULL)
         {
-            fprintf(stderr, "Failed to allocate memory for sim_move_seq in sim_copypath");
+            fprintf(stderr, "Failed to allocate memory for sim_move_seq in sim_copypath\n");
+            sim_freepath(copy);
             exit(EXIT_FAILURE);
         }
-        (*copy_current)->direction = current->direction;
-        (*copy_current)->next = NULL;
-        copy_current = &(*copy_current)->next;
-        current = current->next;
+        new_move->direction = current_original->direction;
+        new_move->next = NULL;
+        *current_copy_ptr = new_move;
+        current_copy_ptr = &(new_move->next);
+        current_original = current_original->next;
     }
-
     return copy;
 }
+
 
 void sim_freepath(sim_path *path)
 {

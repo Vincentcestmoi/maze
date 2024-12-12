@@ -420,44 +420,31 @@ void random_maze_kruskal(maze *) { return; }
 
 static void maze_rec(maze *m, const int x, const int y, const int w, const int h)
 {
-    static int count = 0;
-    printf("%d : ", count++);
     if (w == 1 && h == 1)
     {
         return;
     }
-    if (x < 0 || y < 0 || x + w > m->hsize || y + h > m->vsize)
-    {
-        fprintf(stderr, "Erreur rma: les cases ne sont pas dans la grille\n");
-        free_maze(m);
-        exit(EXIT_FAILURE);
-    }
     unsigned int wall;
-    printf("(%d, %d) -> (%d, %d)\n", x, y, x + w - 1, y + h - 1);
     if (w > h)
     {
         const int middle = x + w / 2; //la coordonnée x du mur à casser
         getrandom(&wall, sizeof(wall), 0);
-        wall = wall % h + y; //la coordonné y du mur à casser
-        del_wall_maze(m, middle * m->vsize + wall, EAST);
-        printf("mur cassé : (%d, %d) -> (%d, %d)\n", middle, wall, middle, wall + 1);
-        maze_rec(m, x, y, w / 2, h);
-        maze_rec(m, middle, y, w - w / 2, h);
+        wall = y + wall % h; //la coordonné y du mur à casser
+        del_wall_maze(m, wall * m->vsize + middle, WEST);
+        maze_rec(m, x, y, middle - x, h);
+        maze_rec(m, middle, y, x + w - middle, h);
     }
     else
     {
         const int middle = y + h / 2; //la coordonnée y du mur à casser
         getrandom(&wall, sizeof(wall), 0);
-        wall = wall % w + x; //la coordonné x du mur à casser
-        del_wall_maze(m, wall * m->vsize + middle, SOUTH);
-        printf("mur cassé : (%d, %d) -> (%d, %d)\n", wall, middle, wall + 1, middle);
-        maze_rec(m, x, y, w, h / 2);
-        maze_rec(m, x, middle, w, h - h / 2);
+        wall = x + wall % w; //la coordonné x du mur à casser
+        del_wall_maze(m, middle * m->vsize + wall, NORTH);
+        maze_rec(m, x, y, w, middle - y);
+        maze_rec(m, x, middle, w, y + h - middle);
     }
 }
 
 void random_maze_rec(maze *p_maze){
     maze_rec(p_maze, 0, 0, p_maze->hsize, p_maze->vsize);
 }
-
-
